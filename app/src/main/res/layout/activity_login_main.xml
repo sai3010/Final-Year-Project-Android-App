@@ -17,4 +17,15 @@
         android:textAlignment="center"
         android:textSize="20sp" />
 
+    <Button
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:text="Student Login" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:text="Faculty Login" />
+
 </LinearLayout>
