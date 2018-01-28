@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.saipr.final_year_proj.StudentRegistryActivity">
+
+    <TextView
+        android:layout_width="326dp"
+        android:layout_height="33dp"
+        android:text="STUDENT REGISTRATION FORM"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:layout_margin="30dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:hint="Enter Your Name"/>
+
+    <EditText
+        android:id="@+id/branch"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Branch"
+
+        />
+
+    <EditText
+        android:id="@+id/dob"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="Date of Birth" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="E-mail " />
+
+    <EditText
+        android:id="@+id/contactno"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Contact number" />
+
+    <EditText
+        android:id="@+id/semester"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Semester" />
+
+    <Button
+        android:id="@+id/regbtn"
+        android:layout_width="167dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="80dp"
+        android:text="REGISTER"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+
+
+</LinearLayout>
