@@ -16,8 +16,8 @@ public class RegisterMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_main);
-        regstud=findViewById(R.id.regstud);
-        regfac=findViewById(R.id.regfac);
+        regstud=findViewById(R.id.loginbtn);
+        regfac=findViewById(R.id.regbtn);
 
 
         Toast.makeText(this, ")))))))))))))))))))))))))))))", Toast.LENGTH_SHORT).show();
