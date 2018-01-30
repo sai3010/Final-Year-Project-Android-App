@@ -27,7 +27,7 @@
         android:inputType="textPersonName"
         android:layout_margin="20dp"
         android:hint="Enter Your Username "
-
+    />
 
     <EditText
         android:id="@+id/pw"
