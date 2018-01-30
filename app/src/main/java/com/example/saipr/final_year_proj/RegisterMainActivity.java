@@ -11,13 +11,13 @@ public class RegisterMainActivity extends AppCompatActivity {
     Button regstud;
     Button regfac;
 
-    Intent intent = null;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_main);
-        regstud=findViewById(R.id.loginbtn);
-        regfac=findViewById(R.id.regbtn);
+        regstud=findViewById(R.id.regstud);
+        regfac=findViewById(R.id.regfac);
 
 
         Toast.makeText(this, ")))))))))))))))))))))))))))))", Toast.LENGTH_SHORT).show();
