@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="20dp"
     tools:context="com.example.saipr.final_year_proj.LoginMainActivity">
     <TextView
         android:id="@+id/registertxt"
@@ -13,75 +14,70 @@
         android:layout_margin="10dp"
         android:padding="10dp"
         android:text="REGISTER"
-       android:textColor="#000"
+        android:textColor="#000"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="20sp" />
     <EditText
         android:id="@+id/nametxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textColor="#828383"
-        android:layout_marginLeft="60dp"
         />
     <EditText
         android:id="@+id/usntxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:text="USN"
         android:inputType="number"
         android:textColor="#828383"
-        android:layout_marginLeft="60dp"/>
+        />
 
     <EditText
         android:id="@+id/qualtxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:text="Qualification"
         android:inputType="number"
         android:textColor="#828383"
-        android:layout_marginLeft="60dp"/>
+        />
     <EditText
         android:id="@+id/phonetxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:textColor="#828383"
         android:inputType="phone"
         android:text="Phone"
-        android:layout_marginLeft="60dp"/>
+        />
 
     <EditText
         android:id="@+id/emailtxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:textColor="#828383"
         android:inputType="textEmailAddress"
         android:text="email"
-        android:layout_marginLeft="60dp"/>
+        />
 
     <EditText
         android:id="@+id/addresstxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:text="Address"
         android:textColor="#828383"
         android:inputType="textPostalAddress"
-        android:layout_marginLeft="60dp"/>
+        />
 
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
         android:text="SUBMIT" />
 
 </LinearLayout>
