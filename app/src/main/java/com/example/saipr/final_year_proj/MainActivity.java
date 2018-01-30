@@ -12,13 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnlogin;
     Button btnreg;
-    EditText nametxt;
-    EditText datetxt;
-    EditText usntxt;
-    EditText semtxt;
-    EditText phonetxt;
-    EditText emailtxt;
-    EditText addresstxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
