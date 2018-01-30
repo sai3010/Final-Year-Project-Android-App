@@ -20,7 +20,7 @@ public class LoginMainActivity extends AppCompatActivity {
 
         etusr=findViewById(R.id.usn);
         etpwd=findViewById(R.id.pw);
-        sub.findViewById(R.id.plogin);
+        sub=findViewById(R.id.plogin);
 
         //add the function to connect to database
 
