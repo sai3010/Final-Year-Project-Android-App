@@ -15,28 +15,20 @@
         android:layout_margin="150dp"
         android:padding="10dp"
         android:textColor="#000000"
-
         android:textAlignment="center"
         android:textSize="20dp"
-        />
-
-
         />
 
     <Button
         android:id="@+id/regbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight=
         android:layout_marginLeft="138dp"
         android:layout_marginTop="-120dp"
-        android:includeFontPadding="true"
         android:padding="10dp"
         android:textColor="#000000"
-
         android:textAlignment="center"
         android:textSize="20dp"
         android:text="Register"
          />
-    />
 </LinearLayout>
