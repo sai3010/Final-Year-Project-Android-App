@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:hint="USN"
         android:textColor="#828383"
-        android:inputType="number"/>
+        android:inputType="text"/>
 
 
 
@@ -91,4 +91,5 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:text="SUBMIT" />
+
 </LinearLayout>
