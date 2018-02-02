@@ -5,10 +5,19 @@
  */
 package db;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author saipr
  */
 public class DBConnection {
-    
+    static Connection getDBConn() throws ClassNotFoundException, SQLException
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "root");
+		return con;
+	}
 }
