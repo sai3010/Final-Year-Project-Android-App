@@ -23,14 +23,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         android:textColor="#828383"
         />
     <EditText
         android:id="@+id/usntxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="USN"
+        android:hint="USN"
         android:inputType="number"
         android:textColor="#828383"
         />
@@ -39,7 +39,7 @@
         android:id="@+id/qualtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Qualification"
+        android:hint="Qualification"
         android:inputType="number"
         android:textColor="#828383"
         />
@@ -58,14 +58,14 @@
         android:layout_height="wrap_content"
         android:textColor="#828383"
         android:inputType="textEmailAddress"
-        android:text="email"
+        android:hint="email"
         />
 
     <EditText
         android:id="@+id/addresstxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"
+        android:hint="Address"
         android:textColor="#828383"
         android:inputType="textPostalAddress"
         />

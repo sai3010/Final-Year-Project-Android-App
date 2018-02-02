@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Name"
         android:textColor="#828383"
         />
 
@@ -34,7 +34,7 @@
         android:id="@+id/datetxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DOB"
+        android:hint="DOB"
         android:textColor="#828383"
         android:inputType="date"/>
 
@@ -43,7 +43,7 @@
         android:id="@+id/usntxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="USN"
+        android:hint="USN"
         android:textColor="#828383"
         android:inputType="number"/>
 
@@ -53,7 +53,7 @@
         android:id="@+id/semtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sem"
+        android:hint="Sem"
         android:inputType="number"
         android:textColor="#828383"/>
 
@@ -78,7 +78,7 @@
         android:id="@+id/addresstxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"
+        android:hint="Address"
         android:textColor="#828383"
         android:inputType="textPostalAddress"/>
 
