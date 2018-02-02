@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         btnlogin= findViewById(R.id.loginbtn);
         btnreg=findViewById(R.id.regbtn);
 
-        Toast.makeText(this, "::::::::::::::::::::::::::::::::", Toast.LENGTH_SHORT).show();
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override

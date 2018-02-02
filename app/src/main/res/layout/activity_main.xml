@@ -5,30 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.saipr.final_year_proj.MainActivity">
+    tools:context="com.example.saipr.final_year_proj.MainActivity"
+    android:layout_margin="100dp">
 
     <Button
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_margin="150dp"
         android:padding="10dp"
         android:textColor="#000000"
         android:textAlignment="center"
         android:textSize="20dp"
-        />
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/regbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="138dp"
-        android:layout_marginTop="-120dp"
         android:padding="10dp"
         android:textColor="#000000"
         android:textAlignment="center"
         android:textSize="20dp"
         android:text="Register"
+        android:layout_gravity="center"
          />
 </LinearLayout>
