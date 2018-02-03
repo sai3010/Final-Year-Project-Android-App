@@ -16,22 +16,25 @@
         android:padding="10dp"
         android:text="REGISTER"
         android:textAlignment="center"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:textColor="#424242 "
+        android:textSize="30sp"
+        />
 
     <EditText
         android:id="@+id/nametxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:textColor="#828383"/>
     <EditText
         android:id="@+id/usntxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="USN"
-        android:inputType="number"
+        android:inputType="text"
         android:textColor="#828383" />
 
     <EditText
@@ -73,6 +76,11 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="SUBMIT"
-        android:textStyle="bold" />
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:background="#008080"
+        android:textColor="#fafafa"
+        android:textSize="20dp"
+        android:width="120dp"/>
 
 </LinearLayout>

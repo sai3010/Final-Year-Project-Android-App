@@ -15,9 +15,11 @@
         android:padding="10dp"
         android:text="LOGIN INTO YOUR PORTAL"
         android:textAlignment="center"
+        android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="#072391"/>
+        android:textColor="#424242 "
+        android:textSize="30sp"
+       />
 
     <EditText
         android:id="@+id/usn"
@@ -27,6 +29,7 @@
         android:inputType="textPersonName"
         android:layout_margin="20dp"
         android:hint="Enter Your Username "
+        android:textColor="#828383"
     />
 
     <EditText
@@ -37,6 +40,7 @@
         android:inputType="textPassword"
         android:hint="Enter Your Password"
         android:layout_margin="20dp"
+        android:textColor="#828383"
         />
 
     <Button
@@ -46,8 +50,12 @@
         android:text="SUBMIT"
         android:layout_margin="40dp"
         android:textAlignment="center"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:background="#008080"
+        android:textColor="#fafafa"
         android:textSize="20dp"
-        android:textColor="#000000"/>
+        />
 
 
 </LinearLayout>

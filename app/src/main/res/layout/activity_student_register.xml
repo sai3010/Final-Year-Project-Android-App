@@ -17,7 +17,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#000"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
 
     <EditText
@@ -90,6 +90,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:text="SUBMIT" />
+        android:text="SUBMIT"
+        android:fontFamily="sans-serif-smallcaps"
+        android:background="#008080"
+        android:textColor="#fafafa"
+        android:textSize="20dp"
+        android:width="120dp"/>
 
 </LinearLayout>
