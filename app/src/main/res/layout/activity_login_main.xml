@@ -52,7 +52,7 @@
         android:textAlignment="center"
         android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
-        android:background="#008080"
+        android:background="@drawable/button"
         android:textColor="#fafafa"
         android:textSize="20dp"
         />

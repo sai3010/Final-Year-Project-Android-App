@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context="com.example.saipr.final_year_proj.LoginMainActivity">
 
+
     <TextView
         android:id="@+id/registertxt"
         android:layout_width="match_parent"
@@ -37,13 +38,12 @@
         android:inputType="text"
         android:textColor="#828383" />
 
-    <EditText
-        android:id="@+id/qualtxt"
+    <Spinner
+        android:id="@+id/qual_drop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Qualification"
-        android:inputType="number"
-        android:textColor="#828383" />
+        android:layout_height="36dp"
+        android:dropDownWidth="15dp"
+        />
 
     <EditText
         android:id="@+id/phonetxt"
@@ -78,9 +78,9 @@
         android:text="SUBMIT"
         android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
-        android:background="#008080"
+        android:background="@drawable/button"
         android:textColor="#fafafa"
         android:textSize="20dp"
-        android:width="120dp"/>
+        android:width="250dp"/>
 
 </LinearLayout>
