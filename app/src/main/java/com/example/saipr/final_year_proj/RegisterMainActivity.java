@@ -20,7 +20,7 @@ public class RegisterMainActivity extends AppCompatActivity {
         regfac=findViewById(R.id.regfac);
 
 
-        Toast.makeText(this, ")))))))))))))))))))))))))))))", Toast.LENGTH_SHORT).show();
+      
 
 
         regstud.setOnClickListener(new View.OnClickListener() {

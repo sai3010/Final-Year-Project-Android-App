@@ -26,8 +26,14 @@
         android:layout_height="wrap_content"
         android:hint="Name"
         android:inputType="textPersonName"
+<<<<<<< HEAD
         android:textColor="#828383" />
 
+=======
+        android:hint="Name"
+        android:textColor="#828383"
+        />
+>>>>>>> 7218df79d53049ae659e1247fe6c01d718afc052
     <EditText
         android:id="@+id/usntxt"
         android:layout_width="match_parent"
@@ -58,12 +64,22 @@
         android:layout_height="wrap_content"
         android:hint="email"
         android:inputType="textEmailAddress"
+<<<<<<< HEAD
         android:textColor="#828383" />
+=======
+        android:hint="email"
+        />
+>>>>>>> 7218df79d53049ae659e1247fe6c01d718afc052
 
     <EditText
         android:id="@+id/addresstxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+        android:hint="Address"
+        android:textColor="#828383"
+>>>>>>> 7218df79d53049ae659e1247fe6c01d718afc052
         android:inputType="textPostalAddress"
         android:hint="Address"
         android:textColor="#828383" />
