@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
+    android:scrollbars="none"
     android:orientation="vertical"
-    tools:context="com.example.saipr.final_year_proj.LoginMainActivity">
-
+    tools:context="com.example.saipr.final_year_proj.FacultyRegisterActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/registertxt"
@@ -54,18 +58,26 @@
         android:ems="10"
         android:inputType="date"
         android:hint="Date Of Birth"/>
-
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rgrp">
     <RadioButton
         android:id="@+id/male"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="rbclick"
+        android:checked="false"
         android:text="MALE" />
 
     <RadioButton
         android:id="@+id/female"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:checked="false"
+        android:onClick="rbclick"
         android:text="FEMALE" />
+    </RadioGroup>
 
     <EditText
         android:id="@+id/doj"
@@ -79,7 +91,7 @@
         android:id="@+id/emailtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="email"
+        android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -99,16 +111,19 @@
         android:textColor="#828383" />
 
     <EditText
-        android:id="@+id/setpwd"
+        android:id="@+id/pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <EditText
+        android:id="@+id/cpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Confirm Password"
         android:inputType="textPassword" />
 
 
@@ -125,5 +140,5 @@
         android:textColor="#fafafa"
         android:textSize="20dp"
         android:width="250dp"/>
-
 </LinearLayout>
+</ScrollView>
