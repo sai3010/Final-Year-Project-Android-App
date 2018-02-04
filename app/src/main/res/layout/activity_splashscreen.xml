@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#00695c"
     tools:context="com.example.saipr.final_year_proj.Splashscreen"
-    style="@style/AppTheme">
+    >
 
 
     <TextView
@@ -16,11 +16,7 @@
         android:text="CampusBridge"
         android:layout_marginTop="200dp"
         android:textAlignment="center"
-
         android:layout_gravity="center"
         android:textSize="40dp"/>
-
-
-
 
 </LinearLayout>
