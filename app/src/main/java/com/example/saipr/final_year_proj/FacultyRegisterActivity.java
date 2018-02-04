@@ -25,7 +25,7 @@ public class FacultyRegisterActivity extends AppCompatActivity {
 
     }
 }
-public class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
+/*public class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
     ...
 
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -36,4 +36,4 @@ public class SpinnerActivity extends Activity implements AdapterView.OnItemSelec
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-}
+}*/
