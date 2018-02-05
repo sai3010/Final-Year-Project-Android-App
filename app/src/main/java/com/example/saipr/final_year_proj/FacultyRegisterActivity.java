@@ -31,7 +31,7 @@ public class FacultyRegisterActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+"selected",Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+"  selected",Toast.LENGTH_LONG).show();
 
 
             }
