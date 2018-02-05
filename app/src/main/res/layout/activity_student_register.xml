@@ -121,7 +121,7 @@
             android:textColor="#828383" />
 
         <EditText
-        android:id="@+id/datetxt"
+        android:id="@+id/dobtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Date Of Birth"
