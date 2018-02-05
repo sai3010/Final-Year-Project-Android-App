@@ -35,60 +35,101 @@
         />
 
 
-    <EditText
+        <EditText
+            android:id="@+id/usntxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="USN"
+            android:inputType="text"
+            android:textColor="#828383" />
+
+        <EditText
+            android:id="@+id/stdsem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Semester"/>
+
+        <Spinner
+            android:id="@+id/branch"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:prompt="@string/sp_title"
+            android:dropDownWidth="200dp"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/stdrgrp">
+        <RadioButton
+            android:id="@+id/stdmale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MALE"
+            android:onClick="rbclick"
+            android:checked="false"
+            />
+
+        <RadioButton
+            android:id="@+id/stdfemale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FEMALE"
+            android:onClick="rbclick"
+            android:checked="false"/>
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/emailtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="#828383" />
+
+        <EditText
+            android:id="@+id/stdpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Enter password"/>
+
+        <EditText
+            android:id="@+id/stdcpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Confirm password"/>
+
+        <EditText
+            android:id="@+id/phonetxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:textColor="#828383" />
+
+        <EditText
+            android:id="@+id/addresstxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:inputType="textPostalAddress"
+            android:textColor="#828383" />
+
+        <EditText
         android:id="@+id/datetxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="DOB"
+        android:hint="Date Of Birth"
         android:textColor="#828383"
         android:inputType="date"/>
 
 
-    <EditText
-        android:id="@+id/usntxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="USN"
-        android:textColor="#828383"
-        android:inputType="text"/>
-
-
-
-    <EditText
-        android:id="@+id/semtxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Sem"
-        android:inputType="number"
-        android:textColor="#828383"/>
-
-
-    <EditText
-        android:id="@+id/phonetxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:textColor="#828383"
-        android:hint="Phone"/>
-
-    <EditText
-        android:id="@+id/emailtxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="email"
-        android:textColor="#828383"/>
-
-    <EditText
-        android:id="@+id/addresstxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Address"
-        android:textColor="#828383"
-        android:inputType="textPostalAddress"/>
-
-
-    <Button
+        <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_gravity="center"

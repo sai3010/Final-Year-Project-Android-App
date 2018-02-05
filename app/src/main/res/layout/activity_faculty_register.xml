@@ -46,7 +46,7 @@
         android:id="@+id/qual_drop"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:dropDownWidth="15dp"
+        android:dropDownWidth="200dp"
         android:prompt="@string/spinner_title"
 
         />

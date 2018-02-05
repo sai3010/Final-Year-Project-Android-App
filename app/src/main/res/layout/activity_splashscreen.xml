@@ -5,18 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#00695c"
+    android:background="#008080"
     tools:context="com.example.saipr.final_year_proj.Splashscreen"
+    style="@style/AppTheme"
     >
 
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="CampusBridge"
-        android:layout_marginTop="200dp"
         android:textAlignment="center"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="40dp"/>
+        android:layout_marginTop="200dp"
+        android:textColor="#f0f4c3"
+        android:textSize="45dp"
+        />
+
 
 </LinearLayout>
