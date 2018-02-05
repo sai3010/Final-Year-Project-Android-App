@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -21,11 +23,15 @@ public class LoginMainActivity extends AppCompatActivity {
     EditText usr;
     EditText pwd;
     Button submitbtn;
-
+    RadioButton rbtn;
+    RadioGroup rgroup;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
+
+        rgroup=findViewById(R.id.rglog);
 
         usr=findViewById(R.id.usn);
         pwd=findViewById(R.id.pw);
@@ -58,6 +64,12 @@ public class LoginMainActivity extends AppCompatActivity {
         });
 
 
+    }
+    public void rbtnclick(View v)
+    {
+        int radiobuttonlogid=rgroup.getCheckedRadioButtonId();
+        rbtn=findViewById(radiobuttonlogid);
+        Toast.makeText(this, rbtn.getText(), Toast.LENGTH_SHORT).show();
     }
 }
         /*//Toast.makeText(MainActivity.this, ":"+name+"\n:"+email+"\n:"+mob+"\n:"+address+"\n:"+pass+"\n:"+cpass, Toast.LENGTH_SHORT).show();*/
