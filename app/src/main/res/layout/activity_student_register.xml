@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="REGISTER"
+        android:text="STUDENT REGISTERATION"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#000"
@@ -70,13 +70,18 @@
                 android:layout_height="36dp"
                 android:dropDownWidth="200dp"
                 android:prompt="@string/spinner_title"/>
-            <EditText
+            <TextView
                 android:id="@+id/dob"
-                android:layout_width="match_parent"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date"
-                android:hint="DOB"/>
+                android:textSize="15dp"
+                android:text="DOB" />
+
+            <TextView
+                android:id="@+id/datetxt"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
             />
         </LinearLayout>
