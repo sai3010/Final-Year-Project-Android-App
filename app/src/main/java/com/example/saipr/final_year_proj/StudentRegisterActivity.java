@@ -29,12 +29,12 @@ public class StudentRegisterActivity extends AppCompatActivity {
     EditText lnametext;
     EditText usntxt;
     EditText sem;
-    EditText dob;
     EditText email;
     EditText pass;
     EditText cpass;
     EditText phone;
     EditText address;
+    TextView dob;
     Button reg;
     RadioButton r;
     RadioGroup g;
@@ -60,6 +60,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         cpass = findViewById(R.id.stdcpwd);
         phone = findViewById(R.id.phonetxt);
         address = findViewById(R.id.addresstxt);
+        dob=findViewById(R.id.datetxt);
         reg = findViewById(R.id.button);
         int radiobuttid = g.getCheckedRadioButtonId();
         r = findViewById(radiobuttid);
