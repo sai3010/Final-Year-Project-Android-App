@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
-        android:hint="Enter Your Username "
+        android:hint="Enter Your Usn "
         android:inputType="textPersonName"
         android:textColor="#828383" />
 
@@ -41,42 +41,14 @@
         android:inputType="textPassword"
         android:textColor="#828383" />
 
-    <RadioGroup
-        android:id="@+id/rglog"
-        android:layout_width="match_parent"
-        android:layout_height="115dp">
-
-        <RadioButton
-            android:id="@+id/rstd"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginStart="10dp"
-            android:checked="false"
-            android:onClick="rbtnclick"
-            android:text="Student"
-            android:textSize="20dp"/>
-
-        <RadioButton
-            android:id="@+id/rfac"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginStart="10dp"
-            android:checked="false"
-            android:onClick="rbtnclick"
-            android:text="Faculty"
-            android:textSize="20dp"/>
-
-    </RadioGroup>
-
-
     <Button
-        android:id="@+id/plogin"
+        android:id="@+id/loginbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/button"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="SUBMIT"
+        android:text="LOGIN"
         android:textAlignment="center"
         android:textColor="#fafafa"
         android:textSize="20dp"

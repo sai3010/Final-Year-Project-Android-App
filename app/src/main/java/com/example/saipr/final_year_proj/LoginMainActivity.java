@@ -22,32 +22,27 @@ public class LoginMainActivity extends AppCompatActivity {
 
     EditText usr;
     EditText pwd;
-    Button submitbtn;
-    RadioButton rbtn;
-    RadioGroup rgroup;
+    Button lbtn;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
-
-        rgroup=findViewById(R.id.rglog);
-
         usr=findViewById(R.id.usn);
         pwd=findViewById(R.id.pw);
-        submitbtn=findViewById(R.id.plogin);
+        lbtn=findViewById(R.id.loginbtn);
 
         //add the function to connect to database
-        submitbtn.setOnClickListener(new View.OnClickListener() {
+        lbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String uname=usr.getText().toString();
+                String usn=usr.getText().toString().toUpperCase();
                 String pass=pwd.getText().toString();
                 try {
-                    URL url = new URL(RegURL.url + "Register");
+                    URL url = new URL(RegURL.url + "Login");
                     JSONObject jsn = new JSONObject();
-                    jsn.put("usr",usr);
-                    jsn.put("pwd",pwd);
+                    jsn.put("usn",usn);
+                    jsn.put("pass",pass);
                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
                     StrictMode.setThreadPolicy(policy);
                     String response = HttpConnection.getResponse(url,jsn);
@@ -64,12 +59,6 @@ public class LoginMainActivity extends AppCompatActivity {
         });
 
 
-    }
-    public void rbtnclick(View v)
-    {
-        int radiobuttonlogid=rgroup.getCheckedRadioButtonId();
-        rbtn=findViewById(radiobuttonlogid);
-        Toast.makeText(this, rbtn.getText(), Toast.LENGTH_SHORT).show();
     }
 }
         /*//Toast.makeText(MainActivity.this, ":"+name+"\n:"+email+"\n:"+mob+"\n:"+address+"\n:"+pass+"\n:"+cpass, Toast.LENGTH_SHORT).show();*/

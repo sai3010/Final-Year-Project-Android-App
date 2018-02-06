@@ -83,7 +83,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 studfname = fnametxt.getText().toString();
                 studlname=lnametext.getText().toString();
-                studusn = usntxt.getText().toString();
+                studusn = usntxt.getText().toString().toUpperCase();
                 studsem = sem.getText().toString();
                 studemail = email.getText().toString();
                 studaddress = address.getText().toString();
@@ -93,6 +93,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
                 studdob = dob.getText().toString();
                 studgender = r.getText().toString();
 
+
                 /*Toast.makeText(StudentRegisterActivity.this, studfname+"\n"+studusn+"\n"+studsem+"\n"+branch+"\n"+studgender+"\n"+studemail+"\n"+
                         ""+studpass+"\n"+studcpass+"\n"+studphone+"\n"+studaddress, Toast.LENGTH_LONG).show();*/
 
@@ -100,7 +101,29 @@ public class StudentRegisterActivity extends AppCompatActivity {
                         ||studphone.isEmpty()||studdob.isEmpty()){
                     Toast.makeText(StudentRegisterActivity.this,"Fill in all the fields",Toast.LENGTH_SHORT).show();
                 }
-                else
+                else {
+                    if (studpass.length() < 6) {
+                        pass.setError("Password Should Be minimum 6 chars");
+                    } else {
+                        if (!studpass.equals(studcpass)) {
+                            pass.setError("Password Mismatch");
+                            cpass.setError("Password Mismatch");
+                        } else {
+                            try {
+                                send_data();
+                                Toast.makeText(StudentRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+                /*if(!validate(fnametxt,fnametxt.getText().toString())||!validate(lnametext,lnametext.getText().toString())
+                        ||!validate(usntxt,usntxt.getText().toString())||!validate(sem,sem.getText().toString())||!validate(email,email.getText().toString())
+                        ||!validate(address,address.getText().toString())||!validate(pass,pass.getText().toString())||!validate(cpass,cpass.getText().toString())
+                        ||!validate(phone,phone.getText().toString())||!validate(dob,dob.getText().toString()))
                 {
                     if(!studpass.equals(studcpass))
                     {
@@ -119,7 +142,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                }
+                }*/
 
 
             }
@@ -151,6 +174,15 @@ public class StudentRegisterActivity extends AppCompatActivity {
         int radiobuttid = g.getCheckedRadioButtonId();
         r = findViewById(radiobuttid);
         //Toast.makeText(this, "OOOOOOOOOOOOOOOOOOOOOOOOOOO--" + r.getText(), Toast.LENGTH_SHORT).show();
+    }
+    public  boolean validate(EditText v ,String val)
+    {
+        if(val.isEmpty())
+        {
+           v.setError("Field Empty");
+           return false;
+        }
+        return true;
     }
 }
 
