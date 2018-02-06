@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:text="REGISTER"
+        android:text="FACULTY REGISTERATION"
         android:textAlignment="center"
         android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
@@ -65,7 +65,6 @@
             android:textColor="#828383" />
 
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,13 +75,20 @@
         android:layout_height="36dp"
         android:dropDownWidth="200dp"
         android:prompt="@string/spinner_title"/>
-        <EditText
+
+        <TextView
             android:id="@+id/dob"
-            android:layout_width="match_parent"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:hint="DOB"/>
+            android:textSize="15dp"
+            android:text="DOB" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
 
         />
     </LinearLayout>

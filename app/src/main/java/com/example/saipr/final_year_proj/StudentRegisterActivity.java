@@ -1,5 +1,6 @@
 package com.example.saipr.final_year_proj;
 
+import android.app.DatePickerDialog;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,10 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -19,6 +22,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Calendar;
 
 public class StudentRegisterActivity extends AppCompatActivity {
     EditText fnametxt;
@@ -38,8 +42,12 @@ public class StudentRegisterActivity extends AppCompatActivity {
     String studcpass, studphone, studdob, studgender;
     String branch;
     Spinner spinner = null;
+    TextView t;
+    Calendar  mCurrentDate;
+    int d,m,y;
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_register);
         g = findViewById(R.id.rgrp);
@@ -47,7 +55,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
         lnametext=findViewById(R.id.lnametxt);
         usntxt = findViewById(R.id.usntxt);
         sem = findViewById(R.id.studsem);
-        dob = findViewById(R.id.dob);
         email = findViewById(R.id.emailtxt);
         pass = findViewById(R.id.stdpwd);
         cpass = findViewById(R.id.stdcpwd);
@@ -122,6 +129,31 @@ public class StudentRegisterActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+
+
+        t= (TextView) findViewById(R.id.datetxt);
+        mCurrentDate= Calendar.getInstance();
+        d = mCurrentDate.get(Calendar.DAY_OF_MONTH);
+        m=mCurrentDate.get(Calendar.MONTH);
+        y=mCurrentDate.get(Calendar.YEAR);
+
+        m= m+1;
+        t.setText(d+"/"+m+"/"+y);
+
+        t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(StudentRegisterActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        monthOfYear=monthOfYear+1;
+                        t.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
+                    }
+                },y,m,d);
+                datePickerDialog.show();
             }
         });
     }
