@@ -73,12 +73,12 @@ public class StudentRegisterActivity extends AppCompatActivity {
         badapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(badapter);
 
-        fnametxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        pass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasfocus) {
-                if(fnametxt.getText().length()<=4)
+                if(pass.getText().length()<6)
                 {
-                    fnametxt.setError("Enter more than 4 chars");
+                    pass.setError("Password must be minimum 6 char");
                 }
             }
         });
@@ -87,7 +87,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
             public void onFocusChange(View view, boolean hasfocus) {
                 if(sem.getText().length()>1)
                 {
-                    sem.setError("Enter more than 4 chars");
+                    sem.setError("Sem cannot exceed 1 char");
                 }
             }
         });
@@ -138,10 +138,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
                     Toast.makeText(StudentRegisterActivity.this,"Fill in all the fields",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    if (studpass.length() < 6) {
-                        pass.setError("Password Should Be minimum 6 chars");
-                    } else {
-                        if (!studpass.equals(studcpass)) {
+                     if (!studpass.equals(studcpass)) {
                             pass.setError("Password Mismatch");
                             cpass.setError("Password Mismatch");
                         } else {
@@ -155,7 +152,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
                             }
                         }
                     }
-                }
 
             }
         });

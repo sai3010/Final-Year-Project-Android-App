@@ -19,7 +19,7 @@ public class Splashscreen extends Activity {
             public void run()
             {
                 try {
-                    sleep(4000);
+                    sleep(3000);
                     Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     finish();

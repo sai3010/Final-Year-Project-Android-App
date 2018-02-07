@@ -32,4 +32,6 @@
 
     </string-array>
 
+    <string name="Open">open</string>
+    <string name="Close">close</string>
 </resources>

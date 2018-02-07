@@ -84,21 +84,21 @@ public class FacultyRegisterActivity extends AppCompatActivity {
                                        }
         );
 
-        fnametxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasfocus) {
-                if(fnametxt.getText().length()<=4)
-                {
-                    fnametxt.setError("Enter more than 4 chars");
-                }
-            }
-        });
         phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasfocus) {
                 if(phone.getText().length()>10)
                 {
                     phone.setError("Invalid Number");
+                }
+            }
+        });
+        pass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasfocus) {
+                if(pass.getText().length()<6)
+                {
+                    pass.setError("Password must be minimum 6 char");
                 }
             }
         });
@@ -147,9 +147,6 @@ public class FacultyRegisterActivity extends AppCompatActivity {
                     Toast.makeText(FacultyRegisterActivity.this,"Fill in all the fields",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    if (studpass.length() < 6) {
-                        pass.setError("Password Should Be minimum 6 chars");
-                    } else {
                         if (!studpass.equals(studcpass)) {
                             pass.setError("Password Mismatch");
                             cpass.setError("Password Mismatch");
@@ -166,7 +163,6 @@ public class FacultyRegisterActivity extends AppCompatActivity {
                     }
                 }
 
-            }
         });
 
     }
