@@ -110,7 +110,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:onClick="rbclick"
-            android:checked="false"
+            android:checked="true"
             android:text="MALE" />
 
         <RadioButton
