@@ -45,19 +45,20 @@ public class StudentRegister extends HttpServlet {
            String phone=request.getParameter("studphone");
            String dob=request.getParameter("studdob");
            String gender=request.getParameter("studgender");
+           String branch=request.getParameter("studbranch");
            
             System.out.println(fname);
             System.out.println(dob);
             DBQuery db= new DBQuery();
-            try {
-                int i =db.add_stud_data(fname,lname ,usn,sem,email,address,pass,phone,dob,gender);
-            } catch (ClassNotFoundException ex) 
-            {
-                Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) 
-            {
-                Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            int i =db.add_stud_data(fname,lname ,usn,sem,email,address,pass,phone,dob,gender,branch);
+            if(i==1)
+                {
+                    out.print("ok");
+                }
+                else
+                {
+                    out.print("notok");
+                }
             
            
         }

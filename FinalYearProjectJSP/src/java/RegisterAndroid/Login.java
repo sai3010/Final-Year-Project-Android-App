@@ -34,20 +34,41 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        DBQuery db= new DBQuery();
+        try (PrintWriter out = response.getWriter()) {            
            String usn=request.getParameter("usn");
            String pass=request.getParameter("pass");
            System.out.println(usn);
            System.out.println(pass);
-           DBQuery db= new DBQuery();
-           String password=db.get_login_data(usn);
-           if(pass.equals(password))
+           
+           String ch= usn.charAt(0)+""; 
+           if(ch.matches("[0-9]"))
+          {
+               String password=db.get_stud_login_data(usn);
+               if(pass.equals(password))
            {
                System.out.println("passwords match");
+               out.print("sok");
            }
            else
            {
                System.out.println("Mismatch");
+               out.print("notok");
+           }
+          }
+           else if(ch.matches("[A-Z]"))
+           {
+               String password=db.get_fac_login_data(usn);
+               if(pass.equals(password))
+           {
+               System.out.println("passwords match");
+               out.print("fok");
+           }
+           else
+           {
+               System.out.println("Mismatch");
+               out.print("notok");
+           }
            }
         }
     }
