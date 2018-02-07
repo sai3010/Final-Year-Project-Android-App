@@ -30,6 +30,7 @@
         <activity android:name=".StudentRegisterActivity" />
         <activity android:name=".FacultyRegisterActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".FacultyDashboardActivity"></activity>
     </application>
 
 </manifest>

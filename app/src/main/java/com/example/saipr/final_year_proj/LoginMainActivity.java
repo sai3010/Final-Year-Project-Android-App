@@ -23,8 +23,9 @@ public class LoginMainActivity extends AppCompatActivity {
     EditText usr;
     EditText pwd;
     Button lbtn;
-    @Override
+    Intent intent = null;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
@@ -32,13 +33,15 @@ public class LoginMainActivity extends AppCompatActivity {
         pwd=findViewById(R.id.pw);
         lbtn=findViewById(R.id.loginbtn);
 
+
         //add the function to connect to database
         lbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String usn=usr.getText().toString().toUpperCase();
                 String pass=pwd.getText().toString();
-                try {
+                try
+                {
                     URL url = new URL(RegURL.url + "Login");
                     JSONObject jsn = new JSONObject();
                     jsn.put("usn",usn);
@@ -46,7 +49,24 @@ public class LoginMainActivity extends AppCompatActivity {
                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
                     StrictMode.setThreadPolicy(policy);
                     String response = HttpConnection.getResponse(url,jsn);
-                    Toast.makeText(LoginMainActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
+                    if(response.equalsIgnoreCase("sok"))
+                    {
+                        Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+                        intent =new Intent(LoginMainActivity.this,StudentDshboardActivity.class);
+                        startActivity(intent);
+                    }
+                    if(response.equalsIgnoreCase("fok"))
+                    {
+                        Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+                        intent =new Intent(LoginMainActivity.this,FacultyDashboardActivity.class);
+                        startActivity(intent);
+                    }
+                    if(response.equalsIgnoreCase("notok"))
+                    {
+                        Toast.makeText(LoginMainActivity.this,"Invalid Credentials",Toast.LENGTH_SHORT).show();
+                        intent =new Intent(LoginMainActivity.this,LoginMainActivity.class);
+                        startActivity(intent);
+                    }
                 }
                 catch (MalformedURLException e) {
                     e.printStackTrace();

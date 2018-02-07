@@ -65,6 +65,19 @@ public class StudentRegisterActivity extends AppCompatActivity {
         int radiobuttid = g.getCheckedRadioButtonId();
         r = findViewById(radiobuttid);
 
+        studfname = fnametxt.getText().toString();
+        studlname=lnametext.getText().toString();
+        studusn = usntxt.getText().toString().toUpperCase();
+        studsem = sem.getText().toString();
+        studemail = email.getText().toString();
+        studaddress = address.getText().toString();
+        studpass = pass.getText().toString();
+        studcpass = cpass.getText().toString();
+        studphone = phone.getText().toString();
+        studdob = dob.getText().toString();
+        studgender = r.getText().toString();
+
+
         spinner = findViewById(R.id.branch);
         Toast.makeText(this, spinner + "", Toast.LENGTH_SHORT).show();
 
@@ -72,6 +85,16 @@ public class StudentRegisterActivity extends AppCompatActivity {
                 R.array.branch_array, android.R.layout.simple_spinner_item);
         badapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(badapter);
+
+        fnametxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasfocus) {
+                if(fnametxt.getText().length()<=4)
+                {
+                    fnametxt.setError("Enter more than 4 chars");
+                }
+            }
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -89,24 +112,12 @@ public class StudentRegisterActivity extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                studfname = fnametxt.getText().toString();
-                studlname=lnametext.getText().toString();
-                studusn = usntxt.getText().toString().toUpperCase();
-                studsem = sem.getText().toString();
-                studemail = email.getText().toString();
-                studaddress = address.getText().toString();
-                studpass = pass.getText().toString();
-                studcpass = cpass.getText().toString();
-                studphone = phone.getText().toString();
-                studdob = dob.getText().toString();
-                studgender = r.getText().toString();
-
-
                 /*Toast.makeText(StudentRegisterActivity.this, studfname+"\n"+studusn+"\n"+studsem+"\n"+branch+"\n"+studgender+"\n"+studemail+"\n"+
                         ""+studpass+"\n"+studcpass+"\n"+studphone+"\n"+studaddress, Toast.LENGTH_LONG).show();*/
 
                 if(studfname.isEmpty()||studlname.isEmpty()||studusn.isEmpty()||studsem.isEmpty()||studemail.isEmpty()||studaddress.isEmpty()||studpass.isEmpty()||studcpass.isEmpty()
-                        ||studphone.isEmpty()||studdob.isEmpty()){
+                        ||studphone.isEmpty()||studdob.isEmpty())
+                {
                     Toast.makeText(StudentRegisterActivity.this,"Fill in all the fields",Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -128,30 +139,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
                         }
                     }
                 }
-                /*if(!validate(fnametxt,fnametxt.getText().toString())||!validate(lnametext,lnametext.getText().toString())
-                        ||!validate(usntxt,usntxt.getText().toString())||!validate(sem,sem.getText().toString())||!validate(email,email.getText().toString())
-                        ||!validate(address,address.getText().toString())||!validate(pass,pass.getText().toString())||!validate(cpass,cpass.getText().toString())
-                        ||!validate(phone,phone.getText().toString())||!validate(dob,dob.getText().toString()))
-                {
-                    if(!studpass.equals(studcpass))
-                    {
-                        pass.setError("Password Mismatch");
-                        cpass.setError("Password Mismatch");
-                    }
-                    else
-                    {
-                        try {
-                            send_data();
-                            Toast.makeText(StudentRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                        }
-                        catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }*/
-
 
             }
         });
@@ -207,15 +194,6 @@ public class StudentRegisterActivity extends AppCompatActivity {
         int radiobuttid = g.getCheckedRadioButtonId();
         r = findViewById(radiobuttid);
         //Toast.makeText(this, "OOOOOOOOOOOOOOOOOOOOOOOOOOO--" + r.getText(), Toast.LENGTH_SHORT).show();
-    }
-    public  boolean validate(EditText v ,String val)
-    {
-        if(val.isEmpty())
-        {
-           v.setError("Field Empty");
-           return false;
-        }
-        return true;
     }
 }
 
