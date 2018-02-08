@@ -9,10 +9,24 @@
     android:weightSum="10"
     tools:context="com.example.saipr.final_year_proj.StudentDshboardActivity">
 
+    <!--navbar-->
+   <!-- <android.support.design.widget.NavigationView
+        app:headerLayout="@layout/menu_header"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        app:itemTextColor="#000"
+        app:menu="@menu/drawermenu"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>-->
+
+
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
+
             <TextView
                 android:id="@+id/textgrid"
                 android:layout_width="wrap_content"
@@ -38,7 +52,8 @@
 
             android:padding="14dp">
 
-
+<!--row1-->
+           <!--coloumn1-->
 
            <android.support.v7.widget.CardView
                android:layout_width="0dp"
@@ -112,6 +127,11 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
+
+           <!--row2-->
+           <!--coloumn2-->
+
 
            <android.support.v7.widget.CardView
                android:layout_width="0dp"
@@ -191,4 +211,4 @@
 
 
 
-</LinearLayout>
+
