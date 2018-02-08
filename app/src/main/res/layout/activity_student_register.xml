@@ -72,7 +72,7 @@
                 android:prompt="@string/spinner_title"/>
             <TextView
                 android:id="@+id/dob"
-                android:layout_width="80dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
                 android:text="DOB" />
