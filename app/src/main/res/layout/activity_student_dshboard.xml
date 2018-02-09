@@ -28,8 +28,8 @@
         android:orientation="vertical"
         android:weightSum="10"
         tools:context="com.example.saipr.final_year_proj.StudentDshboardActivity"
-        android:background="#b2dfdb "
-        >
+        android:background="#80cbc4"
+    >
 
      <!--   <RelativeLayout
             android:layout_width="match_parent"
@@ -173,12 +173,11 @@
                    android:layout_height="wrap_content"
                    android:layout_gravity="center_horizontal|center_vertical"
                    android:orientation="vertical">
+
                    <ImageView
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:src="@drawable/notes"
-                       android:layout_marginTop="10dp"
-                       />
+                       android:src="@drawable/notes" />
                    <TextView
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
