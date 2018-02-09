@@ -28,33 +28,34 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/linear"
-        android:background="#00796b "
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10"
         tools:context="com.example.saipr.final_year_proj.StudentDshboardActivity"
+        android:background="#b2dfdb "
         >
 
-        <RelativeLayout
+     <!--   <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            >
 
             <TextView
                 android:id="@+id/textgrid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffff"
+                android:textColor="@android:color/black"
                 android:text="DASH BOARD"
                 android:fontFamily="sans-serif-smallcaps"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textSize="50sp"
+                android:textSize="20sp"
                 android:layout_centerInParent="true"
                 />
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
 
 
@@ -67,7 +68,7 @@
             android:layout_weight="8"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:padding="1dp">
 
 <!--row1-->
@@ -81,16 +82,32 @@
                android:layout_marginBottom="16dp"
                android:layout_marginLeft="16dp"
                android:layout_marginRight="16dp"
-               app:cardElevation="8dp"
-               app:cardCornerRadius="4dp"
+               app:cardElevation="20dp"
+               app:cardCornerRadius="8dp"
+
                >
 
                <LinearLayout
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:layout_gravity="center_horizontal|center_vertical"
-                   android:orientation="vertical">
+                   android:orientation="vertical"
+                  >
 
+                  <ImageView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:src="@drawable/attend"
+                    />
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Attendence"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="sans-serif-smallcaps"
+                       android:textStyle="bold"
+                       android:textAlignment="center"
+                       android:layout_gravity="center"/>
 
 
                </LinearLayout>
@@ -108,15 +125,28 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                app:cardElevation="8dp"
-                app:cardCornerRadius="4dp"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="8dp"
                 >
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
+
+                 <ImageView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:src="@drawable/marks"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marks"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"/>
 
 
 
@@ -136,8 +166,8 @@
                android:layout_marginBottom="16dp"
                android:layout_marginLeft="16dp"
                android:layout_marginRight="16dp"
-               app:cardElevation="8dp"
-               app:cardCornerRadius="4dp"
+               app:cardElevation="20dp"
+               app:cardCornerRadius="8dp"
                >
 
                <LinearLayout
@@ -145,6 +175,20 @@
                    android:layout_height="wrap_content"
                    android:layout_gravity="center_horizontal|center_vertical"
                    android:orientation="vertical">
+                   <ImageView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/notes"
+                       />
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Notes"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="sans-serif-smallcaps"
+                       android:textStyle="bold"
+                       android:textAlignment="center"
+                       android:layout_gravity="center"/>
 
 
 
@@ -159,23 +203,31 @@
                android:layout_marginBottom="16dp"
                android:layout_marginLeft="16dp"
                android:layout_marginRight="16dp"
-               app:cardElevation="8dp"
-               app:cardCornerRadius="4dp"
+               app:cardElevation="20dp"
+               app:cardCornerRadius="8dp"
                >
 
                <LinearLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
                    android:layout_gravity="center_horizontal|center_vertical"
                    android:layout_margin="16dp"
                    android:orientation="vertical">
-
-                   <TextView
-                       android:layout_width="wrap_content"
+                   <ImageView
+                       android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:text="first"
+                       android:src="@drawable/placement"
+                       android:layout_marginTop="-10dp"
+                       />
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Placements"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="sans-serif-smallcaps"
                        android:textStyle="bold"
-                       android:textColor="@android:color/black"/>
+                       android:textAlignment="center"
+                       android:layout_gravity="center"/>
 
 
                </LinearLayout>
