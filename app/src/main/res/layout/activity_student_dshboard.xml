@@ -17,11 +17,6 @@
         app:menu="@menu/drawermenu"
         android:layout_gravity="start">
 
-       <ImageView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center_horizontal"
-           android:src="@drawable/button" />
    </android.support.design.widget.NavigationView>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
