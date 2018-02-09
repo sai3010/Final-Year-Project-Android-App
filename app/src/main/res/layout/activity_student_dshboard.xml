@@ -5,8 +5,6 @@
     android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="10"
     tools:context="com.example.saipr.final_year_proj.StudentDshboardActivity">
 
     <!--navbar-->
@@ -19,14 +17,30 @@
         app:menu="@menu/drawermenu"
         android:layout_gravity="start">
 
-    </android.support.design.widget.NavigationView>
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_horizontal"
+           android:src="@drawable/button" />
+   </android.support.design.widget.NavigationView>
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linear"
+        android:background="#00796b "
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        tools:context="com.example.saipr.final_year_proj.StudentDshboardActivity"
+        >
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-        android:background="@drawable/button"
-        android:layout_weight="2">
+            android:layout_weight="2">
 
-<<<<<<< HEAD
             <TextView
                 android:id="@+id/textgrid"
                 android:layout_width="wrap_content"
@@ -36,25 +50,15 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:textSize="34sp"
-               android:layout_centerInParent="true"
+                android:textSize="50sp"
+                android:layout_centerInParent="true"
                 />
-        </RelativeLayout>
-=======
-        <TextView
-            android:id="@+id/textgrid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="DASH BOARD"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="34sp"
-            android:textStyle="bold" />
-        </LinearLayout>
 
-        
+        </RelativeLayout>
+
+
+
+
        <GridLayout
             android:columnCount="2"
             android:rowCount="2"
@@ -63,8 +67,8 @@
             android:layout_weight="8"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="50dp"
-            android:padding="14dp">
+            android:layout_marginTop="10dp"
+            android:padding="1dp">
 
 <!--row1-->
 
@@ -74,33 +78,42 @@
                android:layout_height="0dp"
                android:layout_columnWeight="1"
                android:layout_rowWeight="1"
-               android:layout_marginBottom="16dp"
-               android:layout_marginLeft="16dp"
-               android:layout_marginRight="16dp"
+               android:layout_marginBottom="8dp"
+               android:layout_marginLeft="1dp"
+               android:layout_marginRight="1dp"
                app:cardElevation="8dp"
-               app:cardCornerRadius="8dp"
+               app:cardCornerRadius="4dp"
                >
 
                <LinearLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
                    android:layout_gravity="center_horizontal|center_vertical"
-                   android:layout_margin="16dp"
                    android:orientation="vertical">
-                   <ImageView
+
+                   <RelativeLayout
                        android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_gravity="center_horizontal"
-                       />
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="first"
-                       android:textStyle="bold"
-                       android:textColor="@android:color/black"/>
-                   
-                   
+                       android:layout_height="wrap_content">
+                <!--       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="first"
+                           android:textStyle="bold"
+
+                           android:textSize="60sp"
+
+                           android:textColor="@android:color/black"/>-->
+                       <ImageView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/attendance1"
+                           android:layout_gravity="center_vertical"
+                           />
+
+                   </RelativeLayout>
+
                </LinearLayout>
+
            </android.support.v7.widget.CardView>
 
 
@@ -111,31 +124,37 @@
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
                 app:cardElevation="8dp"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="4dp"
                 >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
                     android:orientation="vertical">
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/button"
-                        android:layout_gravity="center_horizontal"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="first"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"/>
+                        android:layout_height="wrap_content">
+                        <!--       <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="first"
+                                   android:textStyle="bold"
+                                   android:textSize="60sp"
+                                   android:textColor="@android:color/black"/>-->
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/marks"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                    </RelativeLayout>
 
 
                 </LinearLayout>
@@ -151,31 +170,19 @@
                android:layout_height="0dp"
                android:layout_columnWeight="1"
                android:layout_rowWeight="1"
-               android:layout_marginBottom="16dp"
-               android:layout_marginLeft="16dp"
-               android:layout_marginRight="16dp"
+               android:layout_marginBottom="8dp"
+               android:layout_marginLeft="1dp"
+               android:layout_marginRight="1dp"
                app:cardElevation="8dp"
-               app:cardCornerRadius="8dp"
+               app:cardCornerRadius="4dp"
                >
 
                <LinearLayout
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_gravity="center_horizontal|center_vertical"
-                   android:layout_margin="16dp"
                    android:orientation="vertical">
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@drawable/button"
-                       android:layout_gravity="center_horizontal"
-                       />
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="first"
-                       android:textStyle="bold"
-                       android:textColor="@android:color/black"/>
+
 
 
                </LinearLayout>
@@ -186,11 +193,11 @@
                android:layout_height="0dp"
                android:layout_columnWeight="1"
                android:layout_rowWeight="1"
-               android:layout_marginBottom="16dp"
-               android:layout_marginLeft="16dp"
-               android:layout_marginRight="16dp"
+               android:layout_marginBottom="8dp"
+               android:layout_marginLeft="1dp"
+               android:layout_marginRight="1dp"
                app:cardElevation="8dp"
-               app:cardCornerRadius="8dp"
+               app:cardCornerRadius="4dp"
                >
 
                <LinearLayout
@@ -199,12 +206,7 @@
                    android:layout_gravity="center_horizontal|center_vertical"
                    android:layout_margin="16dp"
                    android:orientation="vertical">
-                   <ImageView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@drawable/button"
-                       android:layout_gravity="center_horizontal"
-                       />
+
                    <TextView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -218,6 +220,7 @@
 
 
         </GridLayout>
+    </LinearLayout>
 
     </android.support.v4.widget.DrawerLayout>
 
