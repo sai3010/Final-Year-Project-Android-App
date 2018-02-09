@@ -78,9 +78,9 @@
                android:layout_height="0dp"
                android:layout_columnWeight="1"
                android:layout_rowWeight="1"
-               android:layout_marginBottom="8dp"
-               android:layout_marginLeft="1dp"
-               android:layout_marginRight="1dp"
+               android:layout_marginBottom="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginRight="16dp"
                app:cardElevation="8dp"
                app:cardCornerRadius="4dp"
                >
@@ -91,26 +91,7 @@
                    android:layout_gravity="center_horizontal|center_vertical"
                    android:orientation="vertical">
 
-                   <RelativeLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content">
-                <!--       <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="first"
-                           android:textStyle="bold"
 
-                           android:textSize="60sp"
-
-                           android:textColor="@android:color/black"/>-->
-                       <ImageView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:src="@drawable/attendance1"
-                           android:layout_gravity="center_vertical"
-                           />
-
-                   </RelativeLayout>
 
                </LinearLayout>
 
@@ -124,9 +105,9 @@
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="4dp"
                 >
@@ -136,25 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <!--       <TextView
-                                   android:layout_width="wrap_content"
-                                   android:layout_height="wrap_content"
-                                   android:text="first"
-                                   android:textStyle="bold"
-                                   android:textSize="60sp"
-                                   android:textColor="@android:color/black"/>-->
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/marks"
-                            android:layout_gravity="center_vertical"
-                            />
-
-                    </RelativeLayout>
 
 
                 </LinearLayout>
@@ -170,9 +133,9 @@
                android:layout_height="0dp"
                android:layout_columnWeight="1"
                android:layout_rowWeight="1"
-               android:layout_marginBottom="8dp"
-               android:layout_marginLeft="1dp"
-               android:layout_marginRight="1dp"
+               android:layout_marginBottom="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginRight="16dp"
                app:cardElevation="8dp"
                app:cardCornerRadius="4dp"
                >
@@ -193,9 +156,9 @@
                android:layout_height="0dp"
                android:layout_columnWeight="1"
                android:layout_rowWeight="1"
-               android:layout_marginBottom="8dp"
-               android:layout_marginLeft="1dp"
-               android:layout_marginRight="1dp"
+               android:layout_marginBottom="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginRight="16dp"
                app:cardElevation="8dp"
                app:cardCornerRadius="4dp"
                >
