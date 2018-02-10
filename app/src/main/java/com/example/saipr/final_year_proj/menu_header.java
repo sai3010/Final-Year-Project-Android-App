@@ -58,18 +58,13 @@ public abstract class menu_header extends AppCompatActivity implements Navigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_header);
-
-        ImageView circularimg = (ImageView) findViewById(R.id.circularimg);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
         RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
         roundedBitmapDrawable.setCircular(true);
-<<<<<<< HEAD
-        circularimg.setImageDrawable(roundedBitmapDrawable);
-=======
-        imageView.setImageDrawable(roundedBitmapDrawable);
+        ImageView ivAttachment=findViewById(R.id.circularimg);
+        ivAttachment.setImageDrawable(roundedBitmapDrawable);
         verifyStoragePermissions(this);
         Button bUpload = (Button) findViewById(R.id.btnupload);
-        ImageView ivAttachment=findViewById(R.id.circularimg);
         NavigationView navigationView=findViewById(R.id.drawer);
         navigationView.setNavigationItemSelectedListener(this);
         //ivAttachment.setOnClickListener(this);
@@ -88,12 +83,15 @@ public abstract class menu_header extends AppCompatActivity implements Navigatio
         if(id==R.id.home)
         {
             Toast.makeText(menu_header.this, "Clicked", Toast.LENGTH_SHORT).show();
+            return true;
         }
         if(id==R.id.about)
         {
             Toast.makeText(menu_header.this, "Clicked", Toast.LENGTH_SHORT).show();
+            return true;
         }
         return false;
+
     }
 
     public void onClick(View v) {
@@ -272,6 +270,5 @@ public abstract class menu_header extends AppCompatActivity implements Navigatio
                     REQUEST_EXTERNAL_STORAGE
             );
         }
->>>>>>> 288cc564a6fc7785acbcb1b464ab87682773ac99
     }
 }
