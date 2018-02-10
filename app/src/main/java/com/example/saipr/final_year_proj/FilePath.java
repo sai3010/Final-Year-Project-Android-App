@@ -12,15 +12,7 @@ import android.provider.MediaStore;
  * Created by saipr on 2/9/2018.
  */
 
-public class FliePath {
-
-    /**
-     * Method for return file path of Gallery image/ Document / Video / Audio
-     *
-     * @param context
-     * @param uri
-     * @return path of the selected image file from gallery
-     */
+public class FilePath {
     public static String getPath(final Context context, final Uri uri) {
 
 //        // check here to KITKAT or new version

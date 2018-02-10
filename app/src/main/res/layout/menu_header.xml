@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/placement"
+
        />
     <TextView
         android:id="@+id/profile_name"
@@ -18,4 +19,10 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnupload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
