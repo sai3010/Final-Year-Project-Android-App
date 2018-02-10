@@ -10,27 +10,18 @@
         android:id="@+id/circularimg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        app:srcCompat="@drawable/demo" />
-=======
+        app:srcCompat="@drawable/demo"
         android:src="@drawable/placement"
-
        />
->>>>>>> 288cc564a6fc7785acbcb1b464ab87682773ac99
     <TextView
         android:id="@+id/profile_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
         android:textSize="20dp"/>
-
-<<<<<<< HEAD
-
-=======
     <Button
         android:id="@+id/btnupload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />
->>>>>>> 288cc564a6fc7785acbcb1b464ab87682773ac99
 </LinearLayout>
