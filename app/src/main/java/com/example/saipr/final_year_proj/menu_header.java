@@ -36,10 +36,10 @@ public class menu_header extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_header);
 
-        ImageView imageView = (ImageView) findViewById(R.id.circularimg);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.placement);
+        ImageView circularimg = (ImageView) findViewById(R.id.circularimg);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
         RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
         roundedBitmapDrawable.setCircular(true);
-        imageView.setImageDrawable(roundedBitmapDrawable);
+        circularimg.setImageDrawable(roundedBitmapDrawable);
     }
 }
