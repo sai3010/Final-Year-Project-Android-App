@@ -12,6 +12,10 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>RegisterAndroid.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UploadData</servlet-name>
+        <servlet-class>Upload.UploadData</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadData</servlet-name>
+        <url-pattern>/UploadData</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
