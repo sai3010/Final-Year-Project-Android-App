@@ -10,6 +10,7 @@
     <!--navbar-->
    <android.support.design.widget.NavigationView
         app:headerLayout="@layout/menu_header"
+        android:id="@+id/navview"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="#fff"

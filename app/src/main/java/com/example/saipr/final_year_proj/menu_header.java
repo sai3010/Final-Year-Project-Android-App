@@ -65,7 +65,7 @@ public abstract class menu_header extends AppCompatActivity implements Navigatio
         ivAttachment.setImageDrawable(roundedBitmapDrawable);
         verifyStoragePermissions(this);
         Button bUpload = (Button) findViewById(R.id.btnupload);
-        NavigationView navigationView=findViewById(R.id.drawer);
+        NavigationView navigationView=findViewById(R.id.navview);
         navigationView.setNavigationItemSelectedListener(this);
         //ivAttachment.setOnClickListener(this);
         //bUpload.setOnClickListener(menu_header.this);
