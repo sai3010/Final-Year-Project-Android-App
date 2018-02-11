@@ -58,15 +58,15 @@ public abstract class menu_header extends AppCompatActivity implements Navigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_header);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
-        RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
-        roundedBitmapDrawable.setCircular(true);
-        ImageView ivAttachment=findViewById(R.id.circularimg);
-        ivAttachment.setImageDrawable(roundedBitmapDrawable);
-        verifyStoragePermissions(this);
-        Button bUpload = (Button) findViewById(R.id.btnupload);
-        NavigationView navigationView=findViewById(R.id.drawer);
-        navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
+
+
+
+
         //ivAttachment.setOnClickListener(this);
         //bUpload.setOnClickListener(menu_header.this);
 
