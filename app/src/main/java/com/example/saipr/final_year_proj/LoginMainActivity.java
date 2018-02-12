@@ -52,7 +52,7 @@ public class LoginMainActivity extends AppCompatActivity {
                     if(response.equalsIgnoreCase("sok"))
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                        intent =new Intent(LoginMainActivity.this,StudentDshboardActivity.class);
+                        intent =new Intent(LoginMainActivity.this,StudentDashboardActivity.class);
                         startActivity(intent);
                     }
                     if(response.equalsIgnoreCase("fok"))

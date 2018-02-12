@@ -7,18 +7,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.saipr.final_year_proj.StudentDshboardActivity">
 
-    <!--navbar-->
-   <android.support.design.widget.NavigationView
-        app:headerLayout="@layout/menu_header"
-        android:id="@+id/navview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="#fff"
-        app:itemTextColor="#000"
-        app:menu="@menu/drawermenu"
-        android:layout_gravity="start">
-
-   </android.support.design.widget.NavigationView>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

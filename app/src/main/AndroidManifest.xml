@@ -30,7 +30,17 @@
         <activity android:name=".StudentRegisterActivity" />
         <activity android:name=".FacultyRegisterActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".FacultyDashboardActivity"></activity>
+        <activity android:name=".FacultyDashboardActivity" />
+        <activity
+            android:name=".StudentDashboardActivity"
+            android:label="@string/title_activity_student_dashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
