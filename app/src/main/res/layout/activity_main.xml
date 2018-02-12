@@ -8,6 +8,12 @@
     tools:context="com.example.saipr.final_year_proj.MainActivity"
     style="@style/AppTheme"
     >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/contact"/>
 
     <Button
         android:id="@+id/loginbtn"
@@ -16,11 +22,10 @@
         android:text="Login"
         android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
-
+        android:layout_marginTop="20dp"
         android:textColor="#fafafa"
         android:width="190dp"
         android:textAlignment="center"
-      android:layout_marginTop="170dp"
         android:textSize="20dp"
         android:layout_gravity="center"
         android:background="@drawable/button"
