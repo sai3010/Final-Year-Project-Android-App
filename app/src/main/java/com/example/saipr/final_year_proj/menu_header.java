@@ -9,8 +9,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -54,18 +56,20 @@ public abstract class menu_header extends AppCompatActivity implements Navigatio
     TextView tvFileName;
     ProgressDialog dialog;
     int serverResponseCode = 0;
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_header);
-
-
-
-
-
-
-
-
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
+        RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+        roundedBitmapDrawable.setCircular(true);
+        ImageView ivAttachment=findViewById(R.id.profile_image);
+        ivAttachment.setImageDrawable(roundedBitmapDrawable);
+        verifyStoragePermissions(this);
+        Button bUpload = (Button) findViewById(R.id.btnupload);
+        NavigationView navigationView=findViewById(R.id.navview);
+        navigationView.setNavigationItemSelectedListener(this);
 
         //ivAttachment.setOnClickListener(this);
         //bUpload.setOnClickListener(menu_header.this);
