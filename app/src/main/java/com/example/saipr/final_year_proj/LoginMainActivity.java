@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -22,6 +23,7 @@ public class LoginMainActivity extends AppCompatActivity {
 
     EditText usr;
     EditText pwd;
+    TextView studname,studemail;
     Button lbtn;
     Intent intent = null;
 
@@ -49,10 +51,14 @@ public class LoginMainActivity extends AppCompatActivity {
                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
                     StrictMode.setThreadPolicy(policy);
                     String response = HttpConnection.getResponse(url,jsn);
-                    if(response.equalsIgnoreCase("sok"))
+                    String res[]=response.split("\t");
+                    if(res[0].equalsIgnoreCase("sok"))
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         intent =new Intent(LoginMainActivity.this,StudentDashboardActivity.class);
+                        intent.putExtra("name",res[1]);
+                        intent.putExtra("email",res[2]);
+                        intent.putExtra("usn",res[3]);
                         startActivity(intent);
                     }
                     if(response.equalsIgnoreCase("fok"))
