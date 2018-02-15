@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -38,14 +39,17 @@ public class StudentDashboardActivity extends AppCompatActivity
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int PICK_FILE_REQUEST = 1;
     private static final String TAG = StudentDashboardActivity.class.getSimpleName();
-    private String selectedFilePath;
+    private String selectedFilePath="";
     ProgressDialog dialog;
     int serverResponseCode = 0;
     String name = "";
     String email="";
     String usn="";
-
+    TextView nametxt;
+    TextView emailtxt;
+    TextView usntxt;
     ImageButton imgbtn= null;
+    CardView placement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,17 @@ public class StudentDashboardActivity extends AppCompatActivity
         name  = getIntent().getExtras().getString("name");
         email = getIntent().getExtras().getString("email");
         usn = getIntent().getExtras().getString("usn");
+        /*placement card handling*/
+        placement=findViewById(R.id.placement_card);
+        placement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(StudentDashboardActivity.this,PlacementActivity.class);
+                i.putExtra("usn",usn);
+                startActivity(i);
+            }
+        });
+        /*placement handling ends here*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -88,13 +103,13 @@ public class StudentDashboardActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.student_dashboard, menu);
-        Toast.makeText(this, "PPPPPPPPPPPPPPPPPPPP", Toast.LENGTH_SHORT).show();
-        TextView nametxt=findViewById(R.id.studname);
-        TextView emailtxt=findViewById(R.id.studemail);
-        TextView usntxt=findViewById(R.id.studusn);
+        nametxt=findViewById(R.id.studname);
+        emailtxt=findViewById(R.id.studemail);
+        usntxt=findViewById(R.id.studusn);
         nametxt.setText(name);
         emailtxt.setText(email);
         usntxt.setText(usn);
+        Toast.makeText(this, usn, Toast.LENGTH_SHORT).show();
         imgbtn= findViewById(R.id.imgbut);
 
         imgbtn.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +128,6 @@ public class StudentDashboardActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Toast.makeText(this, "OOOOOOOOOOO---"+id, Toast.LENGTH_SHORT).show();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -132,13 +146,6 @@ public class StudentDashboardActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.logout) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id== R.id.imgbut)
-        {
-            Toast.makeText(StudentDashboardActivity.this,"Hello",Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -217,7 +224,6 @@ public class StudentDashboardActivity extends AppCompatActivity
 
         String upLoadServerUri = RegURL.url+"UploadData";
         String fileName = sourceFileUri;
-
         HttpURLConnection conn = null;
         DataOutputStream dos = null;
         String lineEnd = "\r\n";
