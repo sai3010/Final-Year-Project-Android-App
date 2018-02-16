@@ -75,9 +75,16 @@ public class DBQuery {
 		return i;
     }
 
-    public ArrayList<String> getBranchName(String query) throws ClassNotFoundException, SQLException 
+    /**
+     *
+     * @param query
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public ArrayList<String> getCompany_Details(String query) throws ClassNotFoundException, SQLException 
     {
-        alist= new ArrayList<String>();
+        alist= new ArrayList<>();
         
         con= DBConnection.getDBConn();
         st= con.createStatement();

@@ -57,18 +57,19 @@ public class PlacementData extends HttpServlet {
                 System.out.println("Branch available...");
                 if(aggregate>=75)
                 {
+                    System.out.println("inside 75");
                     query="select cname from company_details where ccode= any(select ccode from ctype where cbranch='"+bcode+"')";
                 }
                 else if(aggregate>=60)
                 {
-                    query="select cname from company_details where ctier='t2' and ctier='t3' and ccode= all(select ccode from ctype where cbranch='"+bcode+"')";
+                    query="select cname from company_details where (ctier ='t3' or ctier='t2') and ccode= any(select ccode from ctype where cbranch='"+bcode+"')";
                 }
                 else if(aggregate>=50)
                 {
-                    query="select * from company_details where ctier=";
+                    query="select * from company_details where ctier='t3'and ccode= any(select ccode from ctype where cbranch='"+bcode+"')";
                 }
             }
-            ArrayList<String> alist= db.getBranchName(query);
+            ArrayList<String> alist= db.getCompany_Details(query);
             System.out.println("alist = " + alist);
         }
     }
