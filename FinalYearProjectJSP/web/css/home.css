@@ -18,7 +18,7 @@ html,body {
      height:100%;
     width: 100%;
     margin: auto;
-    background: url(img/back.JPG);
+    background: url(../img/back.JPG);
     display: table;
     top:0;
     background-size: cover;
@@ -94,11 +94,12 @@ html,body {
 
 
 
-.middle {
+.middle , .middle1 {
   transition: .5s ease;
   opacity: 0;
+  padding-top:100px;
   padding-bottom:500px;
-  padding-left: 150px;
+  padding-left: 200px;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
@@ -120,6 +121,7 @@ html,body {
 
 .btn-group .button:hover {
     background-color:  #00796b ;
+    cursor: pointer;
 }
 
 #faccontainer:hover .image1 {
@@ -130,20 +132,6 @@ html,body {
   opacity: 1;
 }
 
-.middle1 {
-  transition: .5s ease;
-  opacity: 0;
-  padding-bottom:500px;
-  padding-left: 150px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  display: inline-block;
-   font-size: 16px;
-  cursor: pointer;
-   width: 150px;
-   display: block;
-}
 #studcontainer:hover .image {
   opacity: 0.3;
 }
