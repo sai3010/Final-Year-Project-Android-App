@@ -3,12 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/UploadData.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBConnection.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/Login.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/StudentRegister.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Placement/PlacementData.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
+=======
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.jsp</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.js</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/FacultyRegister.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/Login.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/StudentRegister.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.css</file>
+>>>>>>> 97c83bdb3a09a72822143c96d7016155d54de073
         </group>
     </open-files>
 </project-private>
