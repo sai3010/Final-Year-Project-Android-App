@@ -31,14 +31,14 @@
                       <a href="#">Contact</a>
                     </div>
      
-     <span class="navtrigger" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776</span>
+     <span class="navtrigger" style="font-size:30px;cursor:pointer; color:#00796b ;" onclick="openNav()">&#9776</span>
      
  <!--landing page-->    
  <section class="landing">
    <div class="inner">
      <div class="content" align="center">
-         <h1 class="head">HELLO,SO and SO</h1>
-         <h2 class="head1">some text</h2>
+         <h1 class="head">Hello,Admin!</h1>
+         <h2 class="head1">let's get going ... </h2>
                 </div>
          </div>
  </section>
@@ -46,21 +46,39 @@
  <!--Main Page-->
  <section id="mp">
  <div class="container">
-     <h1 class="head" align="center">FUNCTIONALITY</h1>
+     <h1 class="head2" align="center">FUNCTIONALITY</h1>
        
   <div class="row">
     <div class="col md-6 sm-6 lg-6">
          <div class="float-left">
-             <h2 class="head1" align="center">Student</h2>
+             <h2 style="font-family:'Bree Serif', serif; color:  #00796b ;" align="center">Student</h2>
              <div  id="studcontainer"> 
              <img src="img/student.png" class="image" >
                 <div class="middle">
                    <div class="btn-group">
                        <div class="row">
-                      <button class="button">ADD</button><br>
-                      <button class="button">UPDATE</button>
-                      <button class="button">VIEW</button>
-                      <button class="button">DELETE</button>
+
+                           
+<!--button-->
+<button type="button" class="button"  data-toggle="modal" data-target="#addstudent">
+  ADD
+</button>
+
+                             
+                               
+                               
+<button class="button" data-toggle="modal" data-target="#updatestudent"">UPDATE</button>
+ 
+                                    
+
+<button class="button" data-toggle="modal" data-target="#viewstudent">VIEW</button>
+
+                                    
+
+
+<button class="button" data-toggle="modal" data-target="#deletestudent">DELETE</button>
+
+                         
                     </div>
                  </div>
              </div>
@@ -77,10 +95,10 @@
                <div class="middle1">
                    <div class="btn-group" align="center">
                        <div class="row">
-                      <button class="button">ADD</button><br>
-                      <button class="button">UPDATE</button>
-                      <button class="button">View</button>
-                      <button class="button">DELETE</button>
+                      <button type="button" class="button"  data-toggle="modal" data-target="#addfaculty">ADD</button><br>
+                      <button button type="button" class="button"  data-toggle="modal" data-target="#updatefaculty">UPDATE</button>
+                      <button button type="button" class="button"  data-toggle="modal" data-target="#viewfaculty">VIEW</button>
+                      <button button type="button" class="button"  data-toggle="modal" data-target="#deletefaculty">DELETE</button>
                        </div>
                     </div>
                  </div>
@@ -91,9 +109,503 @@
   </div>
  </section>
  
+
+<!-- Update Student Modal -->
+<div class="modal fade" id="updatestudent" tabindex="-1" role="dialog" aria-labelledby="updatestudenttitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updatestudenttitle">Update Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                 <form>
+                        <div class="form-row">
+                          <div class="col">
+                               <label for="firstname"></label>
+                            <input type="text" class="form-control" placeholder="First name">
+                          </div>
+                          <div class="col">
+                               <label for="lastname"></label>
+                            <input type="text" class="form-control" placeholder="Last name">
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for=""></label>
+                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                            </div>
+                            
+                              <div class="form-group col-md-4">
+                                        <label for="date"></label>
+                                        <input type="date" class="form-control"  placeholder="DOB">
+                               </div>
+                        </div>
+                       
+                        <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Branch</option>
+                                    <option value="1">CSE</option>
+                                    <option value="2">ISE</option>
+                                    <option value="3">ECE</option>
+                                  </select>
+                                </div>
+                          
+                                <div class="custom-control custom-radio custom-control-inline float-right">
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline1">MALE</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+</div>
+                    
+                         </div>     
+                    
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password"></label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  
+  
+    <div class="form-row">
+    <div class="form-group col-md-8">
+      
+      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+    </div>
+    <div class="form-group col-md-3">
+      
+        <input type="number" min="1" max="8" class="form-control" id="sem" placeholder="Sem">
+    </div>
+  </div>
+                    
+                    
+  <div class="form-group">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+  </div>
+  
+  
+  <div class="form-group">
+         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+  </div>
+                
+               </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!--View Student Modal -->
+<div class="modal fade" id="viewstudent" tabindex="-1" role="dialog" aria-labelledby="viewstudenttitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewstudenttitle">View Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="col md-6  ">
+         <input type="text" class="form-control" id="usn" placeholder="Enter USN">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>  
+ 
+ 
+ <!-- Delete Student Modal -->
+<div class="modal fade" id="deletestudent" tabindex="-1" role="dialog" aria-labelledby="deletestudenttitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deletestudenttitle">Delete Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="col md-6  ">
+         <input type="text" class="form-control " id="usn" placeholder=" Enter USN">
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
  
  
  
+ 
+ <!-- Add Student Modal -->
+<div class="modal fade" id="addstudent" tabindex="-1" role="dialog" aria-labelledby="addstudenttitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" align ="center" id="addstudenttitle" >Add Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <form>
+                        <div class="form-row">
+                          <div class="col">
+                               <label for="firstname"></label>
+                            <input type="text" class="form-control" placeholder="First name">
+                          </div>
+                          <div class="col">
+                               <label for="lastname"></label>
+                            <input type="text" class="form-control" placeholder="Last name">
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for=""></label>
+                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                            </div>
+                            
+                              <div class="form-group col-md-4">
+                                        <label for="date"></label>
+                                        <input type="date" class="form-control"  placeholder="DOB">
+                               </div>
+                        </div>
+                       
+                        <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Branch</option>
+                                    <option value="1">CSE</option>
+                                    <option value="2">ISE</option>
+                                    <option value="3">ECE</option>
+                                  </select>
+                                </div>
+                          
+                                <div class="custom-control custom-radio custom-control-inline float-right">
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline1">MALE</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+</div>
+                    
+                         </div>     
+                    
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password"></label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  
+  
+    <div class="form-row">
+    <div class="form-group col-md-8">
+      
+      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+    </div>
+    <div class="form-group col-md-3">
+      
+        <input type="number" min="1" max="8" class="form-control" id="sem" placeholder="Sem">
+    </div>
+  </div>
+                    
+                    
+  <div class="form-group">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+  </div>
+  
+  
+  <div class="form-group">
+         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+  </div>
+                
+               </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> 
+ 
+
+<!--View Faculty Modal -->
+<div class="modal fade" id="viewfaculty" tabindex="-1" role="dialog" aria-labelledby="viewfacultytitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewfacultytitle">View Faculty</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="col md-6  ">
+         <input type="text" class="form-control" id="usn" placeholder=" Enter USN">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>  
+ 
+ <!-- Delete Faculty Modal -->
+<div class="modal fade" id="deletefaculty" tabindex="-1" role="dialog" aria-labelledby="deletefacultytitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deletefacultytitle">Delete Faculty</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="col md-6  ">
+         <input type="text" class="form-control " id="usn" placeholder=" Enter USN">
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+ <!-- Add Faculty Modal -->
+<div class="modal fade" id="addfaculty" tabindex="-1" role="dialog" aria-labelledby="addfacultytitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" align ="center" id="addfacultytitle" >Add Faculty</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <form>
+                        <div class="form-row">
+                          <div class="col">
+                               <label for="firstname"></label>
+                            <input type="text" class="form-control" placeholder="First name">
+                          </div>
+                          <div class="col">
+                               <label for="lastname"></label>
+                            <input type="text" class="form-control" placeholder="Last name">
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for=""></label>
+                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                            </div>
+                            
+                              <div class="form-group col-md-4">
+                                        <label for="date"></label>
+                                        <input type="date" class="form-control"  placeholder="DOB">
+                               </div>
+                        </div>
+                       
+                        <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Branch</option>
+                                    <option value="1">CSE</option>
+                                    <option value="2">ISE</option>
+                                    <option value="3">ECE</option>
+                                  </select>
+                                </div>
+                          
+                                <div class="custom-control custom-radio custom-control-inline float-right">
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline1">MALE</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+</div>
+                    
+                         </div>     
+                    
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password"></label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  
+  
+    <div class="form-row">
+         <div class="form-group col-md-8">
+      
+        <input type="text"  class="form-control" id="sem" placeholder="Qualificatin">
+    </div>
+    <div class="form-group col-md-4">
+      
+      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+    </div>
+   
+  </div>
+                    
+                    
+  <div class="form-group">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+  </div>
+  
+  
+  <div class="form-group">
+         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+  </div>
+                
+               </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> 
+ 
+ 
+  <!-- Update Faculty Modal -->
+<div class="modal fade" id="updatefaculty" tabindex="-1" role="dialog" aria-labelledby="updatefacultytitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" align ="center" id="updatefacultytitle" >Update Faculty</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <form>
+                        <div class="form-row">
+                          <div class="col">
+                               <label for="firstname"></label>
+                            <input type="text" class="form-control" placeholder="First name">
+                          </div>
+                          <div class="col">
+                               <label for="lastname"></label>
+                            <input type="text" class="form-control" placeholder="Last name">
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for=""></label>
+                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                            </div>
+                            
+                              <div class="form-group col-md-4">
+                                        <label for="date"></label>
+                                        <input type="date" class="form-control"  placeholder="DOB">
+                               </div>
+                        </div>
+                       
+                        <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Branch</option>
+                                    <option value="1">CSE</option>
+                                    <option value="2">ISE</option>
+                                    <option value="3">ECE</option>
+                                  </select>
+                                </div>
+                          
+                                <div class="custom-control custom-radio custom-control-inline float-right">
+  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline1">MALE</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+</div>
+                    
+                         </div>     
+                    
+ <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password"></label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  
+  
+    <div class="form-row">
+         <div class="form-group col-md-8">
+      
+        <input type="text"  class="form-control" id="sem" placeholder="Qualificatin">
+    </div>
+    <div class="form-group col-md-4">
+      
+      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+    </div>
+   
+  </div>
+                    
+                    
+  <div class="form-group">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+  </div>
+  
+  
+  <div class="form-group">
+         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+  </div>
+                
+               </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div> 
  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

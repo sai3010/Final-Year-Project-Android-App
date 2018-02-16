@@ -18,7 +18,7 @@ html,body {
      height:100%;
     width: 100%;
     margin: auto;
-    background: url(../img/back.JPG);
+    background: black;
     display: table;
     top:0;
     background-size: cover;
@@ -34,8 +34,23 @@ html,body {
 
 .head {
         font-family: 'Bree Serif', serif;
+        color: #00bfa5;
+        font-size: 90px;
+        font-style: bold;
 }
 .head1
+ {
+        font-family: 'Bree Serif', serif;
+        color:  #00796b ;
+        font-style: italic;
+}
+.head2{
+    font-family: 'Bree Serif', serif;
+       color:  #00796b ;
+     font-size: 50px;
+}
+
+.modal-title
  {
         font-family: 'Bree Serif', serif;
 }
@@ -63,7 +78,7 @@ html,body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #00bfa5;
     display: block;
     transition: 0.3s;
 }
@@ -80,10 +95,6 @@ html,body {
     margin-left: 50px;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -139,3 +150,12 @@ html,body {
 #studcontainer:hover .middle {
   opacity: 1;
 }
+
+.button
+{
+    font-style: bold;
+     font-family: 'Bree Serif', serif;
+     font-size: 20px;
+  margin: 3px;
+}
+
