@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 /**
  *
  * @author saipr
@@ -17,20 +18,24 @@ public class DBQuery {
         static Connection con= null;
 	static Statement st= null;
 	static ResultSet rs= null;
-    public String get_stud_login_data(String usn) throws ClassNotFoundException, SQLException
+    public ArrayList<String[]> get_stud_login_data(String usn) throws ClassNotFoundException, SQLException
     {
-                String val= null;
+                ArrayList<String[]> arr = new ArrayList<>();
 		con=DBConnection.getDBConn();
 		st= con.createStatement();
 		String query="select * from student_information where usn='"+usn+"'";
 		rs= st.executeQuery(query);
 		while(rs.next())
 		{
-			val= rs.getString("password");
+                        String val[] = new String[4];
+			val[0]= rs.getString("password");
+                        val[1]=rs.getString("firstname");
+                        val[2]=rs.getString("email");
+                        val[3]=rs.getString("usn");
+                        arr.add(val);
 		}
-		
 		con.close();
-		return val;
+		return arr;
 	
     }
     public String get_fac_login_data(String usn) throws ClassNotFoundException, SQLException

@@ -6,9 +6,15 @@
 package Upload;
 
 import com.oreilly.servlet.MultipartRequest;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +41,8 @@ public class UploadData extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
         ServletContext context = getServletContext();
-    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web";
-    
+    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/profile_photos/";
+    String usn="image";
     String paramname=null,fname="",file="",filePath="";
     
     try
@@ -45,19 +51,33 @@ public class UploadData extends HttpServlet {
                        
         
         Enumeration files = multi.getFileNames();	
-	while (files.hasMoreElements()) 
+        while (files.hasMoreElements()) 
 	{
             paramname = (String) files.nextElement();
             String fPath="";
+//            usn= multi.getParameter("usn");
+//            System.out.println("usn = " + usn);
             if(paramname != null && paramname.equals("uploaded_file"))
             {
 		filePath = multi.getFilesystemName(paramname);
+                System.out.println("fPath-bytes = " + paramname);
                 fPath = fileDir+filePath;
                 System.out.println("::::::::::::-"+filePath);
                 System.out.println("::::::::::::="+fPath);
+                
+                File f=new File(fPath);
+                Image image = ImageIO.read(f);
+                BufferedImage cpimg=bufferImage(image);
+
+                Graphics g = cpimg.createGraphics();
+                File f1 = new File("C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/profile_photos/renamed photos/"+usn+".png");
+                ImageIO.write(cpimg, "png", f1);
 
             }
+            
         }
+        
+        
     }
     catch(Exception e)
     {
@@ -65,6 +85,15 @@ public class UploadData extends HttpServlet {
     }
         }
     }
+    
+    public static BufferedImage bufferImage(Image image) {
+return bufferImage(image,BufferedImage.TYPE_INT_RGB);
+} public static BufferedImage bufferImage(Image image, int type) {
+BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), type);
+Graphics2D g = bufferedImage.createGraphics();
+g.drawImage(image, null, null);
+return bufferedImage;
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

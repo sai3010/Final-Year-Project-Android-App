@@ -9,6 +9,7 @@ import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -40,15 +41,21 @@ public class Login extends HttpServlet {
            String pass=request.getParameter("pass");
            System.out.println(usn);
            System.out.println(pass);
-           
+           String[] ar = new String[4];
            String ch= usn.charAt(0)+""; 
            if(ch.matches("[0-9]"))
           {
-               String password=db.get_stud_login_data(usn);
-               if(pass.equals(password))
+               ArrayList<String[]> detail=db.get_stud_login_data(usn);
+               System.out.println(detail);
+               
+               for(int i = 0; i<detail.size(); i++){
+                   ar = detail.get(i);
+               }
+               
+               if(pass.equals(ar[0]))
            {
                System.out.println("passwords match");
-               out.print("sok");
+               out.print("sok"+"\t"+ar[1]+"\t"+ar[2]+"\t"+ar[3]);
            }
            else
            {
