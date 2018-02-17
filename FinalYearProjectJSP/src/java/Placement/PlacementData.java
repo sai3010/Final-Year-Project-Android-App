@@ -71,6 +71,7 @@ public class PlacementData extends HttpServlet {
             }
             ArrayList<String> alist= db.getCompany_Details(query);
             System.out.println("alist = " + alist);
+            out.print(alist);
         }
     }
 
