@@ -18,6 +18,9 @@ public class DBQuery {
         static Connection con= null;
 	static Statement st= null;
 	static ResultSet rs= null;
+        ArrayList<String> alist= null;
+
+        
     public ArrayList<String[]> get_stud_login_data(String usn) throws ClassNotFoundException, SQLException
     {
                 ArrayList<String[]> arr = new ArrayList<>();
@@ -70,6 +73,30 @@ public class DBQuery {
 		int i= st.executeUpdate(query);
 		con.close();
 		return i;
+    }
+
+    /**
+     *
+     * @param query
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public ArrayList<String> getCompany_Details(String query) throws ClassNotFoundException, SQLException 
+    {
+        alist= new ArrayList<>();
+        
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            System.out.println("query = " + rs.toString());
+            alist.add(rs.getString("cname"));
+        }
+        
+        return alist;
     }
 
     
