@@ -41,16 +41,19 @@ public class DBQuery {
 		return arr;
 	
     }
-    public String get_fac_login_data(String usn) throws ClassNotFoundException, SQLException
+    public String [] get_fac_login_data(String usn) throws ClassNotFoundException, SQLException
     {
-       String val= null;
+       String [] val= new String[4];
 		con=DBConnection.getDBConn();
 		st= con.createStatement();
 		String query="select * from faculty_information where usn='"+usn+"'";
 		rs= st.executeQuery(query);
 		while(rs.next())
 		{
-			val= rs.getString("password");
+			val[0]= rs.getString("password");
+                        val[1]=rs.getString("firstname");
+                        val[2]=rs.getString("email");
+                        val[3]=rs.getString("usn");
 		}
 		
 		con.close();
@@ -82,21 +85,27 @@ public class DBQuery {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public ArrayList<String> getCompany_Details(String query) throws ClassNotFoundException, SQLException 
+    public String getCompany_Details(String query) throws ClassNotFoundException, SQLException 
     {
-        alist= new ArrayList<>();
-        
+        String cname="";
         con= DBConnection.getDBConn();
         st= con.createStatement();
         
         rs= st.executeQuery(query);
         while(rs.next())
         {
-            System.out.println("query = " + rs.toString());
-            alist.add(rs.getString("cname"));
+            if(cname.equals(""))
+            {
+                cname=rs.getString("cname");
+            }
+            else
+            {
+                cname=rs.getString("cname")+":"+cname;
+            }
+            
         }
-        
-        return alist;
+        System.out.println("cname = " + cname);
+        return cname;
     }
 
     

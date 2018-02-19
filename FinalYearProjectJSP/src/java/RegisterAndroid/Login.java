@@ -65,11 +65,11 @@ public class Login extends HttpServlet {
           }
            else if(ch.matches("[A-Z]"))
            {
-               String password=db.get_fac_login_data(usn);
-               if(pass.equals(password))
+               String [] password=db.get_fac_login_data(usn);
+               if(pass.equals(password[0]))
            {
                System.out.println("passwords match");
-               out.print("fok");
+               out.print("fok"+"\t"+password[1]+"\t"+password[2]+"\t"+password[3]);
            }
            else
            {

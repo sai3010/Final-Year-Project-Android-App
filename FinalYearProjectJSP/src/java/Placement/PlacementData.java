@@ -69,9 +69,11 @@ public class PlacementData extends HttpServlet {
                     query="select * from company_details where ctier='t3'and ccode= any(select ccode from ctype where cbranch='"+bcode+"')";
                 }
             }
-            ArrayList<String> alist= db.getCompany_Details(query);
-            System.out.println("alist = " + alist);
-            out.print(alist);
+            String value="";
+            value= db.getCompany_Details(query);
+            
+//            String splitval[]= value.split("\\:");
+            out.print(value);
         }
     }
 
