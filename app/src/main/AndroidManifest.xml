@@ -30,7 +30,6 @@
         <activity android:name=".StudentRegisterActivity" />
         <activity android:name=".FacultyRegisterActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".FacultyDashboardActivity" />
         <activity
             android:name=".StudentDashboardActivity"
             android:label="@string/title_activity_student_dashboard"
@@ -41,7 +40,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlacementActivity"></activity>
+        <activity android:name=".PlacementActivity" />
+        <activity
+            android:name=".FacultyDashboardActivity"
+            android:label="@string/title_activity_faculty_dashboard"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

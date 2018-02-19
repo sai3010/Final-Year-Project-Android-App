@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Placement Statistics"
+            android:textSize="20sp"
             android:layout_gravity="center"/>
 
         <EditText
@@ -27,5 +28,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Get Companies"/>
+
+        <TextView
+            android:id="@+id/tvcname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="#02061b"
+            android:background="#6363f1"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="normal"
+            android:hint="Company name will be displayed here" />
     </LinearLayout>
+
 </ScrollView>

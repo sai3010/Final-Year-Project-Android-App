@@ -61,10 +61,13 @@ public class LoginMainActivity extends AppCompatActivity {
                         intent.putExtra("usn",res[3]);
                         startActivity(intent);
                     }
-                    if(response.equalsIgnoreCase("fok"))
+                    if(res[0].equalsIgnoreCase("fok"))
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         intent =new Intent(LoginMainActivity.this,FacultyDashboardActivity.class);
+                        intent.putExtra("name",res[1]);
+                        intent.putExtra("email",res[2]);
+                        intent.putExtra("usn",res[3]);
                         startActivity(intent);
                     }
                     if(response.equalsIgnoreCase("notok"))

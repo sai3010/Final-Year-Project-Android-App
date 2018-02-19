@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.saipr.final_year_proj.StudentDashboardActivity"
-    tools:showIn="@layout/app_bar_student_dashboard">
+    tools:context="com.example.saipr.final_year_proj.FacultyDashboardActivity"
+    tools:showIn="@layout/app_bar_faculty_dashboard">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -214,7 +214,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Placements"
+                        android:text="Push Updates"
                         android:textColor="@android:color/black"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textStyle="bold"
@@ -229,6 +229,5 @@
 
         </GridLayout>
     </LinearLayout>
-
 
 </LinearLayout>
