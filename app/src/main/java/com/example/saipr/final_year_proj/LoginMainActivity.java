@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.Socket;
 import java.net.URL;
 
 public class LoginMainActivity extends AppCompatActivity {
@@ -35,6 +36,14 @@ public class LoginMainActivity extends AppCompatActivity {
         pwd=findViewById(R.id.pw);
         lbtn=findViewById(R.id.loginbtn);
 
+        /*Socket Skt;
+        String host = "localhost";
+        try {
+            Skt = new Socket(host, 8084);
+            Toast.makeText(LoginMainActivity.this,Skt.toString(),Toast.LENGTH_LONG);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
 
         //add the function to connect to database
         lbtn.setOnClickListener(new View.OnClickListener() {
