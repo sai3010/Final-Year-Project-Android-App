@@ -159,6 +159,7 @@
                 android:layout_marginRight="16dp"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="8dp"
+                android:id="@+id/facnotes"
                 >
 
                 <LinearLayout

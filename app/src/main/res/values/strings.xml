@@ -15,6 +15,8 @@
         completions."
     </string>
     <string name="spinner_title">Select Qualification</string>
+    <string name="bspinner_title">Select Branch</string>
+    <string name="sspinner_title">Select Sem</string>
     <string-array name="qual_array">
         <item>B.E/B.Tech</item>
         <item>M.E/M.Tech</item>
@@ -29,6 +31,18 @@
         <item>EEE</item>
         <item>EIE</item>
         <item>MECH</item>
+
+    </string-array>
+
+    <string-array name="sem_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
 
     </string-array>
 
