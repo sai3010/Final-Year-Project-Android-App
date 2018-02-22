@@ -22,6 +22,8 @@
             android:id="@+id/cfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:text="Choose File"/>
 
         <TextView
@@ -29,11 +31,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="File name here"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:text="Select Sem"
             android:textAlignment="center"/>
 
@@ -42,6 +48,7 @@
             android:layout_width="200dp"
             android:layout_height="36dp"
             android:dropDownWidth="200dp"
+            android:layout_gravity="center"
             android:prompt="@string/sspinner_title"/>
 
         <Button

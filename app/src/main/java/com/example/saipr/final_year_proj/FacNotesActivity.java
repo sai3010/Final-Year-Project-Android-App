@@ -159,7 +159,7 @@ public class FacNotesActivity extends AppCompatActivity {
     public void uploadFile(String sourceFileUri) {
         String serverResponseMessage = "";
 
-        String upLoadServerUri = RegURL.url + "UploadData";
+        String upLoadServerUri = RegURL.url + "FacUploadData";
         String fileName = sourceFileUri;
         HttpURLConnection conn = null;
         DataOutputStream dos = null;
@@ -186,13 +186,13 @@ public class FacNotesActivity extends AppCompatActivity {
             conn.setRequestProperty("ENCTYPE", "multipart/form-data");
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
             conn.setRequestProperty("uploaded_file", fileName);
-
+            conn.setRequestProperty("usn",usn);
             dos = new DataOutputStream(conn.getOutputStream());
 
             dos.writeBytes(twoHyphens + boundary + lineEnd);
             //dos.writeUTF("Content-Disposition: form-data; name=\"lat\";lat=\""+ lat + "\"" + lineEnd);
             //  dos.writeUTF(lon);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\"" + fileName + "\"" + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\";usn=\"" + fileName + "\"" + lineEnd+ "\"" + usn);
 
             dos.writeBytes(lineEnd);
 
