@@ -66,7 +66,9 @@ public class Adminlogin extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
+     * @throws IOException if an I/O  
+     * error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

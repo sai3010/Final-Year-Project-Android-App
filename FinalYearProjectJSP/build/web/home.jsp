@@ -36,7 +36,10 @@
  <!--landing page-->    
  <section class="landing">
    <div class="inner">
-     <div class="content" align="center">
+      
+       <img src="img/giphy.gif" align="left">
+      
+     <div class="content" align="left">
          <h1 class="head">Hello,Admin!</h1>
          <h2 class="head1">let's get going ... </h2>
                 </div>
@@ -612,40 +615,43 @@
  <section id="placement">
       <h1 class="head" align="center">PLACEMENTS</h1>
       <div class="container">
-          <div class="row">
-         <div class="float-left">    
+       
+         
     
        
-         <form action="./Placementadmin" method="post">        
-                            <div class=" col-md-10 ">
+         <form action="./Placementadmin" method="post">  
+                <div class="form-row">
+                            <div class=" col-md-6 offset-md-3 ">
                             <label for="cname"></label>    
                             <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name">
                             </div> 
-                             <div class="col-md-7 ">
+                             <div class="col-md-6 offset-md-3 ">
                                  <label for="Ccode"></label>
                              <input type="text" class="form-control" id="Ccode" name="ccode" placeholder="Company Code">
                             </div> 
-                            <div class=" col-md-7 ">
+                            <div class=" col-md-6 offset-md-3 ">
                                    <label for="Ctier"></label>
                              <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier">
                             </div> 
-                             <div class=" col-md-7 ">
+                             <div class=" col-md-6 offset-md-3 ">
                                    <label for="Cbranch"></label>
                              <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches">
                             </div> 
-            
-                            <div class=" col-md-7 ">
+                   
+                            <div class="col-md-6 offset-md-3 " style="padding-top: 20px;"  >
                                      
                                      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
+                              </div>
                 
-                            </div>
+                           <!---image-->
+                           <div class="img col-md-3 ">
+                               <img src="img/placement.png">
+                           </div>
+                     </div>
                </form>
-        </div>
-                <div class="float-right">
-              <img src="img/placement.png"
-          </div>
-      </div>
+        
+             
+     
         
  </div>
         

@@ -127,12 +127,21 @@ public class DBQuery {
     }
 
     public int add_placement_data(String ccode, String cname, String ctier) throws SQLException, ClassNotFoundException {
-         con= DBConnection.getDBConn();
-        st= con.createStatement();
-        String query = "insert into company_details values('"+ccode+"','"+cname+"','"+ctier+"')"; 
-       int i= st.executeUpdate(query);
-		con.close();
-		return i;
+                    con= DBConnection.getDBConn();
+                    st= con.createStatement();
+                    String query = "insert into company_details values('"+ccode+"','"+cname+"','"+ctier+"')"; 
+                   int i= st.executeUpdate(query);
+                    con.close();
+                    return i;
+       }
+
+    public int add_placements_data(String ccode, String cbranch) throws ClassNotFoundException, SQLException {
+  con= DBConnection.getDBConn();
+                    st= con.createStatement();
+                    String query = "insert into ctype('"+ccode+"','"+cbranch+"')"; 
+                    int i= st.executeUpdate(query);
+                    con.close();
+                    return i;
     }
   
     

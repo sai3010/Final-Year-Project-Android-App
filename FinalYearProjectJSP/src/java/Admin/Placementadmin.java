@@ -44,7 +44,7 @@ public class Placementadmin extends HttpServlet {
               System.out.println("ccode = " + ccode);
               System.out.println("cname = " + cname);
                  int i=db.add_placement_data(ccode,cname,ctier);
-            
+                 int j = db.add_placements_data(ccode,cbranch);
             
             
         }
