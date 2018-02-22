@@ -37,7 +37,7 @@
  <section class="landing">
    <div class="inner">
       
-       <img src="img/giphy.gif" align="left">
+       <img src="img/landing.png" align="left">
       
      <div class="content" align="left">
          <h1 class="head">Hello,Admin!</h1>
