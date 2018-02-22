@@ -612,9 +612,11 @@
  <section id="placement">
       <h1 class="head" align="center">PLACEMENTS</h1>
       <div class="container">
+         
+         <div class="float-left">    
      <form action="./Placementadmin" method="post">    
         <div class="form-row">
-                            <div class=" col-md-7 offset-md-3">
+                            <div class=" col-md-7 ">
                             <label for="cname"></label>    
                             <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name">
                             </div> 
@@ -639,6 +641,7 @@
         </div>
           </form>
  </div>
+      </div>
  
  </section>
   
