@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/FacUploadData.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/UploadData.java</file>
+=======
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBConnection.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/WEB-INF/web.xml</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Adminlogin.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Placementadmin.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
+>>>>>>> e896689860718cc0babce33b92f01681b6958f36
         </group>
     </open-files>
 </project-private>

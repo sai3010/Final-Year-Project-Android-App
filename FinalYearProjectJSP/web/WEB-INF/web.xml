@@ -25,8 +25,13 @@
         <servlet-class>Admin.Adminlogin</servlet-class>
     </servlet>
     <servlet>
+
+        <servlet-name>Placementadmin</servlet-name>
+        <servlet-class>Admin.Placementadmin</servlet-class>
+
         <servlet-name>FacUploadData</servlet-name>
         <servlet-class>Upload.FacUploadData</servlet-class>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
@@ -53,8 +58,13 @@
         <url-pattern>/Adminlogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
+        <servlet-name>Placementadmin</servlet-name>
+        <url-pattern>/Placementadmin</url-pattern>
+
         <servlet-name>FacUploadData</servlet-name>
         <url-pattern>/FacUploadData</url-pattern>
+
     </servlet-mapping>
     <session-config>
         <session-timeout>

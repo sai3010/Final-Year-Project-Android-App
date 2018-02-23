@@ -25,18 +25,21 @@
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      <a href="#">About</a>
-                      <a href="#">Services</a>
+                      <a href="#">Functionality</a>
+                      <a href="#">Placements</a>
                       <a href="#">Clients</a>
                       <a href="#">Contact</a>
                     </div>
      
-     <span class="navtrigger" style="font-size:30px;cursor:pointer; color:#00796b ;" onclick="openNav()">&#9776</span>
+     <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
  <!--landing page-->    
  <section class="landing">
    <div class="inner">
-     <div class="content" align="center">
+      
+       <img src="img/landing.png" align="left">
+      
+     <div class="content" align="left">
          <h1 class="head">Hello,Admin!</h1>
          <h2 class="head1">let's get going ... </h2>
                 </div>
@@ -46,12 +49,12 @@
  <!--Main Page-->
  <section id="mp">
  <div class="container">
-     <h1 class="head2" align="center">FUNCTIONALITY</h1>
+     <h1 class="head" align="center">FUNCTIONALITY</h1>
        
   <div class="row">
     <div class="col md-6 sm-6 lg-6">
          <div class="float-left">
-             <h2 style="font-family:'Bree Serif', serif; color:  #00796b ;" align="center">Student</h2>
+             <h2 class="head2" align="center">Student</h2>
              <div  id="studcontainer"> 
              <img src="img/student.png" class="image" >
                 <div class="middle">
@@ -89,7 +92,7 @@
       
     <div class="col md-6 sm-6 lg-6">
         <div class ="float-right">
-            <h2 class="head1" align="center">Faculty</h2>
+            <h2 class="head2" align="center">Faculty</h2>
            <div  id="faccontainer">  
               <img src="img/fac.png" class="image1" >
                <div class="middle1">
@@ -121,7 +124,7 @@
         </button>
       </div>
       <div class="modal-body">
-                 <form>
+                 <form  action="./Adminlogin" method="post">
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
@@ -606,7 +609,58 @@
     </div>
   </div>
 </div> 
+
+ <!--Placement-->
+
+ <section id="placement">
+      <h1 class="head" align="center">PLACEMENTS</h1>
+      <div class="container">
+       
+         
+    
+       
+         <form action="./Placementadmin" method="post">  
+                <div class="form-row">
+                            <div class=" col-md-6 offset-md-3 ">
+                            <label for="cname"></label>    
+                            <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name">
+                            </div> 
+                             <div class="col-md-6 offset-md-3 ">
+                                 <label for="Ccode"></label>
+                             <input type="text" class="form-control" id="Ccode" name="ccode" placeholder="Company Code">
+                            </div> 
+                            <div class=" col-md-6 offset-md-3 ">
+                                   <label for="Ctier"></label>
+                             <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier">
+                            </div> 
+                             <div class=" col-md-6 offset-md-3 ">
+                                   <label for="Cbranch"></label>
+                             <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches">
+                            </div> 
+                   
+                            <div class="col-md-6 offset-md-3 " style="padding-top: 20px;"  >
+                                     
+                                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                              </div>
+                
+                           <!---image-->
+                           <div class="img col-md-3 ">
+                               <img src="img/placement.png">
+                           </div>
+                     </div>
+               </form>
+        
+             
+     
+        
+ </div>
+        
  
+ </section>
+  
+  
+  
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

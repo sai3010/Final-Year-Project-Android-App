@@ -9,10 +9,8 @@ import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author saipr
+ * @author DELL
  */
-public class Adminlogin extends HttpServlet {
+public class Placementadmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,29 +32,22 @@ public class Adminlogin extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher rd=null;
         DBQuery db= new DBQuery();
-        try (PrintWriter out = response.getWriter()) 
-                {
-              /*adminlogin page*/
-              String  uname =request.getParameter("uname");
-                    System.out.println("uname = " + uname);
-              String pass= request.getParameter("pass");
-                    System.out.println("pass = " + pass);
-
-                   String[] details=db.get_admin_login_data(uname);
-                      System.out.println(details[0]);
-                      System.out.println(details[1]);
-                        if(pass.equals(details[1]))
-                   {
-                       System.out.println("passwords match");
-                       rd=request.getRequestDispatcher("home.jsp");
-                       rd.forward(request, response);
-                   }
-                        
-                      }
+        try (PrintWriter out = response.getWriter()) {
+           String  cname =request.getParameter("cname");   
+            String  cbranch =request.getParameter("cbranch");
+             String  ctier =request.getParameter("ctier");
+              String  ccode=request.getParameter("ccode");
+              
+              System.out.println("ccode = " + ccode);
+              System.out.println("cname = " + cname);
+                 int i=db.add_placement_data(ccode,cname,ctier);
+                 int j = db.add_placements_data(ccode,cbranch);
+            
+            
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,19 +57,17 @@ public class Adminlogin extends HttpServlet {
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws java.sql.SQLException
-     * @throws IOException if an I/O  
-     * error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Adminlogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Adminlogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Placementadmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Placementadmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -95,10 +84,10 @@ public class Adminlogin extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Adminlogin.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Adminlogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Placementadmin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Placementadmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

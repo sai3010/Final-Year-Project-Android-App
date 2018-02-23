@@ -108,7 +108,42 @@ public class DBQuery {
         return cname;
     }
 
-    
+    public String [] get_admin_login_data(String uname) throws ClassNotFoundException, SQLException
+    {
+         String [] val= new String[2];
+		con=DBConnection.getDBConn();
+		st= con.createStatement();
+		String query="select * from admin_information where uname='"+uname+"'";
+		rs= st.executeQuery(query);
+		while(rs.next())
+		{
+			val[0]= rs.getString("password");
+                        val[1]=rs.getString("uname");
+                }
+		
+		con.close();
+		return val;
+        
+    }
+
+    public int add_placement_data(String ccode, String cname, String ctier) throws SQLException, ClassNotFoundException {
+                    con= DBConnection.getDBConn();
+                    st= con.createStatement();
+                    String query = "insert into company_details values('"+ccode+"','"+cname+"','"+ctier+"')"; 
+                   int i= st.executeUpdate(query);
+                    con.close();
+                    return i;
+       }
+
+    public int add_placements_data(String ccode, String cbranch) throws ClassNotFoundException, SQLException {
+  con= DBConnection.getDBConn();
+                    st= con.createStatement();
+                    String query = "insert into ctype('"+ccode+"','"+cbranch+"')"; 
+                    int i= st.executeUpdate(query);
+                    con.close();
+                    return i;
+    }
+  
     
     
     
