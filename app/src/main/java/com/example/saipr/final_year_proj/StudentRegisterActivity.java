@@ -85,9 +85,9 @@ public class StudentRegisterActivity extends AppCompatActivity {
         sem.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasfocus) {
-                if(sem.getText().length()>1)
+                if(sem.getText().length()>fac)
                 {
-                    sem.setError("Sem cannot exceed 1 char");
+                    sem.setError("Sem cannot exceed fac char");
                 }
             }
         });
@@ -164,7 +164,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
         m=mCurrentDate.get(Calendar.MONTH);
         y=mCurrentDate.get(Calendar.YEAR);
 
-        m= m+1;
+        m= m+fac;
         t.setText(d+"/"+m+"/"+y);
 
         t.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +173,7 @@ public class StudentRegisterActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(StudentRegisterActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        monthOfYear=monthOfYear+1;
+                        monthOfYear=monthOfYear+fac;
                         t.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
                     }
                 },y,m,d);

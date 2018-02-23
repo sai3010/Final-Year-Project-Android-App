@@ -82,17 +82,17 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="110dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/attend" />
+                        android:src="@drawable/facatt" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="Attendence"
-                        android:layout_marginTop="10dp"
+                        android:text="Attendance"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textStyle="bold" />
@@ -124,17 +124,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/marks"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_width="149dp"
+                        android:layout_height="108dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/facmarks" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Marks"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textStyle="bold"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="5dp"
                         android:textColor="@android:color/black"
                         android:textAlignment="center"
                         android:layout_gravity="center"/>
@@ -148,19 +148,17 @@
             <!--row2-->
 
 
-
             <android.support.v7.widget.CardView
+                android:id="@+id/facnotes"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                app:cardElevation="20dp"
+                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                android:id="@+id/facnotes"
-                >
+                app:cardElevation="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -169,19 +167,20 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/notes" />
+                        android:layout_width="130dp"
+                        android:layout_height="112dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/facnotes" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Notes"
-                        android:textColor="@android:color/black"
+                        android:layout_gravity="center"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textStyle="bold"
+                        android:text="Notes"
                         android:textAlignment="center"
-                        android:layout_gravity="center"/>
-
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -206,22 +205,23 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
                     android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="87dp"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/placement"
-                        />
+                        android:src="@drawable/facpush" />
+
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Push Updates"
-                        android:textColor="@android:color/black"
+                        android:layout_height="43dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textStyle="bold"
-                        android:layout_marginTop="5dp"
+                        android:text="Push Updates"
                         android:textAlignment="center"
-                        android:layout_gravity="center"/>
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
