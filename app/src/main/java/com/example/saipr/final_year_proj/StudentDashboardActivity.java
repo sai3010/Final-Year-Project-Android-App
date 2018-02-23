@@ -28,6 +28,10 @@ import android.widget.Toast;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -50,6 +54,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     TextView usntxt;
     ImageButton imgbtn= null;
     CardView placement;
+    Uri selectedFileUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -192,25 +197,33 @@ public class StudentDashboardActivity extends AppCompatActivity
                 }
 
 
-                Uri selectedFileUri = data.getData();
+                selectedFileUri = data.getData();
                 selectedFilePath = FilePath.getPath(this, selectedFileUri);
                 Toast.makeText(StudentDashboardActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
-//                    tvFileName.setText(selectedFilePath);
-                    Toast.makeText(this, "== "+selectedFilePath, Toast.LENGTH_LONG).show();
+
+
                     if (selectedFilePath != null) {
                         dialog = ProgressDialog.show(StudentDashboardActivity.this, "", "Uploading File...", true);
-
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                //creating new thread to handle Http Operations
-
-                                uploadFile(selectedFilePath);
-                            }
-                        }).start();
+                        try {
+                            boolean bool=
+                                    copyFile(selectedFilePath,getExternalCacheDir()+usn+".png");
+                            imgbtn.setImageURI(selectedFileUri);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        if(true)
+                        {
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+//creating new thread to handle Http Operations
+                                    uploadFile(getExternalCacheDir()+usn+".png");
+                                }
+                            }).start();
+                        }
                     } else {
                         Toast.makeText(StudentDashboardActivity.this, "Please choose a File First", Toast.LENGTH_SHORT).show();
                     }
@@ -220,6 +233,30 @@ public class StudentDashboardActivity extends AppCompatActivity
             }
         }
     }
+
+    private boolean copyFile(String srcPath,String destPath) throws IOException {
+        boolean bool= false;
+        File srcfile =new File(srcPath);
+        File destfile =new File(destPath);
+//Create a new file and copy the content of old file.
+        InputStream in = new FileInputStream(srcfile);
+        OutputStream out = new FileOutputStream(destfile);
+// Transfer bytes from in to out
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+        if(destfile.length() == srcfile.length())
+
+        {
+            bool= true;
+        }
+        return bool;
+    }
+
     public void uploadFile(String sourceFileUri) {
         String serverResponseMessage="";
 

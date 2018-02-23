@@ -21,6 +21,10 @@ import android.widget.Toast;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -85,21 +89,50 @@ public class FacNotesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (selectedFilePath != null) {
                     dialog = ProgressDialog.show(FacNotesActivity.this, "", "Uploading File...", true);
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            //creating new thread to handle Http Operations
-
-                            uploadFile(selectedFilePath);
-                        }
-                    }).start();
+                    try {
+                        boolean bool= copyFile(selectedFilePath,getExternalCacheDir()+usn+".pdf");
+                        //imgbtn.setImageURI(selectedFileUri);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if(true)
+                    {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+//creating new thread to handle Http Operations
+                                uploadFile(getExternalCacheDir()+usn+".pdf");
+                            }
+                        }).start();
+                    }
                 } else {
                     Toast.makeText(FacNotesActivity.this, "Please choose a File First", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+    }
+    private boolean copyFile(String srcPath,String destPath) throws IOException {
+        boolean bool= false;
+        File srcfile =new File(srcPath);
+        File destfile =new File(destPath);
+//Create a new file and copy the content of old file.
+        InputStream in = new FileInputStream(srcfile);
+        OutputStream out = new FileOutputStream(destfile);
+// Transfer bytes from in to out
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+        if(destfile.length() == srcfile.length())
+
+        {
+            bool= true;
+        }
+        return bool;
     }
     private void showFileChooser() {
         Intent intent = new Intent();
@@ -186,13 +219,13 @@ public class FacNotesActivity extends AppCompatActivity {
             conn.setRequestProperty("ENCTYPE", "multipart/form-data");
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
             conn.setRequestProperty("uploaded_file", fileName);
-            conn.setRequestProperty("usn",usn);
+
             dos = new DataOutputStream(conn.getOutputStream());
 
             dos.writeBytes(twoHyphens + boundary + lineEnd);
             //dos.writeUTF("Content-Disposition: form-data; name=\"lat\";lat=\""+ lat + "\"" + lineEnd);
             //  dos.writeUTF(lon);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\";usn=\"" + fileName + "\"" + lineEnd+ "\"" + usn);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\"" + fileName + "\"" + lineEnd);
 
             dos.writeBytes(lineEnd);
 
