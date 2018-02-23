@@ -64,14 +64,7 @@ public class UploadData extends HttpServlet {
                 fPath = fileDir+filePath;
                 System.out.println("::::::::::::-"+filePath);
                 System.out.println("::::::::::::="+fPath);
-                
-                File f=new File(fPath);
-                Image image = ImageIO.read(f);
-                BufferedImage cpimg=bufferImage(image);
-
-                Graphics g = cpimg.createGraphics();
-                File f1 = new File("C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/profile_photos/renamed photos/"+usn+".png");
-                ImageIO.write(cpimg, "png", f1);
+              
 
             }
             
