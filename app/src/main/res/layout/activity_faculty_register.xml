@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:text="FACULTY REGISTERATION"
+        android:text="FACULTY REGISTRATION"
         android:textAlignment="center"
         android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
