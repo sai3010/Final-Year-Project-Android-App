@@ -20,7 +20,7 @@ public class RegisterMainActivity extends AppCompatActivity {
         regfac=findViewById(R.id.regfac);
 
 
-      
+
 
 
         regstud.setOnClickListener(new View.OnClickListener() {

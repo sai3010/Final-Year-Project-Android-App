@@ -37,7 +37,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class StudentDashboardActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -92,7 +92,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-}
+    }
 
     @Override
     public void onBackPressed() {

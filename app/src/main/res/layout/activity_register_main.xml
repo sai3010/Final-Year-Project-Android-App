@@ -19,32 +19,32 @@
         android:textSize="30sp"
         android:layout_gravity="center"
         android:textStyle="bold" />
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_margin="30sp"
-   >
-    <ImageView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180sp"
-        android:src="@drawable/faculty"
-        />
+        android:orientation="horizontal"
+        android:layout_margin="30sp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180sp"
+            android:src="@drawable/faculty"
+            />
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/student"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/student"/>
 
-</RelativeLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-       android:layout_margin="20sp"
+        android:layout_margin="20sp"
         >
         <Button
             android:id="@+id/regfac"
@@ -57,19 +57,19 @@
             android:textColor="#fafafa"
             android:textSize="20dp"
             android:text="Faculty" />
-    <Button
-        android:id="@+id/regstud"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textStyle="bold"
+        <Button
+            android:id="@+id/regstud"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
 
-        android:background="@drawable/button"
-        android:textColor="#fafafa"
-        android:textSize="20dp"
-        android:text="Student"
-        android:textAlignment="center"
-        />
+            android:background="@drawable/button"
+            android:textColor="#fafafa"
+            android:textSize="20dp"
+            android:text="Student"
+            android:textAlignment="center"
+            />
 
 
 

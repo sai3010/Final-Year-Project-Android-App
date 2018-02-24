@@ -19,7 +19,7 @@
         android:textStyle="bold"
         android:textColor="#424242 "
         android:textSize="30sp"
-       />
+        />
 
     <EditText
         android:id="@+id/usn"

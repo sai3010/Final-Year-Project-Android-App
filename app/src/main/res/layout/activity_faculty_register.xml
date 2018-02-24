@@ -8,52 +8,52 @@
     android:scrollbars="none"
     android:orientation="vertical"
     tools:context="com.example.saipr.final_year_proj.FacultyRegisterActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/registertxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:text="FACULTY REGISTRATION"
-        android:textAlignment="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textStyle="bold"
-        android:textColor="#424242 "
-        android:textSize="30sp"
-        />
-
-
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-    <EditText
-        android:id="@+id/fnametxt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="First Name"
-        android:width="160dp"
-        android:inputType="textPersonName"
-        android:textColor="#828383"/>
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/lnametxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Last Name"
-        android:width="160dp"
-        android:inputType="textPersonName"
-        android:textColor="#828383"/>
+        <TextView
+            android:id="@+id/registertxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="FACULTY REGISTRATION"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:textColor="#424242 "
+            android:textSize="30sp"
+            />
 
 
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/fnametxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:width="160dp"
+                android:inputType="textPersonName"
+                android:textColor="#828383"/>
+
+            <EditText
+                android:id="@+id/lnametxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:width="160dp"
+                android:inputType="textPersonName"
+                android:textColor="#828383"/>
+
+
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/usntxt"
@@ -65,119 +65,119 @@
             android:textColor="#828383" />
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <Spinner
-        android:id="@+id/qual_drop"
-        android:layout_width="200dp"
-        android:layout_height="36dp"
-        android:dropDownWidth="200dp"
-        android:prompt="@string/spinner_title"/>
-
-        <TextView
-            android:id="@+id/dob"
-            android:layout_width="40dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:text="DOB" />
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/qual_drop"
+                android:layout_width="200dp"
+                android:layout_height="36dp"
+                android:dropDownWidth="200dp"
+                android:prompt="@string/spinner_title"/>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="150dp"
+            <TextView
+                android:id="@+id/dob"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="DOB" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+
+            />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:orientation="horizontal">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/rgrp">
 
 
-        />
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="rbclick"
+                    android:checked="true"
+                    android:text="MALE" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="rbclick"
+                    android:text="FEMALE" />
+            </RadioGroup>
+        </LinearLayout>
+
+
+
+
+        <EditText
+            android:id="@+id/phonetxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:textColor="#828383" />
+
+        <EditText
+            android:id="@+id/emailtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/addresstxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:inputType="textPostalAddress"
+            android:textColor="#828383" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/cpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="SUBMIT"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:background="@drawable/button"
+            android:textColor="#fafafa"
+            android:textSize="20dp"
+            android:width="250dp"/>
     </LinearLayout>
-
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:id="@+id/rgrp">
-
-
-        <RadioButton
-            android:id="@+id/male"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:onClick="rbclick"
-            android:checked="true"
-            android:text="MALE" />
-
-        <RadioButton
-            android:id="@+id/female"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="rbclick"
-            android:text="FEMALE" />
-    </RadioGroup>
-</LinearLayout>
-
-
-
-
-    <EditText
-        android:id="@+id/phonetxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone"
-        android:inputType="phone"
-        android:textColor="#828383" />
-
-    <EditText
-        android:id="@+id/emailtxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/addresstxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Address"
-        android:inputType="textPostalAddress"
-        android:textColor="#828383" />
-
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/cpass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="SUBMIT"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textStyle="bold"
-        android:background="@drawable/button"
-        android:textColor="#fafafa"
-        android:textSize="20dp"
-        android:width="250dp"/>
-</LinearLayout>
 </ScrollView>

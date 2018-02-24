@@ -147,21 +147,21 @@ public class FacultyRegisterActivity extends AppCompatActivity {
                     Toast.makeText(FacultyRegisterActivity.this,"Fill in all the fields",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                        if (!studpass.equals(studcpass)) {
-                            pass.setError("Password Mismatch");
-                            cpass.setError("Password Mismatch");
-                        } else {
-                            try {
-                                send_data();
-                                Toast.makeText(FacultyRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                    if (!studpass.equals(studcpass)) {
+                        pass.setError("Password Mismatch");
+                        cpass.setError("Password Mismatch");
+                    } else {
+                        try {
+                            send_data();
+                            Toast.makeText(FacultyRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
                 }
+            }
 
         });
 
