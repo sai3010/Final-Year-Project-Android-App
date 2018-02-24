@@ -41,7 +41,7 @@ public class UploadData extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
         ServletContext context = getServletContext();
-    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/profile_photos/";
+    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/studprofile_photos";
     String usn="image";
     String paramname=null,fname="",file="",filePath="";
     
