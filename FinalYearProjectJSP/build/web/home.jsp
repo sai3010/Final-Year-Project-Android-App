@@ -16,6 +16,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/home.css"/>
     <title>ADMIN</title>
   </head>
@@ -25,8 +26,8 @@
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      <a href="#">Functionality</a>
-                      <a href="#">Placements</a>
+                      <a href="#mp">Functionality</a>
+                      <a href="#placement">Placements</a>
                       <a href="#">Clients</a>
                       <a href="#">Contact</a>
                     </div>
@@ -158,13 +159,17 @@
                                   </select>
                                 </div>
                           
-                                <div class="custom-control custom-radio custom-control-inline float-right">
-  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline1">MALE</label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+                   <div class="form-check">
+                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                            MALE
+                            </label>
+                   </div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    FEMALE
+  </label>
 </div>
                     
                          </div>     
@@ -307,13 +312,17 @@
                                   </select>
                                 </div>
                           
-                                <div class="custom-control custom-radio custom-control-inline float-right">
-  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline1">MALE</label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+                <div class="form-check">
+                       <input class="form-check-input" type="radio" name="exampleRadios" id="add_student_male" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                            MALE
+                            </label>
+                   </div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="add_student_female" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    FEMALE
+  </label>
 </div>
                     
                          </div>     
@@ -454,13 +463,17 @@
                                   </select>
                                 </div>
                           
-                                <div class="custom-control custom-radio custom-control-inline float-right">
-  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline1">MALE</label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+                                         <div class="form-check">
+                       <input class="form-check-input" type="radio" name="exampleRadios" id="add_faculty_male" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                            MALE
+                            </label>
+                   </div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="add_faculty_female" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    FEMALE
+  </label>
 </div>
                     
                          </div>     
@@ -555,13 +568,17 @@
                                   </select>
                                 </div>
                           
-                                <div class="custom-control custom-radio custom-control-inline float-right">
-  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline1">MALE</label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-  <label class="custom-control-label" for="customRadioInline2">FEMALE</label>
+                                            <div class="form-check">
+                       <input class="form-check-input" type="radio" name="exampleRadios" id="update_faculty_male" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                            MALE
+                            </label>
+                   </div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="update_faculty_female" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    FEMALE
+  </label>
 </div>
                     
                          </div>     
@@ -613,52 +630,42 @@
  <!--Placement-->
 
  <section id="placement">
-      <h1 class="head" align="center">PLACEMENTS</h1>
-      <div class="container">
-       
-         
-    
-       
-         <form action="./Placementadmin" method="post">  
-                <div class="form-row">
-                            <div class=" col-md-6 offset-md-3 ">
-                            <label for="cname"></label>    
-                            <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name">
-                            </div> 
-                             <div class="col-md-6 offset-md-3 ">
-                                 <label for="Ccode"></label>
-                             <input type="text" class="form-control" id="Ccode" name="ccode" placeholder="Company Code">
-                            </div> 
-                            <div class=" col-md-6 offset-md-3 ">
-                                   <label for="Ctier"></label>
-                             <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier">
-                            </div> 
-                             <div class=" col-md-6 offset-md-3 ">
-                                   <label for="Cbranch"></label>
-                             <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches">
-                            </div> 
-                   
-                            <div class="col-md-6 offset-md-3 " style="padding-top: 20px;"  >
-                                     
-                                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                              </div>
+    <h1 class="head" align="center">PLACEMENTS</h1>
+    <div class="container">      
+        <form action="./Placementadmin" method="post">  
+            <div class="form-row">
+                <div class=" col-md-6 offset-md-3 ">
+                    <label for="cname"></label>    
+                    <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name">
+                </div> 
+                <div class="col-md-6 offset-md-3 ">
+                    <label for="Ccode"></label>
+                    <input type="text" class="form-control" id="Ccode" name="ccode" placeholder="Company Code">
+                </div> 
+                <div class=" col-md-6 offset-md-3 ">
+                    <label for="Ctier"></label>
+                    <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier">
+                </div> 
+                <div class=" col-md-6 offset-md-3 ">
+                    <label for="Cbranch"></label>
+                    <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches">
+                </div> 
+               
+                <div class="col-md-6 offset-md-3 " style="padding-top: 20px;">                 
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
                 
-                           <!---image-->
-                           <div class="img col-md-3 ">
-                               <img src="img/placement.png">
-                           </div>
-                     </div>
-               </form>
-        
-             
-     
-        
- </div>
-        
- 
+                <!---image-->
+                <div class="img col-md-3 ">
+                    <img src="img/placement.png" alt="placement">
+                </div>
+            </div>
+        </form>        
+    </div>
  </section>
-  
-  
+ 
+ <!--back to top button-->
+ <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">keyboard_arrow_up</i></button>
   
   
     <!-- Optional JavaScript -->

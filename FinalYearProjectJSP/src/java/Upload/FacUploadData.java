@@ -41,10 +41,7 @@ public class FacUploadData extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             //ServletContext context = getServletContext();
-            String facusn=request.getParameter("fusn");
-            System.out.println("fusn = " + facusn);
-            String facsem=request.getParameter("fsem");
-            System.out.println("fsem = " + facsem);
+            
             out.print("Success");
     String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/cse/";
     String usn="image";
@@ -70,14 +67,15 @@ public class FacUploadData extends HttpServlet {
                 System.out.println("::::::::::::-"+filePath);
                 System.out.println("::::::::::::="+fPath);
                 
-                File f=new File(fPath);
-                Image image = ImageIO.read(f);
-                BufferedImage cpimg=bufferImage(image);
+//                File f=new File(fPath);
+//                Image image = ImageIO.read(f);
+//                BufferedImage cpimg=bufferImage(image);
+//
+//                Graphics g = cpimg.createGraphics();
+//                File f1 = new File("C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/profile_photos/renamed photos/"+usn+".png");
+//                ImageIO.write(cpimg, "png", f1);
 
-                Graphics g = cpimg.createGraphics();
-                File f1 = new File("C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/profile_photos/renamed photos/"+usn+".png");
-                ImageIO.write(cpimg, "png", f1);
-
+                
             }
             
         }
