@@ -199,7 +199,7 @@
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line 1">
   </div>
   
   
@@ -352,7 +352,7 @@
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line 1">
   </div>
   
   
@@ -493,7 +493,7 @@
     <div class="form-row">
          <div class="form-group col-md-8">
       
-        <input type="text"  class="form-control" id="sem" placeholder="Qualificatin">
+        <input type="text"  class="form-control" id="sem" placeholder="Qualification">
     </div>
     <div class="form-group col-md-4">
       
@@ -598,7 +598,7 @@
     <div class="form-row">
          <div class="form-group col-md-8">
       
-        <input type="text"  class="form-control" id="sem" placeholder="Qualificatin">
+        <input type="text"  class="form-control" id="sem" placeholder="Qualification">
     </div>
     <div class="form-group col-md-4">
       
@@ -609,7 +609,7 @@
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line 1">
   </div>
   
   
@@ -664,8 +664,7 @@
     </div>
  </section>
  
- <!--back to top button-->
- <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">keyboard_arrow_up</i></button>
+
   
   
     <!-- Optional JavaScript -->
