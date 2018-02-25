@@ -69,10 +69,10 @@ public class DBQuery {
 		con.close();
 		return i;
     }
-    public int add_fac_data(String fname,String lname, String usn, String qual, String email, String address, String pass, String phone, String dob, String gender) throws ClassNotFoundException, SQLException {
+    public int add_fac_data(String fname,String lname, String usn, String qual, String email, String address, String pass, String phone, String dob, String gender,String branch) throws ClassNotFoundException, SQLException {
                 con= DBConnection.getDBConn();
 		st= con.createStatement();
-		String query="insert into faculty_information values('"+fname+"','"+lname+"','"+usn+"','"+qual+"','"+email+"','"+address+"','"+pass+"','"+phone+"','"+dob+"','"+gender+"')";
+		String query="insert into faculty_information values('"+fname+"','"+lname+"','"+usn+"','"+qual+"','"+email+"','"+address+"','"+pass+"','"+phone+"','"+dob+"','"+gender+"','"+branch+"')";
 		int i= st.executeUpdate(query);
 		con.close();
 		return i;

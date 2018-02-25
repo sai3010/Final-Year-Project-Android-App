@@ -429,48 +429,52 @@
         </button>
       </div>
       <div class="modal-body">
-                <form>
+          <form action="./Functionality" method="post">
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                            <input type="text" class="form-control" placeholder="First name">
+                               <input type="text" class="form-control" name="addfacfirstname" placeholder="First name">
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" placeholder="Last name">
+                               <input type="text" class="form-control" name="addfaclastname" placeholder="Last name">
                           </div>
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                                <input type="text" class="form-control" id="usn" name="addfacusn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-5">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control"  placeholder="DOB">
+                                        <input type="date" class="form-control" name="addfacdob" placeholder="DOB">
                                </div>
                         </div>
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="addfacbranch">
                                     <option selected>Branch</option>
-                                    <option value="1">CSE</option>
-                                    <option value="2">ISE</option>
-                                    <option value="3">ECE</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ISE">ISE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="CIV">CIV</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="EEE">EEE</option>
                                   </select>
                                 </div>
                           
                                          <div class="form-check">
-                       <input class="form-check-input" type="radio" name="exampleRadios" id="add_faculty_male" value="option1" checked>
+                       <input class="form-check-input" type="radio" name="addfacgender"  id="add_faculty_male" value="MALE" checked>
                             <label class="form-check-label" for="exampleRadios1">
                             MALE
                             </label>
                    </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="add_faculty_female" value="option2">
+  <input class="form-check-input" type="radio" name="addfacgender" id="add_faculty_female" value="FEMALE">
   <label class="form-check-label" for="exampleRadios2">
     FEMALE
   </label>
@@ -481,11 +485,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="addfacemail" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="addfacpassword" placeholder="Password">
     </div>
   </div>
   
@@ -493,31 +497,30 @@
     <div class="form-row">
          <div class="form-group col-md-8">
       
-        <input type="text"  class="form-control" id="sem" placeholder="Qualificatin">
+        <input type="text"  class="form-control" id="sem" name="addfacqual" placeholder="Qualification">
     </div>
     <div class="form-group col-md-4">
       
-      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+      <input type="phone" class="form-control" id="phone" name="addfacphone" placeholder="Phone">
     </div>
    
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" id="inputAddress" name="addfacadd1" placeholder="Address">
   </div>
   
   
-  <div class="form-group">
-         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
-  </div>
-                
-               </form>
-      </div>
-      <div class="modal-footer">
+  
+               <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary btn-md" value="Submit">Submit</button>
       </div>
+                
+ </form>
+      </div>
+     
     </div>
   </div>
 </div> 
