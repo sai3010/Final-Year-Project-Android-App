@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RegisterAndroid;
+package Admin;
 
 import db.DBQuery;
 import java.io.IOException;
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author saipr
+ * @author spoorthi s
  */
-public class FacultyRegister extends HttpServlet {
+public class Updatestudent extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,35 +32,23 @@ public class FacultyRegister extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
+        DBQuery db=new DBQuery();
         try (PrintWriter out = response.getWriter()) {
-           String fname=request.getParameter("studfname");
-           String lname=request.getParameter("studlname");
-           String usn=request.getParameter("studusn");
-           String email=request.getParameter("studemail");
-           String address=request.getParameter("studaddress");
-           String pass=request.getParameter("studpass");
-           String phone=request.getParameter("studphone");
-           String dob=request.getParameter("studdob");
-           String gender=request.getParameter("studgender");
-           String qual=request.getParameter("qualification");
-           String branch= "CSE";
-           DBQuery db= new DBQuery();
-            try {
-                int i =db.add_fac_data(fname,lname ,usn,qual,email,address,pass,phone,dob,gender,branch);
-                if(i==1)
-                {
-                    out.print("ok");
-                }
-                else
-                {
-                    out.print("notok");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+                String firstname=request.getParameter("fname");
+                String lastname=request.getParameter("lname");
+                String usn=request.getParameter("usn");
+                String dob=request.getParameter("dob");
+                String branch=request.getParameter("branch");
+                String gender=request.getParameter("studgender");
+                String email=request.getParameter("email");
+                String password=request.getParameter("password");
+                String add1=request.getParameter("address");
+                String phone=request.getParameter("phone");
+                String sem=request.getParameter("sem");
+                
+                int i= db.update_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,dob,gender,branch);
         }
     }
 
@@ -78,10 +66,10 @@ public class FacultyRegister extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -98,10 +86,10 @@ public class FacultyRegister extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

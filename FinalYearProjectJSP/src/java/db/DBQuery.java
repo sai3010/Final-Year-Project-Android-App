@@ -69,10 +69,10 @@ public class DBQuery {
 		con.close();
 		return i;
     }
-    public int add_fac_data(String fname,String lname, String usn, String qual, String email, String address, String pass, String phone, String dob, String gender) throws ClassNotFoundException, SQLException {
+    public int add_fac_data(String fname,String lname, String usn, String qual, String email, String address, String pass, String phone, String dob, String gender,String branch) throws ClassNotFoundException, SQLException {
                 con= DBConnection.getDBConn();
 		st= con.createStatement();
-		String query="insert into faculty_information values('"+fname+"','"+lname+"','"+usn+"','"+qual+"','"+email+"','"+address+"','"+pass+"','"+phone+"','"+dob+"','"+gender+"')";
+		String query="insert into faculty_information values('"+fname+"','"+lname+"','"+usn+"','"+qual+"','"+email+"','"+address+"','"+pass+"','"+phone+"','"+dob+"','"+gender+"','"+branch+"')";
 		int i= st.executeUpdate(query);
 		con.close();
 		return i;
@@ -143,7 +143,38 @@ public class DBQuery {
                     con.close();
                     return i;
     }
-  
+
+    public int update_fac_data(String firstname, String lastname, String usn, String qual, String email, String add1, String password, String phone, String dob, String gender, String branch) throws SQLException, ClassNotFoundException {
+                  con= DBConnection.getDBConn();
+                    st= con.createStatement();
+                    
+                    String query ="update  faculty_information set firstname='"+firstname+"',lastname='"+lastname+"',qual='"+qual+"',email='"+email+"',address='"+add1+"',password='"+password+"',dob='"+dob+"',gender='"+gender+"',branch='"+branch+"' where usn='"+usn+"'";
+                     int i= st.executeUpdate(query);
+                    con.close();
+                    return i;    
+    }
+
+    public int delete_fac_data(String usn) throws ClassNotFoundException, SQLException {
+                con= DBConnection.getDBConn();
+		st= con.createStatement();
+		String query= "delete from faculty_information where usn='"+usn+"'";
+                int i= st.executeUpdate(query);
+		
+                con.close();
+		return i;
+		
+        
+    }
+    public int update_stud_data(String firstname, String lastname, String usn, String sem, String email, String add1, String password, String phone, String dob, String gender, String branch) throws SQLException, ClassNotFoundException {
+                  con= DBConnection.getDBConn();
+                  st= con.createStatement();                    
+                    String query ="update  student_information set firstname='"+firstname+"',lastname='"+lastname+"',sem='"+sem+"',email='"+email+"',address='"+add1+"',password='"+password+"',dob='"+dob+"',gender='"+gender+"',branch='"+branch+"' where usn='"+usn+"'";
+                     int i= st.executeUpdate(query);
+                    con.close();
+                    return i;    
+    }
+
+    	
     
     
     

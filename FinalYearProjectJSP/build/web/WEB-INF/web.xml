@@ -32,6 +32,26 @@
         <servlet-name>FacUploadData</servlet-name>
         <servlet-class>Upload.FacUploadData</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Functionality</servlet-name>
+        <servlet-class>Admin.Functionality</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Updatefaculty</servlet-name>
+        <servlet-class>Admin.Updatefaculty</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Deletefaculty</servlet-name>
+        <servlet-class>Admin.Deletefaculty</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Addstudent</servlet-name>
+        <servlet-class>Admin.Addstudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Updatestudent</servlet-name>
+        <servlet-class>Admin.Updatestudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -63,6 +83,26 @@
     <servlet-mapping>
         <servlet-name>FacUploadData</servlet-name>
         <url-pattern>/FacUploadData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Functionality</servlet-name>
+        <url-pattern>/Functionality</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Updatefaculty</servlet-name>
+        <url-pattern>/Updatefaculty</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deletefaculty</servlet-name>
+        <url-pattern>/Deletefaculty</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Addstudent</servlet-name>
+        <url-pattern>/Addstudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Updatestudent</servlet-name>
+        <url-pattern>/Updatestudent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
