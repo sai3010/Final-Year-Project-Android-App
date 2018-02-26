@@ -54,7 +54,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
-    CardView facnotes;
+    CardView facnotes,markscard;
     Intent intent;
     ImageView imgv=null;
     Uri selectedFileUri;
@@ -68,6 +68,16 @@ public class FacultyDashboardActivity extends AppCompatActivity
         email = getIntent().getExtras().getString("email");
         usn = getIntent().getExtras().getString("usn");
 
+        /*marks card click*/
+        markscard=findViewById(R.id.markscard);
+        markscard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent=new Intent(FacultyDashboardActivity.this,FacMarksActivity.class);
+                intent.putExtra("usn",usn);
+                startActivity(intent);
+            }
+        });
 
         /*fac notes navigation*/
         facnotes=findViewById(R.id.facnotes);
