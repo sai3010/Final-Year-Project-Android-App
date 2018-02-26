@@ -125,48 +125,54 @@
         </button>
       </div>
       <div class="modal-body">
-                 <form  action="./Adminlogin" method="post">
+                 <form  action="./Updatestudent" method="post">
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                            <input type="text" class="form-control" placeholder="First name">
+                            <input type="text" class="form-control" name="fname" placeholder="First name">
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" placeholder="Last name">
+                            <input type="text" class="form-control" name="lname" placeholder="Last name">
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN">
                             </div>
                             
                               <div class="form-group col-md-4">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control"  placeholder="DOB">
+                                        <input type="date" class="form-control" name="dob"  placeholder="DOB">
                                </div>
                         </div>
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                  <select class="custom-select mr-sm-2" name="branch" id="inlineFormCustomSelect">
                                     <option selected>Branch</option>
-                                    <option value="1">CSE</option>
-                                    <option value="2">ISE</option>
-                                    <option value="3">ECE</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ISE">ISE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="CIV">CIV</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="EEE">EEE</option>
+                                    
+                                    
                                   </select>
                                 </div>
                           
                    <div class="form-check">
-                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                       <input class="form-check-input" type="radio" name="studgender" id="exampleRadios1" value="MALE" checked>
                             <label class="form-check-label" for="exampleRadios1">
                             MALE
                             </label>
                    </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <input class="form-check-input" type="radio" name="studgender" id="exampleRadios2" value="FEMALE">
   <label class="form-check-label" for="exampleRadios2">
     FEMALE
   </label>
@@ -177,11 +183,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
     </div>
   </div>
   
@@ -189,30 +195,26 @@
     <div class="form-row">
     <div class="form-group col-md-8">
       
-      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+      <input type="phone" class="form-control" name="phone" id="phone" placeholder="Phone">
     </div>
     <div class="form-group col-md-3">
       
-        <input type="number" min="1" max="8" class="form-control" id="sem" placeholder="Sem">
+        <input type="number" min="1" max="8" class="form-control" name="sem" id="sem" placeholder="Sem">
     </div>
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" name="address" id="inputAddress" placeholder="Address">
   </div>
-  
-  
-  <div class="form-group">
-         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
-  </div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="Submit" class="btn btn-primary">Save Changes</button>
+      </div>
                 
                </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save Changes</button>
-      </div>
+      
     </div>
   </div>
 </div> 
@@ -278,48 +280,52 @@
         </button>
       </div>
       <div class="modal-body">
-                <form>
+                <form action="./Addstudent" method="post">
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                            <input type="text" class="form-control" placeholder="First name">
+                               <input type="text" class="form-control" name="firstname" placeholder="First name">
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" placeholder="Last name">
+                               <input type="text" class="form-control" name="lastname" placeholder="Last name">
                           </div>
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-7">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                                <input type="text" class="form-control" id="usn"  name="usn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-5">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control"  placeholder="DOB">
+                                        <input type="date" class="form-control" name="dob" placeholder="DOB">
                                </div>
                         </div>
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="branch">
                                     <option selected>Branch</option>
-                                    <option value="1">CSE</option>
-                                    <option value="2">ISE</option>
-                                    <option value="3">ECE</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ISE">ISE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="CIV">CIV</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="EEE">EEE</option>
                                   </select>
                                 </div>
                           
                 <div class="form-check">
-                       <input class="form-check-input" type="radio" name="exampleRadios" id="add_student_male" value="option1" checked>
+                       <input class="form-check-input" type="radio" name="addstudentgender" id="add_student_male" value="MALE" checked>
                             <label class="form-check-label" for="exampleRadios1">
                             MALE
                             </label>
                    </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="add_student_female" value="option2">
+  <input class="form-check-input" type="radio" name="addstudentgender" id="add_student_female" value="FEMALE">
   <label class="form-check-label" for="exampleRadios2">
     FEMALE
   </label>
@@ -330,11 +336,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
     </div>
   </div>
   
@@ -342,30 +348,29 @@
     <div class="form-row">
     <div class="form-group col-md-8">
       
-      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
     </div>
     <div class="form-group col-md-3">
       
-        <input type="number" min="1" max="8" class="form-control" id="sem" placeholder="Sem">
+        <input type="number" min="1" max="8" class="form-control"  name="sem" id="sem" placeholder="Sem">
     </div>
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address">
   </div>
   
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>                
   
-  <div class="form-group">
-         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
-  </div>
+  
                 
                </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+     
     </div>
   </div>
 </div> 
@@ -381,7 +386,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+         <form action="./Viewfaculty" method="post">
       <div class="modal-body">
+            
           <div class="col md-6  ">
          <input type="text" class="form-control" id="usn" placeholder=" Enter USN">
           </div>
@@ -390,6 +397,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Submit</button>
       </div>
+      </form>  
     </div>
   </div>
 </div>  
@@ -404,15 +412,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+        <form action="./Deletefaculty" method="post">
       <div class="modal-body">
           <div class="col md-6  ">
-         <input type="text" class="form-control " id="usn" placeholder=" Enter USN">
+         <input type="text" class="form-control " id="usn" name="deletefacusn" placeholder=" Enter USN">
          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -496,8 +506,8 @@
   
     <div class="form-row">
          <div class="form-group col-md-8">
-      
         <input type="text"  class="form-control" id="sem" name="addfacqual" placeholder="Qualification">
+
     </div>
     <div class="form-group col-md-4">
       
@@ -537,48 +547,52 @@
         </button>
       </div>
       <div class="modal-body">
-                <form>
+          <form action="./Updatefaculty" method="post">
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                            <input type="text" class="form-control" placeholder="First name">
+                               <input type="text" class="form-control" name="updatefacfirstname" placeholder="First name">
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" placeholder="Last name">
+                            <input type="text" class="form-control" name="updatefaclastname" placeholder="Last name">
                           </div>
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-7">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn" placeholder="USN">
+                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-5">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control"  placeholder="DOB">
+                                        <input type="date" class="form-control" name="updatefacdob" placeholder="DOB">
                                </div>
                         </div>
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="updatefacbranch">
                                     <option selected>Branch</option>
-                                    <option value="1">CSE</option>
-                                    <option value="2">ISE</option>
-                                    <option value="3">ECE</option>
+                                    <option value="CSE">CSE</option>
+                                    <option value="ISE">ISE</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="CIV">CIV</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="EEE">EEE</option>
                                   </select>
                                 </div>
                           
                                             <div class="form-check">
-                       <input class="form-check-input" type="radio" name="exampleRadios" id="update_faculty_male" value="option1" checked>
+                       <input class="form-check-input" type="radio" name="updatefacgender" id="update_faculty_male" value="MALE" checked>
                             <label class="form-check-label" for="exampleRadios1">
                             MALE
                             </label>
                    </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="update_faculty_female" value="option2">
+  <input class="form-check-input" type="radio" name="updatefacgender" id="update_faculty_female" value="FEMALE">
   <label class="form-check-label" for="exampleRadios2">
     FEMALE
   </label>
@@ -589,11 +603,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="updatefacemail" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="updatefacpassword" placeholder="Password">
     </div>
   </div>
   
@@ -601,31 +615,29 @@
     <div class="form-row">
          <div class="form-group col-md-8">
       
-        <input type="text"  class="form-control" id="sem" placeholder="Qualificatin">
+        <input type="text"  class="form-control" id="sem" name="updatefacqual" placeholder="Qualification">
     </div>
     <div class="form-group col-md-4">
       
-      <input type="phone" class="form-control" id="phone" placeholder="Phone">
+      <input type="phone" class="form-control" id="phone" name="updatefacphone" placeholder="Phone">
     </div>
    
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Addess Line 1">
+        <input type="text" class="form-control" id="inputAddress" name="updatefacaddress" placeholder="Address">
   </div>
   
-  
-  <div class="form-group">
-         <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
-  </div>
+   <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+
                 
                </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save Changes</button>
-      </div>
+     
     </div>
   </div>
 </div> 
@@ -667,8 +679,7 @@
     </div>
  </section>
  
- <!--back to top button-->
- <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons">keyboard_arrow_up</i></button>
+
   
   
     <!-- Optional JavaScript -->

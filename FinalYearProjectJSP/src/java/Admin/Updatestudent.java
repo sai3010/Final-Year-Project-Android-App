@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author spoorthi s
  */
-public class Functionality extends HttpServlet {
+public class Updatestudent extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,35 +32,23 @@ public class Functionality extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-         DBQuery db= new DBQuery();
+        DBQuery db=new DBQuery();
         try (PrintWriter out = response.getWriter()) {
-            
-//            add faculty
-
-                String addfacfirstname=request.getParameter("addfacfirstname");
-                String addfaclastname=request.getParameter("addfaclastname");
-                String addfacusn=request.getParameter("addfacusn");
-                String addfacdob=request.getParameter("addfacdob");
-                String branch=request.getParameter("addfacbranch");
-                String addfacgender=request.getParameter("addfacgender");
-                String addfacemail=request.getParameter("addfacemail");
-                String addfacpassword=request.getParameter("addfacpassword");
-                String addfacadd1=request.getParameter("addfacadd1");
-                String addfacphone=request.getParameter("addfacphone");
-                String addfacqual=request.getParameter("addfacqual");
+                String firstname=request.getParameter("fname");
+                String lastname=request.getParameter("lname");
+                String usn=request.getParameter("usn");
+                String dob=request.getParameter("dob");
+                String branch=request.getParameter("branch");
+                String gender=request.getParameter("studgender");
+                String email=request.getParameter("email");
+                String password=request.getParameter("password");
+                String add1=request.getParameter("address");
+                String phone=request.getParameter("phone");
+                String sem=request.getParameter("sem");
                 
-     
-               
-                
-                
-               System.out.println("addfacmale = " + addfacdob);
-          
-               
-               int i =db.add_fac_data(addfacfirstname,addfaclastname,addfacusn,addfacqual,addfacemail,addfacadd1,addfacpassword,addfacphone,addfacdob,addfacgender,branch);
-               //System.out.println("i = " + i);
-            
+                int i= db.update_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,dob,gender,branch);
         }
     }
 
@@ -78,10 +66,10 @@ public class Functionality extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Functionality.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Functionality.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -98,10 +86,10 @@ public class Functionality extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Functionality.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Functionality.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
