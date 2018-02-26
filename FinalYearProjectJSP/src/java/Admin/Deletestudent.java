@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author spoorthi s
  */
-public class Updatestudent extends HttpServlet {
+@WebServlet(name = "Deletestudent", urlPatterns = {"/Deletestudent"})
+public class Deletestudent extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,23 +34,14 @@ public class Updatestudent extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        DBQuery db=new DBQuery();
+           DBQuery db= new DBQuery();
         try (PrintWriter out = response.getWriter()) {
-                String firstname=request.getParameter("fname");
-                String lastname=request.getParameter("lname");
-                String usn=request.getParameter("usn");
-                String dob=request.getParameter("dob");
-                String branch=request.getParameter("branch");
-                String gender=request.getParameter("studgender");
-                String email=request.getParameter("email");
-                String password=request.getParameter("password");
-                String add1=request.getParameter("address");
-                String phone=request.getParameter("phone");
-                String sem=request.getParameter("sem");
-                 usn=usn.toUpperCase();
-                int i= db.update_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,dob,gender,branch);
+            String  usn =request.getParameter("usn");
+           usn=usn.toUpperCase();
+            System.out.println("usn = " + usn);
+          int i=  db.delete_stud_data(usn);
         }
     }
 
@@ -66,10 +59,10 @@ public class Updatestudent extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Deletestudent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Deletestudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -86,10 +79,10 @@ public class Updatestudent extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Updatestudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Deletestudent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Deletestudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

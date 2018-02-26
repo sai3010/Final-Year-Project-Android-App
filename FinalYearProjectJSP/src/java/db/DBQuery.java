@@ -174,6 +174,16 @@ public class DBQuery {
                     return i;    
     }
 
+    public int delete_stud_data(String usn) throws ClassNotFoundException, SQLException {
+           con= DBConnection.getDBConn();
+		st= con.createStatement();
+		String query= "delete from student_information where usn='"+usn+"'";
+                int i= st.executeUpdate(query);
+		
+                con.close();
+		return i;
+    }
+
     	
     
     
