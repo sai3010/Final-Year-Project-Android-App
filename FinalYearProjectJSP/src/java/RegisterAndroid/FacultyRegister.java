@@ -44,8 +44,9 @@ public class FacultyRegister extends HttpServlet {
            String phone=request.getParameter("studphone");
            String dob=request.getParameter("studdob");
            String gender=request.getParameter("studgender");
-           String qual=request.getParameter("qualification");
-           String branch= "CSE";
+           String qual=request.getParameter("studqual");
+            System.out.println("qual = " + qual);
+           String branch=request.getParameter("studbranch");
            DBQuery db= new DBQuery();
             try {
                 int i =db.add_fac_data(fname,lname ,usn,qual,email,address,pass,phone,dob,gender,branch);
