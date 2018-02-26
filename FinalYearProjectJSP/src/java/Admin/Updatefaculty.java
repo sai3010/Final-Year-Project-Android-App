@@ -48,6 +48,7 @@ public class Updatefaculty extends HttpServlet {
                 String phone=request.getParameter("updatefacphone");
                 String qual=request.getParameter("updatefacqual");
                 
+                 usn=usn.toUpperCase();
                 int i =db.update_fac_data(firstname,lastname,usn,qual,email,add1,password,phone,dob,gender,branch);
                 
         }

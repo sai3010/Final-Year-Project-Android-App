@@ -51,7 +51,7 @@ public class Functionality extends HttpServlet {
                 String addfacphone=request.getParameter("addfacphone");
                 String addfacqual=request.getParameter("addfacqual");
                 
-     
+                 addfacusn=addfacusn.toUpperCase();
                
                 
                 

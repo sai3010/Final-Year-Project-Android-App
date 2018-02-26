@@ -46,7 +46,6 @@ public class FacUploadData extends HttpServlet {
     String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/cse/";
     String usn="image";
     String paramname=null,fname="",file="",filePath="";
-    
     try
     {
         MultipartRequest multi = new MultipartRequest(request, fileDir,	10 * 1024 * 1024); // 10MB
@@ -57,6 +56,7 @@ public class FacUploadData extends HttpServlet {
 	{
             paramname = (String) files.nextElement();
             String fPath="";
+//            System.out.println("usn = " + multi.getParameter("usn"));
 //            usn= multi.getParameter("usn");
 //            System.out.println("usn = " + usn);
             if(paramname != null && paramname.equals("uploaded_file"))

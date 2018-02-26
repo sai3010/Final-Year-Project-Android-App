@@ -41,7 +41,7 @@ public class UploadData extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
         ServletContext context = getServletContext();
-    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/studprofile_photos";
+    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/studprofile_photos/";
     String usn="image";
     String paramname=null,fname="",file="",filePath="";
     
@@ -67,6 +67,17 @@ public class UploadData extends HttpServlet {
               
 
             }
+            String filename= filePath.substring(5).replaceAll(".png", "");
+            System.out.println("filename = " + filename);
+            ImageResizer ir= new ImageResizer();
+            Image img= null;
+            img= ImageIO.read(new File(fPath));
+            
+            BufferedImage tempPNG= null;
+            tempPNG= ir.resizeImage(img, 300, 200);
+            File newFilePNG= null;
+            newFilePNG= new File(fileDir+filename+".png");
+            ImageIO.write(tempPNG, "png", newFilePNG);
             
         }
         
