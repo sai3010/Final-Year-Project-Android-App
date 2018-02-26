@@ -44,6 +44,7 @@ public class FacultyRegisterActivity extends AppCompatActivity {
     int day,month,year;
     int radiobuttinid;
     String qualification="";
+    String fbranch="";
     Button button;
 
 
@@ -64,6 +65,24 @@ public class FacultyRegisterActivity extends AppCompatActivity {
         address = findViewById(R.id.addresstxt);
         button = findViewById(R.id.button);
         dob=findViewById(R.id.textView);
+        Spinner branch=findViewById(R.id.branch);
+        ArrayAdapter<CharSequence> badapter = ArrayAdapter.createFromResource(this,
+                R.array.branch_array, android.R.layout.simple_spinner_item);
+        badapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        branch.setAdapter(badapter);
+        branch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                           @Override
+                                           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                               fbranch= parent.getItemAtPosition(position).toString();
+                                               //Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
+                                           }
+
+                                           @Override
+                                           public void onNothingSelected(AdapterView<?> adapterView) {
+                                               //Toast.makeText(FacultyRegisterActivity.this, ":::::::::::::::::", Toast.LENGTH_LONG);
+                                           }
+                                       }
+        );
 
         Spinner qual = findViewById(R.id.qual_drop);
         ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this,
@@ -188,6 +207,7 @@ public class FacultyRegisterActivity extends AppCompatActivity {
         jsn.put("studdob", studdob);
         jsn.put("studgender", studgender);
         jsn.put("studqual",qualification);
+        jsn.put("studbranch",fbranch);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
         StrictMode.setThreadPolicy(policy);
         String response = null;

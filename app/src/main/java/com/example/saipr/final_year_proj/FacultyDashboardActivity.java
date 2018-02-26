@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,7 +56,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
     TextView usntxt;
     CardView facnotes;
     Intent intent;
-    ImageButton imgbtn=null;
+    ImageView imgv=null;
     Uri selectedFileUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,9 +126,9 @@ public class FacultyDashboardActivity extends AppCompatActivity
         emailtxt.setText(email);
         usntxt.setText(usn);
         Toast.makeText(this, usn, Toast.LENGTH_SHORT).show();
-        imgbtn= findViewById(R.id.imgbut);
+        imgv= findViewById(R.id.imgbut);
 
-        imgbtn.setOnClickListener(new View.OnClickListener() {
+        imgv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(FacultyDashboardActivity.this, "********************", Toast.LENGTH_SHORT).show();
@@ -220,7 +221,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
                         try {
                             boolean bool=
                                     copyFile(selectedFilePath,getExternalCacheDir()+usn+".png");
-                            imgbtn.setImageURI(selectedFileUri);
+                            imgv.setImageURI(selectedFileUri);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

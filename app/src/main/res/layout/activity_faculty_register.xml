@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="First Name"
-                android:width="160dp"
+                android:width="180dp"
                 android:inputType="textPersonName"
                 android:textColor="#828383"/>
 
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Last Name"
-                android:width="160dp"
+                android:width="180dp"
                 android:inputType="textPersonName"
                 android:textColor="#828383"/>
 
@@ -121,6 +121,12 @@
                     android:onClick="rbclick"
                     android:text="FEMALE" />
             </RadioGroup>
+            <Spinner
+                android:id="@+id/branch"
+                android:layout_width="140dp"
+                android:layout_height="36dp"
+                android:dropDownWidth="200dp"
+                android:prompt="@string/spinner_title"/>
         </LinearLayout>
 
 
