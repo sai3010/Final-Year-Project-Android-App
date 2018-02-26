@@ -138,12 +138,12 @@
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-6">
                                 <label for=""></label>
                                 <input type="text" class="form-control" name="usn" id="usn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-4">
+                              <div class="form-group col-md-6">
                                         <label for="date"></label>
                                         <input type="date" class="form-control" name="dob"  placeholder="DOB">
                                </div>
@@ -253,15 +253,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+        <form action="./Deletestudent" method="post"> 
       <div class="modal-body">
           <div class="col md-6  ">
-         <input type="text" class="form-control " id="usn" placeholder=" Enter USN">
+         <input type="text" class="form-control " name="usn" id="usn" placeholder=" Enter USN">
          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
+        </form>
     </div>
   </div>
 </div>
@@ -293,12 +295,12 @@
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-7">
+                            <div class="form-group col-md-6">
                                 <label for=""></label>
                                 <input type="text" class="form-control" id="usn"  name="usn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-5">
+                              <div class="form-group col-md-6">
                                         <label for="date"></label>
                                         <input type="date" class="form-control" name="dob" placeholder="DOB">
                                </div>
@@ -457,7 +459,7 @@
                                 <input type="text" class="form-control" id="usn" name="addfacusn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-5">
+                              <div class="form-group col-md-6">
                                         <label for="date"></label>
                                         <input type="date" class="form-control" name="addfacdob" placeholder="DOB">
                                </div>
@@ -560,12 +562,12 @@
                         </div>
                         
                         <div class="form-row">
-                            <div class="form-group col-md-7">
+                            <div class="form-group col-md-6">
                                 <label for=""></label>
                                 <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN">
                             </div>
                             
-                              <div class="form-group col-md-5">
+                              <div class="form-group col-md-6">
                                         <label for="date"></label>
                                         <input type="date" class="form-control" name="updatefacdob" placeholder="DOB">
                                </div>

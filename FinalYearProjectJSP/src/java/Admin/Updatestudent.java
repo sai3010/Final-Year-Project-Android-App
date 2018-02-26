@@ -47,7 +47,7 @@ public class Updatestudent extends HttpServlet {
                 String add1=request.getParameter("address");
                 String phone=request.getParameter("phone");
                 String sem=request.getParameter("sem");
-                
+                 usn=usn.toUpperCase();
                 int i= db.update_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,dob,gender,branch);
         }
     }

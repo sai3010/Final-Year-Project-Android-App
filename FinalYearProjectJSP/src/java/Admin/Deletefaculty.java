@@ -37,6 +37,7 @@ public class Deletefaculty extends HttpServlet {
           DBQuery db= new DBQuery();
         try (PrintWriter out = response.getWriter()) {
               String usn=request.getParameter("deletefacusn");
+               usn=usn.toUpperCase();
               System.out.println("usn = " + usn);
        
               int i=db.delete_fac_data(usn);
