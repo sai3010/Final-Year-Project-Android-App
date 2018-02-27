@@ -52,6 +52,10 @@
         <servlet-name>Updatestudent</servlet-name>
         <servlet-class>Admin.Updatestudent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetInfoFrom</servlet-name>
+        <servlet-class>Upload.GetInfoFrom</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>Updatestudent</servlet-name>
         <url-pattern>/Updatestudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetInfoFrom</servlet-name>
+        <url-pattern>/GetInfoFrom</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

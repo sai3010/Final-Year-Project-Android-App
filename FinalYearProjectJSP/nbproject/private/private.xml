@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Functionality.java</file>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Placementadmin.java</file>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Deletestudent.java</file>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Addstudent.java</file>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Deletefaculty.java</file>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
-            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/FacUploadData.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/ImageResizer.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/UploadData.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/FacultyRegister.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
         </group>
     </open-files>
 </project-private>
