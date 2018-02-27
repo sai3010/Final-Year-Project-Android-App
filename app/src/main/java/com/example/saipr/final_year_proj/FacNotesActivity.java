@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -32,16 +36,17 @@ import java.net.URL;
 public class FacNotesActivity extends AppCompatActivity {
     String usn;
     String sem;
-    Spinner semspin=null;
+    Spinner semspin = null;
     Button cfile;
     Button ubtn;
     TextView fname;
     Uri selectedFileUri;
+    String res="";
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static final int PICK_FILE_REQUEST = 1;
     private static final String TAG = StudentDashboardActivity.class.getSimpleName();
-    private String selectedFilePath="";
+    private String selectedFilePath = "";
     ProgressDialog dialog;
     int serverResponseCode = 0;
 
@@ -51,9 +56,9 @@ public class FacNotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fac_notes);
         usn = getIntent().getExtras().getString("usn");
-        cfile=findViewById(R.id.cfile);
-        ubtn=findViewById(R.id.ubtn);
-        fname=findViewById(R.id.fnametv);
+        cfile = findViewById(R.id.cfile);
+        ubtn = findViewById(R.id.ubtn);
+        fname = findViewById(R.id.fnametv);
         verifyStoragePermissions(this);
         semspin = findViewById(R.id.facsem);
         ArrayAdapter<CharSequence> sadapter = ArrayAdapter.createFromResource(this,
@@ -89,22 +94,14 @@ public class FacNotesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (selectedFilePath != null) {
                     dialog = ProgressDialog.show(FacNotesActivity.this, "", "Uploading File...", true);
-                    try {
-                        boolean bool= copyFile(selectedFilePath,getExternalCacheDir()+usn+".pdf");
-                        //imgbtn.setImageURI(selectedFileUri);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if(true)
-                    {
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
+//
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
 //creating new thread to handle Http Operations
-                                uploadFile(getExternalCacheDir()+usn+".pdf");
-                            }
-                        }).start();
-                    }
+                            uploadFile(selectedFilePath);
+                        }
+                    }).start();
                 } else {
                     Toast.makeText(FacNotesActivity.this, "Please choose a File First", Toast.LENGTH_SHORT).show();
                 }
@@ -112,28 +109,10 @@ public class FacNotesActivity extends AppCompatActivity {
             }
         });
     }
-    private boolean copyFile(String srcPath,String destPath) throws IOException {
-        boolean bool= false;
-        File srcfile =new File(srcPath);
-        File destfile =new File(destPath);
-//Create a new file and copy the content of old file.
-        InputStream in = new FileInputStream(srcfile);
-        OutputStream out = new FileOutputStream(destfile);
-// Transfer bytes from in to out
-        byte[] buf = new byte[1024];
-        int len;
-        while ((len = in.read(buf)) > 0) {
-            out.write(buf, 0, len);
-        }
-        in.close();
-        out.close();
-        if(destfile.length() == srcfile.length())
 
-        {
-            bool= true;
-        }
-        return bool;
-    }
+
+
+
     private void showFileChooser() {
         Intent intent = new Intent();
         //sets the select file to all types of files
@@ -143,6 +122,7 @@ public class FacNotesActivity extends AppCompatActivity {
         //starts new activity to select file and return data
         startActivityForResult(Intent.createChooser(intent, "Choose File to Upload.."), PICK_FILE_REQUEST);
     }
+
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -156,10 +136,12 @@ public class FacNotesActivity extends AppCompatActivity {
             );
         }
     }
+
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -172,16 +154,16 @@ public class FacNotesActivity extends AppCompatActivity {
 
                 //fname.setText(selectedFileUri.toString());
                 selectedFileUri = data.getData();
-                String fname= data.getDataString();
-                Toast.makeText(FacNotesActivity.this,"file name printed is ::"+fname,Toast.LENGTH_LONG).show();
+                String fname = data.getDataString();
+                Toast.makeText(FacNotesActivity.this, "file name printed is ::" + fname, Toast.LENGTH_LONG).show();
                 selectedFilePath = FilePath.getPath(this, selectedFileUri);
                 Toast.makeText(FacNotesActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
 //                    tvFileName.setText(selectedFilePath);
-                    Toast.makeText(this, "== "+selectedFilePath, Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(this, "== " + selectedFilePath, Toast.LENGTH_LONG).show();
+                        new SendInfo().execute();
                 } else {
                     Toast.makeText(this, "Cannot upload file to server", Toast.LENGTH_SHORT).show();
                 }
@@ -279,6 +261,31 @@ public class FacNotesActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "File Upload Complete.", Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+    }
+
+
+    private class SendInfo extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            try {
+                URL url = new URL(RegURL.url + "GetInfoFrom");
+                JSONObject jsn = new JSONObject();
+                jsn.put("sem", sem);
+                jsn.put("usn", usn);
+                String response = HttpClientConnection.executeClient(url, jsn);
+                res = response;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return res;
         }
     }
 }

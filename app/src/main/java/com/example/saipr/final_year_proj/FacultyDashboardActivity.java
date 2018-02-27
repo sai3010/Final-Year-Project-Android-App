@@ -5,12 +5,17 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -29,6 +34,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,7 +55,6 @@ public class FacultyDashboardActivity extends AppCompatActivity
     private static final int PICK_FILE_REQUEST = 1;
     private static final String TAG = FacultyDashboardActivity.class.getSimpleName();
     private String selectedFilePath="";
-    ProgressDialog dialog;
     int serverResponseCode = 0;
     String name = "";
     String email="";
@@ -58,6 +66,8 @@ public class FacultyDashboardActivity extends AppCompatActivity
     Intent intent;
     ImageView imgv=null;
     Uri selectedFileUri;
+    String imgString = "";
+    String res = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,7 +151,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
         imgv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FacultyDashboardActivity.this, "********************", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FacultyDashboardActivity.this, "Select an image to upload...", Toast.LENGTH_SHORT).show();
                 showFileChooser();
             }
         });
@@ -216,10 +226,17 @@ public class FacultyDashboardActivity extends AppCompatActivity
                     //no data present
                     return;
                 }
-
-
                 selectedFileUri = data.getData();
                 selectedFilePath = FilePath.getPath(this, selectedFileUri);
+
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedFileUri);
+                    imgv.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 Toast.makeText(FacultyDashboardActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
@@ -227,24 +244,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
 
 
                     if (selectedFilePath != null) {
-                        dialog = ProgressDialog.show(FacultyDashboardActivity.this, "", "Uploading File...", true);
-                        try {
-                            boolean bool=
-                                    copyFile(selectedFilePath,getExternalCacheDir()+usn+".png");
-                            imgv.setImageURI(selectedFileUri);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        if(true)
-                        {
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-//creating new thread to handle Http Operations
-                                    uploadFile(getExternalCacheDir()+usn+".png");
-                                }
-                            }).start();
-                        }
+                        uploadFile(selectedFilePath);
                     } else {
                         Toast.makeText(FacultyDashboardActivity.this, "Please choose a File First", Toast.LENGTH_SHORT).show();
                     }
@@ -254,122 +254,55 @@ public class FacultyDashboardActivity extends AppCompatActivity
             }
         }
     }
+    private class SendPic extends AsyncTask<URL, Void, String> {
 
-    private boolean copyFile(String srcPath,String destPath) throws IOException {
-        boolean bool= false;
-        File srcfile =new File(srcPath);
-        File destfile =new File(destPath);
-//Create a new file and copy the content of old file.
-        InputStream in = new FileInputStream(srcfile);
-        OutputStream out = new FileOutputStream(destfile);
-// Transfer bytes from in to out
-        byte[] buf = new byte[1024];
-        int len;
-        while ((len = in.read(buf)) > 0) {
-            out.write(buf, 0, len);
-        }
-        in.close();
-        out.close();
-        if(destfile.length() == srcfile.length())
+        @Override
+        protected String doInBackground(URL... urls) {
 
-        {
-            bool= true;
+            try {
+                URL url = urls[0];
+                JSONObject jsn = new JSONObject();
+                jsn.put("img", imgString);
+                jsn.put("usn", usn);
+                String response = HttpClientConnection.executeClient(url, jsn);
+                res = response;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return res;
         }
-        return bool;
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Toast.makeText(FacultyDashboardActivity.this, res, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void uploadFile(String sourceFileUri) {
-        String serverResponseMessage="";
 
-        String upLoadServerUri = RegURL.url+"UploadData";
-        String fileName = sourceFileUri;
-        HttpURLConnection conn = null;
-        DataOutputStream dos = null;
-        String lineEnd = "\r\n";
-        String twoHyphens = "--";
-        String boundary = "*****";
-        int bytesRead, bytesAvailable, bufferSize;
-        byte[] buffer;
-        int maxBufferSize = 10 * 1024 * 1024;
-        File sourceFile = new File(sourceFileUri);
-        if (!sourceFile.isFile()) {
-            Log.e("uploadFile", "Source File Does not exist");
-            // return 0;
-        }
-        try {
-            FileInputStream fileInputStream = new FileInputStream(sourceFile);
-            URL url = new URL(upLoadServerUri);
-            conn = (HttpURLConnection) url.openConnection(); // Open a HTTP  connection to  the URL
-            conn.setDoInput(true); // Allow Inputs
-            conn.setDoOutput(true); // Allow Outputs
-            conn.setUseCaches(false); // Don't use a Cached Copy
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Connection", "Keep-Alive");
-            conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-            conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-            conn.setRequestProperty("uploaded_file", fileName);
-
-            dos = new DataOutputStream(conn.getOutputStream());
-
-            dos.writeBytes(twoHyphens + boundary + lineEnd);
-            //dos.writeUTF("Content-Disposition: form-data; name=\"lat\";lat=\""+ lat + "\"" + lineEnd);
-            //  dos.writeUTF(lon);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\""+ fileName + "\"" + lineEnd);
-
-            dos.writeBytes(lineEnd);
-
-            bytesAvailable = fileInputStream.available(); // create a buffer of  maximum size
-
-            bufferSize = Math.min(bytesAvailable, maxBufferSize);
-            buffer = new byte[bufferSize];
-
-            // read file and write it into form...
-            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-
-            while (bytesRead > 0) {
-                dos.write(buffer, 0, bufferSize);
-                bytesAvailable = fileInputStream.available();
-                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+        if (imgv.getDrawable() != null) {
+            Bitmap bm = ((BitmapDrawable) imgv.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] b = baos.toByteArray();
+            imgString = Base64.encodeToString(b, Base64.DEFAULT);
+            try {
+                URL url = new URL(RegURL.url + "UploadData");
+                new SendPic().execute(url);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
             }
-
-            // send multipart form data necesssary after file data...
-            dos.writeBytes(lineEnd);
-            dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-
-            // Responses from the server (code and message)
-            serverResponseCode = conn.getResponseCode();
-            serverResponseMessage = conn.getResponseMessage();
-
-
-
-            //close the streams //
-            fileInputStream.close();
-            dos.flush();
-            dos.close();
-
-        } catch (MalformedURLException ex) {
-
-            ex.printStackTrace();
-            Toast.makeText(getApplicationContext(), "MalformedURLException", Toast.LENGTH_SHORT).show();
-            Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
-        } catch (Exception e) {
-
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
-
         }
-        Log.i("uploadFile", "HTTP Response is : " + serverResponseMessage + ": " + serverResponseCode);
-        if(serverResponseCode == 200){
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    dialog.cancel();
-                    Toast.makeText(getApplicationContext(), "File Upload Complete.", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-
-        //   return serverResponseCode;
     }
 }
