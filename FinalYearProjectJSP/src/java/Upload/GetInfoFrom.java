@@ -28,15 +28,15 @@ public class GetInfoFrom extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     public static String sem;
-    public static String usn;
+    public static String fsusn;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             sem= request.getParameter("sem");
-            usn= request.getParameter("usn");
+            fsusn= request.getParameter("usn");
             System.out.println("sem = " + sem);
-            System.out.println("usn = " + usn);
+            System.out.println("usn = " + fsusn);
         }
     }
 
