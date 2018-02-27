@@ -114,6 +114,7 @@
                     android:onClick="rbclick"
                     android:text="FEMALE" />
             </RadioGroup>
+
         </LinearLayout>
 
 

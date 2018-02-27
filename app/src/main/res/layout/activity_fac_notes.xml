@@ -12,19 +12,32 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Upload Notes"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="19dp"
+            android:text="UPLOAD NOTES"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:textColor="#424242 "
+            android:textSize="30sp"/>
 
         <Button
             android:id="@+id/cfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="Choose File"/>
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Choose File"
+            android:textAlignment="center"
+            android:textColor="#fafafa"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/fnametv"
@@ -36,12 +49,16 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_margin="19dp"
+            android:padding="10dp"
             android:text="Select Sem"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:textColor="#424242 "
+            android:textSize="15sp"/>
 
         <Spinner
             android:id="@+id/facsem"
@@ -53,9 +70,16 @@
 
         <Button
             android:id="@+id/ubtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="Upload"
-            android:layout_gravity="center"/>
+            android:layout_margin="40dp"
+            android:background="@drawable/button"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="#fafafa"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
     </LinearLayout>
 </ScrollView>
