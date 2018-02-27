@@ -100,6 +100,7 @@ public class FacNotesActivity extends AppCompatActivity {
                         public void run() {
 //creating new thread to handle Http Operations
                             uploadFile(selectedFilePath);
+
                         }
                     }).start();
                 } else {
@@ -154,15 +155,16 @@ public class FacNotesActivity extends AppCompatActivity {
 
                 //fname.setText(selectedFileUri.toString());
                 selectedFileUri = data.getData();
-                String fname = data.getDataString();
-                Toast.makeText(FacNotesActivity.this, "file name printed is ::" + fname, Toast.LENGTH_LONG).show();
+                String filename = data.getDataString();
+                fname.setText(selectedFileUri.toString());
+                //Toast.makeText(FacNotesActivity.this, "file name printed is ::" + fname, Toast.LENGTH_LONG).show();
                 selectedFilePath = FilePath.getPath(this, selectedFileUri);
-                Toast.makeText(FacNotesActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FacNotesActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
 //                    tvFileName.setText(selectedFilePath);
-                    Toast.makeText(this, "== " + selectedFilePath, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "== " + selectedFilePath, Toast.LENGTH_LONG).show();
                         new SendInfo().execute();
                 } else {
                     Toast.makeText(this, "Cannot upload file to server", Toast.LENGTH_SHORT).show();
