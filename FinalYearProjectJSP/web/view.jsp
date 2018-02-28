@@ -44,7 +44,7 @@
         
                 if(val[0] == null)
                 {
-                    RequestDispatcher rd= request.getRequestDispatcher("home.jsp");
+                    RequestDispatcher rd= request.getRequestDispatcher("viewerror.jsp");
                     rd.forward(request, response);   
                 }
                 else
