@@ -37,6 +37,7 @@ html,body {
         color: #00796b;
         font-size: 90px;
         font-style: bold;
+     padding: 2%;
 }
 .btn btn-primary btn-lg{
      font-family: 'Bree Serif', serif;

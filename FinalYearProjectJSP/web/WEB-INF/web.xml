@@ -53,13 +53,12 @@
         <servlet-class>Admin.Updatestudent</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>View</servlet-name>
         <servlet-class>Admin.View</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>GetInfoFrom</servlet-name>
         <servlet-class>Upload.GetInfoFrom</servlet-class>
->>>>>>> 8f219fa8bf6151682d12086a8370e46db40ccd93
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
@@ -113,14 +112,18 @@
         <servlet-name>Updatestudent</servlet-name>
         <url-pattern>/Updatestudent</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
-<<<<<<< HEAD
+
         <servlet-name>View</servlet-name>
         <url-pattern>/View</url-pattern>
-=======
-        <servlet-name>GetInfoFrom</servlet-name>
+</servlet-mapping>
+
+     <servlet-mapping>
+
+         <servlet-name>GetInfoFrom</servlet-name>
         <url-pattern>/GetInfoFrom</url-pattern>
->>>>>>> 8f219fa8bf6151682d12086a8370e46db40ccd93
+
     </servlet-mapping>
     <session-config>
         <session-timeout>
