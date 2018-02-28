@@ -21,29 +21,35 @@ public class DBQuery {
         ArrayList<String> alist= null;
 
         
-    public ArrayList<String[]> get_stud_login_data(String usn) throws ClassNotFoundException, SQLException
+    public String[] get_stud_login_data(String usn) throws ClassNotFoundException, SQLException
     {
-                ArrayList<String[]> arr = new ArrayList<>();
+           
+                String val[] = new String[9];
 		con=DBConnection.getDBConn();
 		st= con.createStatement();
 		String query="select * from student_information where usn='"+usn+"'";
 		rs= st.executeQuery(query);
 		while(rs.next())
 		{
-                        String val[] = new String[4];
+                        
 			val[0]= rs.getString("password");
                         val[1]=rs.getString("firstname");
                         val[2]=rs.getString("email");
                         val[3]=rs.getString("usn");
-                        arr.add(val);
+                        val[4]=rs.getString("lastname");
+                        val[5]=rs.getString("sem");
+                        val[6]=rs.getString("address");
+                        val[7]=rs.getString("phone");
+                        val[8]=rs.getString("branch");
+//                        arr.add(val);
 		}
 		con.close();
-		return arr;
+		return val;
 	
     }
     public String [] get_fac_login_data(String usn) throws ClassNotFoundException, SQLException
     {
-       String [] val= new String[4];
+       String [] val= new String[9];
 		con=DBConnection.getDBConn();
 		st= con.createStatement();
 		String query="select * from faculty_information where usn='"+usn+"'";
@@ -54,6 +60,11 @@ public class DBQuery {
                         val[1]=rs.getString("firstname");
                         val[2]=rs.getString("email");
                         val[3]=rs.getString("usn");
+                        val[4]=rs.getString("lastname");
+                        val[5]=rs.getString("qual");
+                        val[6]=rs.getString("address");
+                        val[7]=rs.getString("phone");
+                        val[8]=rs.getString("branch");      
 		}
 		
 		con.close();

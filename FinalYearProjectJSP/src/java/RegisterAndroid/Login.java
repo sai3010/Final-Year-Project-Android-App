@@ -36,27 +36,33 @@ public class Login extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         DBQuery db= new DBQuery();
+        String arr[]= new String[10];
+        String a[]=new String[10];
         try (PrintWriter out = response.getWriter()) {            
            String usn=request.getParameter("usn");
            String pass=request.getParameter("pass");
            System.out.println(usn);
            System.out.println(pass);
-           String[] ar = new String[4];
+           
            String ch= usn.charAt(0)+""; 
            if(ch.matches("[0-9]"))
           {
-               ArrayList<String[]> detail=db.get_stud_login_data(usn);
-               System.out.println(detail);
-               
-               for(int i = 0; i<detail.size(); i++){
-                   ar = detail.get(i);
+               String[] detail=db.get_stud_login_data(usn);
+               arr[0]="sok";
+               for(int i=0; i < detail.length; i++)
+               {
+                   arr[i+1]= detail[i];
                }
                
-               if(pass.equals(ar[0]))
-           {
-               System.out.println("passwords match");
-               out.print("sok"+"\t"+ar[1]+"\t"+ar[2]+"\t"+ar[3]);
-           }
+               if(pass.equals(detail[0]))
+               {
+                    System.out.println("passwords match");
+                    for(String str:arr)
+                    {
+                        System.out.println("str = " + str);
+                    }
+                    out.print(arr[0]+"\t"+arr[1]+"\t"+arr[2]+"\t"+arr[3]+"\t"+arr[4]+"\t"+arr[5]+"\t"+arr[6]+"\t"+arr[7]+"\t"+arr[8]+"\t"+arr[9]);
+               }
            else
            {
                System.out.println("Mismatch");
@@ -66,10 +72,16 @@ public class Login extends HttpServlet {
            else if(ch.matches("[A-Z]"))
            {
                String [] password=db.get_fac_login_data(usn);
+               a[0]="fok";
+               System.out.println("password = " + password);
+               for(int i=0; i < password.length; i++)
+               {
+                   a[i+1]= password[i];
+               }
                if(pass.equals(password[0]))
            {
                System.out.println("passwords match");
-               out.print("fok"+"\t"+password[1]+"\t"+password[2]+"\t"+password[3]);
+               out.print(a[0]+"\t"+a[1]+"\t"+a[2]+"\t"+a[3]+"\t"+a[4]+"\t"+a[5]+"\t"+a[6]+"\t"+a[7]+"\t"+a[8]+"\t"+a[9]);
            }
            else
            {
