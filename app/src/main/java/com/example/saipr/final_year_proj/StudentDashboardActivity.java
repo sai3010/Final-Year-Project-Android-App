@@ -60,6 +60,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     String name = "";
     String email = "";
     String usn = "";
+    String lname,branch,address,phone,sem;
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
@@ -77,6 +78,11 @@ public class StudentDashboardActivity extends AppCompatActivity
         name = getIntent().getExtras().getString("name");
         email = getIntent().getExtras().getString("email");
         usn = getIntent().getExtras().getString("usn");
+        sem=getIntent().getExtras().getString("sem");
+        branch=getIntent().getExtras().getString("branch");
+        address=getIntent().getExtras().getString("address");
+        phone=getIntent().getExtras().getString("phone");
+        lname=getIntent().getExtras().getString("lname");
         /*placement card handling*/
         placement = findViewById(R.id.placement_card);
         placement.setOnClickListener(new View.OnClickListener() {
@@ -171,9 +177,19 @@ public class StudentDashboardActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.about) {
-            // Handle the camera action
-        } else if (id == R.id.logout) {
+        if (id == R.id.about)
+        {
+            Intent i = new Intent(StudentDashboardActivity.this,AboutStudActivity.class);
+            i.putExtra("fname",name);
+            i.putExtra("lname",lname);
+            i.putExtra("sem",sem);
+            i.putExtra("branch",branch);
+            i.putExtra("address",address);
+            i.putExtra("phone",phone);
+            i.putExtra("email",email);
+            startActivity(i);
+        } else if (id == R.id.logout)
+        {
 
         }
 

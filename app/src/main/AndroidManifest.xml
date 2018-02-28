@@ -45,7 +45,9 @@
             android:label="@string/title_activity_faculty_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".FacNotesActivity" />
-        <activity android:name=".FacMarksActivity"></activity>
+        <activity android:name=".FacMarksActivity" />
+        <activity android:name=".AboutStudActivity" />
+        <activity android:name=".AboutFacActivity"></activity>
     </application>
 
 </manifest>

@@ -61,22 +61,33 @@ public class LoginMainActivity extends AppCompatActivity {
                     StrictMode.setThreadPolicy(policy);
                     String response = HttpConnection.getResponse(url,jsn);
                     String res[]=response.split("\t");
+                    //Toast.makeText(LoginMainActivity.this,response,Toast.LENGTH_LONG).show();
                     if(res[0].equalsIgnoreCase("sok"))
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         intent =new Intent(LoginMainActivity.this,StudentDashboardActivity.class);
-                        intent.putExtra("name",res[1]);
-                        intent.putExtra("email",res[2]);
-                        intent.putExtra("usn",res[3]);
+                        intent.putExtra("name",res[2]);
+                        intent.putExtra("email",res[3]);
+                        intent.putExtra("usn",res[4]);
+                        intent.putExtra("lname",res[5]);
+                        intent.putExtra("sem",res[6]);
+                        intent.putExtra("address",res[7]);
+                        intent.putExtra("phone",res[8]);
+                        intent.putExtra("branch",res[9]);
                         startActivity(intent);
                     }
                     if(res[0].equalsIgnoreCase("fok"))
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         intent =new Intent(LoginMainActivity.this,FacultyDashboardActivity.class);
-                        intent.putExtra("name",res[1]);
-                        intent.putExtra("email",res[2]);
-                        intent.putExtra("usn",res[3]);
+                        intent.putExtra("name",res[2]);
+                        intent.putExtra("email",res[3]);
+                        intent.putExtra("usn",res[4]);
+                        intent.putExtra("lname",res[5]);
+                        intent.putExtra("qual",res[6]);
+                        intent.putExtra("address",res[7]);
+                        intent.putExtra("phone",res[8]);
+                        intent.putExtra("branch",res[9]);
                         startActivity(intent);
                     }
                     if(response.equalsIgnoreCase("notok"))

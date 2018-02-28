@@ -57,8 +57,9 @@ public class FacultyDashboardActivity extends AppCompatActivity
     private String selectedFilePath="";
     int serverResponseCode = 0;
     String name = "";
-    String email="";
-    String usn="";
+    String email = "";
+    String usn = "";
+    String lname,branch,address,phone,qual;
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
@@ -74,9 +75,14 @@ public class FacultyDashboardActivity extends AppCompatActivity
         setContentView(R.layout.activity_faculty_dashboard);
         verifyStoragePermissions(this);
         /*getting usn through intent*/
-        name  = getIntent().getExtras().getString("name");
+        name = getIntent().getExtras().getString("name");
         email = getIntent().getExtras().getString("email");
         usn = getIntent().getExtras().getString("usn");
+        qual=getIntent().getExtras().getString("qual");
+        branch=getIntent().getExtras().getString("branch");
+        address=getIntent().getExtras().getString("address");
+        phone=getIntent().getExtras().getString("phone");
+        lname=getIntent().getExtras().getString("lname");
 
         /*marks card click*/
         markscard=findViewById(R.id.markscard);
@@ -124,14 +130,21 @@ public class FacultyDashboardActivity extends AppCompatActivity
 
 
     }
-
+    private static long back_pressed;
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            if (back_pressed + 2000 > System.currentTimeMillis()) {
+                finish();
+                System.exit(0);
+            } else {
+                Toast.makeText(getBaseContext(), "Press once again to exit", Toast.LENGTH_SHORT).show();
+                back_pressed = System.currentTimeMillis();
+            }
         }
     }
 
@@ -179,11 +192,24 @@ public class FacultyDashboardActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.about) {
-            // Handle the camera action
-        } else if (id == R.id.logout) {
+        if (id == R.id.about)
+        {
+            Intent i = new Intent(FacultyDashboardActivity.this,AboutFacActivity.class);
+            i.putExtra("fname",name);
+            i.putExtra("lname",lname);
+            i.putExtra("qual",qual);
+            i.putExtra("branch",branch);
+            i.putExtra("address",address);
+            i.putExtra("phone",phone);
+            i.putExtra("email",email);
+            startActivity(i);
+        }
+        else if (id == R.id.logout)
+        {
 
-        } else if (id == R.id.push) {
+        }
+        else if (id == R.id.push)
+        {
 
         }
 
