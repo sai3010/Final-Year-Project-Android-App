@@ -9,6 +9,7 @@ import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author spoorthi s
  */
-public class Addstudent extends HttpServlet {
+public class View extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,21 +36,21 @@ public class Addstudent extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
          DBQuery db= new DBQuery();
+         ArrayList<String> alist= new ArrayList<String>();
         try (PrintWriter out = response.getWriter()) {
-                 String firstname=request.getParameter("firstname");
-                String lastname=request.getParameter("lastname");
-                String usn=request.getParameter("usn");
-                String dob=request.getParameter("dob");
-                String branch=request.getParameter("branch");
-                String gender=request.getParameter("addstudentgender");
-                String email=request.getParameter("email");
-                String password=request.getParameter("password");
-                String add1=request.getParameter("address");
-                String phone=request.getParameter("phone");
-                String sem=request.getParameter("sem");
-                 usn=usn.toUpperCase();
-                 String d=dob.replaceAll("-", "/");
-               int i= db.add_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,d,gender,branch);
+//            String usn=request.getParameter("txtusn").toUpperCase();
+            String usn="1RN14CS088";
+            out.println("usn = " + usn);
+            String ch= usn.charAt(0)+"";
+                    if(ch.matches("[0-9]")){
+                        String val[]=  db.view_stud_data(usn);
+                        for(int i=0;i<val.length;i++)
+                        out.println("alist = " + val[i]);
+                    }
+                    if(ch.matches("[A-Z]"))
+                    {
+                        //alist= db.view_fac_data(usn);
+                    }
         }
     }
 
@@ -68,9 +69,9 @@ public class Addstudent extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -88,9 +89,9 @@ public class Addstudent extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Addstudent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

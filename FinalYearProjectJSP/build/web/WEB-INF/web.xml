@@ -52,6 +52,10 @@
         <servlet-name>Updatestudent</servlet-name>
         <servlet-class>Admin.Updatestudent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>View</servlet-name>
+        <servlet-class>Admin.View</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>Updatestudent</servlet-name>
         <url-pattern>/Updatestudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>View</servlet-name>
+        <url-pattern>/View</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
