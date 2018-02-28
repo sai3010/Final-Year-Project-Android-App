@@ -4,6 +4,8 @@
     Author     : spoorthi s
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="java.awt.Dialog"%>
 <%@page import="db.DBQuery"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,29 +22,38 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/home.css"/>
     <title>ADMIN</title>
+    
   </head>
   
     <body>
+       
         <% 
             String val[]= new String[9];
             DBQuery db= new DBQuery();
             String usn= request.getParameter("usn");
-            usn.toUpperCase();
+            usn=usn.toUpperCase();
             String ch= usn.charAt(0)+"";
                     if(ch.matches("[A-Z]"))
                     {
                         val=  db.view_fac_data(usn);
                        
                     }
-                  
+                  System.out.println("val[0] = " + val[0]);
                    String value= val[0]+" "+val[1];
                   value= value.toUpperCase();
-        %>
         
-    <h2 class="head" align="center"><%=value%></h2>
+                if(val[0] == null)
+                {
+                    RequestDispatcher rd= request.getRequestDispatcher("home.jsp");
+                    rd.forward(request, response);   
+                }
+                else
+                {
+                %>
+                <h2 class="head" align="center"><%=value%></h2>
         
         <div class="container">
-        <table class="table table-bordered">
+                <table class="table table-bordered">
   <thead>
    
                  <tr><th scope="row">Firstname</th>
@@ -78,6 +89,9 @@
   <tbody>
    
         </table>   
+                <%
+                    }
+                    %>
         </div>
                 
    
