@@ -67,18 +67,8 @@
 <button type="button" class="button"  data-toggle="modal" data-target="#addstudent">
   ADD
 </button>
-
-                             
-                               
-                               
 <button class="button" data-toggle="modal" data-target="#updatestudent"">UPDATE</button>
- 
-                                    
-
 <button class="button" data-toggle="modal" data-target="#viewstudent">VIEW</button>
-
-                                    
-
 
 <button class="button" data-toggle="modal" data-target="#deletestudent">DELETE</button>
 
@@ -229,15 +219,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+        
+        <form action="view1.jsp" method="post">
       <div class="modal-body">
           <div class="col md-6  ">
-         <input type="text" class="form-control" id="usn" placeholder="Enter USN">
+              <input type="text" class="form-control" name="usn" id="usn" placeholder="Enter USN">
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
+      </form>      
     </div>
   </div>
 </div>  
@@ -388,16 +381,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-         <form action="./Viewfaculty" method="post">
+         <form action="view.jsp" method="post">
       <div class="modal-body">
             
           <div class="col md-6  ">
-         <input type="text" class="form-control" id="usn" placeholder=" Enter USN">
+              <input type="text" class="form-control" id="usn" name="usn" placeholder=" Enter USN">
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
       </form>  
     </div>

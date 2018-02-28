@@ -195,6 +195,60 @@ public class DBQuery {
 		return i;
     }
 
+    public String[] view_stud_data(String usn) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String val[] = new String[9];
+        System.out.println("usn = " + usn);
+        String query="select * from student_information where usn='"+usn+"'";
+        rs= st.executeQuery(query);
+
+        while(rs.next())
+        {
+                     
+                        val[0]=rs.getString("firstname");
+                        val[1]=rs.getString("lastname");
+                        val[2]=rs.getString("usn");
+                        val[3]=rs.getString("sem");
+                        val[4]=rs.getString("email");
+                        val[5]=rs.getString("address");
+                        val[6]=rs.getString("phone");
+                        val[7]=rs.getString("gender");
+                        val[8]=rs.getString("branch");
+                      
+           
+        }
+        return val;
+    }
+
+  
+      public String[] view_fac_data(String usn) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String val[] = new String[9];
+        System.out.println("usn = " + usn);
+        String query="select * from faculty_information where usn='"+usn+"'";
+        rs= st.executeQuery(query);
+
+        while(rs.next())
+        {
+                     
+                        val[0]=rs.getString("firstname");
+                        val[1]=rs.getString("lastname");
+                        val[2]=rs.getString("usn");
+                        val[3]=rs.getString("qual");
+                        val[4]=rs.getString("email");
+                        val[5]=rs.getString("address");
+                        val[6]=rs.getString("phone");
+                        val[7]=rs.getString("gender");
+                        val[8]=rs.getString("branch");
+                        
+                      
+           
+        }
+        return val;
+    }
+
     	
     
     
