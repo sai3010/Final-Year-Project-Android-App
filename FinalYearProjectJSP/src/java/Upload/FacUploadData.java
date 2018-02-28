@@ -5,6 +5,8 @@
  */
 package Upload;
 
+import static Upload.GetInfoFrom.fsusn;
+import static Upload.GetInfoFrom.sem;
 import com.oreilly.servlet.MultipartRequest;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -43,14 +45,58 @@ public class FacUploadData extends HttpServlet {
             //ServletContext context = getServletContext();
             
             out.print("Success");
-    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/cse/";
+    String tempDir="C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/";
+    String fileDir="";
     String usn="image";
+    String branch="";
+    String sfsem="";
     String paramname=null,fname="",file="",filePath="";
+    if(fsusn.contains("CSE")){
+                branch="cse";
+            }
+            else if(fsusn.contains("ECE")){
+                branch="ece";
+            }
+            else if(fsusn.contains("EEE")){
+                branch="eee";
+            }
+            else if(fsusn.contains("ISE")){
+                branch="ise";
+            }
+            else if(fsusn.contains("ME")){
+                branch="mech";
+            }
+            else if(fsusn.contains("CIV")){
+                branch="civil";
+            }
+            else if(fsusn.contains("EIE")){
+                branch="eie";
+            }
+            
+            switch(Integer.parseInt(sem))
+            {
+                case 1:sfsem="sem1";
+                        break;
+                case 2:sfsem="sem2";
+                        break;
+                case 3:sfsem="sem3";
+                        break;
+                case 4:sfsem="sem4";
+                        break;
+                case 5:sfsem="sem5";
+                        break;
+                case 6:sfsem="sem6";
+                        break;
+                case 7:sfsem="sem7";
+                        break;
+                case 8:sfsem="sem8";
+                        break;
+            }
+            fileDir=tempDir+branch+"/"+sfsem+"/";
     try
     {
         MultipartRequest multi = new MultipartRequest(request, fileDir,	10 * 1024 * 1024); // 10MB
-                       
-        
+        System.out.println("fileDir = " + fileDir);
         Enumeration files = multi.getFileNames();	
         while (files.hasMoreElements()) 
 	{

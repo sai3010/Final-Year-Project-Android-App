@@ -11,6 +11,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -20,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 /**
  *
@@ -36,69 +38,50 @@ public class UploadData extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/";
+    String usn="image";
+    String paramname=null,fname="",file="",filePath="";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
         ServletContext context = getServletContext();
-    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/studprofile_photos/";
-    String usn="image";
-    String paramname=null,fname="",file="",filePath="";
     
-    try
-    {
-        MultipartRequest multi = new MultipartRequest(request, fileDir,	10 * 1024 * 1024); // 10MB
-                       
-        
-        Enumeration files = multi.getFileNames();	
-        while (files.hasMoreElements()) 
-	{
-            paramname = (String) files.nextElement();
-            String fPath="";
-//            usn= multi.getParameter("usn");
-//            System.out.println("usn = " + usn);
-            if(paramname != null && paramname.equals("uploaded_file"))
+        String image= request.getParameter("img");
+        String usn= request.getParameter("usn");
+//        String usn= "1RNSCCSE";
+            String ch= usn.charAt(0)+""; 
+            System.out.println("usn = " + usn);
+            System.out.println("Success");
+            if(ch.matches("[0-9]"))
             {
-		filePath = multi.getFilesystemName(paramname);
-                System.out.println("fPath-bytes = " + paramname);
-                fPath = fileDir+filePath;
-                System.out.println("::::::::::::-"+filePath);
-                System.out.println("::::::::::::="+fPath);
-              
-
+                fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/studprofile_photos/";
+                System.out.println("stud image uploaded");
             }
-            String filename= filePath.substring(5).replaceAll(".png", "");
-            System.out.println("filename = " + filename);
-            ImageResizer ir= new ImageResizer();
-            Image img= null;
-            img= ImageIO.read(new File(fPath));
-            
-            BufferedImage tempPNG= null;
-            tempPNG= ir.resizeImage(img, 300, 200);
-            File newFilePNG= null;
-            newFilePNG= new File(fileDir+filename+".png");
-            ImageIO.write(tempPNG, "png", newFilePNG);
-            
-        }
+            else if(ch.matches("[A-Z]"))
+            {
+                fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/facprofile_photos/";
+                System.out.println("fac image uploaded");
+            }
+            else
+            {
+                System.out.println("fail = ");
+            }
+        byte[] decodedString;
+        decodedString= Base64.decodeBase64(image);
         
-        
-    }
-    catch(Exception e)
-    {
-        e.printStackTrace();
-    }
-        }
-    }
+        File f= new File(fileDir+usn+".png");
+            FileOutputStream fout= new FileOutputStream(f);
+            fout.write(decodedString);
+            fout.close();
+            
     
-    public static BufferedImage bufferImage(Image image) {
-return bufferImage(image,BufferedImage.TYPE_INT_RGB);
-} public static BufferedImage bufferImage(Image image, int type) {
-BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), type);
-Graphics2D g = bufferedImage.createGraphics();
-g.drawImage(image, null, null);
-return bufferedImage;
-}
-
+        out.print("Uploaded Successfully");
+        }
+        
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

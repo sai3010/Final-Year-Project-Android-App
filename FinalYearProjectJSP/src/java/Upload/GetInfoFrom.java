@@ -3,14 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RegisterAndroid;
+package Upload;
 
-import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author saipr
  */
-public class FacultyRegister extends HttpServlet {
+public class GetInfoFrom extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,37 +27,16 @@ public class FacultyRegister extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    public static String sem;
+    public static String fsusn;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String fname=request.getParameter("studfname");
-           String lname=request.getParameter("studlname");
-           String usn=request.getParameter("studusn");
-           String email=request.getParameter("studemail");
-           String address=request.getParameter("studaddress");
-           String pass=request.getParameter("studpass");
-           String phone=request.getParameter("studphone");
-           String dob=request.getParameter("studdob");
-           String gender=request.getParameter("studgender");
-           String qual=request.getParameter("studqual");
-            System.out.println("qual = " + qual);
-           String branch=request.getParameter("studbranch");
-           DBQuery db= new DBQuery();
-            try {
-                int i =db.add_fac_data(fname,lname ,usn,qual,email,address,pass,phone,dob,gender,branch);
-                if(i==1)
-                {
-                    out.print("ok");
-                }
-                else
-                {
-                    out.print("notok");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+            sem= request.getParameter("sem");
+            fsusn= request.getParameter("usn");
+            System.out.println("sem = " + sem);
+            System.out.println("usn = " + fsusn);
         }
     }
 
@@ -77,13 +52,7 @@ public class FacultyRegister extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -97,13 +66,7 @@ public class FacultyRegister extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
