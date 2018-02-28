@@ -38,7 +38,7 @@
                         val=  db.view_fac_data(usn);
                        
                     }
-                  System.out.println("val[0] = " + val[0]);
+                  
                    String value= val[0]+" "+val[1];
                   value= value.toUpperCase();
         
