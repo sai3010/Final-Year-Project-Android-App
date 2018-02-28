@@ -26,8 +26,9 @@
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      <a href="#mp">Functionality</a>
-                      <a href="#placement">Placements</a>
+                      <a href="#home" onclick="toggle('#mp','#placement','#home');">Home</a>
+                      <a href="#mp" onclick="toggle('#home','#placement','#mp');">Functionality</a>
+                      <a href="#placement" onclick="toggle('#mp','#home','#placement');">Placements</a>
                       <a href="#">Clients</a>
                       <a href="#">Contact</a>
                     </div>
@@ -35,7 +36,7 @@
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
  <!--landing page-->    
- <section class="landing">
+ <section class="landing" id="home">
    <div class="inner">
       
        <img src="img/landing.png" align="left">
@@ -48,7 +49,7 @@
  </section>
  
  <!--Main Page-->
- <section id="mp">
+ <section id="mp" style="display: none;">
  <div class="container">
      <h1 class="head" align="center">FUNCTIONALITY</h1>
        
@@ -639,7 +640,7 @@
 
  <!--Placement-->
 
- <section id="placement">
+ <section id="placement" style="display: none;">
     <h1 class="head" align="center">PLACEMENTS</h1>
     <div class="container">      
         <form action="./Placementadmin" method="post">  
