@@ -23,13 +23,12 @@ html,body {
     top:0;
     background-size: cover;
     }
-.landing .inner
+ .landing .inner
 {
     display: table-cell;
     vertical-align: middle;
     width: 100%;
-    max-width: none;
-    
+    max-width: none;   
 }
 
 .head {

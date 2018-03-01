@@ -21,5 +21,5 @@ function toggle( id1, id2, id3)
 {
     $(id1).css("display","none");
     $(id2).css("display","none");
-    $(id3).css("display","block");
+    $(id3).css("display","table");
 }

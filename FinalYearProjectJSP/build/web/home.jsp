@@ -37,17 +37,13 @@
      
  <!--landing page-->    
  <section class="landing" id="home">
-    <div class="container">
         <div class="inner">
-
-            <img src="img/landing.png" align="left">
-
+          <img src="img/landing.png" align="left" alt="hello">
           <div class="content" align="left">
               <h1 class="head">Hello,Admin!</h1>
               <h2 class="head1">let's get going ... </h2>
-                     </div>
-              </div>
-    </div>
+          </div>
+        </div>
  </section>
  
  <!--Main Page-->
