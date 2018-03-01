@@ -60,6 +60,10 @@
         <servlet-name>GetInfoFrom</servlet-name>
         <servlet-class>Upload.GetInfoFrom</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetNotesDetails</servlet-name>
+        <servlet-class>Download.GetNotesDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -112,18 +116,17 @@
         <servlet-name>Updatestudent</servlet-name>
         <url-pattern>/Updatestudent</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
-
         <servlet-name>View</servlet-name>
         <url-pattern>/View</url-pattern>
-</servlet-mapping>
-
-     <servlet-mapping>
-
-         <servlet-name>GetInfoFrom</servlet-name>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetInfoFrom</servlet-name>
         <url-pattern>/GetInfoFrom</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetNotesDetails</servlet-name>
+        <url-pattern>/GetNotesDetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
