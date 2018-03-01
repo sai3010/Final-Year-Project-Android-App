@@ -37,6 +37,13 @@
                     }
           String value= val[0]+" "+val[1];
          value=value.toUpperCase();
+          if(val[0] == null)
+                {
+                    RequestDispatcher rd= request.getRequestDispatcher("viewerror.jsp");
+                    rd.forward(request, response);   
+                }
+                else
+                { 
         %>
         
     <h2 class="head" align="center"><%=value%></h2>
@@ -78,7 +85,10 @@
   </thead>
   <tbody>
    
-        </table>   
+        </table>  
+                <%
+                    }
+                    %>
         </div>
                 
    

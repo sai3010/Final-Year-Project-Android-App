@@ -26,8 +26,9 @@
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      <a href="#mp">Functionality</a>
-                      <a href="#placement">Placements</a>
+                      <a href="#home" onclick="toggle('#mp','#placement','#home');">Home</a>
+                      <a href="#mp" onclick="toggle('#home','#placement','#mp');">Functionality</a>
+                      <a href="#placement" onclick="toggle('#mp','#home','#placement');">Placements</a>
                       <a href="#">Clients</a>
                       <a href="#">Contact</a>
                     </div>
@@ -35,72 +36,71 @@
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
  <!--landing page-->    
- <section class="landing">
-   <div class="inner">
-      
-       <img src="img/landing.png" align="left">
-      
-     <div class="content" align="left">
-         <h1 class="head">Hello,Admin!</h1>
-         <h2 class="head1">let's get going ... </h2>
-                </div>
-         </div>
+ <section class="landing" id="home">
+        <div class="inner">
+          <img src="img/landing.png" align="left" alt="hello">
+          <div class="content" align="left">
+              <h1 class="head">Hello,Admin!</h1>
+              <h2 class="head1">let's get going ... </h2>
+          </div>
+        </div>
  </section>
  
  <!--Main Page-->
- <section id="mp">
- <div class="container">
-     <h1 class="head" align="center">FUNCTIONALITY</h1>
-       
-  <div class="row">
-    <div class="col md-6 sm-6 lg-6">
-         <div class="float-left">
-             <h2 class="head2" align="center">Student</h2>
-             <div  id="studcontainer"> 
-             <img src="img/student.png" class="image" >
-                <div class="middle">
-                   <div class="btn-group">
-                       <div class="row">
+ <section id="mp" style="display: none; overflow-y: hidden;">
+    <h1 class="head" align="center">FUNCTIONALITY</h1>
+    <div class="container">
+     
 
-                           
-<!--button-->
-<button type="button" class="button"  data-toggle="modal" data-target="#addstudent">
-  ADD
-</button>
-<button class="button" data-toggle="modal" data-target="#updatestudent"">UPDATE</button>
-<button class="button" data-toggle="modal" data-target="#viewstudent">VIEW</button>
+            <div class="row">
+              <div class="col md-6 sm-6 lg-6">
+                   <div class="float-left">
+                       <h2 class="head2" align="center">Student</h2>
+                       <div  id="studcontainer"> 
+                       <img src="img/student.png" class="image" >
+                          <div class="middle">
+                             <div class="btn-group">
+                                 <div class="row">
 
-<button class="button" data-toggle="modal" data-target="#deletestudent">DELETE</button>
 
-                         
-                    </div>
-                 </div>
-             </div>
-    </div>
-    </div>
-    </div>
-      
-      
-    <div class="col md-6 sm-6 lg-6">
-        <div class ="float-right">
-            <h2 class="head2" align="center">Faculty</h2>
-           <div  id="faccontainer">  
-              <img src="img/fac.png" class="image1" >
-               <div class="middle1">
-                   <div class="btn-group" align="center">
-                       <div class="row">
-                      <button type="button" class="button"  data-toggle="modal" data-target="#addfaculty">ADD</button><br>
-                      <button button type="button" class="button"  data-toggle="modal" data-target="#updatefaculty">UPDATE</button>
-                      <button button type="button" class="button"  data-toggle="modal" data-target="#viewfaculty">VIEW</button>
-                      <button button type="button" class="button"  data-toggle="modal" data-target="#deletefaculty">DELETE</button>
+          <!--button-->
+                                    <button type="button" class="button"  data-toggle="modal" data-target="#addstudent">
+                                      ADD
+                                    </button>
+                                    <button class="button" data-toggle="modal" data-target="#updatestudent"">UPDATE</button>
+                                    <button class="button" data-toggle="modal" data-target="#viewstudent">VIEW</button>
+
+                                    <button class="button" data-toggle="modal" data-target="#deletestudent">DELETE</button>
+
+
+                              </div>
+                           </div>
                        </div>
                     </div>
-                 </div>
                 </div>
-            </div>
+              </div>
+
+
+              <div class="col md-6 sm-6 lg-6">
+                  <div class ="float-right">
+                      <h2 class="head2" align="center">Faculty</h2>
+                     <div  id="faccontainer">  
+                        <img src="img/fac.png" class="image1" >
+                         <div class="middle1">
+                             <div class="btn-group" align="center">
+                                 <div class="row">
+                                        <button type="button" class="button"  data-toggle="modal" data-target="#addfaculty">ADD</button><br>
+                                        <button button type="button" class="button"  data-toggle="modal" data-target="#updatefaculty">UPDATE</button>
+                                        <button button type="button" class="button"  data-toggle="modal" data-target="#viewfaculty">VIEW</button>
+                                        <button button type="button" class="button"  data-toggle="modal" data-target="#deletefaculty">DELETE</button>
+                                 </div>
+                              </div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+           </div>
     </div>
-      </div>
-  </div>
  </section>
  
 
@@ -639,7 +639,7 @@
 
  <!--Placement-->
 
- <section id="placement">
+ <section id="placement" style="display: none;">
     <h1 class="head" align="center">PLACEMENTS</h1>
     <div class="container">      
         <form action="./Placementadmin" method="post">  
