@@ -46,8 +46,13 @@
         </div>
  </section>
  
+<<<<<<< HEAD
  <!--Main Page-->
  <section id="mp" style="display: none;">
+=======
+ <!--Functionality-->
+ <section id="mp" style="display: none; overflow-y: hidden;">
+>>>>>>> cefa2c5e7786a5b8c4ce361dc1a4fe716de64d70
     <h1 class="head" align="center">FUNCTIONALITY</h1>
     <div class="container">
      
