@@ -17,9 +17,17 @@ function closeNav() {
 $('#mymodal').on('shown.bs.modal', function () {
   $('#addstudent').trigger('focus')
 })
-function toggle( id1, id2, id3)
+
+function toggle1( id1, id2, id3)
 {
     $(id1).css("display","none");
     $(id2).css("display","none");
     $(id3).css("display","table");
+}
+
+function toggle2( c1, c2, c3)
+{
+    $(c1).css("display","none");
+    $(c2).css("display","none");
+    $(c3).css("display","block");
 }
