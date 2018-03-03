@@ -4,6 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/css/home.css</file>
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view.jsp</file>
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/viewerror.jsp</file>
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view1.jsp</file>
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.jsp</file>
+            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/js/home.js</file>
+=======
+<<<<<<< HEAD
             <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/WEB-INF/web.xml</file>
             <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view1.jsp</file>
             <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view.jsp</file>
@@ -22,6 +31,7 @@
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/Login.java</file>
             <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
 >>>>>>> 0737c1a4ba7d863c3cd86ebee86ee4f28719d583
+>>>>>>> cefa2c5e7786a5b8c4ce361dc1a4fe716de64d70
         </group>
     </open-files>
 </project-private>

@@ -26,9 +26,9 @@
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      <a href="#home" onclick="toggle('#mp','#placement','#home');">Home</a>
-                      <a href="#mp" onclick="toggle('#home','#placement','#mp');">Functionality</a>
-                      <a href="#placement" onclick="toggle('#mp','#home','#placement');">Placements</a>
+                      <a href="#home" onclick="toggle1('#placement','#mp','#home');">Home</a>
+                      <a href="#mp" onclick="toggle2('#home','#placement','#mp');">Functionality</a>
+                      <a href="#placement" onclick="toggle2('#mp','#home','#placement');">Placements</a>
                       <a href="#">Clients</a>
                       <a href="#">Contact</a>
                     </div>
@@ -46,8 +46,13 @@
         </div>
  </section>
  
+<<<<<<< HEAD
+ <!--Main Page-->
+ <section id="mp" style="display: none;">
+=======
  <!--Functionality-->
  <section id="mp" style="display: none; overflow-y: hidden;">
+>>>>>>> cefa2c5e7786a5b8c4ce361dc1a4fe716de64d70
     <h1 class="head" align="center">FUNCTIONALITY</h1>
     <div class="container">
      
