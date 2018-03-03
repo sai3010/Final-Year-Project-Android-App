@@ -24,13 +24,14 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Name"
+        android:fontFamily="sans-serif-smallcaps"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/studemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="email"
+        android:text="E-mail"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
@@ -38,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="usn"
+        android:fontFamily="sans-serif-smallcaps"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>
