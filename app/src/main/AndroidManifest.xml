@@ -47,7 +47,8 @@
         <activity android:name=".FacNotesActivity" />
         <activity android:name=".FacMarksActivity" />
         <activity android:name=".AboutStudActivity" />
-        <activity android:name=".AboutFacActivity"></activity>
+        <activity android:name=".AboutFacActivity" />
+        <activity android:name=".StudNotesActivity"></activity>
     </application>
 
 </manifest>
