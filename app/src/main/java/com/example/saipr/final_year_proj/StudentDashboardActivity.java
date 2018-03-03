@@ -69,7 +69,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     Uri selectedFileUri;
     String imgString = "";
     String res = "";
-
+    CardView notescard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +94,18 @@ public class StudentDashboardActivity extends AppCompatActivity
             }
         });
         /*placement handling ends here*/
+        /*Stud notes*/
+        notescard=findViewById(R.id.notescard);
+        notescard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(StudentDashboardActivity.this,StudNotesActivity.class);
+                i.putExtra("sem",sem);
+                i.putExtra("usn",usn);
+                startActivity(i);
+            }
+        });
+        /*stud ends here*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
