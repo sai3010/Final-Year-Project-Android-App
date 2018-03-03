@@ -5,8 +5,13 @@
  */
 package Download;
 
+import static Upload.GetInfoFrom.fsusn;
+import static Upload.GetInfoFrom.sem;
+import java.util.List;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +40,69 @@ public class GetNotesDetails extends HttpServlet {
            String sem=request.getParameter("sem");
             System.out.println("sem = " + sem);
             System.out.println("usn = " + usn);
+            String branch="",sfsem="";
+            String tempDir="C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/";
+            if(usn.contains("CS")){
+                branch="cse";
+            }
+            else if(usn.contains("EC")){
+                branch="ece";
+            }
+            else if(usn.contains("EE")){
+                branch="eee";
+            }
+            else if(usn.contains("IS")){
+                branch="ise";
+            }
+            else if(usn.contains("ME")){
+                branch="mech";
+            }
+            else if(usn.contains("CV")){
+                branch="civil";
+            }
+            else if(usn.contains("EI")){
+                branch="eie";
+            }
+            
+            switch(Integer.parseInt(sem))
+            {
+                case 1:sfsem="sem1";
+                        break;
+                case 2:sfsem="sem2";
+                        break;
+                case 3:sfsem="sem3";
+                        break;
+                case 4:sfsem="sem4";
+                        break;
+                case 5:sfsem="sem5";
+                        break;
+                case 6:sfsem="sem6";
+                        break;
+                case 7:sfsem="sem7";
+                        break;
+                case 8:sfsem="sem8";
+                        break;
+            }
+            List<String> results = new ArrayList<String>();
+            String fileDir=tempDir+branch+"/"+sfsem+"/";
+            System.out.println("fileDir = " + fileDir);
+            File directory=new File(fileDir);
+            File[] flist=directory.listFiles();
+            for (File file : flist){
+            if (file.isFile()){
+                //System.out.println(file.getName());
+                results.add(file.getName().toString());
+            }
+        
+                System.out.println(results);
+            }
+            String fname=results.get(0);
+            for(int i=1;i<results.size();i++)
+            {
+                fname=fname+","+results.get(i);
+            }
+//            System.out.println("lol"+fname[0]+"\n");
+            out.print(fname);
         }
     }
 
