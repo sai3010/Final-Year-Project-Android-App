@@ -56,7 +56,7 @@ public class DBQuery {
 		rs= st.executeQuery(query);
 		while(rs.next())
 		{
-			val[0]= rs.getString("password");
+			val[0]=rs.getString("password");
                         val[1]=rs.getString("firstname");
                         val[2]=rs.getString("email");
                         val[3]=rs.getString("usn");
