@@ -24,7 +24,7 @@
   
     <body>
         <% 
-            String val[]= new String[9];
+            String val[]= new String[10];
             
             DBQuery db= new DBQuery();
             String usn= request.getParameter("usn");

@@ -65,6 +65,7 @@
         <servlet-class>Download.GetNotesDetails</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>FacMarks</servlet-name>
         <servlet-class>Marks.FacMarks</servlet-class>
     </servlet>
@@ -75,6 +76,14 @@
     <servlet>
         <servlet-name>DownloadNotes</servlet-name>
         <servlet-class>Download.DownloadNotes</servlet-class>
+=======
+        <servlet-name>Aboutfac</servlet-name>
+        <servlet-class>About.Aboutfac</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Aboutstud</servlet-name>
+        <servlet-class>About.Aboutstud</servlet-class>
+>>>>>>> bf0c9e4f7044cda7cc753fb7ca9d6551635f5cbb
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
@@ -141,6 +150,7 @@
         <url-pattern>/GetNotesDetails</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>FacMarks</servlet-name>
         <url-pattern>/FacMarks</url-pattern>
     </servlet-mapping>
@@ -151,6 +161,14 @@
     <servlet-mapping>
         <servlet-name>DownloadNotes</servlet-name>
         <url-pattern>/DownloadNotes</url-pattern>
+=======
+        <servlet-name>Aboutfac</servlet-name>
+        <url-pattern>/Aboutfac</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Aboutstud</servlet-name>
+        <url-pattern>/Aboutstud</url-pattern>
+>>>>>>> bf0c9e4f7044cda7cc753fb7ca9d6551635f5cbb
     </servlet-mapping>
     <session-config>
         <session-timeout>
