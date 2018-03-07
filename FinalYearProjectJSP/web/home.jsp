@@ -21,7 +21,9 @@
     <title>ADMIN</title>
  
   </head>
-  <!--navbar -->
+  
+  <body>
+      <!--navbar -->
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -34,9 +36,6 @@
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
-  
-  
-  <body onclick="closeNav()">
   
  
  <!--landing page-->    
