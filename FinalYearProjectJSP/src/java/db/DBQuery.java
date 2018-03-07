@@ -249,6 +249,26 @@ public class DBQuery {
         return val;
     }
 
+    public int update_about_fac(String fname, String lname, String qual, String email, String address, String password,String usn) throws SQLException, ClassNotFoundException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query ="update  faculty_information set firstname='"+fname+"',lastname='"+lname+"',qual='"+qual+"',email='"+email+"',address='"+address+"',password='"+password+"'where usn='"+usn+"'";
+        int i= st.executeUpdate(query);
+        con.close();
+        return i;
+
+    }
+
+    public int update_stud_fac(String fname, String lname, String qual, String email, String address, String password, String usn) throws ClassNotFoundException, SQLException {
+          con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query ="update  student_information set firstname='"+fname+"',lastname='"+lname+"',qual='"+qual+"',email='"+email+"',address='"+address+"',password='"+password+"'where usn='"+usn+"'";
+        int i= st.executeUpdate(query);
+        con.close();
+        return i;
+
+           }
+
     	
     
     

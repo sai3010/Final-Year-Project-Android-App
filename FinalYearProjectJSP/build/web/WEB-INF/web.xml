@@ -64,6 +64,14 @@
         <servlet-name>GetNotesDetails</servlet-name>
         <servlet-class>Download.GetNotesDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Aboutfac</servlet-name>
+        <servlet-class>About.Aboutfac</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Aboutstud</servlet-name>
+        <servlet-class>About.Aboutstud</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>GetNotesDetails</servlet-name>
         <url-pattern>/GetNotesDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Aboutfac</servlet-name>
+        <url-pattern>/Aboutfac</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Aboutstud</servlet-name>
+        <url-pattern>/Aboutstud</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

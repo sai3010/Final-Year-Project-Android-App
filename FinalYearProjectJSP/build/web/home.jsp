@@ -19,10 +19,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/home.css"/>
     <title>ADMIN</title>
+ 
   </head>
-  <body>
-  
- <!--navbar -->
+  <!--navbar -->
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -35,6 +34,11 @@
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
+  
+  
+  <body onclick="closeNav()">
+  
+ 
  <!--landing page-->    
  <section class="landing" id="home">
         <div class="inner">
@@ -46,13 +50,8 @@
         </div>
  </section>
  
-<<<<<<< HEAD
  <!--Main Page-->
  <section id="mp" style="display: none;">
-=======
- <!--Functionality-->
- <section id="mp" style="display: none; overflow-y: hidden;">
->>>>>>> cefa2c5e7786a5b8c4ce361dc1a4fe716de64d70
     <h1 class="head" align="center">FUNCTIONALITY</h1>
     <div class="container">
      

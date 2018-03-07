@@ -19,10 +19,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/home.css"/>
     <title>ADMIN</title>
+ 
   </head>
-  <body>
-  
- <!--navbar -->
+  <!--navbar -->
  
   <div id="mySidenav" class="sidenav">
                       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -35,6 +34,11 @@
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
+  
+  
+  <body onclick="closeNav()">
+  
+ 
  <!--landing page-->    
  <section class="landing" id="home">
         <div class="inner">
