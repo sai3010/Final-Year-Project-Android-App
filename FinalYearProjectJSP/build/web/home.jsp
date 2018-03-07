@@ -123,18 +123,18 @@
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                            <input type="text" class="form-control" name="fname" placeholder="First name">
+                            <input type="text" class="form-control" name="fname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets">
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" name="lname" placeholder="Last name">
+                            <input type="text" class="form-control" name="lname" placeholder="Last name" pattern="[a-zA-Z]{1,20}" title="alphabets">
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN">
+                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet">
                             </div>
                             
                               <div class="form-group col-md-6">
@@ -145,8 +145,8 @@
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                  <select class="custom-select mr-sm-2" name="branch" id="inlineFormCustomSelect">
-                                    <option selected>Branch</option>
+                                  <select class="custom-select mr-sm-2" name="branch" id="inlineFormCustomSelect" required>
+                                    <option value="">CHOOSE BRANCH</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ISE">ISE</option>
                                     <option value="ECE">ECE</option>
@@ -177,11 +177,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" pattern="[A-Za-z_.0-9-]+@{1}[a-z]+([.]{1}[a-z]{2,4})+" title="Enter valid email">
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password" pattern="\d{6}" title="minimum of 6 digits">
     </div>
   </div>
   
@@ -189,7 +189,7 @@
     <div class="form-row">
     <div class="form-group col-md-8">
       
-      <input type="phone" class="form-control" name="phone" id="phone" placeholder="Phone">
+      <input type="phone" class="form-control" name="phone" id="phone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number">
     </div>
     <div class="form-group col-md-3">
       
@@ -283,30 +283,30 @@
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                               <input type="text" class="form-control" name="firstname" placeholder="First name">
+                               <input type="text" class="form-control" name="firstname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                               <input type="text" class="form-control" name="lastname" placeholder="Last name">
+                               <input type="text" class="form-control" name="lastname" placeholder="Last name" pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn"  name="usn" placeholder="USN">
+                                <input type="text" class="form-control" id="usn"  name="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control" name="dob" placeholder="DOB">
+                                        <input type="date" class="form-control" name="dob" placeholder="DOB"  required>
                                </div>
                         </div>
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="branch">
-                                    <option selected>Branch</option>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="branch" required>
+                                    <option value="">CHOOSE BRANCH</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ISE">ISE</option>
                                     <option value="ECE">ECE</option>
@@ -335,11 +335,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" pattern="[A-Za-z_.0-9-]+@{1}[a-z]+([.]{1}[a-z]{2,4})+" title="Enter valid email" required>
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" pattern="\d{6}" title="minimum of 6 digits" required>
     </div>
   </div>
   
@@ -347,17 +347,17 @@
     <div class="form-row">
     <div class="form-group col-md-8">
       
-      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number" required>
     </div>
     <div class="form-group col-md-3">
       
-        <input type="number" min="1" max="8" class="form-control"  name="sem" id="sem" placeholder="Sem">
+        <input type="number" min="1" max="8" class="form-control"  name="sem" id="sem" placeholder="Sem" required>
     </div>
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address">
+        <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address" required>
   </div>
   
      <div class="modal-footer">
@@ -389,7 +389,7 @@
       <div class="modal-body">
             
           <div class="col md-6  ">
-              <input type="text" class="form-control" id="usn" name="usn" placeholder=" Enter USN">
+              <input type="text" class="form-control" id="usn" name="usn" placeholder=" Enter USN" >
           </div>
       </div>
       <div class="modal-footer">
@@ -414,7 +414,7 @@
         <form action="./Deletefaculty" method="post">
       <div class="modal-body">
           <div class="col md-6  ">
-         <input type="text" class="form-control " id="usn" name="deletefacusn" placeholder=" Enter USN">
+         <input type="text" class="form-control " id="usn" name="deletefacusn" placeholder="Enter USN" >
          </div>
       </div>
       <div class="modal-footer">
@@ -442,30 +442,30 @@
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                               <input type="text" class="form-control" name="addfacfirstname" placeholder="First name">
+                               <input type="text" class="form-control" name="addfacfirstname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets" required >
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                               <input type="text" class="form-control" name="addfaclastname" placeholder="Last name">
+                               <input type="text" class="form-control" name="addfaclastname" placeholder="Last name" pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn" name="addfacusn" placeholder="USN">
+                                <input type="text" class="form-control" id="usn" name="addfacusn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control" name="addfacdob" placeholder="DOB">
+                                        <input type="date" class="form-control" name="addfacdob" placeholder="DOB" required>
                                </div>
                         </div>
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="addfacbranch">
-                                    <option selected>Branch</option>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="addfacbranch" required>
+                                    <option value="">CHOOSE BRANCH</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ISE">ISE</option>
                                     <option value="ECE">ECE</option>
@@ -494,30 +494,30 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" name="addfacemail" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="addfacemail" placeholder="Email" pattern="[A-Za-z_.0-9-]+@{1}[a-z]+([.]{1}[a-z]{2,4})+" title="Enter valid email" required>
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" name="addfacpassword" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="addfacpassword" placeholder="Password" pattern="\d{6}" title="minimum of 6 digits" required>
     </div>
   </div>
   
   
     <div class="form-row">
          <div class="form-group col-md-8">
-        <input type="text"  class="form-control" id="sem" name="addfacqual" placeholder="Qualification">
+        <input type="text"  class="form-control" id="sem" name="addfacqual" placeholder="Qualification" required>
 
     </div>
     <div class="form-group col-md-4">
       
-      <input type="phone" class="form-control" id="phone" name="addfacphone" placeholder="Phone">
+      <input type="phone" class="form-control" id="phone" name="addfacphone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number" required>
     </div>
    
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" name="addfacadd1" placeholder="Address">
+        <input type="text" class="form-control" id="inputAddress" name="addfacadd1" placeholder="Address" required>
   </div>
   
   
@@ -550,18 +550,18 @@
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                               <input type="text" class="form-control" name="updatefacfirstname" placeholder="First name">
+                               <input type="text" class="form-control" name="updatefacfirstname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets">
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" name="updatefaclastname" placeholder="Last name">
+                            <input type="text" class="form-control" name="updatefaclastname" placeholder="Last name"pattern="[a-zA-Z]{1,20}" title="alphabets">
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN">
+                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet">
                             </div>
                             
                               <div class="form-group col-md-6">
@@ -572,8 +572,8 @@
                        
                         <div class="form-row align-items-center">
                                 <div class="col-auto my-1">
-                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="updatefacbranch">
-                                    <option selected>Branch</option>
+                                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="updatefacbranch" required>
+                                    <option value="">CHOOSE BRANCH</option>
                                     <option value="CSE">CSE</option>
                                     <option value="ISE">ISE</option>
                                     <option value="ECE">ECE</option>
@@ -602,11 +602,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" name="updatefacemail" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="updatefacemail" placeholder="Email" pattern="[A-Za-z_.0-9-]+@{1}[a-z]+([.]{1}[a-z]{2,4})+" title="Enter valid email" >
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" name="updatefacpassword" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="updatefacpassword" placeholder="Password" pattern="\d{6}" title="minimum of 6 digits">
     </div>
   </div>
   
@@ -618,7 +618,7 @@
     </div>
     <div class="form-group col-md-4">
       
-      <input type="phone" class="form-control" id="phone" name="updatefacphone" placeholder="Phone">
+      <input type="phone" class="form-control" id="phone" name="updatefacphone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number">
     </div>
    
   </div>
