@@ -36,7 +36,7 @@
      
   
   
-  <body onclick="closeNav()">
+  <body>
   
  
  <!--landing page-->    

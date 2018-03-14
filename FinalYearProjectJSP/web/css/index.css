@@ -10,6 +10,38 @@ and open the template in the editor.
 
 .container{
     font-family: 'Bree Serif', serif;
-   padding-top: 15%;
-   padding-left: 25%;
+    border-radius: 5px;
+    background-color:white;
+    height: 80vh;
+    z-index: 5;
+    width: 90vh;
+  
+}
+
+input[type=text]{
+     padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+}
+
+input[type=password]
+{
+     padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+}
+    
+.heading{
+    
+  padding: 20px;
+  background-color:#00695c;
+  
+}
+
+#button
+{
+    width: 50vh;
+  
 }
