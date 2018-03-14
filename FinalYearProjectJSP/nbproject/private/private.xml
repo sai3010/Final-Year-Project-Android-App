@@ -3,9 +3,48 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.jsp</file>
             <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/css/index.css</file>
             <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/nbproject/build-impl.xml</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Marks/FacMarks.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view1.jsp</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Download/GetNotesDetails.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/css/home.css</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/js/home.js</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/FacUploadData.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view.jsp</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/Login.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/About/Aboutfac.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/WEB-INF/web.xml</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/Login.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/About/Aboutstud.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/nbproject/build-impl.xml</file>
+            <file>file:/E:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+=======
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view1.jsp</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/FacUploadData.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/StudentRegister.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view.jsp</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Adminlogin.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/FacultyRegister.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/RegisterAndroid/Login.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.jsp</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Upload/UploadData.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Placement/PlacementData.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/js/home.js</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Placementadmin.java</file>
+            <file>file:/F:/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+>>>>>>> 7cde5295c892d8ba618dd9b9cc7fd10f1f2dca84
+>>>>>>> bf0c9e4f7044cda7cc753fb7ca9d6551635f5cbb
+>>>>>>> 73f76441e54037a76f2e58f0815dba4f76240958
         </group>
     </open-files>
 </project-private>

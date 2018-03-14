@@ -18,6 +18,7 @@ public class DBQuery {
         static Connection con= null;
 	static Statement st= null;
 	static ResultSet rs= null;
+        String str1="",str2="",regex=";";
         ArrayList<String> alist= null;
 
         
@@ -249,6 +250,48 @@ public class DBQuery {
         return val;
     }
 
+    public String getFacSecDetails(String usn) throws SQLException, ClassNotFoundException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        
+        StringBuffer sb= new StringBuffer();
+        String query="select scode from assign_fac_subject where fusn='"+usn+"'";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            sb.append(rs.getString("scode"));
+            sb.append(regex);
+//            str1=str1+rs.getString("scode")+regex;
+        }
+        System.out.println("str1  " + str1);
+        sb.append("#");
+        String query1="select section from assign_fac_section where fusn='"+usn+"'";
+        rs= st.executeQuery(query1);
+        while(rs.next())
+        {
+            sb.append(rs.getString("section"));
+            sb.append(regex);
+//            str2=str2+rs.getString("section")+regex;
+        }
+        //System.out.println("str2  " + str2);
+//        String s= str1+"#"+str2;
+        System.out.println("s = " + sb);
+        return sb+"";
+    }
+
+    public ArrayList<String> get_stud_det(String branch, String sem) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> names=new ArrayList<String>();
+        String query="select susn from academic_student_details where section='"+sem+"' and sbranch='"+branch+"'";
+        rs=st.executeQuery(query);
+        while(rs.next())
+        {
+            names.add(rs.getString("susn"));
+        }
+        return names;
+    }
+
     public int update_about_fac(String fname, String lname, String qual, String email, String address, String password,String usn) throws SQLException, ClassNotFoundException {
         con= DBConnection.getDBConn();
         st= con.createStatement();
@@ -268,9 +311,4 @@ public class DBQuery {
         return i;
 
            }
-
-    	
-    
-    
-    
 }

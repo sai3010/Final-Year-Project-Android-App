@@ -22,17 +22,15 @@
     <body>
         <div class="heading">
          <div class="container">
-        <form  action="./Adminlogin" method="post">
-            <div class="title"><p align="center" style="padding-top:5%;color: black;font-family: 'Rammetto One', cursive;  font-size: 60px; " >Campus Bridge</p></div>
+            <form  action="./Adminlogin" method="post">
+            <div class="title"><p align="center" style="padding-top:5%;color: black;font-family:  'Bree Serif', serif;  font-size: 60px; " >Campus Bridge</p></div>
                                     <div class="row">
-
-                                          <input type="text" class="form-control col-md-8 offset-md-2" name="uname" placeholder="Username">
+                                       <input type="text" class="form-control col-md-8 offset-md-2" name="uname" placeholder="Username">
                                    </div>
                                       <br>
                                       <div class="row">
                                           <input type="password" class="form-control col-md-8 offset-md-2" name="pass" placeholder="Password">
-
-                                    </div>
+                                      </div>
                                       <br>
                                      <div class="row">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block btn-block col-md-8 offset-md-2 " id="button"  value="Submit">Login</button>
