@@ -208,7 +208,10 @@ public class FacultyDashboardActivity extends AppCompatActivity
         }
         else if (id == R.id.logout)
         {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+            startActivity(intent);
+            finish();
         }
         else if (id == R.id.push)
         {

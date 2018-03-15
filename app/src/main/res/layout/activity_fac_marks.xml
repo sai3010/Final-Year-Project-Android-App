@@ -1,9 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.saipr.final_year_proj.FacMarksActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/ml"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/marks"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Marks"
+            android:layout_gravity="center"
+            android:textSize="22dp"/>
+
+        <TextView
+            android:id="@+id/semtv"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Sem" />
+
+        <Spinner
+            android:id="@+id/sem"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="25dp"
+            android:dropDownWidth="200dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/subtv"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Subject Code" />
+
+        <Spinner
+            android:id="@+id/subcodes"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="25dp"
+            android:dropDownWidth="200dp"
+            android:layout_gravity="center"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:id="@+id/rgrp">
+
+
+            <RadioButton
+                android:id="@+id/ia1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:onClick="rbclick"
+                android:checked="true"
+                android:text="IA1" />
+
+            <RadioButton
+                android:id="@+id/ia2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="rbclick"
+                android:text="IA2" />
+
+            <RadioButton
+                android:id="@+id/ia3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="rbclick"
+                android:text="IA3" />
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/gettbn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Get Student Details"
+            android:textSize="25dp"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="match_parent">
+            <TableRow>
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+</ScrollView>
