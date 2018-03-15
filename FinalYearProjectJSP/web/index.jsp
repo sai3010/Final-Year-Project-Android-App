@@ -24,11 +24,11 @@
                         <div class="container">
                                     <div class="row">
 
-                                          <input type="text" class="form-control col-sm-6 col-md-6 col-lg-6" name="uname" placeholder="Username">
+                                          <input type="text" class="form-control col-sm-6 col-md-6 col-lg-6" name="uname" placeholder="Username" required>
                                    </div>
                                       <br>
                                       <div class="row">
-                                          <input type="password" class="form-control col-sm-6 col-md-6 col-lg-6" name="pass" placeholder="Password">
+                                          <input type="password" class="form-control col-sm-6 col-md-6 col-lg-6" name="pass" placeholder="Password" required>
 
                                     </div>
                                       <br>
