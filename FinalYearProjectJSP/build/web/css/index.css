@@ -13,9 +13,10 @@ and open the template in the editor.
     border-radius: 5px;
     background-color:white;
     height: 80vh;
+    background-color: #e0f2f1;
     z-index: 8;
-    width: 90vh;
-  
+    width: 65vh;
+    /*box-shadow: 5px 10px 10px 10px #cccc;*/
 }
 
 input[type=text]{
@@ -34,14 +35,19 @@ input[type=password]
 }
     
 .heading{
-    
-  padding: 20px;
+  height: 50vh;  
+  padding: 70px;
   background-color:#00695c;
   
 }
 
 #button
 {
-    width: 50vh;
-  
+    width: 40vh;
+    background-color:#009688;
+    border: 2px bold #00695c;
+}
+
+input[type=submit]:hover {
+    background-color:#a7ffeb;
 }
