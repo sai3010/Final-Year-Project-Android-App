@@ -22,22 +22,19 @@
     <body>
         <div class="heading">
          <div class="container">
-            <form  action="./Adminlogin" method="post">
-            <div class="title"><p align="center" style="color:#004d40 ;font-family:  'Bree Serif', serif;  font-size: 60px; " >Campus Bridge</p></div>
-            
-            <img src="img/login.png" class=" image-fluid col-md-6 offset-md-3" alt="no image" style="padding: 5%;">
-            
-            
-            
+             <form  action="./Adminlogin" method="post" >
+                <div class="title"><p align="center" style="color:#004d40 ;font-family:  'Bree Serif', serif;  font-size: 60px; " >Campus Bridge</p></div>
+                <img src="img/login.png" class=" image-fluid col-md-6 offset-md-3" alt="no image" style="padding: 5%;">
             <div class="row">
-                                       <input type="text" class="form-control col-md-8 offset-md-2" name="uname" placeholder="Username">
+                <input type="text" class="form-control col-md-8 offset-md-2" name="uname" placeholder="Username" id="uname" required="Field Required">
+          
                                    </div>
                                       <br>
                                       <div class="row">
-                                          <input type="password" class="form-control col-md-8 offset-md-2" name="pass" placeholder="Password">
+                                          <input type="password" class="form-control col-md-8 offset-md-2" name="pass" placeholder="Password" required="Field Required">
                                       </div>
                                       <br>
-                                     <div class="row">
+                                      <div class="row">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block btn-block col-md-8 offset-md-2 " id="button"  value="Submit">Login</button>
                                      </div>
                     
@@ -49,7 +46,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/home.js"></script>        
+    <script src="js/index.js"></script>        
                 
     </body>
 </html>

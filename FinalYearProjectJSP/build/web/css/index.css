@@ -51,3 +51,8 @@ input[type=password]
 input[type=submit]:hover {
     background-color:#a7ffeb;
 }
+
+p
+{
+ color: red;
+}
