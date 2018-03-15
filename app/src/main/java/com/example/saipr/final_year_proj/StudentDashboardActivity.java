@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -56,7 +57,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     private static final int PICK_FILE_REQUEST = 1;
     private static final String TAG = StudentDashboardActivity.class.getSimpleName();
     private String selectedFilePath = "";
-
+    Bitmap bitmap = null;
     String name = "";
     String email = "";
     String usn = "";
@@ -200,9 +201,13 @@ public class StudentDashboardActivity extends AppCompatActivity
             i.putExtra("phone",phone);
             i.putExtra("email",email);
             startActivity(i);
-        } else if (id == R.id.logout)
+        }
+        else if (id == R.id.logout)
         {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -252,7 +257,7 @@ public class StudentDashboardActivity extends AppCompatActivity
                 selectedFileUri = data.getData();
                 selectedFilePath = FilePath.getPath(this, selectedFileUri);
 
-                Bitmap bitmap = null;
+
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedFileUri);
                     imgv.setImageBitmap(bitmap);
@@ -265,9 +270,17 @@ public class StudentDashboardActivity extends AppCompatActivity
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
 
-
                     if (selectedFilePath != null) {
                         uploadFile(selectedFilePath);
+                        File f1=getTempFile(this, selectedFilePath);
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedFileUri);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        imgv.setImageBitmap(bitmap);
+                        Toast.makeText(this, f1.toString(), Toast.LENGTH_SHORT).show();
+
                     } else {
                         Toast.makeText(StudentDashboardActivity.this, "Please choose a File First", Toast.LENGTH_SHORT).show();
                     }
@@ -276,6 +289,17 @@ public class StudentDashboardActivity extends AppCompatActivity
                 }
             }
         }
+    }
+
+    public File getTempFile(Context context, String url) {
+        File file=null;
+        try {
+            String fileName = Uri.parse(url).getLastPathSegment();
+            file = File.createTempFile(fileName, null, context.getCacheDir());
+        } catch (IOException e) {
+            // Error while creating file
+        }
+        return file;
     }
 
     private class SendPic extends AsyncTask<URL, Void, String> {
