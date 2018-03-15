@@ -8,6 +8,9 @@
             android:id="@+id/about"
             android:title="About" />
         <item
+            android:id="@+id/agg"
+            android:title="Aggregate" />
+        <item
             android:id="@+id/logout"
             android:title="Logout" />
     </group>
