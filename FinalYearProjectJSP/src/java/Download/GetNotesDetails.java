@@ -84,17 +84,20 @@ public class GetNotesDetails extends HttpServlet {
                         break;
             }
             List<String> results = new ArrayList<String>();
+            //List<String> url = new ArrayList<String>();
             String fileDir=tempDir+branch+"/"+sfsem+"/";
             System.out.println("fileDir = " + fileDir);
             File directory=new File(fileDir);
             File[] flist=directory.listFiles();
+            
             for (File file : flist){
             if (file.isFile()){
                 //System.out.println(file.getName());
                 results.add(file.getName().toString());
+                //url.add(fileDir+file.getName());
             }
-        
-                System.out.println(results);
+                //System.out.println("url = " + url);
+                System.out.println("file names="+results);
             }
             String fname=results.get(0);
             for(int i=1;i<results.size();i++)

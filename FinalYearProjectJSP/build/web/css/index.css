@@ -10,6 +10,49 @@ and open the template in the editor.
 
 .container{
     font-family: 'Bree Serif', serif;
-   padding-top: 15%;
-   padding-left: 25%;
+    border-radius: 5px;
+    background-color:white;
+    height: 80vh;
+    background-color: #e0f2f1;
+    z-index: 8;
+    width: 65vh;
+    /*box-shadow: 5px 10px 10px 10px #cccc;*/
+}
+
+input[type=text]{
+     padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+}
+
+input[type=password]
+{
+     padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+}
+    
+.heading{
+  height: 50vh;  
+  padding: 70px;
+  background-color:#00695c;
+  
+}
+
+#button
+{
+    width: 40vh;
+    background-color:#009688;
+    border: 2px bold #00695c;
+}
+
+input[type=submit]:hover {
+    background-color:#a7ffeb;
+}
+
+p
+{
+ color: red;
 }
