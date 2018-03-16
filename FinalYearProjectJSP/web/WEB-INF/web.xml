@@ -84,6 +84,10 @@
         <servlet-name>Aboutstud</servlet-name>
         <servlet-class>About.Aboutstud</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>stud_aggregate</servlet-name>
+        <servlet-class>Aggregate.stud_aggregate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>Aboutstud</servlet-name>
         <url-pattern>/Aboutstud</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>stud_aggregate</servlet-name>
+        <url-pattern>/stud_aggregate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
