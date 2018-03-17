@@ -20,11 +20,32 @@
             android:fontFamily="sans-serif-smallcaps"
             android:textStyle="bold"
             android:textColor="#424242 "
-            android:textSize="30sp"/>
+            android:textSize="40sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="10dp"
+            android:text="Select Sem"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:textColor="#424242 "
+            android:textSize="20sp"/>
+
+        <Spinner
+            android:id="@+id/facsem"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:dropDownWidth="200dp"
+            android:layout_gravity="center"
+            android:prompt="@string/sspinner_title"/>
 
         <Button
             android:id="@+id/cfile"
-
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="120dp"
@@ -49,25 +70,7 @@
             android:textAlignment="center"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="19dp"
-            android:padding="10dp"
-            android:text="Select Sem"
-            android:textAlignment="center"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textStyle="bold"
-            android:textColor="#424242 "
-            android:textSize="15sp"/>
 
-        <Spinner
-            android:id="@+id/facsem"
-            android:layout_width="200dp"
-            android:layout_height="36dp"
-            android:dropDownWidth="200dp"
-            android:layout_gravity="center"
-            android:prompt="@string/sspinner_title"/>
 
         <Button
             android:id="@+id/ubtn"
