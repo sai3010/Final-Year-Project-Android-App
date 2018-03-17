@@ -90,6 +90,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 app:cardElevation="20dp"
+                android:id="@+id/markcard"
                 app:cardCornerRadius="8dp"
                 >
 

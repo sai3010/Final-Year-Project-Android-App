@@ -13,6 +13,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,6 +38,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -48,6 +50,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 public class StudentDashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -61,21 +64,28 @@ public class StudentDashboardActivity extends AppCompatActivity
     String name = "";
     String email = "";
     String usn = "";
-    String lname,branch,address,phone,sem,password;
+    File file,folder;
+    String lname,branch,address,phone,sem,password,url;
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
     static ImageView imgv;
-    CardView placement;
+    CardView placement,markcard;
     Uri selectedFileUri;
     String imgString = "";
     String res = "";
+    String extStorageDirectory;
+    private ProgressDialog pDialog;
+    public static final int progress_bar_type = 0;
     CardView notescard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
         verifyStoragePermissions(this);
+        extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        folder = new File(extStorageDirectory, "campusbridge/profile_photo/");
+        folder.mkdir();
         name = getIntent().getExtras().getString("name");
         email = getIntent().getExtras().getString("email");
         usn = getIntent().getExtras().getString("usn");
@@ -85,6 +95,9 @@ public class StudentDashboardActivity extends AppCompatActivity
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
         password=getIntent().getExtras().getString("password");
+        url=RegURL.durl+"Photos/"+"studprofile_photos/"+usn;
+        new DownloadFileFromURL().execute(url);
+        Toast.makeText(StudentDashboardActivity.this,url,Toast.LENGTH_SHORT).show();
         /*placement card handling*/
         placement = findViewById(R.id.placement_card);
         placement.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +109,18 @@ public class StudentDashboardActivity extends AppCompatActivity
             }
         });
         /*placement handling ends here*/
+        /*marks*/
+        markcard=findViewById(R.id.markcard);
+        markcard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(StudentDashboardActivity.this, StudMarksActivity.class);
+                i.putExtra("usn", usn);
+                i.putExtra("sem", sem);
+                startActivity(i);
+            }
+        });
+        /*marks end*/
         /*Stud notes*/
         notescard=findViewById(R.id.notescard);
         notescard.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +152,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
 
     private static long back_pressed;
 
@@ -360,5 +386,77 @@ public class StudentDashboardActivity extends AppCompatActivity
                 e.printStackTrace();
             }
         }
+    }
+    class DownloadFileFromURL extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //showDialog(progress_bar_type);
+        }
+
+
+        @Override
+        protected String doInBackground(String... f_url) {
+            int count;
+            try {
+                URL url = new URL(f_url[0]);
+                URLConnection conection = url.openConnection();
+                conection.connect();
+                int lenghtOfFile = conection.getContentLength();
+
+                // download the file
+                InputStream input = new BufferedInputStream(url.openStream(), 8192);
+
+                // Output stream
+                OutputStream output = new FileOutputStream(folder+usn);
+
+                byte data[] = new byte[1024];
+
+                long total = 0;
+
+                while ((count = input.read(data)) != -1) {
+                    total += count;
+                    publishProgress(""+(int)((total*100)/lenghtOfFile));
+
+                    output.write(data, 0, count);
+                }
+
+                output.flush();
+
+                output.close();
+                input.close();
+
+            } catch (Exception e) {
+                Log.e("Error: ", e.getMessage());
+            }
+
+            return null;
+        }
+        /**
+         * Updating progress bar
+         * */
+        protected void onProgressUpdate(String... progress) {
+            // setting progress percentage
+            //pDialog.setProgress(Integer.parseInt(progress[0]));
+        }
+        /**
+         * After completing background task
+         * Dismiss the progress dialog
+         * **/
+        @Override
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after the file was downloaded
+            //dismissDialog(progress_bar_type);
+
+            /*// Displaying downloaded image into image view
+            // Reading image path from sdcard
+            String imagePath = Environment.getExternalStorageDirectory().toString() + "/downloadedfile.pdf";
+            // setting downloaded into image view
+            Toast.makeText(StudNotesActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
+//            my_image.setImageDrawable(Drawable.createFromPath(imagePath));*/
+        }
+
     }
 }

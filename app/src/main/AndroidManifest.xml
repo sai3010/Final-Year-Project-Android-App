@@ -50,7 +50,8 @@
         <activity android:name=".AboutFacActivity" />
         <activity android:name=".StudNotesActivity" />
         <activity android:name=".ListViewActivity" />
-        <activity android:name=".StudentAggregateActivity"></activity>
+        <activity android:name=".StudentAggregateActivity" />
+        <activity android:name=".StudMarksActivity"></activity>
     </application>
 
 </manifest>
