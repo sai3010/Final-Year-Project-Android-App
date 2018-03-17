@@ -41,11 +41,13 @@ public class FacUploadData extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ServletContext context= request.getServletContext();
         try (PrintWriter out = response.getWriter()) {
-            //ServletContext context = getServletContext();
-            
-            out.print("Success");
-    String tempDir="C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/";
+            String dir= context.getRealPath("/");
+            System.out.println("dir = " + dir);
+      out.print("Success");
+    String tempDir=dir+"Notes";
+            System.out.println("tempDir = " + tempDir);
     String fileDir="";
     String usn="image";
     String branch="";
@@ -92,10 +94,10 @@ public class FacUploadData extends HttpServlet {
                 case 8:sfsem="sem8";
                         break;
             }
-            fileDir=tempDir+branch+"/"+sfsem+"/";
+            fileDir=tempDir+"\\"+branch+"\\"+sfsem+"\\";
     try
     {
-        MultipartRequest multi = new MultipartRequest(request, fileDir,	10 * 1024 * 1024); // 10MB
+        MultipartRequest multi = new MultipartRequest(request, dir,	10 * 1024 * 1024); // 10MB
         System.out.println("fileDir = " + fileDir);
         Enumeration files = multi.getFileNames();	
         while (files.hasMoreElements()) 

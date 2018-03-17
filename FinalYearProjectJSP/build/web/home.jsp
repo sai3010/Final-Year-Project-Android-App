@@ -127,23 +127,23 @@
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                            <input type="text" class="form-control" name="fname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets">
+                            <input type="text" class="form-control" name="fname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" name="lname" placeholder="Last name" pattern="[a-zA-Z]{1,20}" title="alphabets">
+                            <input type="text" class="form-control" name="lname" placeholder="Last name" pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet">
+                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control" name="dob"  placeholder="DOB">
+                                        <input type="date" class="form-control" name="dob"  placeholder="DOB" required>
                                </div>
                         </div>
                        
@@ -193,17 +193,17 @@
     <div class="form-row">
     <div class="form-group col-md-8">
       
-      <input type="phone" class="form-control" name="phone" id="phone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number">
+      <input type="phone" class="form-control" name="phone" id="phone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number" required>
     </div>
     <div class="form-group col-md-3">
       
-        <input type="number" min="1" max="8" class="form-control" name="sem" id="sem" placeholder="Sem">
+        <input type="number" min="1" max="8" class="form-control" name="sem" id="sem" placeholder="Sem" required>
     </div>
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" name="address" id="inputAddress" placeholder="Address">
+        <input type="text" class="form-control" name="address" id="inputAddress" placeholder="Address" required>
   </div>
   <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -231,7 +231,7 @@
         <form action="view1.jsp" method="post">
       <div class="modal-body">
           <div class="col md-6  ">
-              <input type="text" class="form-control" name="usn" id="usn" placeholder="Enter USN">
+              <input type="text" class="form-control" name="usn" id="usn" placeholder="Enter USN" required>
           </div>
       </div>
       <div class="modal-footer">
@@ -257,7 +257,7 @@
         <form action="./Deletestudent" method="post"> 
       <div class="modal-body">
           <div class="col md-6  ">
-         <input type="text" class="form-control " name="usn" id="usn" placeholder=" Enter USN">
+         <input type="text" class="form-control " name="usn" id="usn" placeholder=" Enter USN" required>
          </div>
       </div>
       <div class="modal-footer">
@@ -393,7 +393,7 @@
       <div class="modal-body">
             
           <div class="col md-6  ">
-              <input type="text" class="form-control" id="usn" name="usn" placeholder=" Enter USN" >
+              <input type="text" class="form-control" id="usn" name="usn" placeholder=" Enter USN" required>
           </div>
       </div>
       <div class="modal-footer">
@@ -418,7 +418,7 @@
         <form action="./Deletefaculty" method="post">
       <div class="modal-body">
           <div class="col md-6  ">
-         <input type="text" class="form-control " id="usn" name="deletefacusn" placeholder="Enter USN" >
+         <input type="text" class="form-control " id="usn" name="deletefacusn" placeholder="Enter USN" required>
          </div>
       </div>
       <div class="modal-footer">
@@ -554,23 +554,23 @@
                         <div class="form-row">
                           <div class="col">
                                <label for="firstname"></label>
-                               <input type="text" class="form-control" name="updatefacfirstname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets">
+                               <input type="text" class="form-control" name="updatefacfirstname" placeholder="First name" pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                           <div class="col">
                                <label for="lastname"></label>
-                            <input type="text" class="form-control" name="updatefaclastname" placeholder="Last name"pattern="[a-zA-Z]{1,20}" title="alphabets">
+                            <input type="text" class="form-control" name="updatefaclastname" placeholder="Last name"pattern="[a-zA-Z]{1,20}" title="alphabets" required>
                           </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet">
+                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
                                         <label for="date"></label>
-                                        <input type="date" class="form-control" name="updatefacdob" placeholder="DOB">
+                                        <input type="date" class="form-control" name="updatefacdob" placeholder="DOB" required>
                                </div>
                         </div>
                        
@@ -606,11 +606,11 @@
  <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email"></label>
-      <input type="email" class="form-control" id="inputEmail4" name="updatefacemail" placeholder="Email" pattern="[A-Za-z_.0-9-]+@{1}[a-z]+([.]{1}[a-z]{2,4})+" title="Enter valid email" >
+      <input type="email" class="form-control" id="inputEmail4" name="updatefacemail" placeholder="Email" pattern="[A-Za-z_.0-9-]+@{1}[a-z]+([.]{1}[a-z]{2,4})+" title="Enter valid email" required>
     </div>
     <div class="form-group col-md-6">
       <label for="password"></label>
-      <input type="password" class="form-control" id="inputPassword4" name="updatefacpassword" placeholder="Password" pattern="\d{6}" title="minimum of 6 digits">
+      <input type="password" class="form-control" id="inputPassword4" name="updatefacpassword" placeholder="Password" pattern="\d{6}" title="minimum of 6 digits" required>
     </div>
   </div>
   
@@ -618,18 +618,18 @@
     <div class="form-row">
          <div class="form-group col-md-8">
       
-        <input type="text"  class="form-control" id="sem" name="updatefacqual" placeholder="Qualification">
+        <input type="text"  class="form-control" id="sem" name="updatefacqual" placeholder="Qualification" required>
     </div>
     <div class="form-group col-md-4">
       
-      <input type="phone" class="form-control" id="phone" name="updatefacphone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number">
+      <input type="phone" class="form-control" id="phone" name="updatefacphone" placeholder="Phone" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" title="Enter 10 digit phone number" required>
     </div>
    
   </div>
                     
                     
   <div class="form-group">
-        <input type="text" class="form-control" id="inputAddress" name="updatefacaddress" placeholder="Address">
+        <input type="text" class="form-control" id="inputAddress" name="updatefacaddress" placeholder="Address" required>
   </div>
   
    <div class="modal-footer">
@@ -654,19 +654,19 @@
             <div class="form-row">
                 <div class=" col-md-6 offset-md-3 ">
                     <label for="cname"></label>    
-                    <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name">
+                    <input type="text" class="form-control" id="Cname" name="cname" placeholder="Company Name" required>
                 </div> 
                 <div class="col-md-6 offset-md-3 ">
                     <label for="Ccode"></label>
-                    <input type="text" class="form-control" id="Ccode" name="ccode" placeholder="Company Code">
+                    <input type="text" class="form-control" id="Ccode" name="ccode" placeholder="Company Code" required>
                 </div> 
                 <div class=" col-md-6 offset-md-3 ">
                     <label for="Ctier"></label>
-                    <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier">
+                    <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier" required>
                 </div> 
                 <div class=" col-md-6 offset-md-3 ">
                     <label for="Cbranch"></label>
-                    <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches">
+                    <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches" required>
                 </div> 
                
                 <div class="col-md-6 offset-md-3 " style="padding-top: 20px;">                 
