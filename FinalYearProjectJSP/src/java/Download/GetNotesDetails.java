@@ -90,7 +90,7 @@ public class GetNotesDetails extends HttpServlet {
             List<String> results = new ArrayList<String>();
             //List<String> url = new ArrayList<String>();
             String fileDir=tempDir+branch+"\\"+sfsem+"\\";
-            System.out.println("fileDir = " + fileDir);
+            System.out.println("fileDir := " + fileDir);
             File directory=new File(fileDir);
             File[] flist=directory.listFiles();
             
