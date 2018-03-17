@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,13 +36,16 @@ public class GetNotesDetails extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ServletContext context= request.getServletContext();
         try (PrintWriter out = response.getWriter()) {
+            
+           String dir= context.getRealPath("/"); 
            String usn=request.getParameter("usn");
            String sem=request.getParameter("sem");
             System.out.println("sem = " + sem);
             System.out.println("usn = " + usn);
             String branch="",sfsem="";
-            String tempDir="C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/";
+            String tempDir=dir+"Notes"+"\\";
             if(usn.contains("CS")){
                 branch="cse";
             }
@@ -85,7 +89,7 @@ public class GetNotesDetails extends HttpServlet {
             }
             List<String> results = new ArrayList<String>();
             //List<String> url = new ArrayList<String>();
-            String fileDir=tempDir+branch+"/"+sfsem+"/";
+            String fileDir=tempDir+branch+"\\"+sfsem+"\\";
             System.out.println("fileDir = " + fileDir);
             File directory=new File(fileDir);
             File[] flist=directory.listFiles();

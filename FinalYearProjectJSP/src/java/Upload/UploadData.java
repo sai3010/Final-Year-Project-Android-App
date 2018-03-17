@@ -6,6 +6,7 @@
 package Upload;
 
 import com.oreilly.servlet.MultipartRequest;
+import com.sun.org.apache.xerces.internal.impl.xs.XSDDescription;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -39,7 +40,7 @@ public class UploadData extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    String fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/";
+ 
     String usn="image";
     String paramname=null,fname="",file="",filePath="";
     
@@ -49,6 +50,9 @@ public class UploadData extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
         ServletContext context = getServletContext();
     
+           String fileDir = context.getRealPath("/");
+            System.out.println("fileDir = " + fileDir);
+        
         String image= request.getParameter("img");
         String usn= request.getParameter("usn");
 //        String usn= "1RNSCCSE";
@@ -57,13 +61,15 @@ public class UploadData extends HttpServlet {
             System.out.println("Success");
             if(ch.matches("[0-9]"))
             {
-                fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/studprofile_photos/";
+                fileDir = fileDir+"Photos"+"\\"+"studprofile_photos"+"\\" ;
+                System.out.println("fileDir = " + fileDir);
                 System.out.println("stud image uploaded");
             }
             else if(ch.matches("[A-Z]"))
             {
-                fileDir = "C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Photos/facprofile_photos/";
+                fileDir = fileDir+"Photos"+"\\"+"facprofile_photos"+"\\" ;
                 System.out.println("fac image uploaded");
+                System.out.println("fileDir = " + fileDir);
             }
             else
             {
