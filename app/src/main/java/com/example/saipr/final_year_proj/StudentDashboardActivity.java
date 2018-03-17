@@ -211,6 +211,12 @@ public class StudentDashboardActivity extends AppCompatActivity
             startActivity(intent);
             finish();
         }
+        else if(id==R.id.agg)
+        {
+            Intent intent1=new Intent(this, StudentAggregateActivity.class);
+            intent1.putExtra("usn",usn);
+            startActivity(intent1);
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
