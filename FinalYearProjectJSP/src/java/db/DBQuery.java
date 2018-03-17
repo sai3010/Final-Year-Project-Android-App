@@ -311,4 +311,59 @@ public class DBQuery {
         return i;
 
            }
+    public int add_aggregate_marks(String usn,String branch) throws ClassNotFoundException, SQLException
+    {
+        System.out.println("usn = " + usn);
+        System.out.println("branch = " + branch);
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query ="insert into  student_aggregate(usn,branch) values ('"+usn+"','"+branch+"')";
+        int j= st.executeUpdate(query);
+        con.close();
+	return j;
+    }
+    
+    public String[] get_student_aggregate_data(String usn1,String branch) throws SQLException, ClassNotFoundException
+    {
+        String[] val=new String [11];
+        
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+         String query="select * from  student_aggregate where usn='"+usn1+"'and branch='"+branch+"'";
+        
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            val[0]= rs.getString("usn");
+            val[1]= rs.getString("branch");
+            val[2]=rs.getString("sem1");
+            val[3]=rs.getString("sem2");
+            val[4]=rs.getString("sem3");
+            val[5]=rs.getString("sem4");
+            val[6]=rs.getString("sem5");
+            val[7]=rs.getString("sem6");
+            val[8]=rs.getString("sem7");
+            val[9]=rs.getString("sem8");
+            val[10]=rs.getString("aggregate");
+            
+        }
+		
+		con.close();
+		return val;
+      
+        }
+    
+    public int update_student_sem_marks( Double ssem1, Double ssem2,Double ssem3,Double ssem4,Double ssem5,Double ssem6,Double ssem7,Double ssem8,String usn1,Double aggsum) throws SQLException, ClassNotFoundException
+    {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query="update student_aggregate set sem1='"+ssem1+"',sem2='"+ssem2+"',sem3='"+ssem3+"',sem4='"+ssem4+"',sem5='"+ssem5+"',sem6='"+ssem6+"',sem7='"+ssem7+"',sem8='"+ssem8+"',aggregate='"+aggsum+"' where usn='"+usn1+"'";
+        int i= st.executeUpdate(query);
+         con.close();
+         return i;   
+        
+    }
+    
+        
 }
+
