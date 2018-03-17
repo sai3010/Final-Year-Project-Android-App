@@ -1,5 +1,7 @@
 package com.example.saipr.final_year_proj;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -18,34 +20,41 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudNotesActivity extends AppCompatActivity {
     private static final String TAG = StudNotesActivity.class.getSimpleName();
     String usn,sem;
-    String response;
+    String response,str;
     LinearLayout lview;
     ListView lv;
-    File file;
+    File file,folder;
+    String br;
+    String semnum;
     TextView semtitle;
+    private ProgressDialog pDialog;
+    public static final int progress_bar_type = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stud_notes);
         ArrayList<String> fname=new ArrayList<>();
         String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-        File folder = new File(extStorageDirectory, "campusbridge");
+        folder = new File(extStorageDirectory, "campusbridge");
         folder.mkdir();
-        file = new File(folder, "android.pdf");
+        /*file = new File(folder, "android.pdf");
         try {
             if(!file.exists()) {
                 file.createNewFile();
@@ -53,7 +62,7 @@ public class StudNotesActivity extends AppCompatActivity {
             }
         } catch (IOException e1) {
             e1.printStackTrace();
-        }
+        }*/
         lview=findViewById(R.id.lview);
         semtitle=findViewById(R.id.title);
         lv=findViewById(R.id.lv);
@@ -75,28 +84,71 @@ public class StudNotesActivity extends AppCompatActivity {
         //lview.addView(lv);
         //Toast.makeText(StudNotesActivity.this,response.toString(),Toast.LENGTH_SHORT).show();r
         lv.setClickable(true);
+        switch (usn.substring(5,7))
+        {
+            case "CS":br="cse";
+                      break;
+            case "EC":br="ece";
+                break;
+            case "EE":br="eee";
+                break;
+            case "CV":br="civil";
+                break;
+            case "IS":br="ise";
+                break;
+            case "ME":br="mech";
+                break;
+            case "EI":br="eie";
+                break;
+        }
+        switch (sem)
+        {
+            case "1":semnum="sem1";
+                break;
+            case "2":semnum="sem2";
+                break;
+            case "3":semnum="sem3";
+                break;
+            case "4":semnum="sem4";
+                break;
+            case "5":semnum="sem5";
+                break;
+            case "6":semnum="sem6";
+                break;
+            case "7":semnum="sem7";
+                break;
+            case "8":semnum="sem8";
+                break;
+        }
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 Object o = lv.getItemAtPosition(position);
-                String str=(String)o;//As you are using Default String Adapter
-                String url="C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/Notes/"+str;
-                boolean downloadFile = downloadFile(url, file);
-                /*if (file!=null && file.exists() && file.length() > 0){
-                    Intent intent = new Intent(this, com.example.soniapdf.Second.class);
-                    intent.putExtra(PdfViewerActivity.EXTRA_PDFFILENAME,
-                            file.getAbsolutePath());
-                    startActivity(intent);
-                }*/
-                if(downloadFile)
-                Toast.makeText(getApplicationContext(), "yesss",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getApplicationContext(), "nooo",Toast.LENGTH_SHORT).show();
+                str=(String)o;//As you are using Default String Adapter
+                String url=RegURL.url+"Notes/"+br+"/"+semnum;
+                Toast.makeText(StudNotesActivity.this,url,Toast.LENGTH_SHORT).show();
+                new DownloadFileFromURL().execute(url+"/"+str);
             }
         });
     }
 
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case progress_bar_type: // we set this to 0
+                pDialog = new ProgressDialog(this);
+                pDialog.setMessage("Downloading file. Please wait...");
+                pDialog.setIndeterminate(false);
+                pDialog.setMax(100);
+                pDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                pDialog.setCancelable(true);
+                pDialog.show();
+                return pDialog;
+            default:
+                return null;
+        }
+    }
 
 
     class MyNote extends AsyncTask
@@ -123,41 +175,80 @@ public class StudNotesActivity extends AppCompatActivity {
 
 
     }
-    public  boolean downloadFile(String fileUrl, File directory) {
-        try {
-            FileOutputStream f = new FileOutputStream(directory);
-            URL u = new URL(fileUrl);
-            HttpURLConnection c = (HttpURLConnection) u.openConnection();
-            c.setRequestMethod("GET");
-            c.setDoOutput(true);
-            c.connect();
-            InputStream in = c.getInputStream();
 
-            byte[] buffer = new byte[1024];
-            int len = 0;
-
-            //
-            int fileLength = c.getContentLength();
-            long total = 0;
-            //
-            Toast.makeText(StudNotesActivity.this, "Downloading PDF...",Toast.LENGTH_SHORT).show();
+    class DownloadFileFromURL extends AsyncTask<String, String, String> {
 
 
-            while ((len = in.read(buffer)) > 0) {
-                total += len;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            showDialog(progress_bar_type);
+        }
 
 
-                //Toast.makeText(applicationContext, "Downloading PDF: remaining " + (fileLength / total  )+ "%", 1).show();
-                f.write(buffer, 0, len);
+        @Override
+        protected String doInBackground(String... f_url) {
+            int count;
+            try {
+                URL url = new URL(f_url[0]);
+                URLConnection conection = url.openConnection();
+                conection.connect();
+                int lenghtOfFile = conection.getContentLength();
+
+                // download the file
+                InputStream input = new BufferedInputStream(url.openStream(), 8192);
+
+                // Output stream
+                OutputStream output = new FileOutputStream(folder+"/"+str);
+
+                byte data[] = new byte[1024];
+
+                long total = 0;
+
+                while ((count = input.read(data)) != -1) {
+                    total += count;
+                    publishProgress(""+(int)((total*100)/lenghtOfFile));
+
+                    output.write(data, 0, count);
+                }
+
+                output.flush();
+
+                output.close();
+                input.close();
+
+            } catch (Exception e) {
+                Log.e("Error: ", e.getMessage());
             }
-            f.close();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+
+            return null;
+        }
+
+        /**
+         * Updating progress bar
+         * */
+        protected void onProgressUpdate(String... progress) {
+            // setting progress percentage
+            pDialog.setProgress(Integer.parseInt(progress[0]));
+        }
+
+        /**
+         * After completing background task
+         * Dismiss the progress dialog
+         * **/
+        @Override
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after the file was downloaded
+            dismissDialog(progress_bar_type);
+
+            /*// Displaying downloaded image into image view
+            // Reading image path from sdcard
+            String imagePath = Environment.getExternalStorageDirectory().toString() + "/downloadedfile.pdf";
+            // setting downloaded into image view
+            Toast.makeText(StudNotesActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
+//            my_image.setImageDrawable(Drawable.createFromPath(imagePath));*/
         }
 
     }
-
 
 }

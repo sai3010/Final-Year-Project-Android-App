@@ -35,7 +35,7 @@ import java.net.URL;
 
 public class FacNotesActivity extends AppCompatActivity {
     String usn;
-    String sem;
+    static String  sem;
     Spinner semspin = null;
     Button cfile;
     Button ubtn;
@@ -71,7 +71,7 @@ public class FacNotesActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 sem = parent.getItemAtPosition(position).toString();
-                //Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(),sem + "  selected", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -166,6 +166,7 @@ public class FacNotesActivity extends AppCompatActivity {
 //                    tvFileName.setText(selectedFilePath);
                     //Toast.makeText(this, "== " + selectedFilePath, Toast.LENGTH_LONG).show();
                         new SendInfo().execute();
+                        Toast.makeText(FacNotesActivity.this,sem,Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "Cannot upload file to server", Toast.LENGTH_SHORT).show();
                 }

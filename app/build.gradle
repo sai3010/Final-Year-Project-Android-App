@@ -39,7 +39,6 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:design:26.1.0'
-
     compile'com.github.markushi:circlebutton:1.1'
-
 }
+

@@ -30,6 +30,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,20 +56,22 @@ public class FacultyDashboardActivity extends AppCompatActivity
     private static final int PICK_FILE_REQUEST = 1;
     private static final String TAG = FacultyDashboardActivity.class.getSimpleName();
     private String selectedFilePath="";
+    ProgressDialog dialog;
     int serverResponseCode = 0;
     String name = "";
     String email = "";
-    String usn = "";
+   static String usn = "";
     String lname,branch,address,phone,qual,password;
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
     CardView facnotes,markscard;
     Intent intent;
-    ImageView imgv=null;
+   static ImageView imgv;
     Uri selectedFileUri;
     String imgString = "";
     String res = "";
+    private ProgressBar spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +87,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
         password=getIntent().getExtras().getString("password");
+
         /*marks card click*/
         markscard=findViewById(R.id.markscard);
         markscard.setOnClickListener(new View.OnClickListener() {
@@ -208,7 +212,8 @@ public class FacultyDashboardActivity extends AppCompatActivity
         }
         else if (id == R.id.logout)
         {
-            Intent intent = new Intent(this, MainActivity.class);
+            dialog = ProgressDialog.show(FacultyDashboardActivity.this, "", "Logging Out...",true);
+            Intent intent = new Intent(FacultyDashboardActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
             startActivity(intent);
             finish();

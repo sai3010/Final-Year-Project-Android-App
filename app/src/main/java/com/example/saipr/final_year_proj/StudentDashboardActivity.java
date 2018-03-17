@@ -65,7 +65,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
-    ImageView imgv = null;
+    static ImageView imgv;
     CardView placement;
     Uri selectedFileUri;
     String imgString = "";
