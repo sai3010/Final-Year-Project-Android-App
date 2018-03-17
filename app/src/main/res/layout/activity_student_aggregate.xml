@@ -19,16 +19,25 @@
 
         <TextView
             android:id="@+id/aggtitle"
-            android:layout_width="289dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="Semester Aggregate "
             android:textAlignment="center"
-            android:textSize="30dp" />
+            android:textSize="29dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/calculate"
+            android:layout_margin="10dp"
+            android:text="Your aggregate is"
+            android:textSize="30dp"
+            android:textAlignment="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,15 +50,16 @@
             android:layout_margin="10dp"
             android:width="150dp"
             android:text="SEM1"
-            android:textSize="25dp" />
+            android:textSize="24dp"
+            android:fontFamily="sans-serif-smallcaps"/>
 
         <EditText
             android:id="@+id/s1marks"
-            android:layout_width="wrap_content"
+            android:layout_width="248dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 1 MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -60,19 +70,20 @@
 
         <TextView
             android:id="@+id/sem2"
-            android:layout_width="wrap_content"
+            android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="SEM 2"
-            android:textSize="25dp" />
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/s2marks"
-            android:layout_width="match_parent"
+            android:layout_width="252dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 2 MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -85,8 +96,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SEM 3"
-            android:textSize="25dp"
-            android:layout_margin="10dp"/>
+            android:textSize="24dp"
+            android:layout_margin="10dp"
+            android:fontFamily="sans-serif-smallcaps"/>
 
         <EditText
             android:id="@+id/s3marks"
@@ -94,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 3  MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -107,7 +119,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SEM 4"
-        android:textSize="25dp"
+        android:textSize="24dp"
+        android:fontFamily="sans-serif-smallcaps"
         android:layout_margin="10dp"/>
 
         <EditText
@@ -116,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 4  MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -129,7 +142,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SEM 5"
-        android:textSize="25dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="24dp"
         android:layout_margin="10dp"/>
 
         <EditText
@@ -138,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 5  MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -153,7 +167,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SEM 6"
-        android:textSize="25dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="24dp"
         android:layout_margin="10dp"/>
 
         <EditText
@@ -162,7 +177,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 6  MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -175,7 +190,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SEM 7"
-        android:textSize="25dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="24dp"
         android:layout_margin="10dp"/>
 
         <EditText
@@ -184,7 +200,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 8  MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal"/>
 
     </LinearLayout>
@@ -199,7 +215,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SEM 8"
-            android:textSize="25dp"
+            android:textSize="24dp"
+            android:fontFamily="sans-serif-smallcaps"
             android:layout_margin="10dp"/>
         <EditText
             android:id="@+id/s7marks"
@@ -207,10 +224,24 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
-            android:hint="SEMESTER 7  MARKS"
+            android:hint="Enter Percentage"
             android:inputType="numberDecimal"/>
 
     </LinearLayout>
+    <Button
+        android:id="@+id/btnaggrupdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
 
+        android:background="@drawable/button"
+        android:textColor="#fafafa"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"/>
 </LinearLayout>
+
+
 </ScrollView>
