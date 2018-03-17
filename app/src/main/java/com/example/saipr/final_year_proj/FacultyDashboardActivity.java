@@ -108,6 +108,8 @@ public class FacultyDashboardActivity extends AppCompatActivity
             }
         });
 
+        /*Image setting*/
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -126,7 +126,7 @@ public class StudNotesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 Object o = lv.getItemAtPosition(position);
                 str=(String)o;//As you are using Default String Adapter
-                String url=RegURL.url+"Notes/"+br+"/"+semnum;
+                String url=RegURL.durl+"Notes/"+br+"/"+semnum;
                 Toast.makeText(StudNotesActivity.this,url,Toast.LENGTH_SHORT).show();
                 new DownloadFileFromURL().execute(url+"/"+str);
             }

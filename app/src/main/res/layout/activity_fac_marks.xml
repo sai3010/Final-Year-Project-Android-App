@@ -97,28 +97,10 @@
             android:text="Get Student Details"
             android:textSize="25dp"/>
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="match_parent">
-            <TableRow>
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="TextView"
-                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="TextView"
-                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
-            </TableRow>
-        </TableLayout>
+        <ListView
+            android:id="@+id/studlist"
+            android:layout_width="fill_parent"
+            android:layout_height="250px" />
 
     </LinearLayout>
 </ScrollView>
