@@ -60,14 +60,14 @@ public class FacultyDashboardActivity extends AppCompatActivity
     int serverResponseCode = 0;
     String name = "";
     String email = "";
-    String usn = "";
-    String lname,branch,address,phone,qual;
+   static String usn = "";
+    String lname,branch,address,phone,qual,password;
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
     CardView facnotes,markscard;
     Intent intent;
-    ImageView imgv=null;
+   static ImageView imgv;
     Uri selectedFileUri;
     String imgString = "";
     String res = "";
@@ -86,6 +86,8 @@ public class FacultyDashboardActivity extends AppCompatActivity
         address=getIntent().getExtras().getString("address");
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
+        password=getIntent().getExtras().getString("password");
+
         /*marks card click*/
         markscard=findViewById(R.id.markscard);
         markscard.setOnClickListener(new View.OnClickListener() {
@@ -206,6 +208,8 @@ public class FacultyDashboardActivity extends AppCompatActivity
             i.putExtra("address",address);
             i.putExtra("phone",phone);
             i.putExtra("email",email);
+            i.putExtra("password",password);
+            i.putExtra("usn",usn);
             startActivity(i);
         }
         else if (id == R.id.logout)

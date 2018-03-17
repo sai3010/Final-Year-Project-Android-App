@@ -66,6 +66,7 @@ public class LoginMainActivity extends AppCompatActivity {
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         intent =new Intent(LoginMainActivity.this,StudentDashboardActivity.class);
+                        intent.putExtra("password",res[1]);
                         intent.putExtra("name",res[2]);
                         intent.putExtra("email",res[3]);
                         intent.putExtra("usn",res[4]);
@@ -80,6 +81,7 @@ public class LoginMainActivity extends AppCompatActivity {
                     {
                         Toast.makeText(LoginMainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                         intent =new Intent(LoginMainActivity.this,FacultyDashboardActivity.class);
+                        intent.putExtra("password",res[1]);
                         intent.putExtra("name",res[2]);
                         intent.putExtra("email",res[3]);
                         intent.putExtra("usn",res[4]);

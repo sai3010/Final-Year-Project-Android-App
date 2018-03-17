@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PLACEMENT STATISTICS"
+            android:fontFamily="sans-serif-smallcaps"
             android:layout_margin="20dp"
             android:textSize="30sp"
             android:textColor="#FF0D0D0D"
@@ -27,15 +28,16 @@
             android:id="@+id/aggtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Aggregate"
+            android:hint="Aggregate"
             android:layout_margin="20dp"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
         <Button
             android:id="@+id/compbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="Get Companies"
+            android:textColor="#fafafa"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-smallcaps"
             android:textSize="20dp"/>

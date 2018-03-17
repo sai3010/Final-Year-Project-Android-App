@@ -61,11 +61,11 @@ public class StudentDashboardActivity extends AppCompatActivity
     String name = "";
     String email = "";
     String usn = "";
-    String lname,branch,address,phone,sem;
+    String lname,branch,address,phone,sem,password;
     TextView nametxt;
     TextView emailtxt;
     TextView usntxt;
-    ImageView imgv = null;
+    static ImageView imgv;
     CardView placement;
     Uri selectedFileUri;
     String imgString = "";
@@ -84,6 +84,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         address=getIntent().getExtras().getString("address");
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
+        password=getIntent().getExtras().getString("password");
         /*placement card handling*/
         placement = findViewById(R.id.placement_card);
         placement.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +201,7 @@ public class StudentDashboardActivity extends AppCompatActivity
             i.putExtra("address",address);
             i.putExtra("phone",phone);
             i.putExtra("email",email);
+            i.putExtra("password",password);
             startActivity(i);
         }
         else if (id == R.id.logout)
