@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -38,6 +40,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -49,6 +52,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 public class FacultyDashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -70,13 +74,18 @@ public class FacultyDashboardActivity extends AppCompatActivity
    static ImageView imgv;
     Uri selectedFileUri;
     String imgString = "";
-    String res = "";
+    String res = "",url;
+    String extStorageDirectory;
+    File file,folder;
     private ProgressBar spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_dashboard);
         verifyStoragePermissions(this);
+        extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        folder = new File(extStorageDirectory, "campusbridge");
+        folder.mkdir();
         /*getting usn through intent*/
         name = getIntent().getExtras().getString("name");
         email = getIntent().getExtras().getString("email");
@@ -87,7 +96,9 @@ public class FacultyDashboardActivity extends AppCompatActivity
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
         password=getIntent().getExtras().getString("password");
-
+        url=RegURL.url+"Photos/"+"facprofile_photos/"+usn+".png";
+        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+        new FacultyDashboardActivity.DownloadFileFromURL().execute(url);
         /*marks card click*/
         markscard=findViewById(R.id.markscard);
         markscard.setOnClickListener(new View.OnClickListener() {
@@ -342,5 +353,86 @@ public class FacultyDashboardActivity extends AppCompatActivity
                 e.printStackTrace();
             }
         }
+    }
+    class DownloadFileFromURL extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //showDialog(progress_bar_type);
+        }
+
+
+        @Override
+        protected String doInBackground(String... f_url) {
+            int count;
+            try {
+                URL url = new URL(f_url[0]);
+                URLConnection conection = url.openConnection();
+                conection.connect();
+                int lenghtOfFile = conection.getContentLength();
+
+                // download the file
+                InputStream input = new BufferedInputStream(url.openStream(), 8192);
+
+                // Output stream
+                OutputStream output = new FileOutputStream(folder+"/"+usn+".jpg");
+
+                byte data[] = new byte[1024];
+
+                long total = 0;
+
+                while ((count = input.read(data)) != -1) {
+                    total += count;
+                    publishProgress(""+(int)((total*100)/lenghtOfFile));
+
+                    output.write(data, 0, count);
+                }
+
+                output.flush();
+
+                output.close();
+                input.close();
+
+            } catch (Exception e) {
+                Log.e("Error: ", e.getMessage());
+            }
+
+            return null;
+        }
+        /**
+         * Updating progress bar
+         * */
+        protected void onProgressUpdate(String... progress) {
+            // setting progress percentage
+            //pDialog.setProgress(Integer.parseInt(progress[0]));
+        }
+        /**
+         * After completing background task
+         * Dismiss the progress dialog
+         * **/
+        @Override
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog after the file was downloaded
+            //dismissDialog(progress_bar_type);
+
+            // Displaying downloaded image into image view
+            // Reading image path from sdcard
+            String imagePath = Environment.getExternalStorageDirectory().toString() +"/campusbridge"+"/"+usn+".jpg";
+            // setting downloaded into image view
+            Toast.makeText(FacultyDashboardActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
+//            File directory=new File(imagePath);
+//            File[] flist=directory.listFiles();
+//            for (File file : flist) {
+//                if (file.isFile()) {
+//                    //System.out.println(file.getName());
+//                    Toast.makeText(StudentDashboardActivity.this, file.getName().toString(), Toast.LENGTH_SHORT).show();
+//                    //url.add(fileDir+file.getName());
+//                }
+//            }
+            imgv.setImageDrawable(Drawable.createFromPath(imagePath));
+        }
+
     }
 }
