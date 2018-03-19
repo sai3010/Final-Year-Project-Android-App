@@ -51,7 +51,9 @@
         <activity android:name=".StudNotesActivity" />
         <activity android:name=".ListViewActivity" />
         <activity android:name=".StudentAggregateActivity" />
-        <activity android:name=".StudMarksActivity"></activity>
+        <activity android:name=".StudMarksActivity" />
+        <activity android:name=".Fac_View_Marks" />
+        <activity android:name=".FacUpdateMarks"></activity>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -84,7 +85,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         setContentView(R.layout.activity_student_dashboard);
         verifyStoragePermissions(this);
         extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-        folder = new File(extStorageDirectory, "campusbridge/profile_photo/");
+        folder = new File(extStorageDirectory, "campusbridge");
         folder.mkdir();
         name = getIntent().getExtras().getString("name");
         email = getIntent().getExtras().getString("email");
@@ -95,7 +96,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
         password=getIntent().getExtras().getString("password");
-        url=RegURL.durl+"Photos/"+"studprofile_photos/"+usn;
+        url=RegURL.url+"Photos/"+"studprofile_photos/"+usn+".png";
         new DownloadFileFromURL().execute(url);
         Toast.makeText(StudentDashboardActivity.this,url,Toast.LENGTH_SHORT).show();
         /*placement card handling*/
@@ -410,7 +411,7 @@ public class StudentDashboardActivity extends AppCompatActivity
                 InputStream input = new BufferedInputStream(url.openStream(), 8192);
 
                 // Output stream
-                OutputStream output = new FileOutputStream(folder+usn);
+                OutputStream output = new FileOutputStream(folder+"/"+usn+".jpg");
 
                 byte data[] = new byte[1024];
 
@@ -450,12 +451,21 @@ public class StudentDashboardActivity extends AppCompatActivity
             // dismiss the dialog after the file was downloaded
             //dismissDialog(progress_bar_type);
 
-            /*// Displaying downloaded image into image view
+            // Displaying downloaded image into image view
             // Reading image path from sdcard
-            String imagePath = Environment.getExternalStorageDirectory().toString() + "/downloadedfile.pdf";
+            String imagePath = Environment.getExternalStorageDirectory().toString() +"/campusbridge"+"/"+usn+".jpg";
             // setting downloaded into image view
-            Toast.makeText(StudNotesActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
-//            my_image.setImageDrawable(Drawable.createFromPath(imagePath));*/
+            Toast.makeText(StudentDashboardActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
+//            File directory=new File(imagePath);
+//            File[] flist=directory.listFiles();
+//            for (File file : flist) {
+//                if (file.isFile()) {
+//                    //System.out.println(file.getName());
+//                    Toast.makeText(StudentDashboardActivity.this, file.getName().toString(), Toast.LENGTH_SHORT).show();
+//                    //url.add(fileDir+file.getName());
+//                }
+//            }
+            imgv.setImageDrawable(Drawable.createFromPath(imagePath));
         }
 
     }
