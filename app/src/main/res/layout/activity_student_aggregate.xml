@@ -19,12 +19,12 @@
 
         <TextView
             android:id="@+id/aggtitle"
-            android:layout_width="316dp"
+            android:layout_width="338dp"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
             android:layout_gravity="center"
+            android:layout_margin="12dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="Semester Aggregate "
+            android:text="  Semester Aggregate "
             android:textAlignment="gravity"
             android:textSize="28dp"
             android:textStyle="bold" />
