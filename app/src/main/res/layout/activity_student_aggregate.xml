@@ -9,19 +9,24 @@
     android:layout_margin="10dp"
     tools:context="com.example.saipr.final_year_proj.StudentAggregateActivity">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/aggtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="58dp"
-            android:layout_margin="15dp"
+            android:layout_width="316dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_gravity="center"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Semester Aggregate "
-            android:textAlignment="center"
-            android:textSize="29dp"
+            android:textAlignment="gravity"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -31,7 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/calculate"
             android:layout_margin="10dp"
-            android:text="Your aggregate is"
+            android:text="Your aggregate"
             android:textSize="30dp"
             android:textAlignment="center"/>
     <LinearLayout
@@ -41,13 +46,13 @@
 
         <TextView
             android:id="@+id/sem1"
-            android:layout_width="70dp"
-            android:layout_height="29dp"
-            android:layout_margin="10dp"
+            android:layout_width="60dp"
+            android:layout_height="46dp"
+            android:layout_margin="8dp"
             android:width="150dp"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="SEM1"
-            android:textSize="24dp"
-            android:fontFamily="sans-serif-smallcaps"/>
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/s1marks"
@@ -66,16 +71,16 @@
 
         <TextView
             android:id="@+id/sem2"
-            android:layout_width="74dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_width="59dp"
+            android:layout_height="49dp"
+            android:layout_margin="9dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="SEM 2"
+            android:text="SEM2"
             android:textSize="24dp" />
 
         <EditText
             android:id="@+id/s2marks"
-            android:layout_width="252dp"
+            android:layout_width="248dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:width="180dp"
@@ -89,11 +94,11 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/sem3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEM 3"
+            android:layout_width="59dp"
+            android:layout_height="49dp"
+            android:text="SEM3"
             android:textSize="24dp"
-            android:layout_margin="10dp"
+            android:layout_margin="9dp"
             android:fontFamily="sans-serif-smallcaps"/>
 
         <EditText
@@ -112,12 +117,12 @@
         android:orientation="horizontal">
     <TextView
         android:id="@+id/sem4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SEM 4"
+        android:layout_width="59dp"
+        android:layout_height="49dp"
+        android:text="SEM4"
         android:textSize="24dp"
         android:fontFamily="sans-serif-smallcaps"
-        android:layout_margin="10dp"/>
+        android:layout_margin="9dp"/>
 
         <EditText
             android:id="@+id/s4marks"
@@ -135,12 +140,12 @@
         android:orientation="horizontal">
     <TextView
         android:id="@+id/sem5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SEM 5"
+        android:layout_width="59dp"
+        android:layout_height="49dp"
+        android:text="SEM5"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="24dp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="9dp"/>
 
         <EditText
             android:id="@+id/s5marks"
@@ -160,12 +165,12 @@
 
     <TextView
         android:id="@+id/sem6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SEM 6"
+        android:layout_width="59dp"
+        android:layout_height="49dp"
+        android:text="SEM6"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="24dp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="9dp"/>
 
         <EditText
             android:id="@+id/s6marks"
@@ -183,12 +188,12 @@
         android:orientation="horizontal">
     <TextView
         android:id="@+id/sem7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SEM 7"
+        android:layout_width="59dp"
+        android:layout_height="49dp"
+        android:text="SEM7"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="24dp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="9dp"/>
 
         <EditText
             android:id="@+id/s8marks"
@@ -208,12 +213,12 @@
 
         <TextView
             android:id="@+id/sem8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEM 8"
+            android:layout_width="59dp"
+            android:layout_height="49dp"
+            android:text="SEM8"
             android:textSize="24dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:layout_margin="10dp"/>
+            android:layout_margin="9dp"/>
         <EditText
             android:id="@+id/s7marks"
             android:layout_width="248dp"
@@ -239,21 +244,6 @@
         android:textAlignment="center"/>
 
 
-  
-
-
-    <Button
-        android:id="@+id/btnupdate"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Update"
-        android:layout_margin="40dp"
-        android:background="@drawable/button"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textColor="#fafafa"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+    </LinearLayout>
 
 </ScrollView>
