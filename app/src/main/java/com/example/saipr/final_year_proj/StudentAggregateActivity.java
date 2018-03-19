@@ -1,6 +1,5 @@
 package com.example.saipr.final_year_proj;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,11 +29,10 @@ public class StudentAggregateActivity extends AppCompatActivity {
     String usn;
     Double sum = 0.00;
     String res;
-    Double count = 8.00;
-    String sse1, sse2, sse3, sse4, sse5, sse6, sse7, sse8, aggres;
+    int count = 0;
+    String sse1, sse2, sse3, sse4, sse5, sse6, sse7, sse8;
     TextView calc = null;
-    String calcu = null;
-    Button btnupdate = null;
+    Button btnupdate=null;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +70,12 @@ public class StudentAggregateActivity extends AppCompatActivity {
             s6.setText(arr[7]);
             s7.setText(arr[8]);
             s8.setText(arr[9]);
-            for (int i = 2; i <= 9; i++) {
-                if (arr[i].equals(0)) {
-                    count = count - 1.00;
+            for (int i = 2; i <= 9; i++)
+            {
+                if (!arr[i].equals("0.00"))
+                {
+
+                    count++;
                 }
 
             }
@@ -93,28 +94,30 @@ public class StudentAggregateActivity extends AppCompatActivity {
                     sse6 = s6.getText().toString();
                     sse7 = s7.getText().toString();
                     sse8 = s8.getText().toString();
-                    count = 8.0;
-                    if (sse1.equals(0.00)) {
-                        count = count - 1.00;
-                    } else if (sse2.equals(0)) {
-                        count = count - 1.00;
-                    } else if (sse3.equals(0)) {
-                        count = count - 1.00;
-                    } else if (sse4.equals(0)) {
-                        count = count - 1.00;
-                    } else if (sse5.equals(0)) {
-                        count = count - 1.00;
-                    } else if (sse6.equals(0)) {
-                        count = count - 1.00;
-                    } else if (sse7.equals(0)) {
-                        count = count - 1.00;
-                    } else if (sse8.equals(0)) {
-                        count = count - 1.00;
+                    count = 0;
+                    if (!sse1.equals("0.00")) {
+                        count++;
+                    }if (!sse2.equals("0.00")) {
+                        count++;
+                    }if (!sse3.equals("0.00")) {
+                        count++;
+                    }if (!sse4.equals("0.00")) {
+                        count++;
+                    }if (!sse5.equals("0.00")) {
+                        count++;
+                    }if (!sse6.equals("0.00")) {
+                        count++;
+                    }if (!sse7.equals("0.00")) {
+                        count++;
+                    }if (!sse8.equals("0.00")) {
+                        count++;
                     }
                     sum = (Double.parseDouble(sse1) + Double.parseDouble(sse2) + Double.parseDouble(sse3) + Double.parseDouble(sse4) + Double.parseDouble(sse5) + Double.parseDouble(sse6) + Double.parseDouble(sse7)
                             + Double.parseDouble(sse8)) / count;
+                    String.format("%.5g%n", sum);
                     calc.setText(sum.toString());
-                    Toast.makeText(StudentAggregateActivity.this, count.toString(), Toast.LENGTH_SHORT).show();
+
+
                     try {
                         URL url = new URL(RegURL.url + "Receive_update");
                         JSONObject jsn = new JSONObject();

@@ -19,7 +19,7 @@
             android:textAlignment="center"
             android:fontFamily="sans-serif-smallcaps"
             android:textStyle="bold"
-            android:textColor="#424242 "
+            android:textColor="#00bfa5 "
             android:textSize="40sp"/>
 
         <TextView
@@ -27,12 +27,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:padding="10dp"
-            android:text="Select Sem"
+            android:text="Select Semester"
             android:textAlignment="center"
             android:fontFamily="sans-serif-smallcaps"
             android:textStyle="bold"
             android:textColor="#424242 "
-            android:textSize="20sp"/>
+            android:textSize="24sp"/>
 
         <Spinner
             android:id="@+id/facsem"
