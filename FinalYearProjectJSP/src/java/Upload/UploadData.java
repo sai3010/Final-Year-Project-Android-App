@@ -50,7 +50,7 @@ public class UploadData extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
         ServletContext context = getServletContext();
     
-           String fileDir = context.getRealPath("/");
+           String fileDir = context.getRealPath("/").replace("\\build", "");
             System.out.println("fileDir = " + fileDir);
         
         String image= request.getParameter("img");

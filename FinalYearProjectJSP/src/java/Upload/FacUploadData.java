@@ -43,7 +43,7 @@ public class FacUploadData extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context= request.getServletContext();
         try (PrintWriter out = response.getWriter()) {
-            String dir= context.getRealPath("/");
+            String dir= context.getRealPath("/").replace("\\build", "");
             System.out.println("dir = " + dir);
       out.print("Success");
     String tempDir=dir+"Notes";
