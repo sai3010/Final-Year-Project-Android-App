@@ -97,7 +97,7 @@ public class FacUploadData extends HttpServlet {
             fileDir=tempDir+"\\"+branch+"\\"+sfsem+"\\";
     try
     {
-        MultipartRequest multi = new MultipartRequest(request, dir,	10 * 1024 * 1024); // 10MB
+        MultipartRequest multi = new MultipartRequest(request, fileDir,	10 * 1024 * 1024); // 10MB
         System.out.println("fileDir = " + fileDir);
         Enumeration files = multi.getFileNames();	
         while (files.hasMoreElements()) 
