@@ -11,30 +11,90 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
+
+
+
         <TextView
             android:id="@+id/mtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MARKS"
             android:layout_gravity="center"
+            android:text="MARKS"
             android:textAlignment="center"
-            android:textSize="40sp"/>
+            android:textSize="40sp" />
 
-        <TextView
+
+        <EditText
             android:id="@+id/sembox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="sem here"
+            android:hint="sem here"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textSize="20sp"/>
-        <TextView
+
+
+
+        <EditText
             android:id="@+id/usnbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="usn here"
+            android:hint="usn here"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textSize="20sp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/rgrp">
+
+
+            <RadioButton
+                android:id="@+id/ia1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:onClick="rbclick"
+                android:checked="true"
+                android:text="IA1" />
+
+            <RadioButton
+                android:id="@+id/ia2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="rbclick"
+                android:text="IA2" />
+
+            <RadioButton
+                android:id="@+id/ia3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="rbclick"
+                android:text="IA3" />
+        </RadioGroup>
+
+
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="SUBMIT"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textStyle="bold"
+            android:background="@drawable/button"
+            android:textColor="#fafafa"
+            android:textSize="20dp"
+            android:width="250dp"/>
+
     </LinearLayout>
+
+
 </ScrollView>
