@@ -92,6 +92,10 @@
         <servlet-name>Receive_update</servlet-name>
         <servlet-class>Aggregate.Receive_update</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FacViewMarks</servlet-name>
+        <servlet-class>Marks.FacViewMarks</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -183,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>Receive_update</servlet-name>
         <url-pattern>/Receive_update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FacViewMarks</servlet-name>
+        <url-pattern>/FacViewMarks</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

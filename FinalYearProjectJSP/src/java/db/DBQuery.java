@@ -363,7 +363,27 @@ public class DBQuery {
          return i;   
         
     }
-    
-        
-}
 
+    public ArrayList get_fac_assign(String usn1) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> arr=new ArrayList<>();
+        String query="select scode, section from assign_fac where fusn='"+usn1+"'";
+       rs= st.executeQuery(query);
+         while(rs.next())
+		{
+			arr.add(rs.getString("scode"));
+                        arr.add(rs.getString("section"));
+                            
+		}
+		
+		con.close();
+		return arr;
+      
+    }   
+        
+        
+        
+        
+    }
+    
