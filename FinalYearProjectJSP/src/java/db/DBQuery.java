@@ -368,7 +368,8 @@ public class DBQuery {
         con= DBConnection.getDBConn();
         st= con.createStatement();
         ArrayList<String> arr=new ArrayList<>();
-        String query="select scode, section from assign_fac where fusn='"+usn1+"'";
+        String s="assign_fac";
+        String query="select scode, section from "+s+" where fusn='"+usn1+"'";
        rs= st.executeQuery(query);
          while(rs.next())
 		{

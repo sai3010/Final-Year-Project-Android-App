@@ -96,6 +96,10 @@
         <servlet-name>FacViewMarks</servlet-name>
         <servlet-class>Marks.FacViewMarks</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudDetails</servlet-name>
+        <servlet-class>Marks.StudDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>FacViewMarks</servlet-name>
         <url-pattern>/FacViewMarks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudDetails</servlet-name>
+        <url-pattern>/StudDetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
