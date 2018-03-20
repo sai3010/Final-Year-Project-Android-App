@@ -84,6 +84,10 @@
         <servlet-name>Aboutstud</servlet-name>
         <servlet-class>About.Aboutstud</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Student</servlet-name>
+        <servlet-class>Marks.Student</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>Aboutstud</servlet-name>
         <url-pattern>/Aboutstud</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Student</servlet-name>
+        <url-pattern>/Student</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

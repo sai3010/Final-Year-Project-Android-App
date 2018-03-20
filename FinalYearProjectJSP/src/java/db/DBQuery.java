@@ -255,7 +255,7 @@ public class DBQuery {
         st= con.createStatement();
         
         StringBuffer sb= new StringBuffer();
-        String query="select scode from assign_fac_subject where fusn='"+usn+"'";
+        String query="select scode from assign_fac where fusn='"+usn+"'";
         rs= st.executeQuery(query);
         while(rs.next())
         {
@@ -311,4 +311,11 @@ public class DBQuery {
         return i;
 
            }
+
+    public ArrayList<String> get_stud_marks(String usn, String sem, String branch,String ia) {
+            
+        
+        return null;
+       
+    }
 }
