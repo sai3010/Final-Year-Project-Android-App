@@ -48,6 +48,7 @@ public class FacMarksActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(FacMarksActivity.this,Fac_View_Marks.class);
+                i.putExtra("usn",usn);
                 startActivity(i);
             }
         });

@@ -28,10 +28,42 @@ public class Fac_View_Marks extends AppCompatActivity {
     String usn,res,sem,semval;
     ArrayAdapter<Model> adapter;
     List<Model> list = new ArrayList<Model>();
+    ArrayList <String> subject= new ArrayList<>();
+    ArrayList <String> sec= new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fac__view__marks);
+       usn= getIntent().getExtras().getString("usn");
+        new fetchdetails().execute();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //Toast.makeText(Fac_View_Marks.this,res,Toast.LENGTH_SHORT).show();
+        res=res.substring(1,res.length()-1);
+        String [] arr= res.split(",");
+
+        for(int i=0;i<arr.length;i++)
+        {
+            if(i%2==0)
+            {
+                subject.add(arr[i]);
+
+            }
+            else
+            {
+                sec.add(arr[i]);
+            }
+        }
+        Toast.makeText(Fac_View_Marks.this,subject.toString()+"\t"+sec.toString(),Toast.LENGTH_LONG).show();
+
+        //Toast.makeText(Fac_View_Marks.this,res1,Toast.LENGTH_LONG).show();
+
+
+
         listView = (ListView) findViewById(R.id.my_list);
         spin=findViewById(R.id.sem_spinner);
         ArrayAdapter<CharSequence> badapter = ArrayAdapter.createFromResource(this,
