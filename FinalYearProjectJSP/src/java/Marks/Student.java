@@ -60,7 +60,7 @@ public class Student extends HttpServlet {
              
               System.out.println("usn = " + usn);
                System.out.println("sem = " +sem);
-               ArrayList<String> marks=db.get_stud_marks(usn,sem,branch,ia);
+               //ArrayList<String> marks=db.get_stud_marks(usn,sem,branch,ia);
             
         }
     }

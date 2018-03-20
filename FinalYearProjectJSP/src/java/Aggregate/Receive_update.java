@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RegisterAndroid;
+package Aggregate;
 
 import db.DBQuery;
 import java.io.IOException;
@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author saipr
+ * @author DELL PC
  */
-public class StudentRegister extends HttpServlet {
+public class Receive_update extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,35 +32,40 @@ public class StudentRegister extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String fname=request.getParameter("studfname");
-           String lname=request.getParameter("studlname");
-           String usn=request.getParameter("studusn");
-           String sem=request.getParameter("studsem");
-           String email=request.getParameter("studemail");
-           String address=request.getParameter("studaddress");
-           String pass=request.getParameter("studpass");
-           String phone=request.getParameter("studphone");
-           String dob=request.getParameter("studdob");
-           String gender=request.getParameter("studgender");
-           String branch=request.getParameter("studbranch");
-           
-            System.out.println(fname);
-            System.out.println(dob);
-            DBQuery db= new DBQuery();
-            int i =db.add_stud_data(fname,lname ,usn,sem,email,address,pass,phone,dob,gender,branch);
-            int j= db.add_aggregate_marks(usn,branch);
-            System.out.println("j = " + j);
-            if(i==1)
-                {
-                    out.print("ok");
-                }
-                else
-                {
-                    out.print("notok");
-                }
+            /* TODO output your page here. You may use following sample code. */
+               DBQuery db= new DBQuery();
+           String usn1=request.getParameter("usn");
+           Double ssem1 =Double.parseDouble(request.getParameter("sem1"));
+             Double ssem2 =Double.parseDouble(request.getParameter("sem2"));
+            Double ssem3 =Double.parseDouble(request.getParameter("sem3"));
+            Double ssem4 =Double.parseDouble(request.getParameter("sem4"));
+            Double ssem5 =Double.parseDouble(request.getParameter("sem5"));
+             Double ssem6 =Double.parseDouble(request.getParameter("sem6"));
+             Double ssem7 =Double.parseDouble(request.getParameter("sem7"));
+              Double ssem8 =Double.parseDouble(request.getParameter("sem8"));
+              Double aggsum=Double.parseDouble(request.getParameter("agg"));
+              System.out.println(usn1);
+             System.out.println("ssem1 = "+ ssem1);
+            System.out.println("ssem2 = "+ ssem2);
+            System.out.println("ssem3 = "+ ssem3);
+            System.out.println("ssem4 = "+ ssem4);
+            System.out.println("ssem5 = "+ ssem5);
+            System.out.println("ssem6 = "+ ssem6);
+            System.out.println("ssem7 = "+ ssem7);
+            System.out.println("ssem8 = "+ ssem8);
+            
+            int i= db.update_student_sem_marks(ssem1,ssem2,ssem3,ssem4,ssem5,ssem6,ssem7,ssem8,usn1,aggsum);
+            if(i==0)
+            {
+                out.print("Updated Succesfully");
+        }
+            else
+            {
+                out.print("Updated Succesfully");
+            }
         }
     }
 
@@ -78,10 +83,10 @@ public class StudentRegister extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Receive_update.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Receive_update.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -98,10 +103,10 @@ public class StudentRegister extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Receive_update.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Receive_update.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

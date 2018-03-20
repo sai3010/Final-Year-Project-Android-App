@@ -39,7 +39,7 @@ public class GetNotesDetails extends HttpServlet {
         ServletContext context= request.getServletContext();
         try (PrintWriter out = response.getWriter()) {
             
-           String dir= context.getRealPath("/"); 
+           String dir= context.getRealPath("/").replace("\\build", ""); 
            String usn=request.getParameter("usn");
            String sem=request.getParameter("sem");
             System.out.println("sem = " + sem);
@@ -90,7 +90,7 @@ public class GetNotesDetails extends HttpServlet {
             List<String> results = new ArrayList<String>();
             //List<String> url = new ArrayList<String>();
             String fileDir=tempDir+branch+"\\"+sfsem+"\\";
-            System.out.println("fileDir = " + fileDir);
+            System.out.println("fileDir := " + fileDir);
             File directory=new File(fileDir);
             File[] flist=directory.listFiles();
             

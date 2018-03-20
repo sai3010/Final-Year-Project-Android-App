@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RegisterAndroid;
+package Aggregate;
 
 import db.DBQuery;
 import java.io.IOException;
@@ -15,12 +15,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.objects.NativeString;
 
 /**
  *
- * @author saipr
+ * @author DELL PC
  */
-public class StudentRegister extends HttpServlet {
+public class stud_aggregate extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,36 +33,50 @@ public class StudentRegister extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, ClassNotFoundException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
+        
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-           String fname=request.getParameter("studfname");
-           String lname=request.getParameter("studlname");
-           String usn=request.getParameter("studusn");
-           String sem=request.getParameter("studsem");
-           String email=request.getParameter("studemail");
-           String address=request.getParameter("studaddress");
-           String pass=request.getParameter("studpass");
-           String phone=request.getParameter("studphone");
-           String dob=request.getParameter("studdob");
-           String gender=request.getParameter("studgender");
-           String branch=request.getParameter("studbranch");
+     
+        try (PrintWriter out = response.getWriter())
+        {
+            DBQuery db=new DBQuery();
+            
+            System.out.println(" =============================== ");
+            String usn1 =request.getParameter("usn");
+            
            
-            System.out.println(fname);
-            System.out.println(dob);
-            DBQuery db= new DBQuery();
-            int i =db.add_stud_data(fname,lname ,usn,sem,email,address,pass,phone,dob,gender,branch);
-            int j= db.add_aggregate_marks(usn,branch);
-            System.out.println("j = " + j);
-            if(i==1)
-                {
-                    out.print("ok");
-                }
-                else
-                {
-                    out.print("notok");
-                }
+            System.out.println("usn1 = " + usn1);
+            
+            String branch="";
+            if(usn1.contains("CS"))
+                    {branch="CSE";}
+            else if(usn1.contains("EC"))
+            {
+                branch="ECE";
+                
+            }
+            else if(usn1.contains("ME"))
+            {
+                branch="MECH";
+            }
+            else if(usn1.contains("EE")){branch="EEE";}
+            else if(usn1.contains("IS")){branch="ISE";}
+            else if(usn1.contains("CV")){branch="CIV";}
+            else if(usn1.contains("EI")){branch="EIE";}
+            
+           
+           String[] value= db.get_student_aggregate_data(usn1,branch);
+           
+          
+           
+             System.out.println("value = " + value);  
+             out.print(value[0]+","+value[1]+","+value[2]+","+value[3]+","+value[4]+","+value[5]+","+value[6]+","+value[7]+","+value[8]+","+value[9]+","+value[10]);
+            
+             
+            
+           
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -78,10 +93,10 @@ public class StudentRegister extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(stud_aggregate.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(stud_aggregate.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -98,10 +113,10 @@ public class StudentRegister extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(stud_aggregate.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(stud_aggregate.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
