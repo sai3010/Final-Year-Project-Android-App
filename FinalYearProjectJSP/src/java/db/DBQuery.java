@@ -383,6 +383,15 @@ public class DBQuery {
 		return arr;
       
     }   
+
+    public String get_stud_section(String usn, String sem, String branch) throws ClassNotFoundException, SQLException {
+       con= DBConnection.getDBConn();
+       st= con.createStatement();
+       String query="select section from academic_student_details where susn='"+usn+"'";
+       rs= st.executeQuery(query); 
+       String arr = rs.getString("scode");
+       return arr;
+    }
         
         
         
