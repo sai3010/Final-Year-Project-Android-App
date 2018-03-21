@@ -21,40 +21,18 @@
         android:background="#80cbc4"
         >
 
-        <!--   <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="0dp"
-               android:layout_weight="2"
-               >
-
-               <TextView
-                   android:id="@+id/textgrid"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textColor="@android:color/black"
-                   android:text="DASH BOARD"
-                   android:fontFamily="sans-serif-smallcaps"
-                   android:textStyle="bold"
-                   android:textAlignment="center"
-                   android:textSize="20sp"
-                   android:layout_centerInParent="true"
-                   />
-
-           </RelativeLayout>-->
-
-
 
 
         <GridLayout
-            android:columnCount="2"
-            android:rowCount="2"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
-            android:layout_weight="8"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="25dp"
             android:layout_marginTop="60dp"
-            android:padding="1dp">
+            android:layout_weight="5"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:padding="1dp"
+            android:rowCount="1">
 
             <!--row1-->
 
@@ -63,20 +41,15 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
+               android:layout_margin="10dp"
                 android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:cardElevation="20dp"
                 app:cardCornerRadius="8dp"
-
+                app:cardElevation="20dp"
                 >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:gravity="top|start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <ImageView
@@ -102,47 +75,54 @@
             </android.support.v7.widget.CardView>
 
 
-
-
             <android.support.v7.widget.CardView
+                android:id="@+id/markscard"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
+                android:layout_margin="10dp"
                 android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:cardElevation="20dp"
-                android:id="@+id/markscard"
                 app:cardCornerRadius="8dp"
-                >
+                app:cardElevation="20dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="149dp"
-                        android:layout_height="108dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="98dp"
                         android:src="@drawable/facmarks" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Marks"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:textColor="@android:color/black"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Marks"
                         android:textAlignment="center"
-                        android:layout_gravity="center"/>
-
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+        </GridLayout>
+
+<GridLayout
+    android:layout_width="190dp"
+    android:layout_height="25dp"
+    android:layout_marginTop="10dp"
+    android:layout_weight="5"
+    android:alignmentMode="alignMargins"
+    android:columnCount="1"
+    android:columnOrderPreserved="false"
+    android:padding="1dp"
+    android:rowCount="1"
+    android:layout_marginLeft="75dp">
 
 
             <!--row2-->
@@ -153,9 +133,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_margin="10dp"
                 android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="20dp">
@@ -185,50 +163,8 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+</GridLayout>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                app:cardElevation="20dp"
-                app:cardCornerRadius="8dp"
-                android:id="@+id/placement_card"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="87dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/facpush" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="43dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:text="Push Updates"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-        </GridLayout>
     </LinearLayout>
 
 </LinearLayout>

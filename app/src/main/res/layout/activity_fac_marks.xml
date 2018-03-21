@@ -13,16 +13,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-       <Button
-           android:id="@+id/upbtn"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Update Marks"/>
+        <Button
+            android:id="@+id/upbtn"
+            android:layout_width="159dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="105dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Update Marks"
+            android:textAlignment="center"
+            android:textColor="#fafafa"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/vbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View Marks"/>
+            android:layout_width="159dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="105dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="View Marks"
+            android:textAlignment="center"
+            android:textColor="#fafafa"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
     </LinearLayout>
 </ScrollView>
