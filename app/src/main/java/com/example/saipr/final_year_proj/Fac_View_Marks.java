@@ -25,11 +25,15 @@ public class Fac_View_Marks extends AppCompatActivity {
     ListView listView;
     Button btnSave;
     Spinner spin,semspin;
-    String usn,res,sem,semval,scode;
+    String usn,res,sem,semval,scode,susn1,imarks1;
     ArrayAdapter<Model> adapter;
     List<Model> list = new ArrayList<Model>();
     ArrayList <String> subject= new ArrayList<>();
     ArrayList <String> sec= new ArrayList<>();
+    ArrayList <String> susn=new ArrayList<>();
+    ArrayList <String> imarks=new ArrayList<>();
+    String[] arr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,7 @@ public class Fac_View_Marks extends AppCompatActivity {
         }
         //Toast.makeText(Fac_View_Marks.this,res,Toast.LENGTH_SHORT).show();
         res=res.substring(1,res.length()-1);
-        String [] arr= res.split(",");
+       arr= res.split(",");
 
         for(int i=0;i<arr.length;i++)
         {
@@ -110,28 +114,31 @@ public class Fac_View_Marks extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             new fetchstud().execute();
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                res=res.substring(1,res.length()-1);
+                Toast.makeText(Fac_View_Marks.this,res,Toast.LENGTH_LONG).show();
+                arr= res.split(",");
+
+                List<Model> list= new ArrayList<Model>();
+                for(int i=0; i < arr.length; i+=4) {
+                    list.add(new Model(""+arr[i],arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
+                }
+                adapter = new MyAdapter(Fac_View_Marks.this,list);
+                listView.setAdapter(adapter);
+
+
+
             }
         });
 
-        adapter = new MyAdapter(this,getModel());
-        listView.setAdapter(adapter);
-    }
-    private List<Model> getModel() {
-        list.add(new Model("1RN14CS001","11  23  23"));
-        list.add(new Model("1RN14CS002","22"));
-        list.add(new Model("1RN14CS003","33"));
-        list.add(new Model("1RN14CS004","44"));
-        list.add(new Model("1RN14CS005","55"));
-        list.add(new Model("1RN14CS006","66"));
-        list.add(new Model("1RN14CS007","77"));
-        list.add(new Model("1RN14CS008","88"));
-        list.add(new Model("1RN14CS009","99"));
-        list.add(new Model("1RN14CS010","78"));
-        list.add(new Model("1RN14CS011","45"));
-        list.add(new Model("1RN14CS012","89"));
 
-        return list;
     }
+
     public class fetchdetails extends AsyncTask<URL, Void, String> {
 
         @Override
