@@ -85,12 +85,24 @@
         <servlet-class>About.Aboutstud</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Student</servlet-name>
+        <servlet-class>Marks.Student</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>stud_aggregate</servlet-name>
         <servlet-class>Aggregate.stud_aggregate</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Receive_update</servlet-name>
         <servlet-class>Aggregate.Receive_update</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FacViewMarks</servlet-name>
+        <servlet-class>Marks.FacViewMarks</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudDetails</servlet-name>
+        <servlet-class>Marks.StudDetails</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
@@ -177,12 +189,24 @@
         <url-pattern>/Aboutstud</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Student</servlet-name>
+        <url-pattern>/Student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>stud_aggregate</servlet-name>
         <url-pattern>/stud_aggregate</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Receive_update</servlet-name>
         <url-pattern>/Receive_update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FacViewMarks</servlet-name>
+        <url-pattern>/FacViewMarks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudDetails</servlet-name>
+        <url-pattern>/StudDetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

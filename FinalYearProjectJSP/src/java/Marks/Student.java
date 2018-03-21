@@ -3,32 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Upload;
+package Marks;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.sun.org.apache.xerces.internal.impl.xs.XSDDescription;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileOutputStream;
+import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import javax.imageio.ImageIO;
-import javax.servlet.ServletContext;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.tomcat.util.codec.binary.Base64;
 
 /**
  *
- * @author saipr
+ * @author spoorthi s
  */
-public class UploadData extends HttpServlet {
+public class Student extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,55 +29,42 @@ public class UploadData extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
- 
-    String usn="image";
-    String paramname=null,fname="",file="",filePath="";
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-        ServletContext context = getServletContext();
-    
-           String fileDir = context.getRealPath("/").replace("\\build", "");
-            System.out.println("fileDir = " + fileDir);
-        
-        String image= request.getParameter("img");
-        String usn= request.getParameter("usn");
-//        String usn= "1RNSCCSE";
-            String ch= usn.charAt(0)+""; 
-            System.out.println("usn = " + usn);
-            System.out.println("Success");
-            if(ch.matches("[0-9]"))
-            {
-                fileDir = fileDir+"Photos"+"\\"+"studprofile_photos"+"\\" ;
-                System.out.println("fileDir = " + fileDir);
-                System.out.println("stud image uploaded");
-            }
-            else if(ch.matches("[A-Z]"))
-            {
-                fileDir = fileDir+"Photos"+"\\"+"facprofile_photos"+"\\" ;
-                System.out.println("fac image uploaded");
-                System.out.println("fileDir = " + fileDir);
-            }
-            else
-            {
-                System.out.println("fail = ");
-            }
-        byte[] decodedString;
-        decodedString= Base64.decodeBase64(image);
-        
-        File f= new File(fileDir+usn+".png");
-            FileOutputStream fout= new FileOutputStream(f);
-            fout.write(decodedString);
-            fout.close();
+               DBQuery db=new DBQuery();
+            String usn=request.getParameter("usn");
+            String sem=request.getParameter("sem");
+            String ia=request.getParameter("ia");
+            String branch="null";
             
-    
-        out.print("Uploaded Successfully");
+            String susn=usn.substring(5,6);
+             switch(susn)
+            {
+                case "CS":branch="CSE";
+                          break;
+                case "EC":branch="ECE";
+                          break;
+                case "EE":branch="EEE";
+                          break;
+                case "IS":branch="ISE";
+                          break;
+                case "ME":branch="MECH";
+                          break;
+                case "CV":branch="CIV";
+                          break;
+                case "EI":branch="EIE";
+                          break;
+            }
+             
+              System.out.println("usn = " + usn);
+               System.out.println("sem = " +sem);
+               //ArrayList<String> marks=db.get_stud_marks(usn,sem,branch,ia);
+            
         }
-        
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

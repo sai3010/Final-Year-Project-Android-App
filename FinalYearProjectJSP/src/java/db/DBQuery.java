@@ -255,7 +255,7 @@ public class DBQuery {
         st= con.createStatement();
         
         StringBuffer sb= new StringBuffer();
-        String query="select scode from assign_fac_subject where fusn='"+usn+"'";
+        String query="select scode from assign_fac where fusn='"+usn+"'";
         rs= st.executeQuery(query);
         while(rs.next())
         {
@@ -311,6 +311,7 @@ public class DBQuery {
         return i;
 
            }
+
     public int add_aggregate_marks(String usn,String branch) throws ClassNotFoundException, SQLException
     {
         System.out.println("usn = " + usn);
@@ -363,7 +364,28 @@ public class DBQuery {
          return i;   
         
     }
-    
-        
-}
 
+    public ArrayList get_fac_assign(String usn1) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> arr=new ArrayList<>();
+        String s="assign_fac";
+        String query="select scode, section from "+s+" where fusn='"+usn1+"'";
+       rs= st.executeQuery(query);
+         while(rs.next())
+		{
+			arr.add(rs.getString("scode"));
+                        arr.add(rs.getString("section"));
+                            
+		}
+		
+		con.close();
+		return arr;
+      
+    }   
+        
+        
+        
+        
+    }
+    
