@@ -1,13 +1,19 @@
 package com.example.saipr.final_year_proj;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -18,19 +24,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FacUpdateMarks extends AppCompatActivity {
     String usn,ia;
     Spinner spinner = null,subspinner=null;
     ArrayAdapter sem,scode;
     Button getbtn;
-    String strsem,strscode;
+    String strsem,strscode,str;
     TextView textView=null;
     LinearLayout ml;
     RadioButton rb;
     RadioGroup g;
+    ListView lv;
+    ArrayList<String> section=new ArrayList<>();
+    ArrayList<String> subcode=new ArrayList<>();
     public static String response;
     public static String sresponse;
     private static final String TAG = FacMarksActivity.class.getSimpleName();
@@ -45,6 +57,7 @@ public class FacUpdateMarks extends AppCompatActivity {
         spinner = findViewById(R.id.sem);
         ml=findViewById(R.id.ml);
         subspinner=findViewById(R.id.subcodes);
+        lv=findViewById(R.id.studlist);
         int radiobuttid = g.getCheckedRadioButtonId();
         rb = findViewById(radiobuttid);
         ia=rb.getText().toString();
@@ -54,9 +67,19 @@ public class FacUpdateMarks extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        String arr[]= response.split("#");
-        String subcode[]= arr[0].split(";");
-        String section[]= arr[1].split(";");
+        response=response.substring(1,response.length()-1);
+        String arr[]=response.split(",");
+        for(int i=0;i<arr.length;i++)
+        {
+            if(i%2==0)
+            {
+                subcode.add(arr[i]);
+            }
+            else
+            {
+                section.add(arr[i]);
+            }
+        }
         sem = new ArrayAdapter(this,android.R.layout.simple_spinner_item,section);
         scode = new ArrayAdapter(this,android.R.layout.simple_spinner_item,subcode);
         scode.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -100,12 +123,53 @@ public class FacUpdateMarks extends AppCompatActivity {
                 sresponse= sresponse.substring(1,sresponse.length()-1);
                 Toast.makeText(FacUpdateMarks.this, sresponse, Toast.LENGTH_SHORT).show();
                 String usn[]= sresponse.split(",");
-                for(String un:usn)
-                {
-                    TextView tv=new TextView(FacUpdateMarks.this);
-                    tv.setText(un);
-                    ml.addView(tv);
-                }
+                ArrayAdapter<String>adapter=new ArrayAdapter<String>(FacUpdateMarks.this,R.layout.activity_list_view,R.id.ltxtview,usn);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
+                StrictMode.setThreadPolicy(policy);
+                final ArrayList<String>finallist=new ArrayList<>();
+                lv.setAdapter(adapter);
+                lv.setClickable(true);
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, final int position, long arg3) {
+                        Object o = lv.getItemAtPosition(position);
+                        str=(String)o;//As you are using Default String Adapter
+                        Toast.makeText(FacUpdateMarks.this,position+"",Toast.LENGTH_SHORT).show();
+                        final EditText txt = new EditText(FacUpdateMarks.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(FacUpdateMarks.this);
+                        builder.setTitle("Enter Marks");
+                        builder.setView(txt);
+
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String name = txt.getText().toString();
+                                Toast.makeText(FacUpdateMarks.this,name,Toast.LENGTH_SHORT).show();
+                                finallist.add(position,name);
+//                                finallist.add(str);
+//                                finallist.add(name);
+                                //Toast.makeText(FacUpdateMarks.this,finallist.toString(),Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+
+
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                for(int i=0; i < finallist.size(); i++)
+                                {
+                                    Log.i(i+" = ",finallist.get(i).toString());
+                                    Toast.makeText(FacUpdateMarks.this,finallist.get(i).toString(),Toast.LENGTH_LONG).show();
+                                }
+                                dialog.cancel();
+                            }
+                        });
+
+                        builder.show();
+                    }
+                });
 
             }
         });
