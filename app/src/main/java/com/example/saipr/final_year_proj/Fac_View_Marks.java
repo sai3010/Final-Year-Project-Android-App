@@ -24,8 +24,8 @@ public class Fac_View_Marks extends AppCompatActivity {
     
     ListView listView;
     Button btnSave;
-    Spinner spin;
-    String usn,res,sem,semval;
+    Spinner spin,semspin;
+    String usn,res,sem,semval,scode;
     ArrayAdapter<Model> adapter;
     List<Model> list = new ArrayList<Model>();
     ArrayList <String> subject= new ArrayList<>();
@@ -36,6 +36,7 @@ public class Fac_View_Marks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fac__view__marks);
        usn= getIntent().getExtras().getString("usn");
+       btnSave=findViewById(R.id.go);
         new fetchdetails().execute();
         try {
             Thread.sleep(1000);
@@ -58,7 +59,7 @@ public class Fac_View_Marks extends AppCompatActivity {
                 sec.add(arr[i]);
             }
         }
-        Toast.makeText(Fac_View_Marks.this,subject.toString()+"\t"+sec.toString(),Toast.LENGTH_LONG).show();
+        //Toast.makeText(Fac_View_Marks.this,subject.toString()+"\t"+sec.toString(),Toast.LENGTH_LONG).show();
 
         //Toast.makeText(Fac_View_Marks.this,res1,Toast.LENGTH_LONG).show();
 
@@ -66,10 +67,12 @@ public class Fac_View_Marks extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.my_list);
         spin=findViewById(R.id.sem_spinner);
-        ArrayAdapter<CharSequence> badapter = ArrayAdapter.createFromResource(this,
-                R.array.sem_lsit, android.R.layout.simple_spinner_item);
-        badapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin.setAdapter(badapter);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item,
+                        sec); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout
+                .simple_spinner_dropdown_item);
+        spin.setAdapter(spinnerArrayAdapter);
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -82,6 +85,34 @@ public class Fac_View_Marks extends AppCompatActivity {
 
             }
         });
+
+        semspin=findViewById(R.id.subjectcode_spinner);
+        ArrayAdapter<String> scodeadapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item,
+                        subject); //selected item will look like a spinner set from XML
+        scodeadapter.setDropDownViewResource(android.R.layout
+                .simple_spinner_dropdown_item);
+        semspin.setAdapter(scodeadapter);
+        semspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                scode = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            new fetchstud().execute();
+            }
+        });
+
         adapter = new MyAdapter(this,getModel());
         listView.setAdapter(adapter);
     }
@@ -110,6 +141,29 @@ public class Fac_View_Marks extends AppCompatActivity {
                 URL url = new URL(RegURL.url + "FacViewMarks");
                 JSONObject jsn = new JSONObject();
                 jsn.put("usn", usn);
+                res = HttpClientConnection.executeClient(url, jsn);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return res;
+        }
+
+    }
+    public class fetchstud extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            try {
+                URL url = new URL(RegURL.url + "StudDetails");
+                JSONObject jsn = new JSONObject();
+                jsn.put("scode",scode );
+                jsn.put("section",semval );
                 res = HttpClientConnection.executeClient(url, jsn);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
