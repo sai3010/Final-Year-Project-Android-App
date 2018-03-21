@@ -5,8 +5,13 @@
  */
 package Marks;
 
+import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,19 +33,18 @@ public class StudDetails extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StudDetails</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StudDetails at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            DBQuery db= new DBQuery();
+             String scode1= request.getParameter("scode");
+        String sec= request.getParameter("section");
+            System.out.println("sec = " + sec);
+            System.out.println("scode = " + scode1);
+        ArrayList<String> stud =db.get_student_marks(scode1,sec);
+        
+            System.out.println("stud = " + stud);
+        out.print(stud);
         }
     }
 
@@ -56,7 +60,13 @@ public class StudDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(StudDetails.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -70,7 +80,13 @@ public class StudDetails extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(StudDetails.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

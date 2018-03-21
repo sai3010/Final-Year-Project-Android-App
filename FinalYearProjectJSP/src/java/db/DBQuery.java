@@ -375,7 +375,29 @@ public class DBQuery {
 		return arr;
       
     }   
-        
+      public ArrayList<String> get_student_marks(String scode1,String sec) throws ClassNotFoundException, SQLException
+      {
+          con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> arr=new ArrayList<>();
+          System.out.println("Scode= = " +scode1 );
+         String query="select usn,IA1,IA2,IA3 from "+scode1.toLowerCase()+" where section='"+sec.trim()+"'"; 
+         System.out.println("query = " + query);
+         rs= st.executeQuery(query);
+          while(rs.next())
+		{   
+                    arr.add(rs.getString("usn"));
+                    
+                        arr.add(rs.getString("IA1"));
+                         arr.add(rs.getString("IA2"));
+                          arr.add(rs.getString("IA3"));
+                            
+		}
+		        System.out.println("arr = " + arr);
+		con.close();
+		return arr;
+      }
+         
         
         
         
