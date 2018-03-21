@@ -41,10 +41,12 @@ public class FacViewMarks extends HttpServlet {
           String usn1= request.getParameter("usn");
             System.out.println("usn1 = " + usn1);
         ArrayList<String>val=  db.get_fac_assign(usn1);
-            System.out.println("val = " + val);
+           System.out.println("val = " + val);
          
         out.print(val);
           
+       
+        
         }
     }
 
