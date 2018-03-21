@@ -1,10 +1,12 @@
 package com.example.saipr.final_year_proj;
 
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -18,73 +20,61 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class StudMarksActivity extends AppCompatActivity {
-    String usn,sem;
-    TextView sembox,usnbox;
+    String usn, sem;
+    EditText sembox;
+    EditText usnbox;
     RadioButton r;
     RadioGroup g;
     Button submit;
-    String ia;
+    String ia,res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stud_marks);
-        usn = getIntent().getExtras().getString("usn");
+      usn = getIntent().getExtras().getString("usn");
         sem = getIntent().getExtras().getString("sem");
-        sembox = findViewById(R.id.sembox);
-        usnbox = findViewById(R.id.usnbox);
-
-
+        submit=findViewById(R.id.submit);
         g = findViewById(R.id.rgrp);
-        int radiobuttid = g.getCheckedRadioButtonId();
+       int radiobuttid = g.getCheckedRadioButtonId();
         r = findViewById(radiobuttid);
+        new fetch_section().execute();
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                usn = usnbox.getText().toString();
-                sem = sembox.getText().toString();
-                ia = r.getText().toString();
+    submit.setOnClickListener(new View.OnClickListener() {
+        @Override
 
-                if (usn.isEmpty() || sem.isEmpty() || ia.isEmpty()) {
-                    Toast.makeText(StudMarksActivity.this, "Fill in all the fields", Toast.LENGTH_SHORT).show();
-                } else {
+       public void onClick(View view) {
 
-                    try {
-                        fetch_section();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
 
-                }
+          }
+     });
+   }
+
+    public class fetch_section extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            try {
+                URL url = new URL(RegURL.url + "Student");
+                JSONObject jsn = new JSONObject();
+                jsn.put("usn", usn);
+                jsn.put("sem",sem);
+                jsn.put("ia",ia);
+                res = HttpClientConnection.executeClient(url, jsn);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-        });
-    }
-
-
-        public void fetch_section() throws JSONException, IOException {
-        URL url = new URL(RegURL.url + "Student");
-        JSONObject jsn = new JSONObject();
-        jsn.put("usn", usn);
-        jsn.put("sem",sem);
-        jsn.put("ia",ia);
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
-        StrictMode.setThreadPolicy(policy);
-        String response = null;
-        response = HttpConnection.getResponse(url, jsn);
-            Toast.makeText(StudMarksActivity.this, "response", Toast.LENGTH_SHORT).show();
+            return res;
+        }
 
     }
-
-
-
-
-
-
 
 
     public void rbclick(View v) {

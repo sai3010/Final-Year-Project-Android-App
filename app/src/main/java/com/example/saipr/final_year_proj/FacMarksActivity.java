@@ -1,5 +1,6 @@
 package com.example.saipr.final_year_proj;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v4.content.res.FontResourcesParserCompat;
@@ -29,160 +30,36 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FacMarksActivity extends AppCompatActivity {
-    String usn,ia;
-    Spinner spinner = null,subspinner=null;
-    ArrayAdapter sem,scode;
-    Button getbtn;
-    String strsem,strscode;
-    TextView textView=null;
-    LinearLayout ml;
-    RadioButton rb;
-    RadioGroup g;
-    public static String response;
-    public static String sresponse;
+    String usn;
+    TextView textView = null;
+    Button vbtn,ubtn;
     private static final String TAG = FacMarksActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fac_marks);
-        g = findViewById(R.id.rgrp);
-        textView= findViewById(R.id.marks);
-        usn=getIntent().getExtras().getString("usn");
-        getbtn=findViewById(R.id.gettbn);
-        spinner = findViewById(R.id.sem);
-        ml=findViewById(R.id.ml);
-        subspinner=findViewById(R.id.subcodes);
-        int radiobuttid = g.getCheckedRadioButtonId();
-        rb = findViewById(radiobuttid);
-        ia=rb.getText().toString();
-        new MyNote().execute();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        String arr[]= response.split("#");
-        String subcode[]= arr[0].split(";");
-        String section[]= arr[1].split(";");
-        sem = new ArrayAdapter(this,android.R.layout.simple_spinner_item,section);
-        scode = new ArrayAdapter(this,android.R.layout.simple_spinner_item,subcode);
-        scode.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sem.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(sem);
-        subspinner.setAdapter(scode);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                strsem = parent.getItemAtPosition(position).toString();
-                //Toast.makeText(getBaseContext(), strsem, Toast.LENGTH_LONG).show();
-            }
+        textView = findViewById(R.id.marks);
+        usn = getIntent().getExtras().getString("usn");
+        vbtn=findViewById(R.id.vbtn);
+        ubtn=findViewById(R.id.upbtn);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        subspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                strscode = parent.getItemAtPosition(position).toString();
-                //Toast.makeText(getBaseContext(),strbranch, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        getbtn.setOnClickListener(new View.OnClickListener() {
+        vbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new GetStudInfo().execute();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                sresponse= sresponse.substring(1,sresponse.length()-1);
-                Toast.makeText(FacMarksActivity.this, sresponse, Toast.LENGTH_SHORT).show();
-                String usn[]= sresponse.split(",");
-                for(String un:usn)
-                {
-                    TextView tv=new TextView(FacMarksActivity.this);
-                    tv.setText(un);
-                    ml.addView(tv);
-                }
-
+                Intent i=new Intent(FacMarksActivity.this,Fac_View_Marks.class);
+                i.putExtra("usn",usn);
+                startActivity(i);
+            }
+        });
+        ubtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(FacMarksActivity.this,FacUpdateMarks.class);
+                i.putExtra("usn",usn);
+                startActivity(i);
             }
         });
 
-    }
-    class GetStudInfo extends AsyncTask
-    {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected Object doInBackground(Object[] objects) {
-            URL url = null;
-            try {
-                url = new URL(RegURL.url+"GetStudDetails");
-                JSONObject jsn = new JSONObject();
-                jsn.put("usn", usn);
-                jsn.put("sem", strsem);
-                jsn.put("code", strscode);
-                sresponse= HttpClientConnection.executeClient(url, jsn);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-
-        }
-    }
-    class MyNote extends AsyncTask
-    {
-
-        protected Object doInBackground(Object[] objects) {
-            try {
-                URL url = new URL(RegURL.url+"FacMarks");
-                JSONObject jsn = new JSONObject();
-                jsn.put("usn", usn);
-                response= HttpClientConnection.executeClient(url, jsn);
-
-//                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
-//                StrictMode.setThreadPolicy(policy);
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return response;
-        }
-
-
-    }
-    public void rbclick(View v)
-    {
-        int radiobuttid = g.getCheckedRadioButtonId();
-        rb = findViewById(radiobuttid);
-        //Toast.makeText(this, "OOOOOOOOOOOOOOOOOOOOOOOOOOO--" + r.getText(), Toast.LENGTH_SHORT).show();
     }
 }

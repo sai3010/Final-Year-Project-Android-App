@@ -31,8 +31,18 @@
         <item>EEE</item>
         <item>EIE</item>
         <item>MECH</item>
-
     </string-array>
+
+    <string-array name="sem_lsit">
+        <item>1A</item>
+        <item>1B</item>
+        <item>2A</item>
+        <item>2B</item>
+        <item>3A</item>
+        <item>4A</item>
+        <item>4B</item>
+    </string-array>
+
 
     <string-array name="sem_array">
         <item>1</item>

@@ -28,9 +28,10 @@
             android:id="@+id/aggtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Aggregate"
+            android:hint="Enter Your Aggregate"
             android:layout_margin="20dp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textAlignment="center"/>
         <Button
             android:id="@+id/compbtn"
             android:layout_width="match_parent"

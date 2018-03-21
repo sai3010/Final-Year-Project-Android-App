@@ -25,25 +25,7 @@
             android:textSize="40sp" />
 
 
-        <EditText
-            android:id="@+id/sembox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="sem here"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="20sp"/>
 
-
-
-        <EditText
-            android:id="@+id/usnbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="usn here"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="20sp"/>
 
         <RadioGroup
             android:layout_width="match_parent"
