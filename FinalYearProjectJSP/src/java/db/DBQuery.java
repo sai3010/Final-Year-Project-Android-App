@@ -393,10 +393,20 @@ public class DBQuery {
                           arr.add(rs.getString("IA3"));
                             
 		}
-		        System.out.println("arr = " + arr);
+		 System.out.println("arr = " + arr);
 		con.close();
 		return arr;
       }
+
+    public int update_stud_marks(String usn,String mark,String tabname,String ia) throws SQLException, ClassNotFoundException {
+         con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query ="update "+tabname+" set "+ia+"='"+mark+"' where usn='"+usn+"'";
+        System.out.println("query = " + query);
+        int i= st.executeUpdate(query);
+        con.close();
+        return i;
+    }
          
         
         

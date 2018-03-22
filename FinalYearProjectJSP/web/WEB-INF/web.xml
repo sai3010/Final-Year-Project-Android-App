@@ -104,6 +104,14 @@
         <servlet-name>StudDetails</servlet-name>
         <servlet-class>Marks.StudDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImgResizer</servlet-name>
+        <servlet-class>ImageReszier.ImgResizer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FacUpdateMarks</servlet-name>
+        <servlet-class>Marks.FacUpdateMarks</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -207,6 +215,14 @@
     <servlet-mapping>
         <servlet-name>StudDetails</servlet-name>
         <url-pattern>/StudDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImgResizer</servlet-name>
+        <url-pattern>/ImgResizer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FacUpdateMarks</servlet-name>
+        <url-pattern>/FacUpdateMarks</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
