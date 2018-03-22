@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -31,7 +34,9 @@ public class Student extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * 
      */
+            
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -41,8 +46,14 @@ public class Student extends HttpServlet {
             String sem=request.getParameter("sem");
             String ia=request.getParameter("ia");
             String branch="null";
+            ArrayList<String> scode=new ArrayList<String>();
+            ArrayList<String>marks=new ArrayList<>();
+            ArrayList<String> IA= new ArrayList<>();
             
-            String susn=usn.substring(5,6);
+            String sub="";
+            ArrayList<String> val= new ArrayList<>();
+            System.out.println("usn = " + usn);
+            String susn=usn.substring(5,7);
              switch(susn)
             {
                 case "CS":branch="CSE";
@@ -63,10 +74,25 @@ public class Student extends HttpServlet {
              
               System.out.println("usn = " + usn);
                System.out.println("sem = " +sem);
-            String section=db.get_stud_section(usn,sem,branch);
+               System.out.println("branch = " + branch);
+            String  section = db.get_stud_section(usn);
             System.out.println("section = " + section);
-            out.print(section);
             
+            ArrayList<String> subjects= db.get_stud_sub(usn,branch,sem);
+           System.out.println("subjects = " + subjects);
+            
+            int size= subjects.size();
+            System.out.println("size = " + size);
+            for(int i=0;i<size;i++)
+            {
+                val.add(subjects.get(i));
+                System.out.println("sub = " + subjects.get(i));
+                marks=db.get_studmarks(usn,subjects.get(i));
+                val.addAll(marks);
+                System.out.println("marks = " + marks);
+            }
+            System.out.println("val = " + val);
+            out.print(val);
         }
     }
 

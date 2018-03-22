@@ -150,7 +150,7 @@ public class DBQuery {
     public int add_placements_data(String ccode, String cbranch) throws ClassNotFoundException, SQLException {
   con= DBConnection.getDBConn();
                     st= con.createStatement();
-                    String query = "insert into ctype('"+ccode+"','"+cbranch+"')"; 
+                    String query = "insert into ctype(ccode,cbranch) values('"+ccode+"','"+cbranch+"')"; 
                     int i= st.executeUpdate(query);
                     con.close();
                     return i;
@@ -289,6 +289,7 @@ public class DBQuery {
         {
             names.add(rs.getString("susn"));
         }
+        con.close();
         return names;
     }
 
@@ -384,13 +385,53 @@ public class DBQuery {
       
     }   
 
-    public String get_stud_section(String usn, String sem, String branch) throws ClassNotFoundException, SQLException {
+    public String get_stud_section(String usn) throws ClassNotFoundException, SQLException {
+         String val=null;
        con= DBConnection.getDBConn();
        st= con.createStatement();
+       
        String query="select section from academic_student_details where susn='"+usn+"'";
        rs= st.executeQuery(query); 
-       String arr = rs.getString("scode");
-       return arr;
+       while(rs.next())
+       {
+       val=rs.getString("section");
+    }
+       con.close();
+       return val;
+    }
+
+    public ArrayList get_stud_sub(String usn, String branch, String sem) throws ClassNotFoundException, SQLException {
+    ArrayList<String> val= new ArrayList<>();
+       con= DBConnection.getDBConn();
+       st= con.createStatement();
+        String query="select scode from subjects where brname='"+branch+"' and sem='"+sem+"' ";
+        rs= st.executeQuery(query); 
+        while(rs.next())
+       {
+       val.add(rs.getString("scode"));
+        }
+        con.close();
+        return val;
+    }
+
+    public ArrayList<String> get_studmarks(String usn, String scode) throws ClassNotFoundException, SQLException {
+        ArrayList<String>val=new ArrayList<>();
+       con= DBConnection.getDBConn();
+       st= con.createStatement();
+       String query="select * from "+scode+" where usn='"+usn+"'";
+        rs= st.executeQuery(query); 
+        while(rs.next())
+       {
+       val.add(rs.getString("IA1"));
+       val.add(rs.getString("IA2"));
+       val.add(rs.getString("IA3"));
+        
+        }
+        
+        con.close();
+        System.out.println("query = " + query);
+        return val;
+        
     }
         
         
