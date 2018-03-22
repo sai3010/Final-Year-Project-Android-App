@@ -9,12 +9,14 @@ import db.DBQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 
 /**
  *
@@ -38,7 +40,7 @@ public class FacMarks extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String usn=request.getParameter("usn");
 //            System.out.println("usn = " + usn);
-           String details=db.getFacSecDetails(usn);
+            ArrayList<String> details=db.getFacSecDetails(usn);
            System.out.println("details = " + details);
            out.print(details);
             

@@ -191,7 +191,6 @@ public class DBQuery {
 		st= con.createStatement();
 		String query= "delete from student_information where usn='"+usn+"'";
                 int i= st.executeUpdate(query);
-		
                 con.close();
 		return i;
     }
@@ -219,6 +218,7 @@ public class DBQuery {
                       
            
         }
+        con.close();
         return val;
     }
 
@@ -247,48 +247,40 @@ public class DBQuery {
                       
            
         }
+        con.close();
         return val;
     }
 
-    public String getFacSecDetails(String usn) throws SQLException, ClassNotFoundException {
+    public ArrayList getFacSecDetails(String usn) throws SQLException, ClassNotFoundException {
         con= DBConnection.getDBConn();
         st= con.createStatement();
-        
-        StringBuffer sb= new StringBuffer();
-        String query="select scode from assign_fac where fusn='"+usn+"'";
+       ArrayList<String>sb=new ArrayList<>();
+        String query="select scode,section from assign_fac where fusn='"+usn+"'";
         rs= st.executeQuery(query);
         while(rs.next())
         {
-            sb.append(rs.getString("scode"));
-            sb.append(regex);
-//            str1=str1+rs.getString("scode")+regex;
+            sb.add(rs.getString("scode"));
+            sb.add(rs.getString("section"));
         }
-        System.out.println("str1  " + str1);
-        sb.append("#");
-        String query1="select section from assign_fac_section where fusn='"+usn+"'";
-        rs= st.executeQuery(query1);
-        while(rs.next())
-        {
-            sb.append(rs.getString("section"));
-            sb.append(regex);
-//            str2=str2+rs.getString("section")+regex;
-        }
-        //System.out.println("str2  " + str2);
-//        String s= str1+"#"+str2;
-        System.out.println("s = " + sb);
-        return sb+"";
+        con.close();
+        return sb;
     }
 
     public ArrayList<String> get_stud_det(String branch, String sem) throws ClassNotFoundException, SQLException {
         con= DBConnection.getDBConn();
         st= con.createStatement();
-        ArrayList<String> names=new ArrayList<String>();
-        String query="select susn from academic_student_details where section='"+sem+"' and sbranch='"+branch+"'";
+        ArrayList<String> names=new ArrayList<>();
+        System.out.println("branch = " + branch);
+        System.out.println("sem = " + sem);
+        String query="select susn from academic_student_details where section='"+sem.trim()+"' and sbranch='"+branch.trim()+"'";
         rs=st.executeQuery(query);
         while(rs.next())
         {
             names.add(rs.getString("susn"));
+//            System.out.println("names="+names);
         }
+
+        System.out.println("names="+names);
         con.close();
         return names;
     }
@@ -434,6 +426,30 @@ public class DBQuery {
         
     }
         
+
+      public ArrayList<String> get_student_marks(String scode1,String sec) throws ClassNotFoundException, SQLException
+      {
+          con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> arr=new ArrayList<>();
+          System.out.println("Scode= = " +scode1 );
+         String query="select usn,IA1,IA2,IA3 from "+scode1.toLowerCase()+" where section='"+sec.trim()+"'"; 
+         System.out.println("query = " + query);
+         rs= st.executeQuery(query);
+          while(rs.next())
+		{   
+                    arr.add(rs.getString("usn"));
+                    
+                        arr.add(rs.getString("IA1"));
+                         arr.add(rs.getString("IA2"));
+                          arr.add(rs.getString("IA3"));
+                            
+		}
+		        System.out.println("arr = " + arr);
+		con.close();
+		return arr;
+      }
+     
         
         
         
