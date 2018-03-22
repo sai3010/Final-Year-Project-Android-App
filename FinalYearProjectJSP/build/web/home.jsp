@@ -138,7 +138,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
+                                <input type="text" class="form-control" name="usn" id="usn" placeholder="USN" pattern="^[1-4][a-z]{2}[0-9]{2}[a-z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
@@ -298,7 +298,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn"  name="usn" placeholder="USN" pattern="^[1-4][A-Za-z]{2}[0-9]{2}[A-Za-z]{2}[0-9]{3}$" title="Enter in proper format" required>
+                                <input type="text" class="form-control" id="usn"  name="usn" placeholder="USN" pattern="^[1-4][a-z]{2}[0-9]{2}[a-z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
@@ -457,7 +457,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" id="usn" name="addfacusn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
+                                <input type="text" class="form-control" id="usn" name="addfacusn" placeholder="USN" pattern="^[1-4][a-z]{2}[0-9]{2}[a-z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
@@ -565,7 +565,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for=""></label>
-                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN" pattern="^[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
+                                <input type="text" class="form-control" name="updatefacusn" id="usn" placeholder="USN" pattern="^[1-4][a-z]{2}[0-9]{2}[a-z]{2}[0-9]{3}$" title="(dwwddwwddd) d=digit,w=alphabet" required>
                             </div>
                             
                               <div class="form-group col-md-6">
