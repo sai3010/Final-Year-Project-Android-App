@@ -465,7 +465,14 @@ public class StudentDashboardActivity extends AppCompatActivity
 //                    //url.add(fileDir+file.getName());
 //                }
 //            }
-            imgv.setImageDrawable(Drawable.createFromPath(imagePath));
+            if(imagePath.equalsIgnoreCase(null))
+            {
+                //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
+                imgv.setImageDrawable(getDrawable(R.drawable.student));
+            }
+            else {
+                imgv.setImageDrawable(Drawable.createFromPath(imagePath));
+            }
         }
 
     }

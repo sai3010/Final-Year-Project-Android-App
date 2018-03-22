@@ -92,9 +92,18 @@
             android:text="Get Student Details"
             android:textSize="25dp"/>
 
-        <ListView
-            android:id="@+id/studlist"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent" />
+    <ListView
+        android:id="@+id/studlist"
+        android:layout_width="fill_parent"
+        android:layout_height="124dp"></ListView>
+
+    <Button
+        android:id="@+id/updatebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/updatebtn"
+        android:layout_gravity="center"
+        android:text="Update" />
+
 
 </LinearLayout>

@@ -76,7 +76,7 @@ public class StudNotesActivity extends AppCompatActivity {
         }
         semtitle.setText("Sem"+" "+sem);
         String []f=response.split(",");
-        Log.i(TAG, f[1]);
+//        Log.i(TAG, f[1]);
         ArrayAdapter<String>adapter=new ArrayAdapter<String>(StudNotesActivity.this,R.layout.activity_list_view,R.id.ltxtview,f);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
         StrictMode.setThreadPolicy(policy);

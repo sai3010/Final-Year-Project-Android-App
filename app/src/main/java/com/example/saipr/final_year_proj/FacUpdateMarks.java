@@ -28,14 +28,16 @@ import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FacUpdateMarks extends AppCompatActivity {
     String usn,ia;
     Spinner spinner = null,subspinner=null;
     ArrayAdapter sem,scode;
-    Button getbtn;
-    String strsem,strscode,str;
+    Button getbtn,updatebtn;
+    static  String strsem,strscode,str;
     TextView textView=null;
     LinearLayout ml;
     RadioButton rb;
@@ -58,12 +60,13 @@ public class FacUpdateMarks extends AppCompatActivity {
         ml=findViewById(R.id.ml);
         subspinner=findViewById(R.id.subcodes);
         lv=findViewById(R.id.studlist);
+        updatebtn=findViewById(R.id.updatebtn);
         int radiobuttid = g.getCheckedRadioButtonId();
         rb = findViewById(radiobuttid);
         ia=rb.getText().toString();
         new FacUpdateMarks.MyNote().execute();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -116,7 +119,7 @@ public class FacUpdateMarks extends AppCompatActivity {
             public void onClick(View view) {
                 new FacUpdateMarks.GetStudInfo().execute();
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -126,7 +129,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                 ArrayAdapter<String>adapter=new ArrayAdapter<String>(FacUpdateMarks.this,R.layout.activity_list_view,R.id.ltxtview,usn);
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
                 StrictMode.setThreadPolicy(policy);
-                final ArrayList<String>finallist=new ArrayList<>();
+                final HashMap<String,String> hmap= new HashMap<>();
                 lv.setAdapter(adapter);
                 lv.setClickable(true);
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -146,23 +149,15 @@ public class FacUpdateMarks extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 String name = txt.getText().toString();
                                 Toast.makeText(FacUpdateMarks.this,name,Toast.LENGTH_SHORT).show();
-                                finallist.add(position,name);
-//                                finallist.add(str);
-//                                finallist.add(name);
-                                //Toast.makeText(FacUpdateMarks.this,finallist.toString(),Toast.LENGTH_LONG).show();
-                            }
-                        });
+                                hmap.put(str,name);
+                        }
+                    });
 
 
 
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                for(int i=0; i < finallist.size(); i++)
-                                {
-                                    Log.i(i+" = ",finallist.get(i).toString());
-                                    Toast.makeText(FacUpdateMarks.this,finallist.get(i).toString(),Toast.LENGTH_LONG).show();
-                                }
                                 dialog.cancel();
                             }
                         });
@@ -170,7 +165,32 @@ public class FacUpdateMarks extends AppCompatActivity {
                         builder.show();
                     }
                 });
-
+            updatebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
+                    arrayList.addAll(hmap.entrySet());
+                    Log.i("qwerty  ",arrayList.toString());
+                    Toast.makeText(FacUpdateMarks.this, "\n"+arrayList.toString(), Toast.LENGTH_SHORT).show();
+                    URL url = null;
+                    try {
+                        url = new URL(RegURL.url+"FacUpdateMarks");
+                        JSONObject jsn= new JSONObject();
+                        jsn.put("upmarks",arrayList);
+                        jsn.put("sem",strsem);
+                        jsn.put("scode",strscode);
+                        jsn.put("ia",ia);
+                        response= HttpClientConnection.executeClient(url, jsn);
+                        Toast.makeText(FacUpdateMarks.this, response, Toast.LENGTH_SHORT).show();
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
             }
         });
 

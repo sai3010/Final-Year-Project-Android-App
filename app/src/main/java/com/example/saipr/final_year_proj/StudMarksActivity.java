@@ -5,8 +5,10 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -18,38 +20,51 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudMarksActivity extends AppCompatActivity {
     String usn, sem;
-    EditText sembox;
-    EditText usnbox;
-    RadioButton r;
-    RadioGroup g;
     Button submit;
     String ia,res;
+    ArrayAdapter<Model> adapter;
+    ListView listView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stud_marks);
-      usn = getIntent().getExtras().getString("usn");
+        usn = getIntent().getExtras().getString("usn");
         sem = getIntent().getExtras().getString("sem");
-        submit=findViewById(R.id.submit);
-        g = findViewById(R.id.rgrp);
-       int radiobuttid = g.getCheckedRadioButtonId();
-        r = findViewById(radiobuttid);
+        listView=findViewById(R.id.my_list);
+
         new fetch_section().execute();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //Toast.makeText(StudMarksActivity.this,res, Toast.LENGTH_LONG).show();
 
 
-    submit.setOnClickListener(new View.OnClickListener() {
-        @Override
+        Toast.makeText(StudMarksActivity.this, res, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, ""+res, Toast.LENGTH_SHORT).show();
+        res= res.substring(1,res.length()-1);
+        Toast.makeText(this, "<><><>\n"+res, Toast.LENGTH_SHORT).show();
+        String arr[]= res.split(",");
 
-       public void onClick(View view) {
+        List<Model> list= new ArrayList<Model>();
+        for(int i=0; i < arr.length; i+=4) {
+            list.add(new Model(""+arr[i],arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
+        }
+
+        adapter = new MyAdapter(StudMarksActivity.this,list);
+        listView.setAdapter(adapter);
 
 
-          }
-     });
-   }
+    }
 
     public class fetch_section extends AsyncTask<URL, Void, String> {
 
@@ -74,12 +89,5 @@ public class StudMarksActivity extends AppCompatActivity {
             return res;
         }
 
-    }
-
-
-    public void rbclick(View v) {
-        int radiobuttid = g.getCheckedRadioButtonId();
-        r = findViewById(radiobuttid);
-        //Toast.makeText(this, "OOOOOOOOOOOOOOOOOOOOOOOOOOO--" + r.getText(), Toast.LENGTH_SHORT).show();
     }
 }
