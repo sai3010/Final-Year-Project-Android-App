@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 20, 2018, 4:44:11 PM
+    Author     : DELL
+*/
+
+.container{
+    font-family: 'Bree Serif', serif;
+    border-radius: 5px;
+    background-color:white;
+    height: 80vh;
+    background-color: #e0f2f1;
+    z-index: 8;
+    width: 65vh;
+    /*box-shadow: 5px 10px 10px 10px #cccc;*/
+}
+
+input[type=text]{
+     padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+}
+
+input[type=password]
+{
+     padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+}
+    
+.heading{
+  height: 50vh;  
+  padding: 70px;
+  background-color:#00695c;
+  
+}
+
+#button
+{
+    width: 40vh;
+    background-color:#009688;
+    border: 2px bold #00695c;
+}
+
+input[type=submit]:hover {
+    background-color:#a7ffeb;
+}
+
+p
+{
+ color: red;
+}
