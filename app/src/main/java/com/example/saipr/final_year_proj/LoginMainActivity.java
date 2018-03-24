@@ -1,6 +1,7 @@
 package com.example.saipr.final_year_proj;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,13 +22,15 @@ import java.net.Socket;
 import java.net.URL;
 
 public class LoginMainActivity extends AppCompatActivity {
-
+    public static final String PREFS_NAME = "MyPrefsFile";
+    private static final String PREF_USERNAME = "username";
+    private static final String PREF_PASSWORD = "password";
     EditText usr;
     EditText pwd;
     TextView studname,studemail;
     Button lbtn;
     Intent intent = null;
-
+    String usn,pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +47,35 @@ public class LoginMainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+        /*to store username and password*/
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        String username = pref.getString(PREF_USERNAME, null);
+        String password = pref.getString(PREF_PASSWORD, null);
+        //Toast.makeText(this, username+password, Toast.LENGTH_SHORT).show();
+        if (username == null || password == null) {
+            getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                    .edit()
+                    .putString(PREF_USERNAME, usr.getText().toString())
+                    .putString(PREF_PASSWORD, pwd.getText().toString())
+                    .apply();
+        }
+        else
+        {
+            usr.setText(username);
+            pwd.setText(password);
+        }
 
         //add the function to connect to database
         lbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String usn=usr.getText().toString().toUpperCase();
-                String pass=pwd.getText().toString();
+                getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                        .edit()
+                        .putString(PREF_USERNAME, usr.getText().toString())
+                        .putString(PREF_PASSWORD, pwd.getText().toString())
+                        .apply();
+                usn=usr.getText().toString().toUpperCase();
+                pass=pwd.getText().toString();
                 try
                 {
                     URL url = new URL(RegURL.url + "Login");
