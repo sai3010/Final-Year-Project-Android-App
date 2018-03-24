@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         String regId = pref.getString("regId", null);
 
         Log.e(TAG, "Firebase reg id: " + regId);
-        Toast.makeText(this, regId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, regId, Toast.LENGTH_SHORT).show();
 
 //        if (!TextUtils.isEmpty(regId))
 //            txtRegId.setText("Firebase Reg Id: " + regId);
