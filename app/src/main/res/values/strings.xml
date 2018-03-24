@@ -14,14 +14,17 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
     <string name="spinner_title">Select Qualification</string>
     <string name="bspinner_title">Select Branch</string>
     <string name="sspinner_title">Select Sem</string>
+
     <string-array name="qual_array">
         <item>B.E/B.Tech</item>
         <item>M.E/M.Tech</item>
         <item>Ph.D</item>
     </string-array>
+
     <string name="sp_title">Select Branch</string>
     <string-array name="branch_array">
         <item>CSE</item>

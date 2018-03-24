@@ -56,13 +56,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="110dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/facatt" />
+                        android:src="@drawable/facattdnew" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:text="Attendance"
                         android:textAlignment="center"
@@ -148,7 +148,7 @@
                         android:layout_width="130dp"
                         android:layout_height="112dp"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/facnotes" />
+                        android:src="@drawable/facnotesnew" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -158,7 +158,8 @@
                         android:text="Notes"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
 
 
                 </LinearLayout>
