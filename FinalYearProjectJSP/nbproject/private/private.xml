@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Marks/FacMarks.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Marks/FacUpdateMarks.java</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
+=======
             <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+>>>>>>> fc1602cddc7bf796ae3a8d57b17a322676fb2504
         </group>
     </open-files>
 </project-private>

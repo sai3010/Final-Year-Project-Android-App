@@ -42,7 +42,7 @@ public class GetStudDetails extends HttpServlet {
             String code=request.getParameter("code");
             System.out.println("<>"+sem+"<>"+code+"<>"+usn+"<>");
             String branch=null;
-            String scode=code.substring(2,4);
+            String scode=code.trim().substring(2,4);
             switch(scode)
             {
                 case "CS":branch="CSE";
@@ -61,7 +61,7 @@ public class GetStudDetails extends HttpServlet {
                           break;
             }
             System.out.println("scode = " + scode);
-            ArrayList<String>names =db.get_stud_det(branch,sem);
+            ArrayList<String>names =db.get_stud_det(branch,sem.trim());
             System.out.println("branch = " + branch);
             System.out.println("names = " + names);
             out.print(names);
