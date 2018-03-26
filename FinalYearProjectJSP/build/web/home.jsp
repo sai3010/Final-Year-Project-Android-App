@@ -665,8 +665,17 @@
                     <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier" required>
                 </div> 
                 <div class=" col-md-6 offset-md-3 ">
-                    <label for="Cbranch"></label>
-                    <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches" required>
+                  
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Default1" name="cbranch" id="defaultCheck1" checked="checked">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Default1 
+                    </label>
+                        <input class="form-check-input" type="checkbox" value="Default2" name="cbranch" id="defaultCheck1" checked>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Default2
+                    </label>
+                  </div>
                 </div> 
                
                 <div class="col-md-6 offset-md-3 " style="padding-top: 20px;">                 

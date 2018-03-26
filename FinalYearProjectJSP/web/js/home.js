@@ -32,3 +32,10 @@ function toggle2( c1, c2, c3)
     $(c3).css("display","block");
 }
 
+var countChecked = function() {
+  var n = $( "input:checked" ).length;
+
+};
+countChecked();
+ 
+$( "input[type=checkbox]" ).on( "click", countChecked );
