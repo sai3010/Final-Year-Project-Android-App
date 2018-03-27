@@ -112,6 +112,10 @@
         <servlet-name>FacUpdateMarks</servlet-name>
         <servlet-class>Marks.FacUpdateMarks</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FacGetSec</servlet-name>
+        <servlet-class>Attendance.FacGetSec</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -223,6 +227,10 @@
     <servlet-mapping>
         <servlet-name>FacUpdateMarks</servlet-name>
         <url-pattern>/FacUpdateMarks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FacGetSec</servlet-name>
+        <url-pattern>/FacGetSec</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
