@@ -53,7 +53,7 @@
         <activity android:name=".StudentAggregateActivity" />
         <activity android:name=".StudMarksActivity" />
         <activity android:name=".Fac_View_Marks" />
-        <activity android:name=".FacUpdateMarks"></activity>
+        <activity android:name=".FacUpdateMarks" />
 
         <!-- Firebase Notifications -->
         <service android:name=".service.MyFirebaseMessagingService">
@@ -61,13 +61,16 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <service android:name=".service.MyFirebaseInstanceIDService" android:exported="true">
+        <service
+            android:name=".service.MyFirebaseInstanceIDService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <!-- ./Firebase Notifications -->
+        <activity android:name=".FacAttendanceActivity" />
+        <activity android:name=".FacAttendanceUpdateActivity"></activity>
     </application>
 
 </manifest>
