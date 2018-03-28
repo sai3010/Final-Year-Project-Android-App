@@ -30,8 +30,6 @@
                       <a href="#home" onclick="toggle1('#placement','#mp','#home');">Home</a>
                       <a href="#mp" onclick="toggle2('#home','#placement','#mp');">Functionality</a>
                       <a href="#placement" onclick="toggle2('#mp','#home','#placement');">Placements</a>
-                      <a href="#">Clients</a>
-                      <a href="#">Contact</a>
                     </div>
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
@@ -665,8 +663,17 @@
                     <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier" required>
                 </div> 
                 <div class=" col-md-6 offset-md-3 ">
-                    <label for="Cbranch"></label>
-                    <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches" required>
+                  
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Default1" name="cbranch" id="defaultCheck1" checked="checked">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Default1 
+                    </label>
+                        <input class="form-check-input" type="checkbox" value="Default2" name="cbranch" id="defaultCheck1" checked>
+                    <label class="form-check-label" for="defaultCheck1">
+                      Default2
+                    </label>
+                  </div>
                 </div> 
                
                 <div class="col-md-6 offset-md-3 " style="padding-top: 20px;">                 
