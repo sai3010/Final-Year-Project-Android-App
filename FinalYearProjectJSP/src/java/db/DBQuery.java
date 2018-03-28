@@ -452,13 +452,28 @@ public class DBQuery {
 
 
     public int update_stud_marks(String usn,String mark,String tabname,String ia) throws SQLException, ClassNotFoundException {
-         con= DBConnection.getDBConn();
+        con= DBConnection.getDBConn();
         st= con.createStatement();
         String query ="update "+tabname+" set "+ia+"='"+mark+"' where usn='"+usn+"'";
         System.out.println("query = " + query);
         int i= st.executeUpdate(query);
         con.close();
         return i;
+    }
+
+    public ArrayList getFacSecSub(String usn) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> list=new ArrayList<>();
+        String query ="select * from assign_fac where fusn='"+usn+"'";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            list.add(rs.getString("scode"));
+            list.add(rs.getString("section"));
+        }
+        con.close();
+        return list;
     }
         
     }
