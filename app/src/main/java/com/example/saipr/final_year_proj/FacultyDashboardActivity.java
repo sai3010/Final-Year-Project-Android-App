@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -288,7 +289,8 @@ public class FacultyDashboardActivity extends AppCompatActivity
                 Bitmap bitmap = null;
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedFileUri);
-                    imgv.setImageBitmap(bitmap);
+                    Bitmap bm= resizeBitmap(selectedFilePath, 200,100);
+                    imgv.setImageBitmap(bm);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -349,8 +351,10 @@ public class FacultyDashboardActivity extends AppCompatActivity
 
         if (imgv.getDrawable() != null) {
             Bitmap bm = ((BitmapDrawable) imgv.getDrawable()).getBitmap();
+            Bitmap newbm=Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.5), (int)(bm.getHeight()*0.5), true);
+
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            newbm.compress(Bitmap.CompressFormat.PNG, 100, baos);
             byte[] b = baos.toByteArray();
             imgString = Base64.encodeToString(b, Base64.DEFAULT);
             try {
@@ -438,8 +442,34 @@ public class FacultyDashboardActivity extends AppCompatActivity
 //                    //url.add(fileDir+file.getName());
 //                }
 //            }
-            imgv.setImageDrawable(Drawable.createFromPath(imagePath));
+            File f= new File(imagePath);
+            if(!f.exists())
+            {
+                //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
+                imgv.setImageDrawable(getDrawable(R.drawable.student));
+            }else {
+                Bitmap bm= resizeBitmap(imagePath, 200,100);
+                imgv.setImageBitmap(bm);
+            }
         }
 
+    }
+    public Bitmap resizeBitmap(String photoPath, int targetW, int targetH) {
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(photoPath, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        int scaleFactor = 1;
+        if ((targetW > 0) || (targetH > 0)) {
+            scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+        }
+
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true; //Deprecated API 21
+
+        return BitmapFactory.decodeFile(photoPath, bmOptions);
     }
 }
