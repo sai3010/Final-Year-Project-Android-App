@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.StringBinding;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,16 +36,72 @@ public class Placementadmin extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         DBQuery db= new DBQuery();
+        String [] branch=new String[9];
         try (PrintWriter out = response.getWriter()) {
+            int count=0;
            String  cname =request.getParameter("cname");   
-            String  cbranch =request.getParameter("cbranch");
-             String  ctier =request.getParameter("ctier");
+           String cse=request.getParameter("cse");
+            System.out.println("cse = " + cse);
+             String ise=request.getParameter("ise");
+               String ece=request.getParameter("ece");
+                 String eee=request.getParameter("eee");
+                   String civ=request.getParameter("civ");
+                     String mech=request.getParameter("mech");
+                       String eie=request.getParameter("eie");
+              String  ctier =request.getParameter("ctier");
               String  ccode=request.getParameter("ccode");
-              
+              if(cse!=null)
+              {
+                  count+=1;
+                  branch[count]=cse;
+              }
+               if(ise!=null)
+              {
+                  count+=1;
+                  branch[count]=ise;
+              }
+               if(ece!=null)
+              {
+                  count+=1;
+                  branch[count]=ece;
+              }
+               if(eee!=null)
+              {
+                  count+=1;
+                  branch[count]=eee;
+              }
+               if(mech!=null)
+              {
+                  count+=1;
+                  branch[count]=mech;
+              }
+               if(eee!=null)
+              {
+                  count+=1;
+                  branch[count]=eee;
+              }
+               if(civ!=null)
+              {
+                  count+=1;
+                  branch[count]=civ;
+              }
+              System.out.println("count = " + count);
+              System.out.println("branch = " + branch[0]+branch[1]);
               System.out.println("ccode = " + ccode);
               System.out.println("cname = " + cname);
-                 int i=db.add_placement_data(ccode,cname,ctier);
-                 int j = db.add_placements_data(ccode,cbranch);
+              if(count==0)
+              {
+                  out.print("count is 0");
+              }
+              else
+              {
+                for(int i =1;i<=count;i++)
+                {
+                System.out.println("branch = " + branch[i]);
+                int j = db.add_placements_data(ccode,branch[i]);
+                }
+              }
+              int i=db.add_placement_data(ccode,cname,ctier);
             
             
         }

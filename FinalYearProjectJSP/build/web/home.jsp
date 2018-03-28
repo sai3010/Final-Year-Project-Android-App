@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/home.css"/>
+    <link rel="stylesheet" type="text/js" href="js/home.js"/>
     <title>ADMIN</title>
  
   </head>
@@ -30,8 +31,6 @@
                       <a href="#home" onclick="toggle1('#placement','#mp','#home');">Home</a>
                       <a href="#mp" onclick="toggle2('#home','#placement','#mp');">Functionality</a>
                       <a href="#placement" onclick="toggle2('#mp','#home','#placement');">Placements</a>
-                      <a href="#">Clients</a>
-                      <a href="#">Contact</a>
                     </div>
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
@@ -664,15 +663,46 @@
                     <label for="Ctier"></label>
                     <input type="text" class="form-control" id="Ctier" name="ctier" placeholder="Company Tier" required>
                 </div> 
-                <div class=" col-md-6 offset-md-3 ">
-                    <label for="Cbranch"></label>
-                    <input type="text" class="form-control" id="Cbranch" name="cbranch" placeholder="Branches" required>
+             
+                 <div class=" col-md-6 offset-md-3 ">
+                      <label for="Cbranch"></label>
+                <div class="form-check">
+                    <input class="checks" type="checkbox" value="CS" name="cse" >
+                    <label class="form-check-label" for="defaultCheck1">
+                      CSE
+                    </label>
+                    <input class="checks" type="checkbox" value="IS" name="ise" >
+                    <label class="form-check-label" for="defaultCheck2">
+                     ISE
+                    </label>
+                     <input class="checks" type="checkbox" value="EC" name="ece" >
+                    <label class="form-check-label" for="defaultCheck2">
+                     ECE
+                    </label>
+                      <input class="checks" type="checkbox" value="EE" name="eee" >
+                    <label class="form-check-label" for="defaultCheck2">
+                     EEE
+                    </label>
+                       <input class="checks" type="checkbox" value="ME" name="mech">
+                    <label class="form-check-label" for="defaultCheck2">
+                     MECH
+                    </label>
+                        <input class="checks" type="checkbox" value="EI" name="eie" >
+                    <label class="form-check-label" for="defaultCheck2">
+                     EIE
+                    </label>
+                         <input class="checks" type="checkbox" value="CV" name="civ">
+                    <label class="form-check-label" for="defaultCheck2">
+                     CIVIL
+                    </label>
+                        
+                  </div>
                 </div> 
                
                 <div class="col-md-6 offset-md-3 " style="padding-top: 20px;">                 
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-lg" onclick="getvalue();">Submit</button>
                 </div>
-                
+        
                 <!---image-->
                 <div class="img col-md-3 ">
                     <img src="img/placement.png" alt="placement">
@@ -680,6 +710,11 @@
             </div>
         </form>        
     </div>
+            
+                
+               
+        
+                
  </section>
  
 
