@@ -30,8 +30,6 @@
                       <a href="#home" onclick="toggle1('#placement','#mp','#home');">Home</a>
                       <a href="#mp" onclick="toggle2('#home','#placement','#mp');">Functionality</a>
                       <a href="#placement" onclick="toggle2('#mp','#home','#placement');">Placements</a>
-                      <a href="#">Clients</a>
-                      <a href="#">Contact</a>
                     </div>
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
