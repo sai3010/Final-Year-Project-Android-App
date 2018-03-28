@@ -32,10 +32,25 @@ function toggle2( c1, c2, c3)
     $(c3).css("display","block");
 }
 
-var countChecked = function() {
-  var n = $( "input:checked" ).length;
-
-};
-countChecked();
+function getvalue(){
+    var checks= document.getElementsByClassName('checks');
+    var count=0;
+    var str="";
+    
+    for (i=0;i<7;i++){
+        if(checks[i].checked===true){
+            count ++;
+            str+=checks[i].value + " ";
+            }
+            
+ }
  
-$( "input[type=checkbox]" ).on( "click", countChecked );
+    if(count==0)
+    {
+        alert("Choose a branch!");
+    }
+    else{
+        alert(count);
+        alert(str);
+        }
+}
