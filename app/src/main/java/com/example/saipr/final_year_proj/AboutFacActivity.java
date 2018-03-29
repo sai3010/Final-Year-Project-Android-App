@@ -1,16 +1,21 @@
 package com.example.saipr.final_year_proj;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,6 +28,7 @@ public class AboutFacActivity extends AppCompatActivity {
     EditText fnameet,lnameet,emailet,qualet,phoneet,addresset,passet;
     Button updatebtn;
     URL url;
+    ImageView profpic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +42,7 @@ public class AboutFacActivity extends AppCompatActivity {
         addresset=findViewById(R.id.addresset);
         passet=findViewById(R.id.passet);
         updatebtn=findViewById(R.id.updatebtn);
-
+        profpic=findViewById(R.id.profile_image);
         fname = getIntent().getExtras().getString("fname");
         email = getIntent().getExtras().getString("email");
         qual=getIntent().getExtras().getString("qual");
@@ -46,7 +52,18 @@ public class AboutFacActivity extends AppCompatActivity {
         lname=getIntent().getExtras().getString("lname");
         password=getIntent().getExtras().getString("password");
         usn=getIntent().getExtras().getString("usn");
-
+        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        String purl=extStorageDirectory+"/campusbridge/"+usn+".jpg";
+        File f= new File(purl);
+        if(!f.exists())
+        {
+            profpic.setImageDrawable(getDrawable(R.drawable.student));
+        }else
+        {
+            Bitmap bm= resizeBitmap(purl, 200,100);
+            profpic.setImageBitmap(bm);
+        }
+        //Toast.makeText(this, purl, Toast.LENGTH_SHORT).show();
         fnameet.setText(fname);
         lnameet.setText(lname);
         emailet.setText(email);
@@ -87,5 +104,22 @@ public class AboutFacActivity extends AppCompatActivity {
             }
         });
     }
+    public Bitmap resizeBitmap(String photoPath, int targetW, int targetH) {
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(photoPath, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
 
+        int scaleFactor = 1;
+        if ((targetW > 0) || (targetH > 0)) {
+            scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+        }
+
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true; //Deprecated API 21
+
+        return BitmapFactory.decodeFile(photoPath, bmOptions);
+    }
 }
