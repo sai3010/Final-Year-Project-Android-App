@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -75,6 +76,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     Uri selectedFileUri;
     String imgString = "";
     String res = "";
+    int lenghtOfFile;
     String extStorageDirectory;
     private ProgressDialog pDialog;
     public static final int progress_bar_type = 0;
@@ -295,7 +297,8 @@ public class StudentDashboardActivity extends AppCompatActivity
 
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedFileUri);
-                    imgv.setImageBitmap(bitmap);
+                    Bitmap bm= resizeBitmap(selectedFilePath, 200,100);
+                    imgv.setImageBitmap(bm);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -388,6 +391,8 @@ public class StudentDashboardActivity extends AppCompatActivity
             }
         }
     }
+
+
     class DownloadFileFromURL extends AsyncTask<String, String, String> {
 
 
@@ -405,14 +410,15 @@ public class StudentDashboardActivity extends AppCompatActivity
                 URL url = new URL(f_url[0]);
                 URLConnection conection = url.openConnection();
                 conection.connect();
-                int lenghtOfFile = conection.getContentLength();
-
+                lenghtOfFile = conection.getContentLength();
+                //Log.i(TAG, "length:::"+ lenghtOfFile+"");
                 // download the file
                 InputStream input = new BufferedInputStream(url.openStream(), 8192);
 
+               // Log.i(TAG, "inputtt:::"+ input.toString());
                 // Output stream
                 OutputStream output = new FileOutputStream(folder+"/"+usn+".jpg");
-
+                //Log.i(TAG, "ouputtt:::"+ output.toString());
                 byte data[] = new byte[1024];
 
                 long total = 0;
@@ -422,7 +428,9 @@ public class StudentDashboardActivity extends AppCompatActivity
                     publishProgress(""+(int)((total*100)/lenghtOfFile));
 
                     output.write(data, 0, count);
+
                 }
+                //Log.i(TAG, "IIIIIIIIIIIIIIIIIIIIIIIIIIIIII--- "+count+"\t"+data);
 
                 output.flush();
 
@@ -465,15 +473,36 @@ public class StudentDashboardActivity extends AppCompatActivity
 //                    //url.add(fileDir+file.getName());
 //                }
 //            }
-            if(imagePath.equalsIgnoreCase(null))
+            File f= new File(imagePath);
+            if(!f.exists())
             {
                 //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
                 imgv.setImageDrawable(getDrawable(R.drawable.student));
-            }
-            else {
-                imgv.setImageDrawable(Drawable.createFromPath(imagePath));
+            }else {
+                Bitmap bm= resizeBitmap(imagePath, 200,100);
+
+                imgv.setImageBitmap(bm);
             }
         }
 
+    }
+
+    public Bitmap resizeBitmap(String photoPath, int targetW, int targetH) {
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(photoPath, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        int scaleFactor = 1;
+        if ((targetW > 0) || (targetH > 0)) {
+            scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+        }
+
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true; //Deprecated API 21
+
+        return BitmapFactory.decodeFile(photoPath, bmOptions);
     }
 }
