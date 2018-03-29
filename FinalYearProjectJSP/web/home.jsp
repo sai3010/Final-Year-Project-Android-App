@@ -649,7 +649,7 @@
  <section id="placement" style="display: none;">
     <h1 class="head" align="center">PLACEMENTS</h1>
     <div class="container">      
-        <form action="./Placementadmin" method="post">  
+        <form action="./Placementadmin" method="post" >  
             <div class="form-row">
                 <div class=" col-md-6 offset-md-3 ">
                     <label for="cname"></label>    
@@ -700,7 +700,7 @@
                 </div> 
                
                 <div class="col-md-6 offset-md-3 " style="padding-top: 20px;">                 
-                    <button type="submit" class="btn btn-primary btn-lg" onclick="getvalue();">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-lg" onclick ="getvalue();">Submit</button>
                 </div>
         
                 <!---image-->

@@ -37,20 +37,24 @@ function getvalue(){
     var count=0;
     var str="";
     
-    for (i=0;i<7;i++){
-        if(checks[i].checked===true){
-            count ++;
-            str+=checks[i].value + " ";
+    for (i=0;i<7;i++)
+    {
+        if(checks[i].checked===true)
+            {
+                count ++;
+                str+=checks[i].value + " ";
             }
             
- }
+    }
  
-    if(count==0)
+    if(count===0)
     {
         alert("Choose a branch!");
+        
     }
-    else{
+    else
+    {
         alert(count);
         alert(str);
-        }
+    }
 }
