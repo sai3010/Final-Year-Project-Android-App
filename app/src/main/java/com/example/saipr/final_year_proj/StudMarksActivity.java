@@ -53,11 +53,11 @@ public class StudMarksActivity extends AppCompatActivity {
         Toast.makeText(this, ""+res, Toast.LENGTH_SHORT).show();
         res= res.substring(1,res.length()-1);
         Toast.makeText(this, "<><><>\n"+res, Toast.LENGTH_SHORT).show();
-        String arr[]= res.split(",");
+        String arr[]= res.trim().split(",");
 
         List<Model> list= new ArrayList<Model>();
         for(int i=0; i < arr.length; i+=4) {
-            list.add(new Model(""+arr[i],arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
+            list.add(new Model(""+arr[i].trim(),arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
         }
 
         adapter = new MyAdapter(StudMarksActivity.this,list);

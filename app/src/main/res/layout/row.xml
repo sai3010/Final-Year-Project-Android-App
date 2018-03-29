@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c9e9ca"
+    android:background="#a7ffeb"
     android:orientation="horizontal">
 
     <TextView
@@ -10,11 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
-        android:text="usn"
-        android:background="#dde4e4ec"
+        android:text="USN"
+
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="20sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
         android:singleLine="true"/>
 
     <TextView
@@ -34,9 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
         android:textAlignment="center"
-        android:text="marks"
-        android:background="#c1f9f4"
+        android:text="MARKS"
+        android:fontFamily="sans-serif-smallcaps"
+
         android:textColor="#000"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:singleLine="true"/>
 </LinearLayout>
