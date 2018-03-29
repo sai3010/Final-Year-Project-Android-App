@@ -224,6 +224,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         {
             Intent i = new Intent(StudentDashboardActivity.this,AboutStudActivity.class);
             i.putExtra("fname",name);
+            i.putExtra("usn",usn);
             i.putExtra("lname",lname);
             i.putExtra("sem",sem);
             i.putExtra("branch",branch);

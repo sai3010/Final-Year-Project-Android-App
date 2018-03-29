@@ -114,6 +114,7 @@
     <ListView
         android:id="@+id/studlist"
         android:layout_width="fill_parent"
+        android:divider="@color/material_blue_grey_800"
         android:layout_height="200dp"
         android:layout_margin="10dp"></ListView>
 
