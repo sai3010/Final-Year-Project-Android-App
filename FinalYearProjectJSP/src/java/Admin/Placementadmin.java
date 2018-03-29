@@ -6,8 +6,10 @@
 package Admin;
 
 import db.DBQuery;
+import java.awt.Component;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.exit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +18,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.*;
+
 
 /**
  *
@@ -38,6 +44,7 @@ public class Placementadmin extends HttpServlet {
         DBQuery db= new DBQuery();
         String [] branch=new String[9];
         try (PrintWriter out = response.getWriter()) {
+            JFrame f;  
             int count=0;
            String  cname =request.getParameter("cname");   
            String cse=request.getParameter("cse");
@@ -85,13 +92,15 @@ public class Placementadmin extends HttpServlet {
                   count+=1;
                   branch[count]=civ;
               }
-              System.out.println("count = " + count);
-              System.out.println("branch = " + branch[0]+branch[1]);
-              System.out.println("ccode = " + ccode);
-              System.out.println("cname = " + cname);
+             
               if(count==0)
               {
-                  out.print("count is 0");
+//                //out.print ("fail");
+                   f=new JFrame();  
+                 JOptionPane.showMessageDialog(f,"FAILED");
+//                  //System.out.println("nononononoonnoon");
+                  return ;
+                 
               }
               else
               {
@@ -101,6 +110,10 @@ public class Placementadmin extends HttpServlet {
                 int j = db.add_placements_data(ccode,branch[i]);
                 }
               }
+              System.out.println("count = " + count);
+              System.out.println("branch = " + branch[0]+branch[1]);
+              System.out.println("ccode = " + ccode);
+              System.out.println("cname = " + cname);
               int i=db.add_placement_data(ccode,cname,ctier);
             
             
