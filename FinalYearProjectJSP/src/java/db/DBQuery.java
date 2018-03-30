@@ -475,6 +475,32 @@ public class DBQuery {
         con.close();
         return list;
     }
+
+    public String[] getstudusn(String rfno) throws ClassNotFoundException, SQLException {
+       con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String [] det=new String[4];
+        String query ="select susn,sname,sbranch,section from academic_student_details where rfid_tag='"+rfno+"'";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            det[0]=rs.getString("susn");
+            det[1]=rs.getString("sname");
+            det[2]=rs.getString("sbranch");
+            det[3]=rs.getString("section");
+        }
+        con.close();
+        return det;
+    }
+
+    public int temp_att(String rfno, String usn, String name,String branch,String sec) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();	
+        String query ="insert into temp_attendance values('"+usn+"','"+name+"','"+rfno+"','"+branch+"','"+sec+"')";
+        int i= st.executeUpdate(query);
+        con.close();
+        return i;
+    }
         
     }
     

@@ -116,6 +116,10 @@
         <servlet-name>FacGetSec</servlet-name>
         <servlet-class>Attendance.FacGetSec</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Rfid_Read</servlet-name>
+        <servlet-class>RFID.Rfid_Read</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -231,6 +235,10 @@
     <servlet-mapping>
         <servlet-name>FacGetSec</servlet-name>
         <url-pattern>/FacGetSec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Rfid_Read</servlet-name>
+        <url-pattern>/Rfid_Read</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
