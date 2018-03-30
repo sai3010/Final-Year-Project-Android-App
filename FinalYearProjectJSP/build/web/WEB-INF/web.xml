@@ -120,6 +120,10 @@
         <servlet-name>Rfid_Read</servlet-name>
         <servlet-class>RFID.Rfid_Read</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getStudAtt</servlet-name>
+        <servlet-class>Attendance.getStudAtt</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -239,6 +243,10 @@
     <servlet-mapping>
         <servlet-name>Rfid_Read</servlet-name>
         <url-pattern>/Rfid_Read</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getStudAtt</servlet-name>
+        <url-pattern>/getStudAtt</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

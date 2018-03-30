@@ -501,6 +501,36 @@ public class DBQuery {
         con.close();
         return i;
     }
+
+    public ArrayList<String> get_scode(String sem,String branch) throws SQLException, ClassNotFoundException {
+        ArrayList<String> scode=new ArrayList<>();
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query ="select scode from subjects where sem='"+sem+"' and brname='"+branch+"'";
+        System.out.println("query = " + query);
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            scode.add(rs.getString("scode"));
+        }
+        con.close();
+        return scode;
+     }
+
+    public StringBuilder get_att(String tabname,String usn) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        StringBuilder s=new StringBuilder();
+        String query ="select Attendance from "+tabname+" where usn='"+usn+"'";
+        System.out.println("query = " + query);
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            s.append(rs.getString("Attendance"));
+        }
+        con.close();
+        return s;
+    }
         
     }
     
