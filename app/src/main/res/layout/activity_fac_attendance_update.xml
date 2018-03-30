@@ -15,4 +15,18 @@
         android:dropDownWidth="200dp"
         android:layout_gravity="center"/>
 
+    <ListView
+        android:id="@+id/attlist"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:divider="#0d2ee9"
+        android:dividerHeight="1dp"/>
+
+    <Button
+        android:id="@+id/attup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Update"/>
+
+
 </LinearLayout>

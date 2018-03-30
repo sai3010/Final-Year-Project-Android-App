@@ -72,7 +72,7 @@ public class StudentDashboardActivity extends AppCompatActivity
     TextView emailtxt;
     TextView usntxt;
     static ImageView imgv;
-    CardView placement,markcard;
+    CardView placement,markcard,attendance;
     Uri selectedFileUri;
     String imgString = "";
     String res = "";
@@ -124,6 +124,17 @@ public class StudentDashboardActivity extends AppCompatActivity
             }
         });
         /*marks end*/
+        /*attendance*/
+        attendance = findViewById(R.id.stattd);
+        attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(StudentDashboardActivity.this,StudentAttendanceActivity.class);
+                i.putExtra("usn", usn);
+                i.putExtra("sem", sem);
+                startActivity(i);
+            }
+        });
         /*Stud notes*/
         notescard=findViewById(R.id.notescard);
         notescard.setOnClickListener(new View.OnClickListener() {

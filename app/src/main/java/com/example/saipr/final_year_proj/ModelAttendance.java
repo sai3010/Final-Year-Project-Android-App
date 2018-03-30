@@ -16,15 +16,15 @@ public class ModelAttendance {
         this.status=status;
     }
     public String getUsn() {
-        return usn;
+        return this.usn;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public boolean getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setUsn(String usn) {

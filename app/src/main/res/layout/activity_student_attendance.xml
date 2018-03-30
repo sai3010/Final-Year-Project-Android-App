@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.saipr.final_year_proj.StudentAttendanceActivity">
+
+    <TextView
+        android:id="@+id/atttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attendance Status"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"/>
+
+    <ListView
+        android:id="@+id/atlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#0d2ee9"
+        android:dividerHeight="1dp"/>
+</LinearLayout>
