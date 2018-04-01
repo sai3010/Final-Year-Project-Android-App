@@ -21,7 +21,7 @@ public class AttendanceAdapter extends ArrayAdapter<ModelAttendance> {
     int listPosititon;
 
     public AttendanceAdapter(Activity context, List<ModelAttendance> list) {
-        super(context, R.layout.row, list);
+        super(context, R.layout.rowattendance, list);
         this.context = context;
         this.list = list;
     }
