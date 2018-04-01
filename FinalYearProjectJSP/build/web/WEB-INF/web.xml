@@ -124,6 +124,10 @@
         <servlet-name>getStudAtt</servlet-name>
         <servlet-class>Attendance.getStudAtt</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetTempAttendance</servlet-name>
+        <servlet-class>Attendance.GetTempAttendance</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -247,6 +251,10 @@
     <servlet-mapping>
         <servlet-name>getStudAtt</servlet-name>
         <url-pattern>/getStudAtt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetTempAttendance</servlet-name>
+        <url-pattern>/GetTempAttendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
