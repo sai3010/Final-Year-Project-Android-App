@@ -8,7 +8,7 @@ public interface RegURL {
 
 
 
-    String url = "http://192.168.1.10:8084/FinalYearProjectJSP/";
+    String url = "http://192.168.1.9:8084/FinalYearProjectJSP/";
    // String durl = "http://192.168.1.10:8084/FinalYearProjectJSP/build/";
 
 
