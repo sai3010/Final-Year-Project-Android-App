@@ -22,7 +22,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class FacAttendanceUpdateActivity extends AppCompatActivity {
     String section,facusn,fullsec,fullscode;
@@ -32,7 +36,8 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
     String strsubj;
     static String resp;
     ListView lv;
-    ArrayList<String>finalarr=new ArrayList<>();
+    StringBuilder s=new StringBuilder();
+    HashMap<String,String> hmap= new HashMap<>();
     ArrayAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +81,17 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Toast.makeText(this, resp, Toast.LENGTH_SHORT).show();
-        String [] l={"usn 1","usn2"};
+        resp=resp.substring(1,resp.length()-1);
+        String [] attlist=resp.split(",");
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         lv.setTextFilterEnabled(true);
-        adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_checked,l);
+        adapter=new ArrayAdapter<String>(this,R.layout.simple_checked_list_item,attlist);
 //        adapter = new AttendanceAdapter(FacAttendanceUpdateActivity.this,list);
         lv.setAdapter(adapter);
         //Toast.makeText(this, fullsec+fullscode, Toast.LENGTH_SHORT).show();
         lv.setClickable(true);
+        for(int i=0;i<attlist.length;i++)
+        lv.setItemChecked(i,true);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -102,15 +110,63 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
                 {
                     if(lv.isItemChecked(i))
                     {
-                        Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"\t"+"ture", Toast.LENGTH_SHORT).show();
+                        String b="true";
+                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"\t"+"ture", Toast.LENGTH_SHORT).show();
+                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
                     }
                     else
                     {
-                        Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"", Toast.LENGTH_SHORT).show();
+                        String b="false";
+                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
+                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }
+                ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
+                    Set set=hmap.entrySet();
+                Iterator i =set.iterator();
+                while(i.hasNext()) {
+                    Map.Entry mentry = (Map.Entry)i.next();
+                    if(mentry.getValue().equals("true")) {
+                        s.append(mentry.getKey());
+                        s.append(",");
+                        //Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
+                    }
+//                    else
+//                    {
+//                        Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
+//                    }
+                }
+                //arrayList.addAll(hmap.entrySet());
+                //Toast.makeText(FacAttendanceUpdateActivity.this,s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(FacAttendanceUpdateActivity.this,"Updated Successfully", Toast.LENGTH_SHORT).show();
+                new addatt().execute();
+                update.setClickable(false);
+               }
         });
+    }
+    public class addatt extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            try {
+                URL url = new URL(RegURL.url + "UpdateAttendance");
+                JSONObject jsn = new JSONObject();
+                jsn.put("list", s);
+                jsn.put("sec", section);
+                jsn.put("scode", strsubj);
+                resp = HttpClientConnection.executeClient(url, jsn);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return resp;
+        }
+
     }
 
     public class fetchtempatt extends AsyncTask<URL, Void, String> {
