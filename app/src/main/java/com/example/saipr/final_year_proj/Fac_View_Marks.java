@@ -126,7 +126,7 @@ public class Fac_View_Marks extends AppCompatActivity {
 
                 List<Model> list= new ArrayList<Model>();
                 for(int i=0; i < arr.length; i+=4) {
-                    list.add(new Model(""+arr[i],arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
+                    list.add(new Model(""+arr[i].trim(),arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
                 }
                 adapter = new MyAdapter(Fac_View_Marks.this,list);
                 listView.setAdapter(adapter);

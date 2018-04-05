@@ -61,6 +61,7 @@ public class FacAttendanceActivity extends AppCompatActivity {
                 //Toast.makeText(FacAttendanceActivity.this,str,Toast.LENGTH_SHORT).show();
                 Intent i =new Intent(FacAttendanceActivity.this,FacAttendanceUpdateActivity.class);
                 //i.putExtra("list",flist);
+                i.putExtra("usn",usn);
                 i.putExtra("section",str);
                 i.putExtra("strsec",section.toString());
                 i.putExtra("strscode",subcode.toString());

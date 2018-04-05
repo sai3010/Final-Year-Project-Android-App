@@ -15,4 +15,25 @@
         android:dropDownWidth="200dp"
         android:layout_gravity="center"/>
 
+    <ListView
+        android:id="@+id/attlist"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:divider="#0d2ee9"
+        android:dividerHeight="1dp"/>
+
+    <Button
+        android:id="@+id/attup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="UPDATE"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:background="@drawable/button"
+        android:textColor="#fafafa"
+        android:textSize="20dp"
+        android:width="250dp"/>
+
 </LinearLayout>

@@ -70,7 +70,8 @@
         </service>
         <!-- ./Firebase Notifications -->
         <activity android:name=".FacAttendanceActivity" />
-        <activity android:name=".FacAttendanceUpdateActivity"></activity>
+        <activity android:name=".FacAttendanceUpdateActivity" />
+        <activity android:name=".StudentAttendanceActivity"></activity>
     </application>
 
 </manifest>
