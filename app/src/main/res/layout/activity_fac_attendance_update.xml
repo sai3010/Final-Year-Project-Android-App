@@ -24,9 +24,16 @@
 
     <Button
         android:id="@+id/attup"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Update"/>
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="UPDATE"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:background="@drawable/button"
+        android:textColor="#fafafa"
+        android:textSize="20dp"
+        android:width="250dp"/>
 
 </LinearLayout>
