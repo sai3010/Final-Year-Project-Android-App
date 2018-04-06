@@ -50,6 +50,7 @@ public class Addstudent extends HttpServlet {
                  usn=usn.toUpperCase();
                  String d=dob.replaceAll("-", "/");
                int i= db.add_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,d,gender,branch);
+               System.out.println("i = " + i);
         }
     }
 
