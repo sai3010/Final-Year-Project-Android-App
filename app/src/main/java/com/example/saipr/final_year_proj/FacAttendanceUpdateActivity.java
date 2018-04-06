@@ -1,10 +1,14 @@
 package com.example.saipr.final_year_proj;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +22,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -33,7 +38,9 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
     ArrayAdapter subj;
     Spinner subjspin;
     Button update;
-    String strsubj;
+    String strsubj,imgString,ires;
+    Button cap;
+    private static final int CAMERA_REQUEST = 1888;
     static String resp;
     ListView lv;
     StringBuilder s=new StringBuilder();
@@ -50,7 +57,8 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
         fullscode=getIntent().getExtras().getString("strscode");
         subjspin=findViewById(R.id.subjcode);
         lv=findViewById(R.id.attlist);
-        update=findViewById(R.id.attup);
+        cap=findViewById(R.id.capture);
+        //update=findViewById(R.id.attup);
         String [] sec=fullsec.trim().split(" ");
         String [] sub=fullscode.trim().split(" ");
         //Toast.makeText(this, section, Toast.LENGTH_SHORT).show();
@@ -103,46 +111,106 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
 
             }
             });
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for(int i=0;i<lv.getCount();i++)
-                {
-                    if(lv.isItemChecked(i))
-                    {
-                        String b="true";
-                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"\t"+"ture", Toast.LENGTH_SHORT).show();
-                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
-                    }
-                    else
-                    {
-                        String b="false";
-                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
-                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
-                    Set set=hmap.entrySet();
-                Iterator i =set.iterator();
-                while(i.hasNext()) {
-                    Map.Entry mentry = (Map.Entry)i.next();
-                    if(mentry.getValue().equals("true")) {
-                        s.append(mentry.getKey());
-                        s.append(",");
-                        //Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
-                    }
+//        update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                for(int i=0;i<lv.getCount();i++)
+//                {
+//                    if(lv.isItemChecked(i))
+//                    {
+//                        String b="true";
+//                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"\t"+"ture", Toast.LENGTH_SHORT).show();
+//                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
+//                    }
 //                    else
 //                    {
-//                        Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
+//                        String b="false";
+//                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
+//                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"", Toast.LENGTH_SHORT).show();
 //                    }
-                }
-                //arrayList.addAll(hmap.entrySet());
-                //Toast.makeText(FacAttendanceUpdateActivity.this,s, Toast.LENGTH_SHORT).show();
-                Toast.makeText(FacAttendanceUpdateActivity.this,"Updated Successfully", Toast.LENGTH_SHORT).show();
-                new addatt().execute();
-                update.setClickable(false);
-               }
+//                }
+//                ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
+//                    Set set=hmap.entrySet();
+//                Iterator i =set.iterator();
+//                while(i.hasNext()) {
+//                    Map.Entry mentry = (Map.Entry)i.next();
+//                    if(mentry.getValue().equals("true")) {
+//                        s.append(mentry.getKey());
+//                        s.append(",");
+//                        //Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
+//                    }
+////                    else
+////                    {
+////                        Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
+////                    }
+//                }
+//                //arrayList.addAll(hmap.entrySet());
+//                //Toast.makeText(FacAttendanceUpdateActivity.this,s, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(FacAttendanceUpdateActivity.this,"Updated Successfully", Toast.LENGTH_SHORT).show();
+//                new addatt().execute();
+//                update.setClickable(false);
+//               }
+//        });
+
+        cap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
         });
+
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
+            Bitmap bm = (Bitmap) data.getExtras().get("data");
+            //imageView.setImageBitmap(photo);
+            //Bitmap newbm=Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.5), (int)(bm.getHeight()*0.5), true);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] b = baos.toByteArray();
+            imgString = Base64.encodeToString(b, Base64.DEFAULT);
+            URL url = null;
+            try {
+                url = new URL(RegURL.url + "Headcount");
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            new SendPic().execute(url);
+        }
+    }
+    private class SendPic extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+
+            try {
+                URL url = urls[0];
+                JSONObject jsn = new JSONObject();
+                jsn.put("img", imgString);
+                String response = HttpClientConnection.executeClient(url, jsn);
+                ires = response;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return ires;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Toast.makeText(FacAttendanceUpdateActivity.this, ires, Toast.LENGTH_SHORT).show();
+        }
     }
     public class addatt extends AsyncTask<URL, Void, String> {
 

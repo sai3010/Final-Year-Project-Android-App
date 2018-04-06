@@ -72,10 +72,11 @@ public class FacultyDashboardActivity extends AppCompatActivity
     TextView usntxt;
     CardView facnotes,markscard,attend;
     Intent intent;
-   static ImageView imgv;
+    ImageView imgv;
     Uri selectedFileUri;
     String imgString = "";
-    String res = "",url;
+    String res = "";
+    public String durl,surl;
     String extStorageDirectory;
     File file,folder;
     private ProgressBar spinner;
@@ -97,9 +98,10 @@ public class FacultyDashboardActivity extends AppCompatActivity
         phone=getIntent().getExtras().getString("phone");
         lname=getIntent().getExtras().getString("lname");
         password=getIntent().getExtras().getString("password");
-        url=RegURL.url+"Photos/"+"facprofile_photos/"+usn+".png";
-        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
-        new FacultyDashboardActivity.DownloadFileFromURL().execute(url);
+        surl=folder+"/"+usn+".jpg";
+        durl=RegURL.url+"Photos/"+"facprofile_photos/"+usn+".png";
+        //Toast.makeText(this, durl, Toast.LENGTH_SHORT).show();
+        //new FacultyDashboardActivity.DownloadFileFromURL().execute(url);
         /*marks card click*/
         markscard=findViewById(R.id.markscard);
         markscard.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +190,15 @@ public class FacultyDashboardActivity extends AppCompatActivity
         usntxt.setText(usn);
         Toast.makeText(this, usn, Toast.LENGTH_SHORT).show();
         imgv= findViewById(R.id.imgbut);
-
+        File f= new File(surl);
+        if(f.exists())
+        {
+            Bitmap bm= resizeBitmap(surl, 200,100);
+            imgv.setImageBitmap(bm);
+        }else {
+            //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
+            imgv.setImageDrawable(getDrawable(R.drawable.student));
+        }
         imgv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -352,7 +362,6 @@ public class FacultyDashboardActivity extends AppCompatActivity
         if (imgv.getDrawable() != null) {
             Bitmap bm = ((BitmapDrawable) imgv.getDrawable()).getBitmap();
             Bitmap newbm=Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.5), (int)(bm.getHeight()*0.5), true);
-
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             newbm.compress(Bitmap.CompressFormat.PNG, 100, baos);
             byte[] b = baos.toByteArray();
@@ -360,7 +369,15 @@ public class FacultyDashboardActivity extends AppCompatActivity
             try {
                 URL url = new URL(RegURL.url + "UploadData");
                 new SendPic().execute(url);
+                Thread.sleep(2000);
+                if(res.equals("ok"))
+                {
+                    new FacultyDashboardActivity.DownloadFileFromURL().execute(durl);
+                }else
+                Toast.makeText(this, "cannot download", Toast.LENGTH_SHORT).show();
             } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
@@ -443,13 +460,13 @@ public class FacultyDashboardActivity extends AppCompatActivity
 //                }
 //            }
             File f= new File(imagePath);
-            if(!f.exists())
+            if(f.exists())
             {
+                Bitmap bm= resizeBitmap(imagePath, 170,100);
+                imgv.setImageBitmap(bm);
+            }else {
                 //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
                 imgv.setImageDrawable(getDrawable(R.drawable.student));
-            }else {
-                Bitmap bm= resizeBitmap(imagePath, 200,100);
-                imgv.setImageBitmap(bm);
             }
         }
 
