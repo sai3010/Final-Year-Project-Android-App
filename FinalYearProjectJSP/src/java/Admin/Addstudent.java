@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +51,15 @@ public class Addstudent extends HttpServlet {
                  usn=usn.toUpperCase();
                  String d=dob.replaceAll("-", "/");
                int i= db.add_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,d,gender,branch);
+               System.out.println("i = " + i);
+               if(i==0)
+               {
+                   System.out.println("i = " + i);
+               }
+               else
+               {
+                   response.sendRedirect("success.jsp");
+               }
         }
     }
 
