@@ -531,6 +531,35 @@ public class DBQuery {
         con.close();
         return s;
     }
+
+    public ArrayList<String> getTempAtt(String sec, String branch) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> a=new ArrayList<>();
+        String query ="select usn from temp_attendance where section='"+sec+"' and branch='"+branch+"'";
+        System.out.println("query = " + query);
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            a.add(rs.getString("usn"));
+//            a.add(rs.getString("name"));
+        }
+        con.close();
+        return a;
+    }
+
+    public int updateatt(String scode, String string, String sec) throws SQLException, ClassNotFoundException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String string1 =string.trim();
+         String query ="update "+scode+" set Attendance=Attendance+1 where usn='"+string1+"'";
+        System.out.println("query = " + query);
+        int i = st.executeUpdate(query);
+        con.close();
+        return i;
+        
+       
+    }
         
     }
     

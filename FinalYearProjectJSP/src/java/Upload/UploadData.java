@@ -64,16 +64,19 @@ public class UploadData extends HttpServlet {
                 fileDir = fileDir+"Photos"+"\\"+"studprofile_photos"+"\\" ;
                 System.out.println("fileDir = " + fileDir);
                 System.out.println("stud image uploaded");
+                out.print("ok");
             }
             else if(ch.matches("[A-Z]"))
             {
                 fileDir = fileDir+"Photos"+"\\"+"facprofile_photos"+"\\" ;
                 System.out.println("fac image uploaded");
                 System.out.println("fileDir = " + fileDir);
+                out.print("ok");
             }
             else
             {
                 System.out.println("fail = ");
+                out.print("nok");
             }
         byte[] decodedString;
         decodedString= Base64.decodeBase64(image);
@@ -84,7 +87,7 @@ public class UploadData extends HttpServlet {
             fout.close();
             
     
-        out.print("Uploaded Successfully");
+        //out.print("Uploaded Successfully");
         }
         
     }
