@@ -560,6 +560,15 @@ public class DBQuery {
         
        
     }
-        
+
+    public int updatecc(String scode, String sec) throws SQLException, ClassNotFoundException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query="update classcount set count=count+1 where scode='"+scode.trim()+"' and section='"+sec.trim()+"'";
+        int i = st.executeUpdate(query);
+        con.close();
+        return i;
+    }
+           
     }
     
