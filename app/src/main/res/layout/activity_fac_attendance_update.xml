@@ -22,27 +22,16 @@
         android:divider="#0d2ee9"
         android:dividerHeight="1dp"/>
 
-    <!--<Button-->
-        <!--android:id="@+id/attup"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:text="UPDATE"-->
-        <!--android:fontFamily="sans-serif-smallcaps"-->
-        <!--android:textStyle="bold"-->
-        <!--android:background="@drawable/button"-->
-        <!--android:textColor="#fafafa"-->
-        <!--android:textSize="20dp"-->
-        <!--android:width="250dp"/>-->
-
-    <Button
-        android:id="@+id/capture"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:orientation="vertical">
+    <Button
+        android:id="@+id/attup"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Capture"
+        android:text="UPDATE"
         android:fontFamily="sans-serif-smallcaps"
         android:textStyle="bold"
         android:background="@drawable/button"
@@ -50,4 +39,18 @@
         android:textSize="20dp"
         android:width="250dp"/>
 
+    <Button
+        android:id="@+id/capture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Capture"
+        android:layout_marginLeft="190dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="bold"
+        android:background="@drawable/button"
+        android:textColor="#fafafa"
+        android:textSize="20dp"
+        android:width="250dp"/>
+    </RelativeLayout>
 </LinearLayout>

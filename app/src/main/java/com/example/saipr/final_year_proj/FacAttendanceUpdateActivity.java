@@ -58,7 +58,7 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
         subjspin=findViewById(R.id.subjcode);
         lv=findViewById(R.id.attlist);
         cap=findViewById(R.id.capture);
-        //update=findViewById(R.id.attup);
+        update=findViewById(R.id.attup);
         String [] sec=fullsec.trim().split(" ");
         String [] sub=fullscode.trim().split(" ");
         //Toast.makeText(this, section, Toast.LENGTH_SHORT).show();
@@ -111,46 +111,46 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
 
             }
             });
-//        update.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                for(int i=0;i<lv.getCount();i++)
-//                {
-//                    if(lv.isItemChecked(i))
-//                    {
-//                        String b="true";
-//                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"\t"+"ture", Toast.LENGTH_SHORT).show();
-//                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
-//                    }
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(int i=0;i<lv.getCount();i++)
+                {
+                    if(lv.isItemChecked(i))
+                    {
+                        String b="true";
+                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"\t"+"ture", Toast.LENGTH_SHORT).show();
+                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
+                    }
+                    else
+                    {
+                        String b="false";
+                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
+                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
+                    Set set=hmap.entrySet();
+                Iterator i =set.iterator();
+                while(i.hasNext()) {
+                    Map.Entry mentry = (Map.Entry)i.next();
+                    if(mentry.getValue().equals("true")) {
+                        s.append(mentry.getKey());
+                        s.append(",");
+                        //Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
+                    }
 //                    else
 //                    {
-//                        String b="false";
-//                        hmap.put(lv.getAdapter().getItem(i).toString(),b);
-//                        //Toast.makeText(FacAttendanceUpdateActivity.this,lv.getAdapter().getItem(i)+"", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
 //                    }
-//                }
-//                ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
-//                    Set set=hmap.entrySet();
-//                Iterator i =set.iterator();
-//                while(i.hasNext()) {
-//                    Map.Entry mentry = (Map.Entry)i.next();
-//                    if(mentry.getValue().equals("true")) {
-//                        s.append(mentry.getKey());
-//                        s.append(",");
-//                        //Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
-//                    }
-////                    else
-////                    {
-////                        Toast.makeText(FacAttendanceUpdateActivity.this, mentry.getKey() + "vlue=" + mentry.getValue(), Toast.LENGTH_SHORT).show();
-////                    }
-//                }
-//                //arrayList.addAll(hmap.entrySet());
-//                //Toast.makeText(FacAttendanceUpdateActivity.this,s, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(FacAttendanceUpdateActivity.this,"Updated Successfully", Toast.LENGTH_SHORT).show();
-//                new addatt().execute();
-//                update.setClickable(false);
-//               }
-//        });
+                }
+                //arrayList.addAll(hmap.entrySet());
+                //Toast.makeText(FacAttendanceUpdateActivity.this,s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(FacAttendanceUpdateActivity.this,"Updated Successfully", Toast.LENGTH_SHORT).show();
+                new addatt().execute();
+                update.setClickable(false);
+               }
+        });
 
         cap.setOnClickListener(new View.OnClickListener() {
             @Override
