@@ -164,10 +164,13 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap bm = (Bitmap) data.getExtras().get("data");
+            Toast.makeText(this, "<><><> "+bm.getHeight()+""+bm.getHeight(), Toast.LENGTH_SHORT).show();
             //imageView.setImageBitmap(photo);
             //Bitmap newbm=Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.5), (int)(bm.getHeight()*0.5), true);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            Toast.makeText(this, " "+bm.getHeight()+""+bm.getHeight(), Toast.LENGTH_SHORT).show();
+
             byte[] b = baos.toByteArray();
             imgString = Base64.encodeToString(b, Base64.DEFAULT);
             URL url = null;

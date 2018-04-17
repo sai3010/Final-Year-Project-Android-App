@@ -41,27 +41,27 @@ public class StudMarksActivity extends AppCompatActivity {
         listView=findViewById(R.id.my_list);
 
         new fetch_section().execute();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         //Toast.makeText(StudMarksActivity.this,res, Toast.LENGTH_LONG).show();
 
 
-        Toast.makeText(StudMarksActivity.this, res, Toast.LENGTH_LONG).show();
-        Toast.makeText(this, ""+res, Toast.LENGTH_SHORT).show();
-        res= res.substring(1,res.length()-1);
-        Toast.makeText(this, "<><><>\n"+res, Toast.LENGTH_SHORT).show();
-        String arr[]= res.trim().split(",");
-
-        List<Model> list= new ArrayList<Model>();
-        for(int i=0; i < arr.length; i+=4) {
-            list.add(new Model(""+arr[i].trim(),arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
-        }
-
-        adapter = new MyAdapter(StudMarksActivity.this,list);
-        listView.setAdapter(adapter);
+//        Toast.makeText(StudMarksActivity.this, res, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, ""+res, Toast.LENGTH_SHORT).show();
+//        res= res.substring(1,res.length()-1);
+//        Toast.makeText(this, "<><><>\n"+res, Toast.LENGTH_SHORT).show();
+//        String arr[]= res.trim().split(",");
+//
+//        List<Model> list= new ArrayList<Model>();
+//        for(int i=0; i < arr.length; i+=4) {
+//            list.add(new Model(""+arr[i].trim(),arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
+//        }
+//
+//        adapter = new MyAdapter(StudMarksActivity.this,list);
+//        listView.setAdapter(adapter);
 
 
     }
@@ -89,5 +89,22 @@ public class StudMarksActivity extends AppCompatActivity {
             return res;
         }
 
+        @Override
+        protected void onPostExecute(String s) {
+//            Toast.makeText(StudMarksActivity.this, res, Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), ""+res, Toast.LENGTH_SHORT).show();
+            res= res.substring(1,res.length()-1);
+            Toast.makeText(getApplicationContext(), "<><><>\n"+res, Toast.LENGTH_SHORT).show();
+            String arr[]= res.trim().split(",");
+
+            List<Model> list= new ArrayList<Model>();
+            for(int i=0; i < arr.length; i+=4) {
+                list.add(new Model(""+arr[i].trim(),arr[i+1]+"\t"+arr[i+2]+"\t"+arr[i+3]));
+            }
+
+            adapter = new MyAdapter(StudMarksActivity.this,list);
+            listView.setAdapter(adapter);
+
+        }
     }
 }
