@@ -36,6 +36,7 @@ public class Addstudent extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
          DBQuery db= new DBQuery();
+         RequestDispatcher rd= null;
         try (PrintWriter out = response.getWriter()) {
                  String firstname=request.getParameter("firstname");
                 String lastname=request.getParameter("lastname");
@@ -58,8 +59,11 @@ public class Addstudent extends HttpServlet {
                }
                else
                {
-                   response.sendRedirect("success.jsp");
+//                   response.sendRedirect("success.jsp");
+                   rd= request.getRequestDispatcher("success.jsp");
+                   rd.forward(request, response);
                }
+               
         }
     }
 

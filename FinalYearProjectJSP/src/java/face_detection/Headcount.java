@@ -5,16 +5,22 @@
  */
 package face_detection;
 
+import static face_detection.Main.path;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
 
 /**
  *
@@ -45,7 +51,18 @@ public class Headcount extends HttpServlet {
             FileOutputStream fout= new FileOutputStream(f);
             fout.write(decodedString);
             fout.close();
-            //Main m= new Main();
+            Main mn= new Main();
+            
+            //path = mn.browse();
+            System.out.println("path = " + path);
+        BufferedImage image = ImageIO.read(new File(path));
+        byte[] b = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+        Mat mat = new Mat(image.getHeight(), image.getWidth(), CvType.CV_8UC3);
+         mat.put(0,0, b);
+         new showResult(mat, "Original Image");
+      mn.init(mat,"C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/resources/haarcascades/haarcascade_frontalface_alt.xml");
+            System.out.print(mn.getHeadCount());
+            out.print(mn.getHeadCount());
         }
     }
 

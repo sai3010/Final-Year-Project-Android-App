@@ -51,16 +51,23 @@ public class StudentRegister extends HttpServlet {
             System.out.println(dob);
             DBQuery db= new DBQuery();
             int i =db.add_stud_data(fname,lname ,usn,sem,email,address,pass,phone,dob,gender,branch);
-            int j= db.add_aggregate_marks(usn,branch);
-            System.out.println("j = " + j);
+            //int j= db.add_aggregate_marks(usn,branch);
+            //System.out.println("j = " + j);
+            System.out.println("i = " + i);
             if(i==1)
                 {
                     out.print("ok");
                 }
+             else 
+                if(i==100)
+                    {
+                        out.print("eok");
+                    }
                 else
                 {
                     out.print("notok");
                 }
+           
         }
     }
 

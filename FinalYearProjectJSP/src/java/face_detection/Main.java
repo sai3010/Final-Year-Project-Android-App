@@ -25,12 +25,12 @@ import java.awt.image.DataBufferByte;
 public class Main{
 	private CascadeClassifier faceCascade;
 	private int absoluteFaceSize;
+        private Rect[] facesArray;
         static String path="C:\\Users\\saipr\\Documents\\NetBeansProjects\\Final-Year-Project-Android-App\\FinalYearProjectJSP\\web\\hello.png";
 	static
 	{
-//		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                System.out.println("::::::::::::::::::::::::::::::");
-                System.load("C:/opencv/build/java/x64/opencv_java310.dll");
+            System.out.println("::::::::::::::::::::::::::::::");
+            System.load("C:/opencv/build/java/x64/opencv_java310.dll");
 	}
 	public static void main(String[] args) throws IOException 
 	{
@@ -42,7 +42,7 @@ public class Main{
         Mat mat = new Mat(image.getHeight(), image.getWidth(), CvType.CV_8UC3);
          mat.put(0,0, b);
          new showResult(mat, "Original Image");
-      //mn.init(mat,"C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/resources/haarcascades/haarcascade_frontalface_alt.xml");
+      mn.init(mat,"C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/resources/haarcascades/haarcascade_frontalface_alt.xml");
 	}
 	public void init(Mat frame,String path)
 	{
@@ -79,7 +79,7 @@ public class Main{
 		this.faceCascade.detectMultiScale(grayFrame, faces);
 				
 		// each rectangle in faces is a face: draw them!
-		Rect[] facesArray = faces.toArray();
+		facesArray = faces.toArray();
 		System.out.println("number of heads= "+facesArray.length);
 //		for (int i = 0; i < facesArray.length; i++)
 //			Imgproc.rectangle(frame, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0), 3);
@@ -105,4 +105,7 @@ public class Main{
         System.out.println("path = " + path);
        }
 
+    int getHeadCount(){
+        return facesArray.length;
+    }
 }

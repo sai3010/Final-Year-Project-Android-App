@@ -23,7 +23,7 @@
         <div class="heading">
          <div class="container">
              <form  action="./Adminlogin" method="post" >
-                <div class="title"><p align="center" style="color:#004d40 ;font-family:  'Bree Serif', serif;  font-size: 60px; " >Campus Bridge</p></div>
+                <div class="title"><p align="center" style="color:#004d40 ;font-family:  'Bree Serif', serif;  font-size: 50px; " >Campus Bridge</p></div>
                 <img src="img/login.png" class=" image-fluid col-md-6 offset-md-3" alt="no image">
                 <div class="row">
                     <input type="text" class="form-control col-md-8 offset-md-2" name="uname" placeholder="Username" id="uname" required="Field Required">          

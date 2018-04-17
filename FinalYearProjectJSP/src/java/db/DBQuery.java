@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author saipr
@@ -73,20 +75,46 @@ public class DBQuery {
     }
 
 
-    public int add_stud_data(String fname,String lname, String usn, String sem, String email, String address, String pass, String phone, String dob, String gender,String branch) throws ClassNotFoundException, SQLException {
+    public int add_stud_data(String fname,String lname, String usn, String sem, String email, String address, String pass, String phone, String dob, String gender,String branch) throws ClassNotFoundException {
+        int i=-1;    
+        try {
                 con= DBConnection.getDBConn();
-		st= con.createStatement();
+                st= con.createStatement();
 		String query="insert into student_information values('"+fname+"','"+lname+"','"+usn+"','"+sem+"','"+email+"','"+address+"','"+pass+"','"+phone+"','"+dob+"','"+gender+"','"+branch+"')";
-		int i= st.executeUpdate(query);
-		con.close();
+		i= st.executeUpdate(query);
+		
+            } catch (SQLException ex) {
+               i=100;
+            }
+        finally
+        {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBQuery.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 		return i;
     }
-    public int add_fac_data(String fname,String lname, String usn, String qual, String email, String address, String pass, String phone, String dob, String gender,String branch) throws ClassNotFoundException, SQLException {
+    public int add_fac_data(String fname,String lname, String usn, String qual, String email, String address, String pass, String phone, String dob, String gender,String branch) throws ClassNotFoundException {
+        int i=-1;    
+        try {
                 con= DBConnection.getDBConn();
-		st= con.createStatement();
+                st= con.createStatement();
 		String query="insert into faculty_information values('"+fname+"','"+lname+"','"+usn+"','"+qual+"','"+email+"','"+address+"','"+pass+"','"+phone+"','"+dob+"','"+gender+"','"+branch+"')";
-		int i= st.executeUpdate(query);
-		con.close();
+		i= st.executeUpdate(query);
+		
+            } catch (SQLException ex) {
+                i=100;
+            }
+        finally
+        {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBQuery.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 		return i;
     }
 
@@ -138,7 +166,7 @@ public class DBQuery {
         
     }
 
-    public int add_placement_data(String ccode, String cname, String ctier) throws SQLException, ClassNotFoundException {
+    public int add_placement_data(String ccode, String cname, String ctier) throws SQLException,ClassNotFoundException {
                     con= DBConnection.getDBConn();
                     st= con.createStatement();
                     String query = "insert into company_details values('"+ccode+"','"+cname+"','"+ctier+"')"; 

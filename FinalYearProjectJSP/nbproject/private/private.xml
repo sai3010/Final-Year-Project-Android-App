@@ -3,21 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Addstudent.java</file>
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/db/DBQuery.java</file>
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/viewerror.jsp</file>
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/view1.jsp</file>
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/success.jsp</file>
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
-            <file>file:/C:/Users/Soorya/Desktop/Final-Year-Project-Android-App/FinalYearProjectJSP/web/rfid.jsp</file>
-=======
-            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/face_detection/Main.java</file>
-            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/face_detection/Capture.java</file>
-            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/face_detection/showResult.java</file>
-            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/Admin/Addstudent.java</file>
-            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/src/java/face_detection/Headcount.java</file>
->>>>>>> 89f6189806b3a906d84fd6add3e09355126ea0cf
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/home.jsp</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/index.jsp</file>
+            <file>file:/C:/Users/saipr/Documents/NetBeansProjects/Final-Year-Project-Android-App/FinalYearProjectJSP/web/viewerror.jsp</file>
         </group>
     </open-files>
 </project-private>
