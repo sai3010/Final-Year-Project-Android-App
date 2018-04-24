@@ -598,6 +598,64 @@ public class DBQuery {
         con.close();
         return i;
     }
+
+    public int getcc(String scode, String sec) throws SQLException, ClassNotFoundException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String res=null;
+        String query="select count from classcount where scode='"+scode.trim()+"' and section='"+sec.trim()+"'";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            res=rs.getString("count");
+        }
+        con.close();
+        return Integer.parseInt(res);
+    }
+    
+     public ArrayList<String> getattofstud(String scode, String sec) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> res=new ArrayList<>();
+        String query="select Attendance from "+scode+"";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            res.add(rs.getString("Attendance"));
+        }
+        con.close();
+        return res;
+     }
+
+    public int updateattper(ArrayList avg, ArrayList usn,String scode, String sec) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query=null;
+        int kj=-1;
+        for(int i=0;i<avg.size()&&i<usn.size();i++)
+        {
+        query="update "+scode+" set attavg='"+avg.get(i)+"' where usn='"+usn.get(i)+"'";
+         System.out.println("query = " + query);
+        kj = st.executeUpdate(query);
+        }
+       
+        con.close();
+        return kj;
+    }
+
+    public ArrayList<String> getusnofstud(String scode, String sec) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        ArrayList<String> res=new ArrayList<>();
+        String query="select usn from "+scode+"";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            res.add(rs.getString("usn"));
+        }
+        con.close();
+        return res;
+    }
            
     }
     

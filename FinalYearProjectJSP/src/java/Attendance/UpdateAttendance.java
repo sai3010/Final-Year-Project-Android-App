@@ -53,6 +53,23 @@ public class UpdateAttendance extends HttpServlet {
             k=db.updatecc(scode,sec);
             for(int i=0;i<arr.length;i++)
             j=db.updateatt(scode,arr[i],sec);
+            
+            int l=db.getcc(scode,sec);
+            System.out.println("l = " + l);
+            ArrayList<String>ar=new ArrayList<>();
+            ArrayList<String>ar1=new ArrayList<>();
+            ArrayList<Double>vals=new ArrayList<>();
+            ar=db.getattofstud(scode,sec);
+            ar1=db.getusnofstud(scode,sec);
+            System.out.println("ar1 = " + ar1);
+            System.out.println("ar = " + ar);
+            for(int i=0;i<ar.size();i++)
+            {
+                vals.add((Double.parseDouble(ar.get(i))/l)*100);
+            }
+            System.out.println("vals = " + vals);
+            int m=db.updateattper(vals,ar1,scode,sec);
+            System.out.println("m = " + m);
         }
     }
 
