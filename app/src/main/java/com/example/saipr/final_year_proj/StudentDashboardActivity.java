@@ -508,7 +508,7 @@ public class StudentDashboardActivity extends AppCompatActivity
             if(!f.exists())
             {
                 //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
-                imgv.setImageDrawable(getDrawable(R.drawable.student));
+                imgv.setImageDrawable(getDrawable(R.drawable.defaultpic));
             }else {
                 Bitmap bm= resizeBitmap(imagePath, 170,100);
 

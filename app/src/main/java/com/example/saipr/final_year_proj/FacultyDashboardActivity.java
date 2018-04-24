@@ -198,7 +198,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
             imgv.setImageBitmap(bm);
         }else {
             //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
-            imgv.setImageDrawable(getDrawable(R.drawable.student));
+            imgv.setImageDrawable(getDrawable(R.drawable.defaultpic));
         }
         imgv.setOnClickListener(new View.OnClickListener() {
             @Override
