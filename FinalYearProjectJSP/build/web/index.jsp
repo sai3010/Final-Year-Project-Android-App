@@ -20,6 +20,12 @@
           <title>ADMIN</title>
     </head>
     <body>
+        <%
+            String msg="";
+            if(session.getAttribute("msg")!= null){
+                msg= session.getAttribute("msg").toString();
+            }
+            %>
         <div class="heading">
          <div class="container">
              <form  action="./Adminlogin" method="post" >
@@ -35,10 +41,16 @@
                 <br>
                 <div class="row">
                    <button type="submit" class="btn btn-primary btn-lg btn-block btn-block col-md-8 offset-md-2 " id="button"  value="Submit">Login</button>
-                </div>                    
+                </div> 
+                <div class="row">
+                    <font><h3><%=msg%></h3></font>
+                </div>
             </form>
           </div>
         </div>
+         <%
+            session.setAttribute("msg", " ");
+        %>
          <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

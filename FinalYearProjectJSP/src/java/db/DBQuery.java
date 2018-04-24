@@ -550,12 +550,12 @@ public class DBQuery {
         con= DBConnection.getDBConn();
         st= con.createStatement();
         StringBuilder s=new StringBuilder();
-        String query ="select Attendance from "+tabname+" where usn='"+usn+"'";
+        String query ="select attavg from "+tabname+" where usn='"+usn+"'";
         System.out.println("query = " + query);
         rs= st.executeQuery(query);
         while(rs.next())
         {
-            s.append(rs.getString("Attendance"));
+            s.append(rs.getString("attavg"));
         }
         con.close();
         return s;

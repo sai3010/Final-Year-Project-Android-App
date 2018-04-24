@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,6 +39,7 @@ public class Adminlogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher rd=null;
         DBQuery db= new DBQuery();
+        HttpSession session= request.getSession(false);
         try (PrintWriter out = response.getWriter()) 
                 {
               /*adminlogin page*/
@@ -55,6 +57,11 @@ public class Adminlogin extends HttpServlet {
                        rd=request.getRequestDispatcher("home.jsp");
                        rd.forward(request, response);
                    }
+                        else
+                        {
+                            session.setAttribute("msg", "OOps! Something went wrong...");
+                            out.print("Something went wrong.");
+                        }
                         
                       }
     }
