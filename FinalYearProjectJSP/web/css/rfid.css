@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 6, 2018, 10:56:33 AM
+    Author     : spoorthi s
+*/
+
+h1
+{
+ text-align: center;
+ font-family: 'Bree Serif', serif;
+ color: #00796b;
+ font-size: 90px;
+ font-style: bold;
+ padding: 2%;
+}
+
+
+
+input[type="text"] {
+             position: relative;
+             display: block;
+             margin : 0 auto;
+            
+        }
+        
+ font
+ {
+    text-align: center;
+    font-family: 'Bree Serif', serif; 
+    color: black;
+    padding: 40%;
+ }
