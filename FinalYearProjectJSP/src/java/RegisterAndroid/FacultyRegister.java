@@ -48,19 +48,20 @@ public class FacultyRegister extends HttpServlet {
             System.out.println("qual = " + qual);
            String branch=request.getParameter("studbranch");
            DBQuery db= new DBQuery();
-            try {
                 int i =db.add_fac_data(fname,lname ,usn,qual,email,address,pass,phone,dob,gender,branch);
                 if(i==1)
                 {
                     out.print("ok");
                 }
+                else if(i==100)
+                {
+                     out.print("eok");
+                }
                 else
                 {
                     out.print("notok");
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-            }
+           
             
         }
     }

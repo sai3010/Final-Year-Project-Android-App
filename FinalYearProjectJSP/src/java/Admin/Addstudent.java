@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,7 @@ public class Addstudent extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
          DBQuery db= new DBQuery();
+         RequestDispatcher rd= null;
         try (PrintWriter out = response.getWriter()) {
                  String firstname=request.getParameter("firstname");
                 String lastname=request.getParameter("lastname");
@@ -50,6 +52,18 @@ public class Addstudent extends HttpServlet {
                  usn=usn.toUpperCase();
                  String d=dob.replaceAll("-", "/");
                int i= db.add_stud_data(firstname,lastname,usn,sem,email,add1,password,phone,d,gender,branch);
+               System.out.println("i = " + i);
+               if(i==0)
+               {
+                   System.out.println("i = " + i);
+               }
+               else
+               {
+//                   response.sendRedirect("success.jsp");
+                   rd= request.getRequestDispatcher("success.jsp");
+                   rd.forward(request, response);
+               }
+               
         }
     }
 

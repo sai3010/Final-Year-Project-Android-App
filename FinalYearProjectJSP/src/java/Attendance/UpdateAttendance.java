@@ -39,7 +39,7 @@ public class UpdateAttendance extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             DBQuery db=new DBQuery();
-            int j;
+            int j,k;
             String li=request.getParameter("list");
             String sec=request.getParameter("sec");
             String scode=request.getParameter("scode");
@@ -50,6 +50,7 @@ public class UpdateAttendance extends HttpServlet {
             System.out.println("li = " + li);
             String []arr=li.split(",");
             System.out.println("arr = " + arr[0]+arr[1]);
+            k=db.updatecc(scode,sec);
             for(int i=0;i<arr.length;i++)
             j=db.updateatt(scode,arr[i],sec);
         }

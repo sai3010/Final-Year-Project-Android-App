@@ -132,6 +132,10 @@
         <servlet-name>UpdateAttendance</servlet-name>
         <servlet-class>Attendance.UpdateAttendance</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Headcount</servlet-name>
+        <servlet-class>face_detection.Headcount</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentRegister</servlet-name>
         <url-pattern>/StudentRegister</url-pattern>
@@ -263,6 +267,10 @@
     <servlet-mapping>
         <servlet-name>UpdateAttendance</servlet-name>
         <url-pattern>/UpdateAttendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Headcount</servlet-name>
+        <url-pattern>/Headcount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

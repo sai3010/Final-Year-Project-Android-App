@@ -93,8 +93,9 @@ public class GetNotesDetails extends HttpServlet {
             System.out.println("fileDir := " + fileDir);
             File directory=new File(fileDir);
             File[] flist=directory.listFiles();
-            
-            for (File file : flist){
+            if(flist.length>0)
+            {
+                for (File file : flist){
             if (file.isFile()){
                 //System.out.println(file.getName());
                 results.add(file.getName().toString());
@@ -110,6 +111,11 @@ public class GetNotesDetails extends HttpServlet {
             }
 //            System.out.println("lol"+fname[0]+"\n");
             out.print(fname);
+            }
+            else
+            {
+                out.print("empty");
+            }
         }
     }
 
