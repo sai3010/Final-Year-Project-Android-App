@@ -172,7 +172,7 @@ public class FacultyRegisterActivity extends AppCompatActivity {
                     } else {
                         try {
                             send_data();
-                            Toast.makeText(FacultyRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(FacultyRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (JSONException e) {
@@ -217,6 +217,10 @@ public class FacultyRegisterActivity extends AppCompatActivity {
             Intent intennt = new Intent(FacultyRegisterActivity.this,LoginMainActivity.class);
             startActivity(intennt);
             Toast.makeText(FacultyRegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+        }
+        else if(response.equalsIgnoreCase("eok"))
+        {
+            Toast.makeText(this, "DB Error Contact Admin", Toast.LENGTH_SHORT).show();
         }
         else
         {

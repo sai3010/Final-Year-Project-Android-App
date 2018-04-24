@@ -69,68 +69,67 @@ public class StudNotesActivity extends AppCompatActivity {
         usn = getIntent().getExtras().getString("usn");
         sem = getIntent().getExtras().getString("sem");
         new MyNote().execute();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        semtitle.setText("Sem"+" "+sem);
-        String []f=response.split(",");
-//        Log.i(TAG, f[1]);
-        ArrayAdapter<String>adapter=new ArrayAdapter<String>(StudNotesActivity.this,R.layout.activity_list_view,R.id.ltxtview,f);
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
-        StrictMode.setThreadPolicy(policy);
-        lv.setAdapter(adapter);
-        //lview.addView(lv);
-        //Toast.makeText(StudNotesActivity.this,response.toString(),Toast.LENGTH_SHORT).show();r
-        lv.setClickable(true);
-        switch (usn.substring(5,7))
-        {
-            case "CS":br="cse";
-                      break;
-            case "EC":br="ece";
-                break;
-            case "EE":br="eee";
-                break;
-            case "CV":br="civil";
-                break;
-            case "IS":br="ise";
-                break;
-            case "ME":br="mech";
-                break;
-            case "EI":br="eie";
-                break;
-        }
-        switch (sem)
-        {
-            case "1":semnum="sem1";
-                break;
-            case "2":semnum="sem2";
-                break;
-            case "3":semnum="sem3";
-                break;
-            case "4":semnum="sem4";
-                break;
-            case "5":semnum="sem5";
-                break;
-            case "6":semnum="sem6";
-                break;
-            case "7":semnum="sem7";
-                break;
-            case "8":semnum="sem8";
-                break;
-        }
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Object o = lv.getItemAtPosition(position);
-                str=(String)o;//As you are using Default String Adapter
-                String url=RegURL.url+"Notes/"+br+"/"+semnum;
-                Toast.makeText(StudNotesActivity.this,url,Toast.LENGTH_SHORT).show();
-                new DownloadFileFromURL().execute(url+"/"+str);
-            }
-        });
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        semtitle.setText("Sem"+" "+sem);
+//        String []f=response.split(",");
+//        ArrayAdapter<String>adapter=new ArrayAdapter<String>(StudNotesActivity.this,R.layout.activity_list_view,R.id.ltxtview,f);
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
+//        StrictMode.setThreadPolicy(policy);
+//        lv.setAdapter(adapter);
+//        //lview.addView(lv);
+//        //Toast.makeText(StudNotesActivity.this,response.toString(),Toast.LENGTH_SHORT).show();r
+//        lv.setClickable(true);
+//        switch (usn.substring(5,7))
+//        {
+//            case "CS":br="cse";
+//                      break;
+//            case "EC":br="ece";
+//                break;
+//            case "EE":br="eee";
+//                break;
+//            case "CV":br="civil";
+//                break;
+//            case "IS":br="ise";
+//                break;
+//            case "ME":br="mech";
+//                break;
+//            case "EI":br="eie";
+//                break;
+//        }
+//        switch (sem)
+//        {
+//            case "1":semnum="sem1";
+//                break;
+//            case "2":semnum="sem2";
+//                break;
+//            case "3":semnum="sem3";
+//                break;
+//            case "4":semnum="sem4";
+//                break;
+//            case "5":semnum="sem5";
+//                break;
+//            case "6":semnum="sem6";
+//                break;
+//            case "7":semnum="sem7";
+//                break;
+//            case "8":semnum="sem8";
+//                break;
+//        }
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+//                Object o = lv.getItemAtPosition(position);
+//                str=(String)o;//As you are using Default String Adapter
+//                String url=RegURL.url+"Notes/"+br+"/"+semnum;
+//                Toast.makeText(StudNotesActivity.this,url,Toast.LENGTH_SHORT).show();
+//                new DownloadFileFromURL().execute(url+"/"+str);
+//            }
+//        });
     }
 
     @Override
@@ -173,7 +172,82 @@ public class StudNotesActivity extends AppCompatActivity {
             return response;
         }
 
+        @Override
+        protected void onPostExecute(Object o) {
+            if (o.equals("empty"))
+                Toast.makeText(StudNotesActivity.this, "No Data", Toast.LENGTH_SHORT).show();
+            else {
+                semtitle.setText("Sem" + " " + sem);
+                String[] f = response.split(",");
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(StudNotesActivity.this, R.layout.activity_list_view, R.id.ltxtview, f);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
+                StrictMode.setThreadPolicy(policy);
+                lv.setAdapter(adapter);
+                //lview.addView(lv);
+                //Toast.makeText(StudNotesActivity.this,response.toString(),Toast.LENGTH_SHORT).show();r
+                lv.setClickable(true);
+                switch (usn.substring(5, 7)) {
+                    case "CS":
+                        br = "cse";
+                        break;
+                    case "EC":
+                        br = "ece";
+                        break;
+                    case "EE":
+                        br = "eee";
+                        break;
+                    case "CV":
+                        br = "civil";
+                        break;
+                    case "IS":
+                        br = "ise";
+                        break;
+                    case "ME":
+                        br = "mech";
+                        break;
+                    case "EI":
+                        br = "eie";
+                        break;
+                }
+                switch (sem) {
+                    case "1":
+                        semnum = "sem1";
+                        break;
+                    case "2":
+                        semnum = "sem2";
+                        break;
+                    case "3":
+                        semnum = "sem3";
+                        break;
+                    case "4":
+                        semnum = "sem4";
+                        break;
+                    case "5":
+                        semnum = "sem5";
+                        break;
+                    case "6":
+                        semnum = "sem6";
+                        break;
+                    case "7":
+                        semnum = "sem7";
+                        break;
+                    case "8":
+                        semnum = "sem8";
+                        break;
+                }
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                        Object o = lv.getItemAtPosition(position);
+                        str = (String) o;//As you are using Default String Adapter
+                        String url = RegURL.url + "Notes/" + br + "/" + semnum;
+                        Toast.makeText(StudNotesActivity.this, url, Toast.LENGTH_SHORT).show();
+                        new DownloadFileFromURL().execute(url + "/" + str);
+                    }
+                });
+            }
+        }
     }
 
     class DownloadFileFromURL extends AsyncTask<String, String, String> {

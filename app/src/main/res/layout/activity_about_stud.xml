@@ -28,6 +28,7 @@
                 android:id="@+id/sprofile_image"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+                android:layout_marginLeft="62dp"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#FF000000"/>
         </RelativeLayout>
