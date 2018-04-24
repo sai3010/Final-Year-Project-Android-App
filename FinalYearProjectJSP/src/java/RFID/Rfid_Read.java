@@ -50,7 +50,8 @@ public class Rfid_Read extends HttpServlet {
             if(i == 1)
             {
                 session.setAttribute("id", stud[0]);
-                session.setAttribute("msg", "Attendence updated suceessfully...");
+                session.setAttribute("name", stud[1]);
+                session.setAttribute("msg", "Attendence updated successfully for");
                 rd= request.getRequestDispatcher("rfid.jsp");
                 rd.forward(request, response);
             }

@@ -201,6 +201,7 @@ public class DBQuery {
         String val[] = new String[9];
         System.out.println("usn = " + usn);
         String query="select * from student_information where usn='"+usn+"'";
+        System.out.println("query = " + query);
         rs= st.executeQuery(query);
 
         while(rs.next())
@@ -218,6 +219,7 @@ public class DBQuery {
                       
            
         }
+        System.out.println("val[0] = " + val[0]);
         con.close();
         return val;
     }

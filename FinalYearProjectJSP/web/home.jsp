@@ -31,18 +31,13 @@
                       <a href="#home" onclick="toggle1('#placement','#mp','#home');">Home</a>
                       <a href="#mp" onclick="toggle2('#home','#placement','#mp');">Functionality</a>
                       <a href="#placement" onclick="toggle2('#mp','#home','#placement');">Placements</a>
+                      <a href="rfid.jsp">Attendance</a>
+                      <a href="index.jsp">Logout</a>
                     </div>
      
      <span class="navtrigger" style="font-size:30px;cursor:pointer; color:black ;" onclick="openNav()">&#9776</span>
      
-  
-
-  
-  <body>
-  
-
- 
- <!--landing page-->    
+<!--landing page-->    
  <section class="landing" id="home">
         <div class="inner">
           <img src="img/landing.png" align="left" alt="hello">
@@ -668,31 +663,32 @@
                       <label for="Cbranch"></label>
                 <div class="form-check">
                     <input class="checks" type="checkbox" value="CS" name="cse" >
-                    <label class="form-check-label" for="defaultCheck1">
+                    <label class="col-auto" for="defaultCheck1">
                       CSE
                     </label>
                     <input class="checks" type="checkbox" value="IS" name="ise" >
-                    <label class="form-check-label" for="defaultCheck2">
+                    <label class="col-auto" for="defaultCheck2">
                      ISE
                     </label>
                      <input class="checks" type="checkbox" value="EC" name="ece" >
-                    <label class="form-check-label" for="defaultCheck2">
+                    <label class="col-auto" for="defaultCheck2">
                      ECE
                     </label>
+                     <br>
                       <input class="checks" type="checkbox" value="EE" name="eee" >
-                    <label class="form-check-label" for="defaultCheck2">
+                    <label class="col-auto" for="defaultCheck2">
                      EEE
                     </label>
                        <input class="checks" type="checkbox" value="ME" name="mech">
-                    <label class="form-check-label" for="defaultCheck2">
+                    <label class="col-auto" for="defaultCheck2">
                      MECH
                     </label>
                         <input class="checks" type="checkbox" value="EI" name="eie" >
-                    <label class="form-check-label" for="defaultCheck2">
+                    <label class="col-auto" for="defaultCheck2">
                      EIE
                     </label>
                          <input class="checks" type="checkbox" value="CV" name="civ">
-                    <label class="form-check-label" for="defaultCheck2">
+                    <label class="col-auto" for="defaultCheck2">
                      CIVIL
                     </label>
                         

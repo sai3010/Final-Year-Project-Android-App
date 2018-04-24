@@ -36,6 +36,7 @@
                        
                     }
           String value= val[0]+" "+val[1];
+          System.out.println("val[0] = " + val[0]);
          value=value.toUpperCase();
           if(val[0] == null)
                 {
