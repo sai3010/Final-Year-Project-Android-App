@@ -656,6 +656,28 @@ public class DBQuery {
         con.close();
         return res;
     }
+
+    public String checkrfid(String rfno) throws ClassNotFoundException, SQLException {
+       con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String resu="";
+        String query="select rfid from temp_attendance where rfid="+rfno+"";
+        rs= st.executeQuery(query);
+        while(rs.next())
+        {
+            resu=rs.getString("rfid");
+        }
+        con.close();
+        return resu;    
+    }
+
+    public int removerfid(String rfno) throws ClassNotFoundException, SQLException {
+        con= DBConnection.getDBConn();
+        st= con.createStatement();
+        String query="delete from temp_attendance where rfid="+rfno+"";
+        int i= st.executeUpdate(query);
+        return i;
+    }
            
     }
     

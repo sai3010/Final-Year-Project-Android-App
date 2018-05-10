@@ -43,7 +43,10 @@ public class Rfid_Read extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            String rfno=request.getParameter("rfidno");
             System.out.println("rfno = " + rfno);
-            
+            String list=db.checkrfid(rfno);
+            System.out.println("list = " + list);
+            if(list.isEmpty())
+            {
             String [] stud =db.getstudusn(rfno);
             int i= db.temp_att(rfno,stud[0],stud[1],stud[2],stud[3]);
             System.out.println("usn = " + stud[0]+stud[1]);
@@ -51,7 +54,7 @@ public class Rfid_Read extends HttpServlet {
             {
                 session.setAttribute("id", stud[0]);
                 session.setAttribute("name", stud[1]);
-                session.setAttribute("msg", "Attendence updated successfully for");
+                session.setAttribute("msg", "Successfully Checked in");
                 rd= request.getRequestDispatcher("rfid.jsp");
                 rd.forward(request, response);
             }
@@ -62,8 +65,20 @@ public class Rfid_Read extends HttpServlet {
                 out.print("Something went wrong.");
             }
         }
+            else
+            {
+                int j=db.removerfid(rfno);
+                if(j==1)
+                {
+                    session.setAttribute("msg", "Successfully Checkout out");
+                    rd= request.getRequestDispatcher("rfid.jsp");
+                    rd.forward(request, response);
+                }
+                
+            }
+            
     }
-
+  }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
