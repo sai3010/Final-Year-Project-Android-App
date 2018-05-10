@@ -102,7 +102,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         surl=folder+"/"+usn+".jpg";
         durl=RegURL.url+"Photos/"+"studprofile_photos/"+usn+".png";
         //new DownloadFileFromURL().execute(url);
-        Toast.makeText(StudentDashboardActivity.this,url,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(StudentDashboardActivity.this,url,Toast.LENGTH_SHORT).show();
         /*placement card handling*/
         placement = findViewById(R.id.placement_card);
         placement.setOnClickListener(new View.OnClickListener() {
@@ -151,14 +151,14 @@ public class StudentDashboardActivity extends AppCompatActivity
         /*stud ends here*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -200,7 +200,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         nametxt.setText(name);
         emailtxt.setText(email);
         usntxt.setText(usn);
-        Toast.makeText(this, usn, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, usn, Toast.LENGTH_SHORT).show();
         imgv = findViewById(R.id.imgbut);
         File f= new File(surl);
         if(f.exists())
@@ -325,7 +325,7 @@ public class StudentDashboardActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
 
-                Toast.makeText(StudentDashboardActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(StudentDashboardActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
@@ -339,7 +339,7 @@ public class StudentDashboardActivity extends AppCompatActivity
                             e.printStackTrace();
                         }
                         imgv.setImageBitmap(bitmap);
-                        Toast.makeText(this, f1.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, f1.toString(), Toast.LENGTH_SHORT).show();
 
                     } else {
                         Toast.makeText(StudentDashboardActivity.this, "Please choose a File First", Toast.LENGTH_SHORT).show();
@@ -393,7 +393,7 @@ public class StudentDashboardActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Toast.makeText(StudentDashboardActivity.this, s, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(StudentDashboardActivity.this, s, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -494,7 +494,7 @@ public class StudentDashboardActivity extends AppCompatActivity
             // Reading image path from sdcard
             String imagePath = Environment.getExternalStorageDirectory().toString() +"/campusbridge"+"/"+usn+".jpg";
             // setting downloaded into image view
-            Toast.makeText(StudentDashboardActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(StudentDashboardActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
 //            File directory=new File(imagePath);
 //            File[] flist=directory.listFiles();
 //            for (File file : flist) {
@@ -508,7 +508,7 @@ public class StudentDashboardActivity extends AppCompatActivity
             if(!f.exists())
             {
                 //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
-                imgv.setImageDrawable(getDrawable(R.drawable.student));
+                imgv.setImageDrawable(getDrawable(R.drawable.defaultpic));
             }else {
                 Bitmap bm= resizeBitmap(imagePath, 170,100);
 

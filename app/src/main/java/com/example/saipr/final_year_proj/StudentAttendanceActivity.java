@@ -27,7 +27,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentAttendanceActivity extends AppCompatActivity {
+public class
+StudentAttendanceActivity extends AppCompatActivity {
    static String susn,ssem;
    String res;
    ProgressDialog dialog;
@@ -84,11 +85,11 @@ public class StudentAttendanceActivity extends AppCompatActivity {
             if(s.equals("null"))
                 Toast.makeText(StudentAttendanceActivity.this, "No Data Received", Toast.LENGTH_SHORT).show();
             else {
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 String[] val = s.split(" ");
                 List<Model> list = new ArrayList<Model>();
                 for (int i = 0; i < val.length; i = i + 2) {
-                    list.add(new Model("" + val[i].trim(), val[i + 1]));
+                    list.add(new Model("" + val[i].trim(), val[i + 1]+"%"));
                 }
                 adapter = new MyAdapter(StudentAttendanceActivity.this, list);
                 lv.setAdapter(adapter);

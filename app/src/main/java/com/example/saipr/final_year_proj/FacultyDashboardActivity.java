@@ -131,14 +131,14 @@ public class FacultyDashboardActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -198,7 +198,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
             imgv.setImageBitmap(bm);
         }else {
             //Toast.makeText(StudentDashboardActivity.this, "nulll", Toast.LENGTH_SHORT).show();
-            imgv.setImageDrawable(getDrawable(R.drawable.student));
+            imgv.setImageDrawable(getDrawable(R.drawable.defaultpic));
         }
         imgv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -304,7 +304,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
 
-                Toast.makeText(FacultyDashboardActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FacultyDashboardActivity.this, "selectedFilePath=" + selectedFilePath, Toast.LENGTH_SHORT).show();
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
@@ -352,7 +352,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Toast.makeText(FacultyDashboardActivity.this, res, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(FacultyDashboardActivity.this, res, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -448,7 +448,7 @@ public class FacultyDashboardActivity extends AppCompatActivity
             // Reading image path from sdcard
             String imagePath = Environment.getExternalStorageDirectory().toString() +"/campusbridge"+"/"+usn+".jpg";
             // setting downloaded into image view
-            Toast.makeText(FacultyDashboardActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(FacultyDashboardActivity.this, ""+imagePath, Toast.LENGTH_SHORT).show();
 //            File directory=new File(imagePath);
 //            File[] flist=directory.listFiles();
 //            for (File file : flist) {

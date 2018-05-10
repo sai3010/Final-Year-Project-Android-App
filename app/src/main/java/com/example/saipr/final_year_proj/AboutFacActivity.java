@@ -57,7 +57,7 @@ public class AboutFacActivity extends AppCompatActivity {
         File f= new File(purl);
         if(!f.exists())
         {
-            profpic.setImageDrawable(getDrawable(R.drawable.student));
+            profpic.setImageDrawable(getDrawable(R.drawable.defaultpic));
         }else
         {
             Bitmap bm= resizeBitmap(purl, 200,100);

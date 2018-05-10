@@ -94,7 +94,7 @@ public class StudMarksActivity extends AppCompatActivity {
 //            Toast.makeText(StudMarksActivity.this, res, Toast.LENGTH_LONG).show();
 //            Toast.makeText(getApplicationContext(), ""+res, Toast.LENGTH_SHORT).show();
             res= res.substring(1,res.length()-1);
-            Toast.makeText(getApplicationContext(), "<><><>\n"+res, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "<><><>\n"+res, Toast.LENGTH_SHORT).show();
             String arr[]= res.trim().split(",");
 
             List<Model> list= new ArrayList<Model>();

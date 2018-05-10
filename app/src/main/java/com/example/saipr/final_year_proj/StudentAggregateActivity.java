@@ -58,7 +58,7 @@ public class StudentAggregateActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Toast.makeText(StudentAggregateActivity.this, res, Toast.LENGTH_LONG).show();
+            //Toast.makeText(StudentAggregateActivity.this, res, Toast.LENGTH_LONG).show();
 
             String[] arr = res.split(",");
 
@@ -132,7 +132,7 @@ public class StudentAggregateActivity extends AppCompatActivity {
                         jsn.put("sem8", sse8);
                         jsn.put("agg", sum);
                         res = HttpClientConnection.executeClient(url, jsn);
-                        Toast.makeText(StudentAggregateActivity.this, res, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(StudentAggregateActivity.this, res, Toast.LENGTH_SHORT).show();
 //                    Intent intent = getIntent();
 //                    finish();
 //                    startActivity(intent);
