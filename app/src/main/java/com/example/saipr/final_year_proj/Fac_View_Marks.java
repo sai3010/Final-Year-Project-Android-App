@@ -107,7 +107,7 @@ public class Fac_View_Marks extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     semval = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -127,7 +127,7 @@ public class Fac_View_Marks extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     scode = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + "  selected", Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -179,7 +179,7 @@ public class Fac_View_Marks extends AppCompatActivity {
         @Override
         protected void onPostExecute(String res) {
             res=res.substring(1,res.length()-1);
-            Toast.makeText(Fac_View_Marks.this,res,Toast.LENGTH_LONG).show();
+            //Toast.makeText(Fac_View_Marks.this,res,Toast.LENGTH_LONG).show();
             arr= res.split(",");
 
             List<Model> list= new ArrayList<Model>();

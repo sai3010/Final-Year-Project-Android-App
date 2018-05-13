@@ -88,7 +88,7 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Toast.makeText(this, resp, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, resp, Toast.LENGTH_SHORT).show();
         resp=resp.substring(1,resp.length()-1);
         String [] attlist=resp.split(",");
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -107,7 +107,7 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
                 Object o = lv.getItemAtPosition(position);
                 String str = (String) o;//As you are using Default String Adapter
                 CheckedTextView item = (CheckedTextView) arg1;
-                Toast.makeText(FacAttendanceUpdateActivity.this, lv.getCount()+""+item.isChecked()+""+position + " "+str, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(FacAttendanceUpdateActivity.this, lv.getCount()+""+item.isChecked()+""+position + " "+str, Toast.LENGTH_SHORT).show();
 
             }
             });
@@ -164,12 +164,12 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap bm = (Bitmap) data.getExtras().get("data");
-            Toast.makeText(this, "<><><> "+bm.getHeight()+""+bm.getHeight(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "<><><> "+bm.getHeight()+""+bm.getHeight(), Toast.LENGTH_SHORT).show();
             //imageView.setImageBitmap(photo);
             //Bitmap newbm=Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.5), (int)(bm.getHeight()*0.5), true);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            Toast.makeText(this, " "+bm.getHeight()+""+bm.getHeight(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, " "+bm.getHeight()+""+bm.getHeight(), Toast.LENGTH_SHORT).show();
 
             byte[] b = baos.toByteArray();
             imgString = Base64.encodeToString(b, Base64.DEFAULT);
@@ -212,7 +212,7 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Toast.makeText(FacAttendanceUpdateActivity.this, ires, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(FacAttendanceUpdateActivity.this, ires, Toast.LENGTH_SHORT).show();
         }
     }
     public class addatt extends AsyncTask<URL, Void, String> {

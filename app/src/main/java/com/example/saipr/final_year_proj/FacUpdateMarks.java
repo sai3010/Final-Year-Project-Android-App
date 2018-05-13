@@ -124,7 +124,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 sresponse= sresponse.substring(1,sresponse.length()-1);
-                Toast.makeText(FacUpdateMarks.this, sresponse, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(FacUpdateMarks.this, sresponse, Toast.LENGTH_SHORT).show();
                 String usn[]= sresponse.split(",");
                 ArrayAdapter<String>adapter=new ArrayAdapter<String>(FacUpdateMarks.this,R.layout.activity_list_view,R.id.ltxtview,usn);
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().build();
@@ -138,7 +138,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> arg0, View arg1, final int position, long arg3) {
                         Object o = lv.getItemAtPosition(position);
                         str=(String)o;//As you are using Default String Adapter
-                        Toast.makeText(FacUpdateMarks.this,position+"",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(FacUpdateMarks.this,position+"",Toast.LENGTH_SHORT).show();
                         final EditText txt = new EditText(FacUpdateMarks.this);
                         AlertDialog.Builder builder = new AlertDialog.Builder(FacUpdateMarks.this);
                         builder.setTitle("Enter Marks");
@@ -148,7 +148,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String name = txt.getText().toString();
-                                Toast.makeText(FacUpdateMarks.this,name,Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(FacUpdateMarks.this,name,Toast.LENGTH_SHORT).show();
                                 hmap.put(str,name);
                         }
                     });
@@ -171,7 +171,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                     ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
                     arrayList.addAll(hmap.entrySet());
                     Log.i("qwerty  ",arrayList.toString());
-                    Toast.makeText(FacUpdateMarks.this, "\n"+arrayList.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(FacUpdateMarks.this, "\n"+arrayList.toString(), Toast.LENGTH_SHORT).show();
                     URL url = null;
                     try {
                         url = new URL(RegURL.url+"FacUpdateMarks");
@@ -181,7 +181,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                         jsn.put("scode",strscode);
                         jsn.put("ia",ia);
                         response= HttpClientConnection.executeClient(url, jsn);
-                        Toast.makeText(FacUpdateMarks.this, response, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(FacUpdateMarks.this, response, Toast.LENGTH_SHORT).show();
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
