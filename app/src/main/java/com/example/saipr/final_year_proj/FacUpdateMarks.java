@@ -181,7 +181,8 @@ public class FacUpdateMarks extends AppCompatActivity {
                         jsn.put("scode",strscode);
                         jsn.put("ia",ia);
                         response= HttpClientConnection.executeClient(url, jsn);
-                       // Toast.makeText(FacUpdateMarks.this, response, Toast.LENGTH_SHORT).show();
+                       Toast.makeText(FacUpdateMarks.this, "Marks Updated", Toast.LENGTH_SHORT).show();
+                        updatebtn.setClickable(false);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     } catch (IOException e) {

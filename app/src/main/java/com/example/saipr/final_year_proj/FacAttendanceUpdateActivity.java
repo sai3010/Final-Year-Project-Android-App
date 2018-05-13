@@ -212,7 +212,7 @@ public class FacAttendanceUpdateActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-           // Toast.makeText(FacAttendanceUpdateActivity.this, ires, Toast.LENGTH_SHORT).show();
+           Toast.makeText(FacAttendanceUpdateActivity.this,"Headcount is :"+ ires, Toast.LENGTH_SHORT).show();
         }
     }
     public class addatt extends AsyncTask<URL, Void, String> {
