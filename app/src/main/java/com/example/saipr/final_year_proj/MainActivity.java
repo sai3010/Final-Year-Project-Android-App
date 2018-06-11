@@ -72,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
                     String message = intent.getStringExtra("message");
 
-                    /*Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
-                    alertDialogBuilder.setTitle(message);
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-                    // show it
-                    alertDialog.show();*/
+                   // Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
+//                    alertDialogBuilder.setTitle(message);
+//                    AlertDialog alertDialog = alertDialogBuilder.create();
+//                    // show it
+//                    alertDialog.show();
                     NotificationCompat.Builder builder=new NotificationCompat.Builder(MainActivity.this)
                             .setSmallIcon(R.mipmap.ic_launcher_round)
                             .setContentTitle("Message")

@@ -171,6 +171,7 @@ public class FacUpdateMarks extends AppCompatActivity {
                     ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
                     arrayList.addAll(hmap.entrySet());
                     Log.i("qwerty  ",arrayList.toString());
+                    ia=rb.getText().toString();
                     //Toast.makeText(FacUpdateMarks.this, "\n"+arrayList.toString(), Toast.LENGTH_SHORT).show();
                     URL url = null;
                     try {
