@@ -70,7 +70,7 @@ public class Rfid_Read extends HttpServlet {
                 int j=db.removerfid(rfno);
                 if(j==1)
                 {
-                    session.setAttribute("msg", "Successfully Checkout out");
+                    session.setAttribute("msg", "Successfully Checked out");
                     rd= request.getRequestDispatcher("rfid.jsp");
                     rd.forward(request, response);
                 }
