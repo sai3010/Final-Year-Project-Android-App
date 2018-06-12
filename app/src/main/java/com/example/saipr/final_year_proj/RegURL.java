@@ -5,5 +5,5 @@ package com.example.saipr.final_year_proj;
  */
 
 public interface RegURL {
-    String url = "http://192.168.0.11:8084/FinalYearProjectJSP/";
+    String url = "http://172.20.10.3:8084/FinalYearProjectJSP/";
 }
